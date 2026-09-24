@@ -1,0 +1,44 @@
+﻿[√] Flutter (Channel stable, 3.47.5, on Microsoft Windows [Version 10.0.26200.9457], locale en-US) [1,020ms]
+    • Flutter version 3.47.5 on channel stable at D:\flutter
+    • Upstream repository https://github.com/flutter/flutter.git
+    • Framework revision 6a19cca564 (7 days ago), 2026-09-17 14:13:22 -0400
+    • Engine revision af7e796e16
+    • Dart version 3.13.4
+    • DevTools version 2.60.0
+    • Feature flags: enable-web, enable-linux-desktop, enable-macos-desktop, enable-windows-desktop, enable-android, enable-ios, cli-animations, enable-native-assets, enable-record-use, enable-swift-package-manager, omit-legacy-version-file, enable-lldb-debugging, enable-uiscene-migration
+
+[√] Windows Version (Windows 11 or higher, 25H2, 2009) [1,775ms]
+
+[X] Android toolchain - develop for Android devices [338ms]
+    X Unable to locate Android SDK.
+      Install Android Studio from: https://developer.android.com/studio/index.html
+      On first launch it will assist you in installing the Android SDK components.
+      (or visit https://flutter.dev/to/windows-android-setup for detailed instructions).
+      If the Android SDK has been installed to a custom location, please use
+      `flutter config --android-sdk` to update to that location.
+
+
+[√] Chrome - develop for the web [264ms]
+    • Chrome at C:\Program Files\Google\Chrome\Application\chrome.exe
+
+[√] Visual Studio - develop Windows apps (Visual Studio Build Tools 2022 17.14.41 (September 2026)) [262ms]
+    • Visual Studio at E:\c++\develop\vs2022\BuildTools
+    • Visual Studio Build Tools 2022 version 17.14.37710.0
+    • Windows 10 SDK version 10.0.26100.0
+
+[!] Proxy Configuration [115ms]
+    • HTTP_PROXY is set
+    • NO_PROXY is localhost,127.0.0.1
+    • NO_PROXY contains localhost
+    ! NO_PROXY does not contain ::1
+    • NO_PROXY contains 127.0.0.1
+
+[√] Connected device (3 available) [416ms]
+    • Windows (desktop) • windows • windows-x64    • Microsoft Windows [Version 10.0.26200.9457]
+    • Chrome (web)      • chrome  • web-javascript • Google Chrome 153.0.8010.53
+    • Edge (web)        • edge    • web-javascript • Microsoft Edge 153.0.4234.48
+
+[√] Network resources [682ms]
+    • All expected network resources are available.
+
+! Doctor found issues in 2 categories.

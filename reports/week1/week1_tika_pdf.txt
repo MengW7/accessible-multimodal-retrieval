@@ -1,0 +1,177 @@
+
+Apache Tika Documentation 
+
+Table of Contents 
+
+• Where to start 
+
+This reference guide was generated with the assistance of AI and requires human review 
+
+before it can be fully trusted. This documentation serves as an example and a starting point, 
+
+but more work remains. Contributions and corrections are welcome. 
+
+The Apache Tika toolkit detects and extracts metadata and text from over a thousand different 
+
+file types (such as PPT, XLS, and PDF). All of these file types can be parsed through a single 
+
+interface, making Tika useful for search engine indexing, content analysis, translation, and 
+
+much more. Tika identifies a file’s type from its bytes, so a missing or misleading extension 
+
+does not change the result. 
+
+Where to start 
+
+• Supported Formats — what Tika parses, family by family, plus the generated parser-
+
+to-media-type list. 
+
+• Using Tika — choose an integration method: Java API, command line, REST server, or 
+
+gRPC. 
+
+• Pipes — process-isolated, fault-tolerant extraction at scale. 
+
+• Configuration — the JSON config file: parsers, detectors, metadata filters. 
+
+• Setting Limits and Robustness — bounding time, memory and output when parsing 
+
+content you do not control. 
+
+• Security — the trust model, and what to lock down before exposing tika-server or 
+
+tika-grpc. 
+
+• Migrating to 4.x — what changed since 3.x and what you have to update. 
+
+• FAQ — the questions upgraders ask most. 
+
+Apache Tika is an Apache Software Foundation project, formerly a subproject of Apache 
+
+Lucene. 
+
+Built from commit: 47c1a0335 (2026-09-14) 
+
+ 
+
+https://tika.apache.org/docs/4.0.x/index.html#_where_to_start
+https://tika.apache.org/docs/4.0.x/formats.html
+https://tika.apache.org/docs/4.0.x/using-tika/index.html
+https://tika.apache.org/docs/4.0.x/pipes/index.html
+https://tika.apache.org/docs/4.0.x/configuration/index.html
+https://tika.apache.org/docs/4.0.x/advanced/setting-limits.html
+https://tika.apache.org/docs/4.0.x/advanced/robustness.html
+https://tika.apache.org/docs/4.0.x/security.html
+https://tika.apache.org/docs/4.0.x/migration-to-4x/index.html
+https://tika.apache.org/docs/4.0.x/faq.html
+
+
+
+Apache Tika Documentation 
+
+
+Table of Contents 
+
+
+• Where to start 
+
+
+This reference guide was generated with the assistance of AI and requires human review 
+
+
+before it can be fully trusted. This documentation serves as an example and a starting point, 
+
+
+but more work remains. Contributions and corrections are welcome. 
+
+
+The Apache Tika toolkit detects and extracts metadata and text from over a thousand different 
+
+
+file types (such as PPT, XLS, and PDF). All of these file types can be parsed through a single 
+
+
+interface, making Tika useful for search engine indexing, content analysis, translation, and 
+
+
+much more. Tika identifies a file’s type from its bytes, so a missing or misleading extension 
+
+
+does not change the result. 
+
+
+Where to start 
+
+
+• Supported Formats — what Tika parses, family by family, plus the generated parser-
+
+
+to-media-type list. 
+
+
+• Using Tika — choose an integration method: Java API, command line, REST server, or 
+
+
+gRPC. 
+
+
+• Pipes — process-isolated, fault-tolerant extraction at scale. 
+
+
+• Configuration — the JSON config file: parsers, detectors, metadata filters. 
+
+
+• Setting Limits and Robustness — bounding time, memory and output when parsing 
+
+
+content you do not control. 
+
+
+• Security — the trust model, and what to lock down before exposing tika-server or 
+
+
+tika-grpc. 
+
+
+• Migrating to 4.x — what changed since 3.x and what you have to update. 
+
+
+• FAQ — the questions upgraders ask most. 
+
+
+Apache Tika is an Apache Software Foundation project, formerly a subproject of Apache 
+
+
+Lucene. 
+
+
+Built from commit: 47c1a0335 (2026-09-14) 
+
+
+ 
+
+
+
+https://tika.apache.org/docs/4.0.x/index.html#_where_to_start
+
+https://tika.apache.org/docs/4.0.x/formats.html
+
+https://tika.apache.org/docs/4.0.x/using-tika/index.html
+
+https://tika.apache.org/docs/4.0.x/pipes/index.html
+
+https://tika.apache.org/docs/4.0.x/configuration/index.html
+
+https://tika.apache.org/docs/4.0.x/advanced/setting-limits.html
+
+https://tika.apache.org/docs/4.0.x/advanced/robustness.html
+
+https://tika.apache.org/docs/4.0.x/security.html
+
+https://tika.apache.org/docs/4.0.x/migration-to-4x/index.html
+
+https://tika.apache.org/docs/4.0.x/faq.html
+
+
+

@@ -1,6 +1,6 @@
 # Miscellaneous
 *.class
-*.lock
+# *.lock
 *.log
 *.pyc
 *.swp
@@ -117,3 +117,48 @@ app.*.symbols
 !**/ios/**/default.perspectivev3
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 !/dev/ci/**/Gemfile.lock
+
+# Python
+engine/.venv/
+engine/chroma_data/
+__pycache__/
+*.pyc
+
+# Models (keep directory structure only)
+models/raw/
+models/tflite/
+models/probes/**
+!models/probes/.gitkeep
+*.pt
+*.pth
+*.onnx
+*.ckpt
+*.bin
+*.safetensors
+*.tflite
+*.tgz
+*.pb
+*.pbtxt
+*.ckpt.*
+
+# Datasets (keep samples + README)
+datasets/**/*.jpg
+datasets/**/*.png
+datasets/**/*.tif
+datasets/**/*.zip
+datasets/**/*.tar.gz
+!datasets/samples/**
+
+# Native build artifacts
+native/**/build/
+native/**/out/
+*.obj
+*.pdb
+*.lib
+*.exp
+
+# Apache Tika 4 distribution 
+tools/tika-app/lib/
+tools/tika-app/**/*.jar
+tools/tika-app/**/*.zip
+tools/tika-app/plugins/
