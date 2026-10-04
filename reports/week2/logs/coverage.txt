@@ -1,0 +1,4 @@
+command: dart test --coverage=coverage --exclude-tags integration
+command: dart run coverage:format_coverage --lcov --in=coverage --out=coverage/lcov.info --report-on=lib
+lines hit 949 / 1043 = 90.99%
+copied to reports/week2/coverage/lcov.info

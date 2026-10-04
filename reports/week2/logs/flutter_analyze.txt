@@ -1,0 +1,4 @@
+command: flutter analyze
+Analyzing desktop...                                            
+No issues found! (ran in 7.6s)
+

@@ -1,0 +1,86 @@
+command: java -version
+java version "17.0.4" 2022-07-19 LTS
+Java(TM) SE Runtime Environment (build 17.0.4+11-LTS-179)
+Java HotSpot(TM) 64-Bit Server VM (build 17.0.4+11-LTS-179, mixed mode, sharing)
+
+command: dart run packages\core_parsing\bin\parse_probe.dart --path datasets\samples
+root: E:\Project\accessible-multimodal-retrieval\datasets\samples
+sample.docx  outcome=ok  ms=80  pages=1  chars=1499
+  preview: Apache Tika Documentation Table of Contents Where to start This reference guide was generated with the assistance of AI 鈥?sample.pdf  outcome=ok  ms=5215  pages=2  chars=4358
+  preview: Apache Tika Documentation Table of Contents 鈥?Where to start This reference guide was generated with the assistance of A鈥?sample.png  outcome=ok  ms=80  pages=0  chars=0  format=png  size=1186x1137  color=rgb
+summary  files=3  ok=3  partial=0  skipped=0  failed=0
+
+command: dart run packages\core_parsing\bin\ingest_probe.dart --path datasets\coco\val_sample\images
+root: E:\Project\accessible-multimodal-retrieval\datasets\coco\val_sample\images
+total: 50  ok: 50  partial: 0  skipped: 0  failed: 0  cancelled: false  ms: 1400
+000000006818.jpg  ok  77539 B
+000000017627.jpg  ok  186973 B
+000000025560.jpg  ok  86329 B
+000000037777.jpg  ok  40833 B
+000000041888.jpg  ok  282914 B
+000000058636.jpg  ok  209217 B
+000000085329.jpg  ok  75102 B
+000000087038.jpg  ok  183303 B
+000000122745.jpg  ok  34750 B
+000000143931.jpg  ok  248870 B
+000000153299.jpg  ok  245363 B
+000000174482.jpg  ok  207538 B
+000000181666.jpg  ok  126137 B
+000000184321.jpg  ok  201506 B
+000000184791.jpg  ok  133163 B
+000000219578.jpg  ok  248756 B
+000000226111.jpg  ok  112745 B
+000000233771.jpg  ok  195232 B
+000000239274.jpg  ok  372636 B
+000000252219.jpg  ok  143225 B
+000000286994.jpg  ok  220481 B
+000000289393.jpg  ok  96744 B
+000000296649.jpg  ok  147015 B
+000000297343.jpg  ok  142384 B
+000000303818.jpg  ok  240751 B
+000000308394.jpg  ok  77151 B
+000000314294.jpg  ok  242458 B
+000000322864.jpg  ok  150879 B
+000000329323.jpg  ok  191611 B
+000000331352.jpg  ok  90682 B
+000000336587.jpg  ok  131100 B
+000000348881.jpg  ok  162982 B
+000000386912.jpg  ok  230157 B
+000000397133.jpg  ok  200576 B
+000000403385.jpg  ok  81462 B
+000000403817.jpg  ok  118242 B
+000000418281.jpg  ok  306412 B
+000000443303.jpg  ok  83087 B
+000000456496.jpg  ok  165822 B
+000000458054.jpg  ok  190692 B
+000000460347.jpg  ok  167272 B
+000000463730.jpg  ok  131056 B
+000000480985.jpg  ok  141359 B
+000000491497.jpg  ok  107022 B
+000000500663.jpg  ok  108331 B
+000000502136.jpg  ok  196478 B
+000000511321.jpg  ok  180893 B
+000000522713.jpg  ok  120822 B
+000000555705.jpg  ok  146964 B
+000000565778.jpg  ok  275936 B
+
+command: dart run packages\core_parsing\bin\ingest_probe.dart --path datasets\rvlcdip\sample
+root: E:\Project\accessible-multimodal-retrieval\datasets\rvlcdip\sample
+total: 16  ok: 16  partial: 0  skipped: 0  failed: 0  cancelled: false  ms: 651
+0_0.png  ok  108418 B
+10_0.png  ok  228687 B
+11_0.png  ok  128866 B
+12_0.png  ok  43351 B
+13_0.png  ok  276721 B
+14_0.png  ok  261272 B
+15_0.png  ok  307372 B
+1_0.png  ok  273415 B
+2_0.png  ok  23624 B
+3_0.png  ok  333982 B
+4_0.png  ok  302293 B
+5_0.png  ok  765469 B
+6_0.png  ok  120818 B
+7_0.png  ok  244928 B
+8_0.png  ok  35499 B
+9_0.png  ok  282455 B
+

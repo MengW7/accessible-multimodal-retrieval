@@ -1,0 +1,111 @@
+command: dart test --exclude-tags integration --reporter expanded
+00:00 +0: loading test\coverage_gaps_test.dart
+00:00 +0: test\coverage_gaps_test.dart: value objects expose equality, json, and text
+00:00 +1: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +2: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +3: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +4: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +5: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +6: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +7: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +8: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +9: test\image_parser_test.dart: sample.png reports size, format, and rgb
+00:00 +10: test\image_parser_test.dart: sample.png reports size, format, and rgb
+00:00 +11: test\image_parser_test.dart: sample.png reports size, format, and rgb
+00:00 +12: test\image_parser_test.dart: sample.png reports size, format, and rgb
+00:00 +13: test\image_parser_test.dart: sample.png reports size, format, and rgb
+00:00 +14: test\image_parser_test.dart: sample.png reports size, format, and rgb
+00:00 +15: test\image_parser_test.dart: sample.png reports size, format, and rgb
+00:00 +16: test\image_parser_test.dart: sample.png reports size, format, and rgb
+00:00 +17: test\image_parser_test.dart: sample.png reports size, format, and rgb
+00:00 +18: test\image_parser_test.dart: sample.png reports size, format, and rgb
+00:00 +19: test\image_parser_test.dart: sample.png reports size, format, and rgb
+00:00 +20: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +21: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +22: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +23: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +24: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +25: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +26: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +27: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +28: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +29: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +30: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +31: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +32: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +33: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +34: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +35: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +36: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +37: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +38: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +39: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +40: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +41: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +42: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +43: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +44: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +45: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +46: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +47: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +48: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +49: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +50: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +51: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +52: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +53: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +54: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +55: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +56: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +57: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +58: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +59: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +60: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +61: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +62: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +63: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +64: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +65: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +66: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +67: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +68: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +69: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +70: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +71: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +72: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +73: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +74: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +75: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +76: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +77: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +78: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +79: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +80: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +81: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +82: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +83: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +84: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +85: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +86: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +87: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +88: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +89: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +90: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +91: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +92: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +93: test\io_process_runner_test.dart: a missing executable throws ProcessStartException
+00:00 +94: test\io_process_runner_test.dart: timeout kills a long command
+00:00 +95: test\io_process_runner_test.dart: an already cancelled token does not start the process
+00:00 +96: test\io_process_runner_test.dart: cancel during a run stops the process
+00:00 +97: All tests passed!
+
+
+command: dart test --tags integration --reporter expanded
+00:00 +0: loading test\coverage_gaps_test.dart
+00:00 +0: test\file_scanner_test.dart: rvlcdip sample yields 16 files
+00:00 +1: test\image_parser_test.dart: a coco val jpeg decodes
+00:00 +2: test\ingestion_service_test.dart: coco and rvlcdip yield 66 image records without failures
+00:02 +3: test\pdf_parser_integration_test.dart: sample.pdf yields two pages through Tika
+00:06 +4: test\pdf_parser_integration_test.dart: sample.pdf yields two pages through Tika
+00:06 +5: All tests passed!
+

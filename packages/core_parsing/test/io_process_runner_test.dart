@@ -69,12 +69,29 @@ String _writeScript(String source) {
   final Directory directory = Directory.systemTemp.createTempSync(
     'core_parsing_proc_',
   );
-  addTearDown(() {
-    if (directory.existsSync()) {
-      directory.deleteSync(recursive: true);
-    }
-  });
+  addTearDown(() => _deleteWhenReleased(directory));
   final File file = File('${directory.path}${Platform.pathSeparator}main.dart');
   file.writeAsStringSync(source);
   return file.path;
+}
+
+/// Windows keeps the script open for a moment after [Process.kill].
+/// Error 32 is a sharing violation, and it clears once that handle drops.
+Future<void> _deleteWhenReleased(Directory directory) async {
+  const int attempts = 25;
+  for (var attempt = 0; attempt < attempts; attempt++) {
+    if (!directory.existsSync()) {
+      return;
+    }
+    try {
+      directory.deleteSync(recursive: true);
+      return;
+    } on FileSystemException catch (error) {
+      final bool stillOpen = error.osError?.errorCode == 32;
+      if (!stillOpen || attempt == attempts - 1) {
+        rethrow;
+      }
+      await Future<void>.delayed(const Duration(milliseconds: 100));
+    }
+  }
 }

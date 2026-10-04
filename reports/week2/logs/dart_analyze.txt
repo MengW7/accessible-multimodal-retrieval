@@ -1,0 +1,4 @@
+command: dart analyze
+Analyzing core_parsing...
+No issues found!
+
