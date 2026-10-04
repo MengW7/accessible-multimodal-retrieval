@@ -25,7 +25,8 @@ test/                              单元测试 + 测试夹具
 ```
 dart pub get --offline
 dart analyze
-dart test
-dart test --coverage=coverage
+dart test --exclude-tags integration
+dart test --tags integration
+dart test --coverage=coverage --exclude-tags integration
 dart run coverage:format_coverage --lcov --in=coverage --out=coverage/lcov.info --report-on=lib
 ```
