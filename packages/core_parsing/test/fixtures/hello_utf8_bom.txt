@@ -1,0 +1,1 @@
+﻿BOM prefixed ASCII and 中文。

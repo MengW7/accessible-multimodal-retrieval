@@ -36,6 +36,12 @@ dependencies:
   cupertino_icons: ^1.0.8
   tflite_flutter: ^0.12.1
 
+  # File I/O Layer + Parsing Layer (Week 2). A path dependency on purpose: the
+  # package is only consumed inside this repository, and keeping it out of the
+  # app's lib/ preserves the layer boundary at build time.
+  core_parsing:
+    path: ../../packages/core_parsing
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
