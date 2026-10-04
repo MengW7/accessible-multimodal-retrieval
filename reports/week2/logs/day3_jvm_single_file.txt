@@ -1,0 +1,12 @@
+Day 3 decision 3. One file, one Tika CLI process. The pdf line includes JVM startup.
+Command, from the repo root, 2026-10-04:
+dart run packages\core_parsing\bin\parse_probe.dart --path datasets\samples
+ADR 0002 estimated 1-2.5 s per PDF. This run is the measurement for the W3/W6 choice.
+
+root: E:\Project\accessible-multimodal-retrieval\datasets\samples
+sample.docx  outcome=ok  ms=73  pages=1  chars=1499
+sample.pdf  outcome=ok  ms=4857  pages=2  chars=4358
+sample.png  outcome=ok  ms=75  pages=0  chars=0  format=png  size=1186x1137  color=rgb
+summary  files=3  ok=3  partial=0  skipped=0  failed=0
+
+pdf 4857 ms is the JVM-backed file. docx 73 ms and png 75 ms do not start a JVM.

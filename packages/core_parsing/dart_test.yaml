@@ -1,5 +1,6 @@
-# Real JVM tests use this tag (architecture §13). Declaring it keeps
-# `dart test` from warning. The default command excludes the tag so it
-# does not need a JDK; run the tagged tests on their own.
+# Real JVM tests, and tests that read gitignored dataset images, use this
+# tag (architecture §13). Declaring it keeps `dart test` from warning.
+# The default command excludes the tag so it does not need a JDK or those
+# images; run the tagged tests on their own.
 tags:
   integration:

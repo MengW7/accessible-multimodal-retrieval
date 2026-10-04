@@ -5,6 +5,9 @@
 ///
 library;
 
+export 'src/io/file_scanner.dart';
+export 'src/io/ingestion_service.dart';
+export 'src/io/metadata_extractor.dart';
 export 'src/model/document_page.dart';
 export 'src/model/file_metadata.dart';
 export 'src/model/image_asset.dart';
@@ -15,6 +18,8 @@ export 'src/parsing/adapters/tika_cli_text_extractor.dart';
 export 'src/parsing/parser.dart';
 export 'src/parsing/parser_registry.dart';
 export 'src/parsing/parsers/docx_parser.dart';
+export 'src/parsing/parsers/image_parser.dart';
+export 'src/parsing/parsers/pdf_parser.dart';
 export 'src/parsing/parsers/txt_parser.dart';
 export 'src/spi/cancellation_token.dart';
 export 'src/spi/executor.dart';

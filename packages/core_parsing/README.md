@@ -27,6 +27,11 @@ dart pub get --offline
 dart analyze
 dart test --exclude-tags integration
 dart test --tags integration
+
+# 仓库根目录。PDF 需要本机 JDK 与 tools/tika-app；批量入库还需要本地数据集图片。
+dart run packages/core_parsing/bin/parse_probe.dart --path datasets/samples
+dart run packages/core_parsing/bin/ingest_probe.dart --path datasets/coco/val_sample/images
+dart run packages/core_parsing/bin/ingest_probe.dart --path datasets/rvlcdip/sample
 dart test --coverage=coverage --exclude-tags integration
 dart run coverage:format_coverage --lcov --in=coverage --out=coverage/lcov.info --report-on=lib
 ```

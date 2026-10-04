@@ -101,6 +101,15 @@ def make_png() -> None:
     Image.new("RGB", (8, 8), (200, 30, 30)).save(FIXTURES / "tiny.png")
 
 
+def make_jpeg() -> None:
+    """Write a real 8x8 RGB JPEG so the default suite does not need coco."""
+    from PIL import Image
+
+    Image.new("RGB", (8, 8), (20, 80, 200)).save(
+        FIXTURES / "tiny.jpg", format="JPEG", quality=90
+    )
+
+
 def main() -> None:
     FIXTURES.mkdir(parents=True, exist_ok=True)
     (FIXTURES / "nested").mkdir(exist_ok=True)
@@ -130,6 +139,7 @@ def main() -> None:
 
     make_docx()
     make_png()
+    make_jpeg()
 
     total = 0
     for path in sorted(FIXTURES.rglob("*")):

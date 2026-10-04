@@ -77,11 +77,14 @@ Future<Object> readFileBytes(
   } on CancelledException {
     rethrow;
   } on FileSystemException catch (error) {
-    return FileBytesFailure(_failureFromFileSystem(error));
+    return FileBytesFailure(failureForFileSystemException(error));
   }
 }
 
-ParseFailure _failureFromFileSystem(FileSystemException error) {
+/// Maps a filesystem error to a [ParseFailure].
+///
+/// Windows access denied is 5. POSIX `EPERM` is 1 and `EACCES` is 13.
+ParseFailure failureForFileSystemException(FileSystemException error) {
   final int? code = error.osError?.errorCode;
   // Windows ERROR_ACCESS_DENIED is 5. POSIX EPERM is 1 and EACCES is 13.
   if (code == 5 || code == 13 || code == 1) {
