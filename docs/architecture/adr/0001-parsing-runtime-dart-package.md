@@ -6,7 +6,7 @@
 | 日期 | 2026-09-27 |
 | 决策者 | Week 2 架构设计 |
 | 影响范围 | File I/O Layer、Parsing Layer；后续 W3/W4/W5 的消费方式 |
-| 相关文档 | `docs/architecture/system-architecture.md` §4、§5、§14 |
+| 相关文档 | `docs/architecture/system-architecture.md` §4、§5、§13 |
 
 ---
 
@@ -57,7 +57,7 @@ Week 2 要交付「支持 TXT/PDF/DOCX/JPG/PNG 的文件解析模块」，并达
 
 | 方案 | 为什么没选 |
 |---|---|
-| **A. 放进 `engine/`，用 Python 实现解析** | 已有 venv 且能跑 Tika/Chroma，看似最省事；但产品运行时会依赖 Python 解释器与整包依赖，直接撞上风险 R7（体积）与 W8 三平台打包；且 Flutter 侧要么跨进程 IPC、要么嵌解释器，复杂度远超收益。最终只保留 `engine/` 做**离线评测**（见架构文档 Q2）。 |
+| **A. 放进 `engine/`，用 Python 实现解析** | 已有 venv 且能跑 Tika/Chroma，看似最省事；但产品运行时会依赖 Python 解释器与整包依赖，直接撞上风险 R7（体积）与 W8 三平台打包；且 Flutter 侧要么跨进程 IPC、要么嵌解释器，复杂度远超收益。最终只保留 `engine/` 做**离线评测**（见 TDD 的 Q2）。 |
 | **B. 写成 C++ 核心库 + FFI，用 Google Test 测** | 与官方技术栈（PDFium、Google Test）最贴合，但 W2 只有 16h，需要先搭 CMake + Google Test 拉取 + 三平台构建，尚未有任何既有产物（`native/gtest/` 为空）；而且覆盖率会花在 C++ 工具链上而不是解析逻辑上。**推迟到 W3+，只用于 FFI 边界**。 |
 | **C. 直接写在 `apps/desktop/lib/`（甚至塞进 widget 层）** | 起步最快，但没有强制边界，测试要拖 Flutter 测试框架，且无法被 W3/W4 的纯 Dart 消费方复用；长期会把 UI 与 I/O 缠在一起。 |
 | **D. 用 `freezed` / `json_serializable` 生成值对象** | 会引入 `build_runner` 与代码生成步骤，离线解析与派生文件管理成本上升；W2 值对象数量有限，手写 `==/hashCode/toJson` 更可控，也更容易在评审时逐条对照契约。 |
@@ -65,6 +65,6 @@ Week 2 要交付「支持 TXT/PDF/DOCX/JPG/PNG 的文件解析模块」，并达
 ## Follow-up（后续动作）
 
 - [x] W2 Day 1：创建包骨架、冻结 §6 接口、`dart analyze` 零问题。
-- [ ] W2 Day 2–3：填充 5 个解析器与 `IngestionService`。
-- [ ] W2 Day 4：`coverage/lcov.info` 证明 ≥80%，证据入 `reports/week2/`。
+- [x] W2 Day 2–3：填充 5 个解析器与 `IngestionService`。
+- [x] W2 Day 4：`coverage/lcov.info` 证明 ≥80%，证据入 `reports/week2/`。
 - [ ] W3：新增 `packages/core_embedding`，消费 `ParsedDocument`；届时复查本条 ADR 的依赖方向是否仍然成立。

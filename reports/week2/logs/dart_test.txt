@@ -9,9 +9,9 @@ command: dart test --exclude-tags integration --reporter expanded
 00:00 +6: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
 00:00 +7: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
 00:00 +8: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
-00:00 +9: test\image_parser_test.dart: sample.png reports size, format, and rgb
-00:00 +10: test\image_parser_test.dart: sample.png reports size, format, and rgb
-00:00 +11: test\image_parser_test.dart: sample.png reports size, format, and rgb
+00:00 +9: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +10: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +11: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
 00:00 +12: test\image_parser_test.dart: sample.png reports size, format, and rgb
 00:00 +13: test\image_parser_test.dart: sample.png reports size, format, and rgb
 00:00 +14: test\image_parser_test.dart: sample.png reports size, format, and rgb
@@ -93,12 +93,12 @@ command: dart test --exclude-tags integration --reporter expanded
 00:00 +90: test\io_process_runner_test.dart: captures stdout from a short command
 00:00 +91: test\io_process_runner_test.dart: captures stdout from a short command
 00:00 +92: test\io_process_runner_test.dart: captures stdout from a short command
-00:00 +93: test\io_process_runner_test.dart: a missing executable throws ProcessStartException
-00:00 +94: test\io_process_runner_test.dart: timeout kills a long command
-00:00 +95: test\io_process_runner_test.dart: an already cancelled token does not start the process
-00:00 +96: test\io_process_runner_test.dart: cancel during a run stops the process
-00:00 +97: All tests passed!
-
+00:00 +93: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +94: test\io_process_runner_test.dart: a missing executable throws ProcessStartException
+00:00 +95: test\io_process_runner_test.dart: timeout kills a long command
+00:00 +96: test\io_process_runner_test.dart: an already cancelled token does not start the process
+00:00 +97: test\io_process_runner_test.dart: cancel during a run stops the process
+00:01 +98: All tests passed!
 
 command: dart test --tags integration --reporter expanded
 00:00 +0: loading test\coverage_gaps_test.dart

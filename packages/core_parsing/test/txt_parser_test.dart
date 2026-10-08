@@ -77,6 +77,20 @@ void main() {
     expect(result.document?.warnings, isEmpty);
   });
 
+  test('a newline-free line under the ceiling stays ok', () async {
+    final File file = File(
+      '${Directory.systemTemp.path}${Platform.pathSeparator}core_parsing_one_line.txt',
+    );
+    final String line = 'core_parsing ' * 40;
+    await file.writeAsString(line);
+    addTearDown(() => file.existsSync() ? file.delete() : null);
+    final ParseResult result = await parser.parse(file.path);
+    expect(result.outcome, ParseOutcome.ok);
+    expect(result.document?.fullText, line);
+    expect(result.document?.pages.single.text, line);
+    expect(result.document?.warnings, isEmpty);
+  });
+
   test('bytes past the ceiling are partial and truncated', () async {
     final File file = File(
       '${Directory.systemTemp.path}${Platform.pathSeparator}core_parsing_big.txt',
