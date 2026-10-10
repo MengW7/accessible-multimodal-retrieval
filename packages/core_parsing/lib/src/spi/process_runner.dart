@@ -10,6 +10,9 @@ class ProcessRunResult {
     required this.stdout,
     required this.stderr,
     this.duration = Duration.zero,
+    this.processStart = Duration.zero,
+    this.processWait = Duration.zero,
+    this.streamDrain = Duration.zero,
   });
 
   /// 进程退出码；`0` 表示成功。
@@ -21,8 +24,17 @@ class ProcessRunResult {
   /// 捕获的标准错误。仅作诊断，绝不当正文使用。
   final String stderr;
 
-  /// 本次调用的墙钟耗时。
+  /// 本次调用的墙钟耗时，从进入 [ProcessRunner.run] 到返回。
   final Duration duration;
+
+  /// `Process.start` 返回之前的耗时。这是创建进程，不是 JVM 初始化。
+  final Duration processStart;
+
+  /// 进程已启动到退出码返回的耗时。Java 这一段含 JVM 启动、扫描 classpath 和程序本体。
+  final Duration processWait;
+
+  /// 进程退出后，stdout 与 stderr 收完的耗时。
+  final Duration streamDrain;
 
   /// 进程是否成功退出。
   bool get isSuccess => exitCode == 0;
@@ -32,6 +44,9 @@ class ProcessRunResult {
     'stdoutBytes': stdout.length,
     'stderrBytes': stderr.length,
     'durationMs': duration.inMilliseconds,
+    'processStartMs': processStart.inMilliseconds,
+    'processWaitMs': processWait.inMilliseconds,
+    'streamDrainMs': streamDrain.inMilliseconds,
   };
 
   @override
@@ -40,10 +55,21 @@ class ProcessRunResult {
       other.exitCode == exitCode &&
       other.stdout == stdout &&
       other.stderr == stderr &&
-      other.duration == duration;
+      other.duration == duration &&
+      other.processStart == processStart &&
+      other.processWait == processWait &&
+      other.streamDrain == streamDrain;
 
   @override
-  int get hashCode => Object.hash(exitCode, stdout, stderr, duration);
+  int get hashCode => Object.hash(
+    exitCode,
+    stdout,
+    stderr,
+    duration,
+    processStart,
+    processWait,
+    streamDrain,
+  );
 
   @override
   String toString() =>

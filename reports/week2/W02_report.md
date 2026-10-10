@@ -104,7 +104,22 @@ Apache Tika：tika-app 4.0.0，`tools/tika-app`
 
 `ingest_samples.txt` 里，docx 和 pdf 的预览行在采集时把省略号和下一行拼到了一起。上表用的是 outcome、页数、字符数和 summary，不依赖那两行预览的换行。
 
-samples 探针里只有 pdf 启动 JVM。Day 3 同目录的 pdf 是 4857 ms（`logs/day3_jvm_single_file.txt`）。Day 4 这次是 5215 ms。
+samples 探针里只有 pdf 启动 JVM。Day 3 同目录的 pdf 是 4857 ms（`logs/day3_jvm_single_file.txt`）。Day 4 这次是 5215 ms。这两次只记了总时间。
+
+2026-10-10 对 `datasets/samples/sample.pdf` 又跑了 3 次单文件探针，原始输出在 `reports/week3/logs/pdf_stage_timing.txt`。Java 17.0.4。三次都是 ok，2 页，4358 字符，71250 字节。`total_ms` 依次是 5101、4858、5137，中位数 5101。
+
+| 阶段 | 第 1 次 | 第 2 次 | 第 3 次 | 最小 | 中位 | 最大 |
+|---|---:|---:|---:|---:|---:|---:|
+| `stat` | 1 | 2 | 2 | 1 | 2 | 2 |
+| `process_start` | 40 | 39 | 47 | 39 | 40 | 47 |
+| `process_wait` | 5050 | 4804 | 5076 | 4804 | 5050 | 5076 |
+| `stream_drain` | 0 | 0 | 0 | 0 | 0 | 0 |
+| `xhtml_split` | 3 | 4 | 3 | 3 | 3 | 4 |
+| `text_fallback` | 0 | 0 | 0 | 0 | 0 | 0 |
+| `assemble` | 1 | 2 | 1 | 1 | 1 | 2 |
+| `total_ms` | 5101 | 4858 | 5137 | 4858 | 5101 | 5137 |
+
+`stat` 是读取文件信息并判断是不是空文件。`process_start` 是创建 Java 进程。`process_wait` 从进程已启动到退出，含 JVM 启动、扫描 classpath 和 Tika `-x`。`stream_drain` 是收完 stdout 和 stderr。`xhtml_split` 是按页切开。`text_fallback` 为 0，因为 `-x` 已经分出 2 页。`assemble` 是拼出解析结果。三次的各段之和分别是 5095、4851、5129，比 `total_ms` 少 6 到 8 ms，差在挂接流监听。`process_wait` 三次都约占 `total_ms` 的 99%。这一段还没有拆成 JVM 启动和正文抽取。
 
 ![覆盖率](screenshots/coverage-percent.png)
 
@@ -132,6 +147,7 @@ samples 探针里只有 pdf 启动 JVM。Day 3 同目录的 pdf 是 4857 ms（`l
 | `reports/week2/logs/ingest_samples.txt` | PAR-19、PAR-22、ING-07 的探针，以及 Java 版本 |
 | `reports/week2/logs/flutter_analyze.txt` | 验收清单第 5 条 |
 | `reports/week2/logs/day3_jvm_single_file.txt` | Day 3 的单文件 JVM 耗时，已在 `fb5a162` |
+| `reports/week3/logs/pdf_stage_timing.txt` | 2026-10-10 对 `sample.pdf` 的三次分段耗时 |
 | `reports/week2/coverage/lcov.info` | D3 的 lcov |
 | `reports/week2/覆盖率报告.md` | 百分比说明 |
 | `reports/week2/screenshots/*.png` | 第 4 节各条命令的终端截屏 |
@@ -149,7 +165,7 @@ samples 探针里只有 pdf 启动 JVM。Day 3 同目录的 pdf 是 4857 ms（`l
 - PAR-14 的测试没有断言 title 缺失。
 - `dart_test.txt` 没有逐条列出全部 98 个名字。expanded 进度被拆行了，结束行是 +98 和 +5。
 - 覆盖率不含真 Java。`sample.pdf` 的 2 页在集成套件和探针里，不在 lcov 里。
-- PDF 单文件 5215 ms，含一次 JVM 启动。W2 仍是每个 PDF 一个进程。
+- PDF 单文件 5215 ms，含一次 JVM 启动。W2 仍是每个 PDF 一个进程。2026-10-10 的三次分段里，时间主要在 `process_wait`（中位 5050 ms，总时间中位 5101 ms）。这一段仍同时包含 JVM 启动和 Tika 抽取。
 - 图像格式字符串是小写 `png` / `jpeg`，色彩模式是小写 `rgb`。
 - DOCX 解析器不调用 Tika。架构图里的 DOCX 回退没有实现。
 - 数据集图片不在 git 里。干净克隆跑不了 `dart test --tags integration` 里的 coco / rvlcdip 两条，除非本机自备这些文件。

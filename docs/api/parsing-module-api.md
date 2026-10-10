@@ -493,6 +493,8 @@ final ParseResult result = await parser.parse(r'datasets\samples\sample.pdf');
 
 页文本来自 `textExtractor`。每页一个 `DocumentPage`，`attributes['pageCount']` 与页列表长度一致。空文件和目录是 `failed`，不会去启动提取器。`ProcessStartException` 变成 `dependencyUnavailable`（缺 Java）。`ProcessTimeoutException` 变成 `timeout`。`TextExtractionException` 变成 `corruptedInput`，stderr 在 `detail`。取消抛 `CancelledException`。
 
+成功时 `attributes['stageMs']` 是各段毫秒数，值为 `int`。`stat` 从 `File.stat` 到空文件判断结束。`assemble` 是拼出 `ParsedDocument`。提取器写入的 `process_start`、`process_wait`、`stream_drain`、`xhtml_split`、`text_fallback` 会保留。`ParseResult.duration` 仍是整次解析的墙钟，不改成这几段之和。失败结果没有 `stageMs`。
+
 ### `ImageParser`
 
 ```dart
@@ -576,6 +578,8 @@ final List<String> pages = pageTextsFromXhtml(
 
 先跑 `TikaCLI -x`。XHTML 里有 `class="page"` 的 div 就按页切开；没有则再跑 `-t`，整篇作为一页。正文只取 stdout。classpath 在 Windows 上用 `;`，其他系统用 `:`。`-x` 起不来或超时会直接抛，不再跑 `-t`；`-x` 有退出码但没有 page div 时会回退 `-t`。两种模式都拿不到正文时抛 `TextExtractionException`。Java 起不来由 `ProcessRunner` 抛 `ProcessStartException`。`pageTextsFromXhtml` 没有 page div 时返回空列表，不抛异常。HTML 实体支持 `amp lt gt quot apos nbsp` 以及十进制、十六进制数字实体。
 
+`attributes['stageMs']` 记录这次抽取的毫秒数。`process_start`、`process_wait`、`stream_drain` 来自 `-x` 那次进程。`process_wait` 含 JVM 启动、扫描 classpath 和 Tika 本体，三者没有再拆开。`xhtml_split` 是 `pageTextsFromXhtml`。`text_fallback` 在已经分出页时为 0；走到 `-t` 时是第二次进程的整段 `duration`。
+
 ## 5. 进程、执行与取消
 
 ### `ProcessRunner` / `IoProcessRunner` / `ProcessRunResult`
@@ -602,6 +606,9 @@ class ProcessRunResult {
     required this.stdout,
     required this.stderr,
     this.duration = Duration.zero,
+    this.processStart = Duration.zero,
+    this.processWait = Duration.zero,
+    this.streamDrain = Duration.zero,
   });
   bool get isSuccess;
   Map<String, Object?> toJson();
@@ -619,7 +626,7 @@ const ProcessRunResult run = ProcessRunResult(
 // 真 Java 用 const IoProcessRunner()，只出现在 integration 用例里
 ```
 
-这是包内唯一允许启动进程的类型。`IoProcessRunner` 调用 `Process.start`。起不来抛 `ProcessStartException`。超时先杀掉进程再抛 `ProcessTimeoutException`。取消杀掉进程并抛 `CancelledException`。`toJson` 只记 stdout/stderr 的长度，不记内容。默认单测注入假实现；真 Java 只放在 `integration` tag 的用例里，用 `dart test --tags integration` 跑。
+这是包内唯一允许启动进程的类型。`IoProcessRunner` 调用 `Process.start`。起不来抛 `ProcessStartException`。超时先杀掉进程再抛 `ProcessTimeoutException`。取消杀掉进程并抛 `CancelledException`。`toJson` 只记 stdout/stderr 的长度，不记内容，并带上 `durationMs`、`processStartMs`、`processWaitMs`、`streamDrainMs`。`duration` 是整次调用的墙钟。`processStart` 到 `Process.start` 返回为止，不含 JVM 初始化。`processWait` 从进程已启动到退出码返回，Java 这一段含 JVM 启动和程序本体。`streamDrain` 是退出后把 stdout、stderr 收完。三段之和可以小于 `duration`，中间差在挂接流监听。超时和取消不返回 `ProcessRunResult`。默认单测注入假实现；真 Java 只放在 `integration` tag 的用例里，用 `dart test --tags integration` 跑。
 
 ### `ProcessStartException` / `ProcessTimeoutException`
 

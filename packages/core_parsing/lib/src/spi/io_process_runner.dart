@@ -22,6 +22,7 @@ class IoProcessRunner implements ProcessRunner {
   }) async {
     cancel?.throwIfCancelled();
     final Stopwatch stopwatch = Stopwatch()..start();
+    final Stopwatch phase = Stopwatch()..start();
     final Process process;
     try {
       process = await Process.start(
@@ -33,6 +34,7 @@ class IoProcessRunner implements ProcessRunner {
     } on ProcessException catch (error) {
       throw ProcessStartException(executable, error.message);
     }
+    final Duration processStart = phase.elapsed;
 
     final StringBuffer stdoutBuffer = StringBuffer();
     final StringBuffer stderrBuffer = StringBuffer();
@@ -74,6 +76,9 @@ class IoProcessRunner implements ProcessRunner {
     }
 
     cancel?.addListener(stopProcess);
+    phase
+      ..reset()
+      ..start();
     try {
       final int exitCode;
       if (timeout == null) {
@@ -90,6 +95,10 @@ class IoProcessRunner implements ProcessRunner {
       if (cancel?.isCancelled ?? false) {
         throw const CancelledException();
       }
+      final Duration processWait = phase.elapsed;
+      phase
+        ..reset()
+        ..start();
       await stdoutDone.future;
       await stderrDone.future;
       return ProcessRunResult(
@@ -97,6 +106,9 @@ class IoProcessRunner implements ProcessRunner {
         stdout: stdoutBuffer.toString(),
         stderr: stderrBuffer.toString(),
         duration: stopwatch.elapsed,
+        processStart: processStart,
+        processWait: processWait,
+        streamDrain: phase.elapsed,
       );
     } finally {
       cancel?.removeListener(stopProcess);

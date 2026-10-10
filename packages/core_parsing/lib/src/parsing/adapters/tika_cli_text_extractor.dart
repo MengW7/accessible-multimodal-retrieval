@@ -58,9 +58,15 @@ class TikaCliTextExtractor implements TextExtractor {
     CancellationToken? cancel,
   }) async {
     final ProcessRunResult xhtml = await _run('-x', absolutePath, cancel);
+    final Stopwatch split = Stopwatch()..start();
     final List<String> pages = pageTextsFromXhtml(xhtml.stdout);
+    final int xhtmlSplitMs = split.elapsed.inMilliseconds;
     if (pages.isNotEmpty) {
-      return _extracted(pages, mode: 'xhtml');
+      return _extracted(
+        pages,
+        mode: 'xhtml',
+        stageMs: _stageMs(xhtml, xhtmlSplitMs, textFallbackMs: 0),
+      );
     }
     final ProcessRunResult plain = await _run('-t', absolutePath, cancel);
     if (!plain.isSuccess) {
@@ -70,9 +76,15 @@ class TikaCliTextExtractor implements TextExtractor {
         stderr: _stderrTail(plain.stderr),
       );
     }
-    return _extracted(<String>[
-      _normalizeNewlines(plain.stdout).trim(),
-    ], mode: 'text');
+    return _extracted(
+      <String>[_normalizeNewlines(plain.stdout).trim()],
+      mode: 'text',
+      stageMs: _stageMs(
+        xhtml,
+        xhtmlSplitMs,
+        textFallbackMs: plain.duration.inMilliseconds,
+      ),
+    );
   }
 
   Future<ProcessRunResult> _run(
@@ -94,7 +106,11 @@ class TikaCliTextExtractor implements TextExtractor {
     return '$jar$classpathSeparator$lib';
   }
 
-  ExtractedText _extracted(List<String> pages, {required String mode}) {
+  ExtractedText _extracted(
+    List<String> pages, {
+    required String mode,
+    required Map<String, int> stageMs,
+  }) {
     final List<DocumentPage> documents = <DocumentPage>[
       for (var index = 0; index < pages.length; index++)
         DocumentPage(pageNumber: index + 1, text: pages[index]),
@@ -102,9 +118,27 @@ class TikaCliTextExtractor implements TextExtractor {
     return ExtractedText(
       pages: documents,
       extractorName: name,
-      attributes: <String, Object?>{'mode': mode},
+      attributes: <String, Object?>{'mode': mode, 'stageMs': stageMs},
     );
   }
+}
+
+/// Milliseconds for one `-x` process plus the optional `-t` fallback.
+///
+/// [textFallbackMs] is the whole second process. It is 0 when `-x` already
+/// produced page divs. `process_wait` still includes JVM startup.
+Map<String, int> _stageMs(
+  ProcessRunResult xhtml,
+  int xhtmlSplitMs, {
+  required int textFallbackMs,
+}) {
+  return <String, int>{
+    'process_start': xhtml.processStart.inMilliseconds,
+    'process_wait': xhtml.processWait.inMilliseconds,
+    'stream_drain': xhtml.streamDrain.inMilliseconds,
+    'xhtml_split': xhtmlSplitMs,
+    'text_fallback': textFallbackMs,
+  };
 }
 
 /// Page bodies from Tika XHTML, in document order.

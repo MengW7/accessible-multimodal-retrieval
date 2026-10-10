@@ -8,6 +8,7 @@ import 'probe_common.dart';
 /// Parses one file, or every whitelisted file under a directory.
 ///
 /// PDF time includes one Tika CLI process, and therefore one JVM start.
+/// A `stages` line splits that total. `process_wait` still contains JVM startup.
 Future<void> main(List<String> args) async {
   final String requested;
   try {
@@ -85,7 +86,11 @@ void _writeFile(String path, ParseResult result) {
   final ImageAsset? image = document?.imageAsset;
   final StringBuffer line = StringBuffer(p.basename(path))
     ..write('  outcome=${result.outcome.name}')
-    ..write('  ms=${result.duration.inMilliseconds}');
+    ..write('  total_ms=${result.duration.inMilliseconds}');
+  final int? bytes = _fileBytes(path);
+  if (bytes != null) {
+    line.write('  bytes=$bytes');
+  }
   if (document != null) {
     line
       ..write('  pages=${document.pageCount}')
@@ -102,9 +107,21 @@ void _writeFile(String path, ParseResult result) {
     line.write('  failure=${failure.kind.name}: ${failure.message}');
   }
   stdout.writeln(line);
+  final String? stages = formatStageLine(document?.attributes['stageMs']);
+  if (stages != null) {
+    stdout.writeln(stages);
+  }
   final String preview = _preview(document?.fullText ?? '');
   if (preview.isNotEmpty) {
     stdout.writeln('  preview: $preview');
+  }
+}
+
+int? _fileBytes(String path) {
+  try {
+    return File(path).lengthSync();
+  } on FileSystemException {
+    return null;
   }
 }
 

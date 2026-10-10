@@ -1,0 +1,50 @@
+2026-10-10. Three runs of one PDF. Each run starts its own Tika CLI process.
+Java 17.0.4, from `java -version`: Java(TM) SE Runtime Environment (build 17.0.4+11-LTS-179).
+Command, from the repo root:
+dart run packages/core_parsing/bin/parse_probe.dart --path datasets/samples/sample.pdf
+File: datasets/samples/sample.pdf, 71250 bytes. Each run: ok, 2 pages, 4358 chars.
+
+Stage clocks, in milliseconds:
+stat           File.stat through the empty-file check
+process_start  until Process.start returns; process creation, not JVM init
+process_wait   after the process starts until it exits; JVM startup, classpath scan, and Tika -x
+stream_drain   after exit until stdout and stderr are read
+xhtml_split    pageTextsFromXhtml
+text_fallback  the second Java process; 0 when -x already produced pages
+assemble       build ParsedDocument
+total_ms       ParseResult.duration for the whole parse
+
+The sum of the stage fields can be a few milliseconds under total_ms.
+That gap is the time spent attaching the stdout and stderr listeners.
+Probe preview lines are omitted here because they repeat document text.
+
+===== run 1 =====
+root: E:\Project\accessible-multimodal-retrieval\datasets/samples/sample.pdf
+sample.pdf  outcome=ok  total_ms=5101  bytes=71250  pages=2  chars=4358
+  stages  stat=1  process_start=40  process_wait=5050  stream_drain=0  xhtml_split=3  text_fallback=0  assemble=1
+summary  files=1  ok=1  partial=0  skipped=0  failed=0
+stage sum 5095; total_ms minus sum = 6
+
+===== run 2 =====
+root: E:\Project\accessible-multimodal-retrieval\datasets/samples/sample.pdf
+sample.pdf  outcome=ok  total_ms=4858  bytes=71250  pages=2  chars=4358
+  stages  stat=2  process_start=39  process_wait=4804  stream_drain=0  xhtml_split=4  text_fallback=0  assemble=2
+summary  files=1  ok=1  partial=0  skipped=0  failed=0
+stage sum 4851; total_ms minus sum = 7
+
+===== run 3 =====
+root: E:\Project\accessible-multimodal-retrieval\datasets/samples/sample.pdf
+sample.pdf  outcome=ok  total_ms=5137  bytes=71250  pages=2  chars=4358
+  stages  stat=2  process_start=47  process_wait=5076  stream_drain=0  xhtml_split=3  text_fallback=0  assemble=1
+summary  files=1  ok=1  partial=0  skipped=0  failed=0
+stage sum 5129; total_ms minus sum = 8
+
+min / median / max
+total_ms        4858 / 5101 / 5137
+stat            1 / 2 / 2
+process_start   39 / 40 / 47
+process_wait    4804 / 5050 / 5076
+stream_drain    0 / 0 / 0
+xhtml_split     3 / 3 / 4
+text_fallback   0 / 0 / 0
+assemble        1 / 1 / 2

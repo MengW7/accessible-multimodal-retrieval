@@ -17,10 +17,14 @@ void main() {
         expect(arguments[1], contains('tika-app-4.0.0.jar'));
         expect(arguments[1], contains(';'));
         expect(arguments[1], contains('lib'));
-        return ProcessRunResult(
+        return const ProcessRunResult(
           exitCode: 0,
           stdout: xhtml,
           stderr: 'INFO noise',
+          duration: Duration(milliseconds: 36),
+          processStart: Duration(milliseconds: 11),
+          processWait: Duration(milliseconds: 22),
+          streamDrain: Duration(milliseconds: 3),
         );
       },
     );
@@ -36,6 +40,11 @@ void main() {
     expect(text.pages[1].pageNumber, 2);
     expect(text.attributes['mode'], 'xhtml');
     expect(text.fullText, isNot(contains('INFO noise')));
+    expect(_stageMs(text)['process_start'], 11);
+    expect(_stageMs(text)['process_wait'], 22);
+    expect(_stageMs(text)['stream_drain'], 3);
+    expect(_stageMs(text)['xhtml_split'], isA<int>());
+    expect(_stageMs(text)['text_fallback'], 0);
     expect(runner.calls, hasLength(1));
   });
 
@@ -68,6 +77,9 @@ void main() {
             exitCode: 1,
             stdout: '',
             stderr: 'bad xhtml',
+            processStart: Duration(milliseconds: 5),
+            processWait: Duration(milliseconds: 40),
+            streamDrain: Duration(milliseconds: 1),
           );
         }
         expect(arguments, contains('-t'));
@@ -75,6 +87,7 @@ void main() {
           exitCode: 0,
           stdout: 'plain body',
           stderr: 'still noise',
+          duration: Duration(milliseconds: 70),
         );
       },
     );
@@ -86,6 +99,10 @@ void main() {
     final ExtractedText text = await extractor.extract('/tmp/a.pdf');
     expect(text.attributes['mode'], 'text');
     expect(text.pages.single.text, 'plain body');
+    expect(_stageMs(text)['process_start'], 5);
+    expect(_stageMs(text)['process_wait'], 40);
+    expect(_stageMs(text)['stream_drain'], 1);
+    expect(_stageMs(text)['text_fallback'], 70);
     expect(runner.calls, hasLength(2));
   });
 
@@ -187,6 +204,12 @@ void main() {
     );
     expect(runner.calls, hasLength(1));
   });
+}
+
+Map<String, int> _stageMs(ExtractedText text) {
+  final Object? raw = text.attributes['stageMs'];
+  expect(raw, isA<Map<String, int>>());
+  return raw! as Map<String, int>;
 }
 
 class _ScriptedRunner implements ProcessRunner {

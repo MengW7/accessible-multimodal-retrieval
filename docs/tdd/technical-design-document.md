@@ -97,6 +97,21 @@ Day 4 对同一目录又跑了一次探针，原始输出在 `reports/week2/logs
 
 因此 W2 保持「每个 PDF 一次进程」。常驻 JVM 或 PDFium 留到 Q1 / Q6，不在本周改接口。页边界见 Q7。
 
+2026-10-10 对同一份 `datasets/samples/sample.pdf` 连跑 3 次。命令是 `parse_probe.dart --path datasets/samples/sample.pdf`，原始输出在 `reports/week3/logs/pdf_stage_timing.txt`。Java 17.0.4。三次都是 ok，2 页，4358 字符，71250 字节。`total_ms` 依次是 5101、4858、5137，中位数 5101。
+
+| 阶段 | 第 1 次 | 第 2 次 | 第 3 次 | 最小 | 中位 | 最大 |
+|---|---:|---:|---:|---:|---:|---:|
+| `stat` | 1 | 2 | 2 | 1 | 2 | 2 |
+| `process_start` | 40 | 39 | 47 | 39 | 40 | 47 |
+| `process_wait` | 5050 | 4804 | 5076 | 4804 | 5050 | 5076 |
+| `stream_drain` | 0 | 0 | 0 | 0 | 0 | 0 |
+| `xhtml_split` | 3 | 4 | 3 | 3 | 3 | 4 |
+| `text_fallback` | 0 | 0 | 0 | 0 | 0 | 0 |
+| `assemble` | 1 | 2 | 1 | 1 | 1 | 2 |
+| `total_ms` | 5101 | 4858 | 5137 | 4858 | 5101 | 5137 |
+
+`stat` 是读取文件信息并判断是不是空文件。`process_start` 是创建 Java 进程。`process_wait` 从进程已启动到退出，含 JVM 启动、扫描 classpath 和 Tika `-x`。`stream_drain` 是收完 stdout 和 stderr。`xhtml_split` 是按页切开。`text_fallback` 为 0，因为 `-x` 已经分出 2 页。`assemble` 是拼出解析结果。三次的各段之和分别是 5095、4851、5129，比 `total_ms` 少 6 到 8 ms。`process_wait` 三次都约占 `total_ms` 的 99%，其中 JVM 启动和正文抽取还没有分开。上面 Day 3 的 4857 ms 与 Day 4 的 5215 ms 仍是当时的总时间。
+
 ## 4. 未决问题
 
 Owner 一列是负责在对应周次做决定的角色，不是已经派给某个后续提交的任务编号。

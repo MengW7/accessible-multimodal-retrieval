@@ -21,6 +21,13 @@ void main() {
     );
     expect(result.isSuccess, isTrue);
     expect(result.stdout, contains('hello-runner'));
+    final int parts =
+        result.processStart.inMilliseconds +
+        result.processWait.inMilliseconds +
+        result.streamDrain.inMilliseconds;
+    expect(parts, lessThanOrEqualTo(result.duration.inMilliseconds));
+    expect(result.duration.inMilliseconds - parts, lessThan(1000));
+    expect(result.processStart, greaterThan(Duration.zero));
   });
 
   test('a missing executable throws ProcessStartException', () async {

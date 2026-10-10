@@ -85,3 +85,39 @@ StandardParserRegistry standardRegistry() {
 bool _exists(String path) {
   return File(path).existsSync() || Directory(path).existsSync();
 }
+
+const List<String> _stageOrder = <String>[
+  'stat',
+  'process_start',
+  'process_wait',
+  'stream_drain',
+  'xhtml_split',
+  'text_fallback',
+  'assemble',
+];
+
+/// One probe line for `attributes['stageMs']`, or null when it is absent.
+String? formatStageLine(Object? stages) {
+  if (stages is! Map) {
+    return null;
+  }
+  final List<String> parts = <String>[];
+  final Set<Object?> seen = <Object?>{};
+  for (final String key in _stageOrder) {
+    if (!stages.containsKey(key)) {
+      continue;
+    }
+    parts.add('$key=${stages[key]}');
+    seen.add(key);
+  }
+  for (final MapEntry<Object?, Object?> entry in stages.entries) {
+    if (seen.contains(entry.key)) {
+      continue;
+    }
+    parts.add('${entry.key}=${entry.value}');
+  }
+  if (parts.isEmpty) {
+    return null;
+  }
+  return '  stages  ${parts.join('  ')}';
+}

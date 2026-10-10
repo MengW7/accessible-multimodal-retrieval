@@ -54,10 +54,20 @@ Future<void> main(List<String> args) async {
       ..write('  ${record.outcome.name}')
       ..write('  ${record.metadata.sizeBytes} B');
     final String? errorMessage = record.metadata.errorMessage;
+    final int? parseMs = record.metadata.parseDurationMs;
+    if (parseMs != null) {
+      line.write('  parse_ms=$parseMs');
+    }
     if (errorMessage != null) {
       line.write('  $errorMessage');
     }
     stdout.writeln(line);
+    final String? stages = formatStageLine(
+      record.document?.attributes['stageMs'],
+    );
+    if (stages != null) {
+      stdout.writeln(stages);
+    }
   }
   if (report.failed > 0 || report.cancelled) {
     exitCode = 1;

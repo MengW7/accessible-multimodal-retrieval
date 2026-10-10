@@ -33,6 +33,7 @@ class PdfParser implements DocumentParser {
     CancellationToken? cancel,
   }) async {
     final Stopwatch stopwatch = Stopwatch()..start();
+    final Stopwatch statWatch = Stopwatch()..start();
     try {
       cancel?.throwIfCancelled();
       final FileStat stat = await File(absolutePath).stat();
@@ -63,26 +64,31 @@ class PdfParser implements DocumentParser {
           ),
         );
       }
+      final int statMs = statWatch.elapsed.inMilliseconds;
       final ExtractedText text = await textExtractor.extract(
         absolutePath,
         cancel: cancel,
       );
+      final Stopwatch assembleWatch = Stopwatch()..start();
+      final Map<String, int> stageMs = _copyStageMs(text.attributes['stageMs'])
+        ..['stat'] = statMs;
       final Map<String, Object?> attributes = <String, Object?>{
         'pageCount': text.pages.length,
         'extractor': text.extractorName,
         ...text.attributes,
+        'stageMs': stageMs,
       };
       if (text.title != null) {
         attributes['title'] = text.title;
       }
-      return ParseResult.success(
-        ParsedDocument(
-          fullText: text.fullText,
-          pages: List<DocumentPage>.unmodifiable(text.pages),
-          attributes: Map<String, Object?>.unmodifiable(attributes),
-        ),
-        duration: stopwatch.elapsed,
+      final ParsedDocument document = ParsedDocument(
+        fullText: text.fullText,
+        pages: List<DocumentPage>.unmodifiable(text.pages),
+        attributes: Map<String, Object?>.unmodifiable(attributes),
       );
+      // The nested map stays mutable so this includes building the document.
+      stageMs['assemble'] = assembleWatch.elapsed.inMilliseconds;
+      return ParseResult.success(document, duration: stopwatch.elapsed);
     } on CancelledException {
       rethrow;
     } on FileSystemException catch (error) {
@@ -120,4 +126,22 @@ class PdfParser implements DocumentParser {
   ParseResult _fail(Stopwatch stopwatch, ParseFailure failure) {
     return ParseResult.failure(failure, duration: stopwatch.elapsed);
   }
+}
+
+Map<String, int> _copyStageMs(Object? raw) {
+  if (raw is Map<String, int>) {
+    return Map<String, int>.of(raw);
+  }
+  if (raw is! Map) {
+    return <String, int>{};
+  }
+  final Map<String, int> copy = <String, int>{};
+  for (final MapEntry<Object?, Object?> entry in raw.entries) {
+    final Object? key = entry.key;
+    final Object? value = entry.value;
+    if (key is String && value is int) {
+      copy[key] = value;
+    }
+  }
+  return copy;
 }

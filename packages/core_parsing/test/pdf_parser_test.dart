@@ -12,7 +12,16 @@ void main() {
           DocumentPage(pageNumber: 2, text: 'second'),
         ],
         extractorName: 'fake',
-        attributes: <String, Object?>{'mode': 'xhtml'},
+        attributes: <String, Object?>{
+          'mode': 'xhtml',
+          'stageMs': <String, int>{
+            'process_start': 11,
+            'process_wait': 22,
+            'stream_drain': 3,
+            'xhtml_split': 1,
+            'text_fallback': 0,
+          },
+        },
       ),
     );
     final PdfParser parser = PdfParser(textExtractor: extractor);
@@ -22,6 +31,13 @@ void main() {
     expect(result.document?.fullText, contains('Apache Tika'));
     expect(result.document?.attributes['pageCount'], 2);
     expect(result.document?.attributes['extractor'], 'fake');
+    final Object? stages = result.document?.attributes['stageMs'];
+    expect(stages, isA<Map<String, int>>());
+    final Map<String, int> stageMs = stages! as Map<String, int>;
+    expect(stageMs['stat'], greaterThanOrEqualTo(0));
+    expect(stageMs['process_wait'], 22);
+    expect(stageMs['text_fallback'], 0);
+    expect(stageMs['assemble'], greaterThanOrEqualTo(0));
     expect(extractor.calls, 1);
   });
 

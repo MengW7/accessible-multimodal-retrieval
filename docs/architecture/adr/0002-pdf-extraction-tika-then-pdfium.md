@@ -60,7 +60,7 @@ PRD 的 P0 要求是「PDF 抽文本层并记下页码」，官方技术栈同�
 **代价 / 需要接受的事**
 
 1. **开发期引入 JVM 依赖**：PDF 解析需要 `java` 在 `PATH` 上。此约束必须写进 README 与用户手册的"运行前置条件"，并在缺失时优雅降级。
-2. **每文件一次进程启动**：单文件耗时受 JVM 启动主导（预计 1–2.5 s）。W2 按"每文件一次调用"实现并**实测记录**，把常驻 JVM（Tika server）或 PDFium 作为 W6 的优化选项。
+2. **每文件一次进程启动**：原先估计单文件 1–2.5 s，且预计由 JVM 启动主导。实测总时间高于这个估计：Day 3 为 4857 ms，Day 4 为 5215 ms。2026-10-10 三次分段（`reports/week3/logs/pdf_stage_timing.txt`）的 `total_ms` 中位是 5101，其中 `process_wait` 中位 5050。`process_wait` 含 JVM 启动、扫描 classpath 和 Tika 抽取，三者还没有分开。W2 按「每个 PDF 一次进程」实现。常驻 JVM 或 PDFium 仍留作后续优化选项。
 3. **发布包问题被推迟而不是解决**：如果最终仍靠 Tika，W8 需要决定 JRE 的处理方式。因此设置了触发条件 T3，不允许它无声地拖到打包日。
 4. **能力边界**：Tika 抽不出文本层的扫描件只能得到空文本 + 元数据（`outcome: partial`），OCR 不在 W2 范围（TDD 的 Q4）。
 
@@ -79,5 +79,5 @@ PRD 的 P0 要求是「PDF 抽文本层并记下页码」，官方技术栈同�
 - [x] W2 Day 1：在架构文档中冻结 `TextExtractor` / `ProcessRunner` 契约与降级策略。
 - [x] W2 Day 2：实现 `TikaCliTextExtractor`（含平台 classpath 分支、stderr 分离、超时、缺 Java 分支），并用假 `ProcessRunner` 覆盖全部分支。
 - [x] W2 Day 3：跑通 `datasets/samples/sample.pdf`（期望 2 页），单文件耗时记入 `reports/week2/logs/day3_jvm_single_file.txt`。
-- [ ] W3：评估触发条件 T1/T2；若满足，新增 ADR 并实现 `PdfiumTextExtractor`。
+- [ ] W3：评估触发条件 T1/T2；若满足，新增 ADR 并实现 `PdfiumTextExtractor`。2026-10-10 已做评估，两条都未满足，所以这里不换实现。T1：`native/pdfium/windows/` 里没有 `pdfium.dll`。T2：单文件总时间高于 2 s，`process_wait` 约占 99%，但这一段还没有拆出 JVM 启动本身，也没有新的批量占比。
 - [ ] W8：若届时仍依赖 Tika，必须先解决 JRE 分发问题（触发条件 T3）。
