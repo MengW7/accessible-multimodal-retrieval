@@ -95,7 +95,7 @@ sequenceDiagram
 
 Day 4 对同一目录又跑了一次探针，原始输出在 `reports/week2/logs/ingest_samples.txt`：docx 80 ms，pdf 5215 ms，png 80 ms。同一份日志里，50 张 coco JPEG 为 1400 ms，16 张 rvlcdip PNG 为 651 ms。这两批不启动 JVM。
 
-因此 W2 保持「每个 PDF 一次进程」。常驻 JVM 或 PDFium 留到 Q1 / Q6，不在本周改接口。页边界见 Q7。
+因此 W2 保持「每个 PDF 一次进程」。常驻 JVM 或 PDFium 当时留到 Q1 / Q6，不在 W2 改接口。Q1 与 Q7 已在 2026-10-15 结案，见 §4。页边界仍以 Tika `-x` 的 page div 为准。
 
 2026-10-10 对同一份 `datasets/samples/sample.pdf` 连跑 3 次。命令是 `parse_probe.dart --path datasets/samples/sample.pdf`，原始输出在 `reports/week3/logs/pdf_stage_timing.txt`。Java 17.0.4。三次都是 ok，2 页，4358 字符，71250 字节。`total_ms` 依次是 5101、4858、5137，中位数 5101。
 
@@ -114,14 +114,53 @@ Day 4 对同一目录又跑了一次探针，原始输出在 `reports/week2/logs
 
 ## 4. 未决问题
 
-Owner 一列是负责在对应周次做决定的角色，不是已经派给某个后续提交的任务编号。
+Owner 一列是负责在对应周次做决定的角色，不是已经派给某个后续提交的任务编号。Q1、Q3、Q7 已于 2026-10-15 结案，结论写在表下。Q2、Q4、Q5、Q6 仍未决。
 
-| 编号 | 问题 | 倾向 | Owner | 解决周次 |
+| 编号 | 问题 | 结论或倾向 | Owner | 状态 |
 |---|---|---|---|---|
-| Q1 | ORT/PDFium 是否都能拿到可信的预编译产物？拿不到怎么办 | 优先预编译；退化时保留 Tika。接口仍是 `TextExtractor` | Week 2 架构 | W3 |
+| Q1 | ORT/PDFium 是否都能拿到可信的预编译产物？拿不到怎么办 | 结案：不落地 PDFium，继续 Tika。见下文 | Week 3 | 已结案 |
 | Q2 | `engine/`（Python + Chroma）是否进入发布包 | **不进入**：只做离线评测，发布版存储由 Dart 侧实现 | Week 2 架构 | W4 |
-| Q3 | 长文档切块策略（按页 / 按段 / 按 token 窗口） | 按页优先，段内再切。TXT/DOCX 目前整篇作为一页 | Week 2 架构 | W3–W4 |
+| Q3 | 长文档切块策略（按页 / 按段 / 按 token 窗口） | 结案：页定位、段落切分、超长才切窗口。见下文与 ADR 0003 | Week 3 | 已结案 |
 | Q4 | 扫描件（RVL-CDIP）是否引入 OCR | 先走图像向量，基准不达标再加。W2 只登记图像元数据 | Week 2 架构 | W6 |
 | Q5 | 图像-only 文档如何在结果列表里排序与展示 | 与文本同榜，展示缩略图 + 尺寸 | Week 2 架构 | W4 |
 | Q6 | 批量解析是否需要 worker isolate | PDF 单文件 4857 ms，见 `reports/week2/logs/day3_jvm_single_file.txt`。W2 仍用 `ImmediateExecutor` | Week 2 架构 | W6 |
-| Q7 | PDF 页码策略会不会随 PDFium 改变 | W2 以 Tika `-x` 的 page div 为准，没有则整篇一页。替换实现时仍要填 `DocumentPage` | Week 2 架构 | W3 |
+| Q7 | PDF 页码策略会不会随 PDFium 改变 | 结案：W3 不换 PDFium，页码继续以 Tika `-x` 的 page div 为准 | Week 3 | 已结案 |
+
+### Q1 结案（2026-10-15）
+
+不实现 `PdfiumTextExtractor`。PDF 文本继续走 ADR 0002 的 `TikaCliTextExtractor`。
+
+判据是 `reports/week3/logs/pdf_stage_timing.txt`。2026-10-10 对 `datasets/samples/sample.pdf` 连跑 3 次，Java 17.0.4，三次都是 ok、2 页、4358 字符。`total_ms` 为 5101、4858、5137，中位 **5101**。`process_wait` 为 5050、4804、5076，中位 **5050**，约占 `total_ms` 的 **99%**。这一段包含 JVM 启动、classpath 扫描和 Tika `-x`，三者还没有拆开。
+
+对照 ADR 0002 的触发条件：
+
+- **T1 不满足**。`native/pdfium/windows/` 里没有可信来源的 `pdfium.dll`，也没有可用的 FFI 绑定。
+- **T2 视为满足**。单文件总时间高于 2 s，而且 `process_wait` 占了约 99%。换掉每文件一次 JVM 能改善的是吞吐，不是抽取正确性。W3 的交付物是向量，不是 PDF 解析器。吞吐留到 W6，不在本周改解析实现。
+
+ONNX Runtime 已装在 `engine/.venv`（1.30.0），本周只用它跑 embedding 探针。它不是 PDF 文本的预编译替代品，也不改变 `TextExtractor` 这条缝。
+
+### Q3 结案（2026-10-15）
+
+切块策略冻结为：**页面用于定位，段落用于切分，长度上限才切窗口。** 实现是后续的 `TextChunker`，规则写在 ADR 0003。这里只记结论。
+
+防御性级联，不能假定每种格式都有段落：
+
+```text
+\n\n → \n → 句末标点（。！？；. ! ? ;） → 硬窗口
+```
+
+依据是 W2 解析器的实际输出。TXT 保留 `\n\n`。DOCX 把段落和段内换行都写成 `\n`，两者分不开；W3 接受按单换行切，不改已经冻结的 `ParsedDocument`。PDF 的 Tika `-x` 文本没有段落契约。
+
+偏移量单位是 **UTF-16 code unit**，与 `DocumentPage.charCount`（`String.length`）相同。`startOffset` 含首，`endOffset` 不含尾。高亮、切片、引用共用这一单位。
+
+`chunkId` 由内容哈希、分块器版本、页码和块序号组成。只有同一内容哈希、同一分块器版本、同一配置才可复现。文档或参数变了，编号就变。W4 不得把它当稳定主键。
+
+跨页合并不做。`sample.pdf` 两页共 4358 字符，大约 2179 字符一页；检索用的块比一页短得多，所以「答案跨页」实际上是「答案跨过相邻块」。W3 保证 `pageNumber` 和偏移被留下来。**跨页答案的邻域扩展由 W4 承接。** 证据集里的跨页题，通过标准也定在 W4。
+
+字符长度用来切块，token 长度用来校验。超长必须重切或显式记 warning，不静默截断。`chunkChars` 的初值跟所选模型和语料走，不宣称某一组数字普遍最优。文本模型的运行上限是 128 个 token，见 `models/README.md`。
+
+### Q7 结案（2026-10-15）
+
+页码策略不随 PDFium 改变，因为 Q1 决定 W3 不换 PDFium。
+
+W2 的规则继续有效：有 Tika `-x` 的 `<div class="page">` 就按它分页，没有则整篇一页。TXT 和 DOCX 没有物理页，`TextChunk.pageNumber` 为 null，界面不得把它显示成真实页码。以后如果真的换抽取器，新实现仍要填 `DocumentPage`，不能让页码语义跟着实现漂。

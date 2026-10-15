@@ -1,0 +1,83 @@
+threshold=0.999
+onnxruntime=1.30.0
+tokenizers=0.23.2
+numpy=2.5.3
+compare=mean_pool on the same input ids; session graph optimization disabled
+text_tokenizer type=Unigram vocab_size=250002 normalizer=Precompiled lowercase=None
+text_tokenizer_stat tokenizer.json bytes=17082913 sha256=b60b6b43406a48bf3638526314f3d232d97058bc93472ff2de930d43686fa441
+text_int8_before=E:\Project\accessible-multimodal-retrieval\models\raw\text\paraphrase-multilingual-MiniLM-L12-v2\onnx\model.onnx
+text_int8_after=E:\Project\accessible-multimodal-retrieval\models\raw\text\paraphrase-multilingual-MiniLM-L12-v2\onnx\model_int8.onnx
+text_int8_before_stat model.onnx bytes=470268510 sha256=185ae63f47e17a7e8d30d0e6a3cde6a6e4b79bc5b81666ecffc279a6856ca113
+text_int8_after_stat model_int8.onnx bytes=118054609 sha256=d6ea442ff6a891daefed7c83b2f596fc5dc66bf697e4d006236f64f34bbcf4c8
+text_int8_cosine index=0 lang=zh value=0.986891 dim=384
+text_int8_cosine index=1 lang=en value=0.982951 dim=384
+text_int8_cosine index=2 lang=en value=0.990161 dim=384
+text_int8_cosine index=3 lang=zh value=0.991391 dim=384
+text_int8_cosine index=4 lang=en value=0.989016 dim=384
+text_int8_cosine_min=0.982951
+text_ort_before=E:\Project\accessible-multimodal-retrieval\models\raw\text\paraphrase-multilingual-MiniLM-L12-v2\onnx\model.onnx
+text_ort_after=E:\Project\accessible-multimodal-retrieval\models\raw\text\paraphrase-multilingual-MiniLM-L12-v2\onnx\model_ort.onnx
+text_ort_before_stat model.onnx bytes=470268510 sha256=185ae63f47e17a7e8d30d0e6a3cde6a6e4b79bc5b81666ecffc279a6856ca113
+text_ort_after_stat model_ort.onnx bytes=470114179 sha256=1412a30cf1a5ca9b3dc2689edbe60311f736ca1483d9f63e5ae6465af534bd82
+text_ort_cosine index=0 lang=zh value=1.000000 dim=384
+text_ort_cosine index=1 lang=en value=1.000000 dim=384
+text_ort_cosine index=2 lang=en value=1.000000 dim=384
+text_ort_cosine index=3 lang=zh value=1.000000 dim=384
+text_ort_cosine index=4 lang=en value=1.000000 dim=384
+text_ort_cosine_min=1.000000
+text_conversion=ort_enable_all
+text_conversion_cosine_min=1.000000
+text_shipped=fp32
+text_int8_rejected cosine_min=0.982951 threshold=0.999
+text_gate=pass
+image_before=E:\Project\accessible-multimodal-retrieval\models\raw\image\mobileclip-s0\onnx\vision_model.onnx
+image_after=E:\Project\accessible-multimodal-retrieval\models\raw\image\mobileclip-s0\onnx\vision_model_int8.onnx
+image_before_stat vision_model.onnx bytes=45543630 sha256=17d3c037b1d488c10c50e09f6009ea5a198caef4e0e8f4ea5617b7cb2d067ac0
+image_after_stat vision_model_int8.onnx bytes=11846808 sha256=7a1b45f57fb9f3cde9d325759883e9451d7281336caeb9c576ae918e72080f0b
+image_cosine file=000000397133.jpg value=0.048561 dim=512
+image_cosine file=000000006818.jpg value=0.165269 dim=512
+image_cosine file=000000017627.jpg value=0.045810 dim=512
+image_cosine_min=0.045810
+image_before=E:\Project\accessible-multimodal-retrieval\models\raw\image\mobileclip-s0\onnx\vision_model.onnx
+image_after=E:\Project\accessible-multimodal-retrieval\models\raw\image\mobileclip-s0\onnx\vision_model_ort.onnx
+image_before_stat vision_model.onnx bytes=45543630 sha256=17d3c037b1d488c10c50e09f6009ea5a198caef4e0e8f4ea5617b7cb2d067ac0
+image_after_stat vision_model_ort.onnx bytes=45495166 sha256=a61d3f6fad89a26e090d609800d905d0ee7d8a6f3ef3a302a870ff5483aeabe4
+image_cosine file=000000397133.jpg value=1.000000 dim=512
+image_cosine file=000000006818.jpg value=1.000000 dim=512
+image_cosine file=000000017627.jpg value=1.000000 dim=512
+image_cosine_min=1.000000
+image_conversion=ort_enable_all
+image_conversion_cosine_min=1.000000
+image_shipped=fp32
+image_int8_rejected cosine_min=0.045810 threshold=0.999
+image_gate=pass
+clip_text_tokenizer type=BPE vocab_size=49408 normalizer=Sequence lowercase=None
+clip_text_input name=input_ids type=tensor(int64) shape=['batch_size', 'sequence_length']
+clip_text_output name=text_embeds type=tensor(float) shape=['batch_size', 512]
+clip_text_int8_before=E:\Project\accessible-multimodal-retrieval\models\raw\image\mobileclip-s0\onnx\text_model.onnx
+clip_text_int8_after=E:\Project\accessible-multimodal-retrieval\models\raw\image\mobileclip-s0\onnx\text_model_int8.onnx
+clip_text_int8_before_stat text_model.onnx bytes=169807789 sha256=f6e9bd5742bfc515889e901634d8a2ff2a57fab8564e4ad3760e800b1a51b77c
+clip_text_int8_after_stat text_model_int8.onnx bytes=42799230 sha256=fc8d87978623385c17a46331ffb9cb5ab7fe8b61c513c094602b85f08edd0a0b
+clip_text_int8_cosine index=0 lang=zh value=0.846954 dim=512
+clip_text_int8_cosine index=1 lang=en value=0.839625 dim=512
+clip_text_int8_cosine index=2 lang=en value=0.768964 dim=512
+clip_text_int8_cosine index=3 lang=zh value=0.840838 dim=512
+clip_text_int8_cosine index=4 lang=en value=0.870563 dim=512
+clip_text_int8_cosine_min=0.768964
+clip_text_ort_before=E:\Project\accessible-multimodal-retrieval\models\raw\image\mobileclip-s0\onnx\text_model.onnx
+clip_text_ort_after=E:\Project\accessible-multimodal-retrieval\models\raw\image\mobileclip-s0\onnx\text_model_ort.onnx
+clip_text_ort_before_stat text_model.onnx bytes=169807789 sha256=f6e9bd5742bfc515889e901634d8a2ff2a57fab8564e4ad3760e800b1a51b77c
+clip_text_ort_after_stat text_model_ort.onnx bytes=169769538 sha256=d37b22afe7841f7d3f826aa6a49545b97a50d065fb3cf9977bc18910841e8e4f
+clip_text_ort_cosine index=0 lang=zh value=1.000000 dim=512
+clip_text_ort_cosine index=1 lang=en value=1.000000 dim=512
+clip_text_ort_cosine index=2 lang=en value=1.000000 dim=512
+clip_text_ort_cosine index=3 lang=zh value=1.000000 dim=512
+clip_text_ort_cosine index=4 lang=en value=1.000000 dim=512
+clip_text_ort_cosine_min=1.000000
+clip_text_conversion=ort_enable_all
+clip_text_conversion_cosine_min=1.000000
+clip_text_shipped=fp32
+clip_text_int8_rejected cosine_min=0.768964 threshold=0.999
+clip_text_gate=pass
+ort_optimize_note=ORT_ENABLE_ALL may embed hardware-specific kernels; cosine 1.0 means the original fp32 file stays the portable artifact
+overall_gate=pass

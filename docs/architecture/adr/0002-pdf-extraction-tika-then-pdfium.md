@@ -79,5 +79,5 @@ PRD 的 P0 要求是「PDF 抽文本层并记下页码」，官方技术栈同�
 - [x] W2 Day 1：在架构文档中冻结 `TextExtractor` / `ProcessRunner` 契约与降级策略。
 - [x] W2 Day 2：实现 `TikaCliTextExtractor`（含平台 classpath 分支、stderr 分离、超时、缺 Java 分支），并用假 `ProcessRunner` 覆盖全部分支。
 - [x] W2 Day 3：跑通 `datasets/samples/sample.pdf`（期望 2 页），单文件耗时记入 `reports/week2/logs/day3_jvm_single_file.txt`。
-- [ ] W3：评估触发条件 T1/T2；若满足，新增 ADR 并实现 `PdfiumTextExtractor`。2026-10-10 已做评估，两条都未满足，所以这里不换实现。T1：`native/pdfium/windows/` 里没有 `pdfium.dll`。T2：单文件总时间高于 2 s，`process_wait` 约占 99%，但这一段还没有拆出 JVM 启动本身，也没有新的批量占比。
+- [x] W3（2026-10-15）：结案 T1/T2，不实现 `PdfiumTextExtractor`。T1 仍不满足：`native/pdfium/windows/` 没有 `pdfium.dll`。T2 按 `reports/week3/logs/pdf_stage_timing.txt` 视为满足：三次 `total_ms` 中位 5101，`process_wait` 中位 5050，约占 99%。收益是吞吐而不是正确性，这一段也还没有拆出 JVM 启动本身。W3 不改 PDF 实现，吞吐留 W6。结论写在 TDD Q1。
 - [ ] W8：若届时仍依赖 Tika，必须先解决 JRE 分发问题（触发条件 T3）。

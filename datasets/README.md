@@ -24,5 +24,5 @@
 |---|---|---|---|---|
 | nq/validation | Natural Questions | 见官网 | validation 随机抽样 | 300 |
 | coco/val_sample | COCO val2017 | CC | 前 N 张 + captions | 50 |
-| rvlcdip/sample | RVL-CDIP | 见官网 | 每类 1–2 张 | 32 |
+| rvlcdip/sample | RVL-CDIP | 见官网 | 16 类各 1 张 | 16 |
 | wiki/ | Wikimedia dump | GFDL/CC | Week 6 | 0 |

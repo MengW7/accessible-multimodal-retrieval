@@ -341,7 +341,7 @@ sequenceDiagram
 
 ### 8.2 检索流程（W4/W5 目标态）
 
-关键词查询不依赖向量。文档和图像分属 BERT 与 MobileCLIP 两个空间，查询要做两次 `embed(query)`。存储只返回命中，融合在检索层。返回单位写「页或片段」，切块策略仍见 TDD 的 Q3。
+关键词查询不依赖向量。文档和图像分属两个空间，查询要做两次 `embed(query)`。存储只返回命中，融合在检索层。返回单位写「页或片段」。切块策略已在 TDD Q3 结案，细则见 ADR 0003。
 
 ```mermaid
 sequenceDiagram
@@ -446,7 +446,8 @@ sequenceDiagram
 |---|---|---|
 | [ADR 0001](adr/0001-parsing-runtime-dart-package.md) | 解析模块做成独立纯 Dart 包 `packages/core_parsing` | 已采纳 |
 | [ADR 0002](adr/0002-pdf-extraction-tika-then-pdfium.md) | PDF 文本抽取先用 Apache Tika CLI，PDFium FFI 后续替换 | 已采纳（带迁移触发条件） |
-| ADR 0003（待写，W4） | 向量存储选型：Chroma Dart FFI vs SQLite + 近邻 | 未决 |
-| ADR 0004（待写，W6） | 是否把批量解析移入 worker isolate | 未决 |
+| [ADR 0003](adr/0003-embedding-model-and-runtime.md) | 文本用多语言 MiniLM，图像用 MobileCLIP-S0，两条空间分开，W3 用 ONNX Runtime 进程 | 已采纳 |
+| ADR 0004（待写，W4） | 向量存储选型：Chroma Dart FFI vs SQLite + 近邻 | 未决 |
+| ADR 0005（待写，W6） | 是否把批量解析移入 worker isolate | 未决 |
 
 
