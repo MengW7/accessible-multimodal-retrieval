@@ -1,0 +1,12 @@
+command=dart test --coverage=coverage --exclude-tags integration
+format=dart run coverage:format_coverage --lcov --in=coverage --out=coverage/lcov.info --report-on=lib --package=.
+package=packages/core_embedding
+lines_hit=494
+lines_found=719
+percent=68.71
+threshold=45
+gate=pass
+text_chunk=36/36
+precompiled_normalizer=62/65
+text_embedder=55/64
+note=integration tests are excluded; they load tokenizer.json and the fp32 ONNX model. The normalizer unit test uses a hand-built charsmap.

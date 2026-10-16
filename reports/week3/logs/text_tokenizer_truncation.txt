@@ -1,0 +1,6 @@
+compare=tokenizers-0.23.2
+mode=truncate_128
+index=0 untruncated=202 truncated=128 tail=</s> head=0,2565,2565,2565,2565,2565,2565,2565 match=1
+index=1 untruncated=415 truncated=128 tail=</s> head=0,148,2389,148,418,148,304,148 match=1
+index=2 untruncated=324 truncated=128 tail=</s> head=0,5154,2,148,2389,148,418,148 match=1
+gate=pass

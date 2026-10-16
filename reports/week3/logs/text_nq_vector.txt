@@ -1,0 +1,12 @@
+question=when was the last time anyone was on the moon
+ids=0,3229,509,70,4568,1733,35672,509,98,70,6,59533,2
+tokens=13
+dim=384
+space=documentText
+model=paraphrase-multilingual-MiniLM-L12-v2
+normalized=true
+l2=1.000000
+finite=1
+total_ms=2271
+total_ms_includes=process_start_and_model_load
+gate=pass

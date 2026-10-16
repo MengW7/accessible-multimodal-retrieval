@@ -53,9 +53,11 @@ class TensorInfo {
 /// 推理运行时。TFLite 动态库和外部 ONNX 进程实现同一个接口。
 ///
 /// 单测注入假实现，不加载真模型。Day 1 已验证的是外部 ONNX Runtime 进程，
-/// 见 `engine/embed_spike.py`。
+/// 见 `engine/embed_spike.py`。文本模型的 [run] 返回展平的
+/// `last_hidden_state`，形状是 `sequence * hidden`，不做 pooling，也不做
+/// L2。这两步在 `TextEmbedder` 里，才能单独固定用例。
 abstract interface class EmbeddingRuntime {
-  /// 按 [modelId] 跑一次前向，返回已经从输出张量取出的 float 向量。
+  /// 按 [modelId] 跑一次前向，返回模型 float 输出的行优先展平。
   ///
   /// 维度不符、缺张量、超时、运行时不可用都抛 [EmbeddingRuntimeException]
   /// 的对应子类，不返回空向量。
@@ -95,4 +97,9 @@ final class MissingTensorException extends EmbeddingRuntimeException {
 /// 单次推理超过预算。
 final class EmbeddingTimeoutException extends EmbeddingRuntimeException {
   const EmbeddingTimeoutException(super.message, {super.detail});
+}
+
+/// 输出不是有限数，或范数为 0，无法做 L2。
+final class BadOutputException extends EmbeddingRuntimeException {
+  const BadOutputException(super.message, {super.detail});
 }
