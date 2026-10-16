@@ -305,6 +305,6 @@ COCO 的主路径是图像向量对 caption 的文本向量，两边都在 `clip
 - [x] 阶段 A：ADR、模型登记、探针日志、`packages/core_embedding` 的公开类型。
 - [x] 阶段 B：按 Unigram `tokenizer.json` 做纯 Dart 分词器，和 Python `tokenizers` 逐 id 一致。
 - [x] 阶段 C：`TextChunker`、图像预处理、`EmbeddingEngine` 的双空间检查、批量服务。
-- [ ] 阶段 D：MVP 探针、证据集、NQ / COCO 评测、覆盖率 ≥85%。
+- [x] 阶段 D：MVP 探针、证据集、NQ / COCO 评测、覆盖率 ≥85%。证据在 `reports/week3/`。覆盖率 1250/1458 = 85.73%。证据集只冻结，没有用来改切块或换模型。
 - [ ] W4：两个索引加融合；跨页答案用邻域扩展；不得把 `chunkId` 当主键。
 - [ ] W8：公开包不包含 MobileCLIP 权重；若仍要进程内推理，再单开运行时 ADR。

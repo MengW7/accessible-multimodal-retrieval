@@ -1,0 +1,45 @@
+metric_layer=image_caption_sanity
+not_measured=pdf_figure_understanding
+not_measured=statistical_precision
+space=clipShared
+caption_encoder=mobileclip-s0-text
+caption_encoder_not=paraphrase-multilingual-MiniLM-L12-v2
+n_captioned_images=50
+n_rvlcdip_unlabeled=16
+rvlcdip_in_this_run=0
+captions=datasets/coco/val_sample/captions.jsonl lines=50
+vision_model=models/raw/image/mobileclip-s0/onnx/vision_model.onnx
+text_model=models/raw/image/mobileclip-s0/onnx/text_model.onnx
+preprocess=shortest_edge_256 bilinear center_crop rescale_1_255 do_normalize=false
+text_pad=exclamation_to_77
+max_length=77
+load_ms=439.78
+embedded_images=50 dim=512
+embedded_captions=50 dim=512
+image_infer_ms_median=103.35
+image_infer_ms_max=155.20
+text_infer_ms_median=39.63
+text_infer_ms_max=73.89
+infer_ms_excludes=model_load
+block=image_to_caption
+function_status=complete
+recall@1_hits=46/50
+recall@5_hits=50/50
+recall@1=0.920000
+recall@5=1.000000
+mean_rank=1.14
+rank_min=1
+rank_median=1.0
+rank_max=4
+chance_recall@1=0.020000
+chance_recall@5=0.100000
+example index=0 file=000000397133.jpg rank=1 caption=A man is in a kitchen making pizzas.
+example index=1 file=000000037777.jpg rank=1 caption=The dining table near the kitchen has a bowl of fruit on it.
+example index=2 file=000000252219.jpg rank=1 caption=a person with a shopping cart on a city street
+block=image_to_image_sanity
+image_to_image_not_completion=1
+self_cosine_min=0.999999
+self_cosine_max=1.000000
+nearest_other_cosine_median=0.510716
+nearest_other_cosine_max=0.826031
+gate=pass

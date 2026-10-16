@@ -1,0 +1,10 @@
+frozen_at=2026-10-16T13:12:33+00:00
+rows=25
+dev=15
+holdout=10
+cross_page=3
+scored=0
+parameters_changed_after_freeze=0
+sha256=82c080c0c91e29551d7e3ee4a67f4ae3e421d424a2b2fb5a5d8079b23e4eb9d6
+newline=lf
+path=reports/week3/evidence_set.jsonl

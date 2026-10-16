@@ -1,0 +1,41 @@
+metric_layer=embedding_proxy
+not_measured=document_retrieval
+not_measured=generation
+protocol=nq-a
+query_order=nq_open_val50 then nq_open_val250_part2
+pool=600
+pool_parts=first_gold_answer:300 question_distractor:300
+ranking_exclusion=drop the query's own question row; the other 299 questions stay
+ranking_pool=599
+relevant=the paired first gold answer row
+tie_break=higher cosine, then lower candidate index
+tokenizer=tokenizers no_truncation manual_pad
+pooling=mean attention_mask
+normalized=l2
+max_length=128
+model=models/raw/text/paraphrase-multilingual-MiniLM-L12-v2/onnx/model.onnx
+nq_file=datasets/nq/validation/nq_open_val50.jsonl lines=50
+nq_file=datasets/nq/validation/nq_open_val250_part2.jsonl lines=250
+load_ms=626.36
+embedded=600 dim=384 space=documentText
+infer_ms_median=40.65
+infer_ms_max=124.05
+infer_ms_excludes=model_load
+queries_scored=300
+queries_skipped=0
+recall@1_hits=33/300
+recall@5_hits=63/300
+recall@1=0.110000
+recall@5=0.210000
+mrr=0.166034
+rank_min=1
+rank_median=47.0
+rank_max=526
+chance_recall@1=0.001669
+chance_recall@5=0.008347
+single_relevant=1
+recall_equals_hit=1
+example index=0 rank=11 question=when was the last time anyone was on the moon gold=14 December 1972 UTC
+example index=1 rank=82 question=who wrote he ain't heavy he's my brother lyrics gold=Bobby Scott
+example index=2 rank=288 question=how many seasons of the bastard executioner are there gold=one
+gate=pass

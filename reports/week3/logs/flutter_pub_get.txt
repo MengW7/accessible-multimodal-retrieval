@@ -1,0 +1,10 @@
+Resolving dependencies...
+Downloading packages...
+  meta 1.18.3 (1.19.0 available)
+  petitparser 7.0.2 (7.1.0 available)
+  test_api 0.7.12 (0.7.15 available)
++ unorm_dart 0.2.0
+  vector_math 2.4.0 (2.4.3 available)
+Changed 1 dependency!
+4 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
