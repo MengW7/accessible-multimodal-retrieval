@@ -87,13 +87,46 @@ void main() {
           ('<unk>', 0),
         ],
         unkId: 3,
-        addedTokens: const <AddedToken>[
+        addedTokens: <AddedToken>[
           AddedToken(content: '<s>', id: 0, special: true),
           AddedToken(content: '<pad>', id: 1, special: true),
           AddedToken(content: '</s>', id: 2, special: true),
           AddedToken(content: '<unk>', id: 3, special: true),
           AddedToken(content: '<mask>', id: 4, normalized: true),
         ],
+      ),
+      throwsArgumentError,
+    );
+  });
+
+  test('an added token with empty content is rejected', () {
+    expect(() => AddedToken(content: '', id: 4), throwsArgumentError);
+    const String jsonText = '''
+{"model":{"type":"Unigram","unk_id":0,"vocab":[["<s>",0],["<pad>",0],["</s>",0]]},"added_tokens":[{"id":0,"content":"<s>"},{"id":1,"content":"<pad>"},{"id":2,"content":"</s>"},{"id":3,"content":""}]}
+''';
+    expect(
+      () => UnigramTokenizer.fromJsonString(jsonText),
+      throwsArgumentError,
+    );
+  });
+
+  test('an empty metaspace is rejected', () {
+    expect(
+      () => UnigramTokenizer(
+        pieces: const <(String, double)>[
+          ('<s>', 0),
+          ('<pad>', 0),
+          ('</s>', 0),
+          ('<unk>', 0),
+        ],
+        unkId: 3,
+        addedTokens: <AddedToken>[
+          AddedToken(content: '<s>', id: 0, special: true),
+          AddedToken(content: '<pad>', id: 1, special: true),
+          AddedToken(content: '</s>', id: 2, special: true),
+          AddedToken(content: '<unk>', id: 3, special: true),
+        ],
+        metaspace: '',
       ),
       throwsArgumentError,
     );

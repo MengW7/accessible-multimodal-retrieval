@@ -164,7 +164,7 @@ ADR 0003 冻结的文档文本模型。图内不归一化。`normalized == true`
 ### `AddedToken`
 
 ```dart
-const AddedToken({
+AddedToken({
   required String content,
   required int id,
   bool lstrip = false,
@@ -175,7 +175,7 @@ const AddedToken({
 ```
 
 ```dart
-const AddedToken mask = AddedToken(
+final AddedToken mask = AddedToken(
   content: '<mask>',
   id: 250001,
   lstrip: true,
@@ -183,7 +183,7 @@ const AddedToken mask = AddedToken(
 );
 ```
 
-`tokenizer.json` 里的一个 added token。`normalized` 为 false 时，在归一化之前按原文切开。`lstrip` 把紧挨在标记左边的空白吃进这个标记。`rstrip` 吃掉右边的空白。本模型的五个特殊标记都是 `normalized: false`。构造函数本身不抛异常；`UnigramTokenizer` 拒绝 `normalized: true`。
+`tokenizer.json` 里的一个 added token。`normalized` 为 false 时，在归一化之前按原文切开。`lstrip` 把紧挨在标记左边的空白吃进这个标记。`rstrip` 吃掉右边的空白。本模型的五个特殊标记都是 `normalized: false`。`content` 为空时抛 `ArgumentError`，空字符串会让编码停在同一个下标。`UnigramTokenizer` 另外拒绝 `normalized: true`。
 
 ### `TokenEncoding`
 
@@ -243,7 +243,7 @@ final TokenEncoding marker = tokenizer.encode('##');
 
 `fromFile` 读整个 `tokenizer.json`。文件大约十几 MB，只在集成测试和真推理时读。JSON 不是对象、模型不是 Unigram、词条不是 `[token, score]`、归一化不是 Precompiled，都抛 `FormatException`。文件不存在抛 `FileSystemException`。
 
-`pieces` 为空，或 `unkId` 不在词表下标里，抛 `ArgumentError`。某个 added token 的 `normalized` 为 true，或 `bosContent` / `eosContent` / `padContent` 在 added token 里找不到，抛 `ArgumentError`。
+`pieces` 为空，或 `unkId` 不在词表下标里，抛 `ArgumentError`。某个 added token 的 `normalized` 为 true，或 `bosContent` / `eosContent` / `padContent` 在 added token 里找不到，抛 `ArgumentError`。`metaspace` 为空也抛 `ArgumentError`，空字符串会让按标记切开的循环停住。
 
 ### `TextInputResult`
 

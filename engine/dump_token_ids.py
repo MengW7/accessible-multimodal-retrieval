@@ -1,9 +1,9 @@
 """Print tokenizers ids for a JSON list of sentences.
 
-Usage: dump_token_ids.py <tokenizer.json> <sentences.json> [--truncate N]
+Usage: dump_token_ids.py <tokenizer.json> <sentences.json> [--no-truncate]
 sentences.json is a JSON list of strings. Stdout is a JSON list of
-objects with ids and tokens. Truncation uses the file default unless
---truncate is omitted and --no-truncate is passed.
+objects with ids and tokens. Truncation uses the tokenizer file default.
+Pass --no-truncate to disable it.
 """
 
 from __future__ import annotations

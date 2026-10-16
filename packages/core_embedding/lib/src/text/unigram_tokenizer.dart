@@ -10,16 +10,21 @@ import 'unigram_model.dart';
 ///
 /// [normalized] 为 false 时在归一化之前按原文切出。MiniLM 的五个特殊标记都是
 /// 这样。[lstrip] 会把紧挨在标记左边的空白吃进这个标记，不再单独成词。
+/// [content] 不能是空串，否则 [UnigramTokenizer.encode] 会停在同一个下标。
 @immutable
 class AddedToken {
-  const AddedToken({
+  AddedToken({
     required this.content,
     required this.id,
     this.lstrip = false,
     this.rstrip = false,
     this.special = false,
     this.normalized = false,
-  });
+  }) {
+    if (content.isEmpty) {
+      throw ArgumentError.value(content, 'content', 'must not be empty');
+    }
+  }
 
   final String content;
   final int id;
@@ -113,6 +118,9 @@ final class UnigramTokenizer {
        bosId = _requiredId(addedTokens, bosContent),
        eosId = _requiredId(addedTokens, eosContent),
        padId = _requiredId(addedTokens, padContent) {
+    if (metaspace.isEmpty) {
+      throw ArgumentError.value(metaspace, 'metaspace', 'must not be empty');
+    }
     for (final AddedToken token in _added) {
       if (token.normalized) {
         throw ArgumentError.value(

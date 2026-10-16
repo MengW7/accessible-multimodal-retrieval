@@ -15,7 +15,7 @@ UnigramTokenizer toyTokenizer() {
       ('▁##', -0.3),
     ],
     unkId: 3,
-    addedTokens: const <AddedToken>[
+    addedTokens: <AddedToken>[
       AddedToken(content: '<s>', id: 0, special: true),
       AddedToken(content: '<pad>', id: 1, special: true),
       AddedToken(content: '</s>', id: 2, special: true),
