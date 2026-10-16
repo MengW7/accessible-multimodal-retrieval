@@ -40,11 +40,12 @@ sealed class TextInputResult {
   const TextInputResult();
 }
 
+// 测试会继承这个类，把 attention mask 换成非 Int64List。
 /// 把一句正文变成 MiniLM 的三份 int64 输入。
 ///
 /// 长度不到 [maxLength] 时右侧补 `<pad>`，attention 为 0，token type 为 0。
 /// 长度超过 [maxLength] 时返回 [TextInputNeedsRechunk]，不改写 id。
-final class TextInputBuilder {
+class TextInputBuilder {
   TextInputBuilder({required this.tokenizer, required this.maxLength}) {
     if (maxLength < 2) {
       throw ArgumentError.value(maxLength, 'maxLength', 'must be at least 2');
@@ -75,7 +76,11 @@ final class TextInputBuilder {
     }
     return TextInputTensors(
       tensors: <String, Tensor>{
-        'input_ids': Tensor(dtype: TensorDType.int64, shape: <int>[1, maxLength], data: ids),
+        'input_ids': Tensor(
+          dtype: TensorDType.int64,
+          shape: <int>[1, maxLength],
+          data: ids,
+        ),
         'attention_mask': Tensor(
           dtype: TensorDType.int64,
           shape: <int>[1, maxLength],

@@ -1,0 +1,16 @@
+corpus=datasets/samples
+counter=unigram
+specials=included
+chunkChars=120
+maxTokens=128
+chunker=w3-cascade-1
+image=datasets/samples/sample.png skipped_no_text
+file=datasets/samples/sample.docx pages=1 chars=1499
+file=datasets/samples/sample.docx windows=13 tokens_min=24 tokens_p50=31 tokens_mean=31.31 tokens_max=38 windows_over_budget=0
+file=datasets/samples/sample.docx chunks=22 chunk_tokens_min=5 chunk_tokens_p50=20 chunk_tokens_max=33 chars_per_content_token=4.03
+file=datasets/samples/sample.pdf pages=2 chars=4358
+file=datasets/samples/sample.pdf windows=37 tokens_min=20 tokens_p50=34 tokens_mean=35.86 tokens_max=54 windows_over_budget=0
+file=datasets/samples/sample.pdf chunks=74 chunk_tokens_min=5 chunk_tokens_p50=21 chunk_tokens_max=29 chars_per_content_token=3.57
+note=120 is the initial character window on this MiniLM corpus, not a universal optimum. windows_over_budget counts 120-code-unit windows whose Unigram length, specials included, exceeds 128. sample.docx and sample.pdf are about 4 characters per content token, so this log does not measure the Chinese one-character bound.
+windows_over_budget=0
+gate=pass

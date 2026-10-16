@@ -7,6 +7,6 @@ model=paraphrase-multilingual-MiniLM-L12-v2
 normalized=true
 l2=1.000000
 finite=1
-total_ms=2271
+total_ms=1851
 total_ms_includes=process_start_and_model_load
 gate=pass

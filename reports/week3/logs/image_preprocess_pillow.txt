@@ -1,0 +1,9 @@
+compare=pillow-12.3.0 bilinear
+cases=6
+name=identity size=2x2 edge=2 mismatch=0 max_delta=0
+name=upscale size=2x2 edge=4 mismatch=0 max_delta=0
+name=downscale size=4x4 edge=2 mismatch=0 max_delta=0
+name=non-integer size=3x3 edge=2 mismatch=0 max_delta=0
+name=odd-edge size=5x5 edge=3 mismatch=0 max_delta=0
+name=odd-height-crop size=4x3 edge=2 mismatch=0 max_delta=0
+gate=pass

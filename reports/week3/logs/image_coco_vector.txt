@@ -1,0 +1,12 @@
+path=E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images/000000397133.jpg
+dim=512
+space=clipShared
+model=mobileclip-s0-vision
+normalized=true
+l2=1.000000
+finite=1
+values_head=0.050304,-0.046860,0.062861
+cosine_vs_pillow=0.999955
+total_ms=1613
+total_ms_includes=process_start_and_model_load
+gate=pass

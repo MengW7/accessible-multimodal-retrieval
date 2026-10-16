@@ -73,7 +73,11 @@ OnnxProcessEmbeddingRuntime _runtime(_FakeProcess process) {
 void main() {
   test('decodes a little-endian hidden state from the process', () async {
     final _FakeProcess process = _FakeProcess(
-      ProcessRunResult(exitCode: 0, stdout: _b64(<double>[1.5, -2]), stderr: ''),
+      ProcessRunResult(
+        exitCode: 0,
+        stdout: _b64(<double>[1.5, -2]),
+        stderr: '',
+      ),
     );
     final Float32List hidden = await _runtime(process).run('toy', _inputs());
     expect(process.calls, 1);
@@ -86,7 +90,7 @@ void main() {
     final _FakeProcess process = _FakeProcess.throws(
       const ProcessStartException('python', 'missing'),
     );
-    expect(
+    await expectLater(
       () => _runtime(process).run('toy', _inputs()),
       throwsA(isA<RuntimeUnavailableException>()),
     );
@@ -96,7 +100,7 @@ void main() {
     final _FakeProcess process = _FakeProcess.throws(
       const ProcessTimeoutException('python', Duration(seconds: 1)),
     );
-    expect(
+    await expectLater(
       () => _runtime(process).run('toy', _inputs()),
       throwsA(isA<EmbeddingTimeoutException>()),
     );
@@ -106,7 +110,7 @@ void main() {
     final _FakeProcess process = _FakeProcess(
       const ProcessRunResult(exitCode: 1, stdout: '', stderr: 'boom'),
     );
-    expect(
+    await expectLater(
       () => _runtime(process).run('toy', _inputs()),
       throwsA(isA<EmbeddingRuntimeException>()),
     );
@@ -116,7 +120,7 @@ void main() {
     final _FakeProcess process = _FakeProcess(
       const ProcessRunResult(exitCode: 0, stdout: 'not-base64', stderr: ''),
     );
-    expect(
+    await expectLater(
       () => _runtime(process).run('toy', _inputs()),
       throwsA(isA<BadOutputException>()),
     );
@@ -126,7 +130,7 @@ void main() {
     final _FakeProcess process = _FakeProcess(
       const ProcessRunResult(exitCode: 0, stdout: '', stderr: ''),
     );
-    expect(
+    await expectLater(
       () => _runtime(process).run('toy', <String, Tensor>{}),
       throwsA(isA<MissingTensorException>()),
     );

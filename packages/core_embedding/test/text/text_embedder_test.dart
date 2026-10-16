@@ -49,7 +49,9 @@ void main() {
   });
 
   test('embed pools the masked rows and then normalizes', () async {
-    final _ScriptedRuntime runtime = _ScriptedRuntime((Map<String, Tensor> inputs) {
+    final _ScriptedRuntime runtime = _ScriptedRuntime((
+      Map<String, Tensor> inputs,
+    ) {
       final Int64List mask = inputs['attention_mask']!.data as Int64List;
       expect(mask.sublist(0, 3), <int>[1, 1, 1]);
       return _hidden(<double>[3, 4, 3, 4, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
@@ -59,7 +61,10 @@ void main() {
       tokenizer: toyTokenizer(),
       runtime: runtime,
     );
-    final EmbeddingVector vector = await embedder.embed('a', chunkId: 'chunk-1');
+    final EmbeddingVector vector = await embedder.embed(
+      'a',
+      chunkId: 'chunk-1',
+    );
     expect(runtime.calls, 1);
     expect(vector.dim, 2);
     expect(vector.normalized, isTrue);
@@ -71,7 +76,9 @@ void main() {
   });
 
   test('an over-long sentence does not call the runtime', () async {
-    final _ScriptedRuntime runtime = _ScriptedRuntime((_) => _hidden(<double>[0]));
+    final _ScriptedRuntime runtime = _ScriptedRuntime(
+      (_) => _hidden(<double>[0]),
+    );
     final TextEmbedder embedder = TextEmbedder(
       model: const ModelInfo(
         modelId: 'toy',
@@ -84,7 +91,7 @@ void main() {
       tokenizer: toyTokenizer(),
       runtime: runtime,
     );
-    expect(
+    await expectLater(
       () => embedder.embed('a a a'),
       throwsA(
         isA<TextOverBudgetException>().having(
@@ -98,14 +105,16 @@ void main() {
   });
 
   test('a missing runtime is reported before inference', () async {
-    final _ScriptedRuntime runtime = _ScriptedRuntime((_) => _hidden(<double>[0]));
+    final _ScriptedRuntime runtime = _ScriptedRuntime(
+      (_) => _hidden(<double>[0]),
+    );
     runtime.available = false;
     final TextEmbedder embedder = TextEmbedder(
       model: _toyModel,
       tokenizer: toyTokenizer(),
       runtime: runtime,
     );
-    expect(
+    await expectLater(
       () => embedder.embed('a'),
       throwsA(isA<RuntimeUnavailableException>()),
     );
@@ -120,7 +129,10 @@ void main() {
         throw const MissingTensorException('attention_mask');
       }),
     );
-    expect(() => embedder.embed('a'), throwsA(isA<MissingTensorException>()));
+    await expectLater(
+      () => embedder.embed('a'),
+      throwsA(isA<MissingTensorException>()),
+    );
   });
 
   test('a runtime timeout surfaces', () async {
@@ -131,17 +143,26 @@ void main() {
         throw const EmbeddingTimeoutException('budget');
       }),
     );
-    expect(() => embedder.embed('a'), throwsA(isA<EmbeddingTimeoutException>()));
+    await expectLater(
+      () => embedder.embed('a'),
+      throwsA(isA<EmbeddingTimeoutException>()),
+    );
   });
 
-  test('a hidden state with the wrong length is a dimension mismatch', () async {
-    final TextEmbedder embedder = TextEmbedder(
-      model: _toyModel,
-      tokenizer: toyTokenizer(),
-      runtime: _ScriptedRuntime((_) => _hidden(<double>[1, 2, 3])),
-    );
-    expect(() => embedder.embed('a'), throwsA(isA<DimensionMismatchException>()));
-  });
+  test(
+    'a hidden state with the wrong length is a dimension mismatch',
+    () async {
+      final TextEmbedder embedder = TextEmbedder(
+        model: _toyModel,
+        tokenizer: toyTokenizer(),
+        runtime: _ScriptedRuntime((_) => _hidden(<double>[1, 2, 3])),
+      );
+      await expectLater(
+        () => embedder.embed('a'),
+        throwsA(isA<DimensionMismatchException>()),
+      );
+    },
+  );
 
   test('a zero vector cannot be normalized', () async {
     final TextEmbedder embedder = TextEmbedder(
@@ -149,19 +170,24 @@ void main() {
       tokenizer: toyTokenizer(),
       runtime: _ScriptedRuntime((_) => _hidden(List<double>.filled(16, 0))),
     );
-    expect(() => embedder.embed('a'), throwsA(isA<BadOutputException>()));
+    await expectLater(
+      () => embedder.embed('a'),
+      throwsA(isA<BadOutputException>()),
+    );
   });
 
   test('cancellation is checked before the runtime', () async {
     final CancellationTokenSource source = CancellationTokenSource();
     source.cancel();
-    final _ScriptedRuntime runtime = _ScriptedRuntime((_) => _hidden(<double>[0]));
+    final _ScriptedRuntime runtime = _ScriptedRuntime(
+      (_) => _hidden(<double>[0]),
+    );
     final TextEmbedder embedder = TextEmbedder(
       model: _toyModel,
       tokenizer: toyTokenizer(),
       runtime: runtime,
     );
-    expect(
+    await expectLater(
       () => embedder.embed('a', cancel: source.token),
       throwsA(isA<CancelledException>()),
     );
@@ -174,6 +200,53 @@ void main() {
       tokenizer: toyTokenizer(),
       runtime: _ScriptedRuntime((_) => _hidden(<double>[1])),
     );
-    expect(() => embedder.embed(''), throwsArgumentError);
+    await expectLater(() => embedder.embed(''), throwsArgumentError);
   });
+
+  test('a non-int64 attention mask is a missing tensor', () async {
+    final _ScriptedRuntime runtime = _ScriptedRuntime(
+      (_) => _hidden(List<double>.filled(16, 1)),
+    );
+    final TextEmbedder embedder = TextEmbedder(
+      model: _toyModel,
+      tokenizer: toyTokenizer(),
+      runtime: runtime,
+      inputs: _ByteMaskInputs(),
+    );
+    await expectLater(
+      () => embedder.embed('a'),
+      throwsA(
+        isA<MissingTensorException>().having(
+          (MissingTensorException error) => error.message,
+          'message',
+          'attention_mask is not int64.',
+        ),
+      ),
+    );
+    expect(runtime.calls, 1);
+  });
+}
+
+final class _ByteMaskInputs extends TextInputBuilder {
+  _ByteMaskInputs() : super(tokenizer: toyTokenizer(), maxLength: 8);
+
+  @override
+  TextInputResult build(String text) {
+    final TextInputResult built = super.build(text);
+    if (built is! TextInputTensors) {
+      return built;
+    }
+    final Map<String, Tensor> tensors = Map<String, Tensor>.of(built.tensors);
+    tensors['attention_mask'] = Tensor(
+      dtype: TensorDType.int64,
+      shape: built.tensors['attention_mask']!.shape,
+      data: Uint8List(built.maxLength),
+    );
+    return TextInputTensors(
+      tensors: tensors,
+      ids: built.ids,
+      tokens: built.tokens,
+      maxLength: built.maxLength,
+    );
+  }
 }

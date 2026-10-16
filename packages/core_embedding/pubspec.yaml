@@ -1,8 +1,8 @@
 name: core_embedding
 description: >-
   Offline text and image embedding engine for the accessible multimodal
-  local content retrieval system. Document text is tokenized and embedded
-  behind EmbeddingRuntime. Image inference is a later phase.
+  local content retrieval system. Document text and MobileCLIP images are
+  embedded behind EmbeddingRuntime.
 version: 0.1.0
 publish_to: none
 
@@ -13,8 +13,11 @@ dependencies:
   characters: ^1.4.0
   core_parsing:
     path: ../core_parsing
+  crypto: ^3.0.7
+  image: ^4.3.0
   meta: ^1.18.0
   path: ^1.9.1
+  unorm_dart: ^0.2.0
 
 dev_dependencies:
   coverage: ^1.15.1
