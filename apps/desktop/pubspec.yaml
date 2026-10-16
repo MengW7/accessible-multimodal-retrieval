@@ -42,6 +42,11 @@ dependencies:
   core_parsing:
     path: ../../packages/core_parsing
 
+  # Embedding layer (Week 3). Path dependency for the same reason as
+  # core_parsing. Week 3 does not call it from the UI yet.
+  core_embedding:
+    path: ../../packages/core_embedding
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

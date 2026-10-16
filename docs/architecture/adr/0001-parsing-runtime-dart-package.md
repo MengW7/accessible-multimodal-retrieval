@@ -67,4 +67,4 @@ Week 2 要交付「支持 TXT/PDF/DOCX/JPG/PNG 的文件解析模块」，并达
 - [x] W2 Day 1：创建包骨架、冻结 §6 接口、`dart analyze` 零问题。
 - [x] W2 Day 2–3：填充 5 个解析器与 `IngestionService`。
 - [x] W2 Day 4：`coverage/lcov.info` 证明 ≥80%，证据入 `reports/week2/`。
-- [ ] W3：新增 `packages/core_embedding`，消费 `ParsedDocument`；届时复查本条 ADR 的依赖方向是否仍然成立。
+- [x] W3（2026-10-15）：已新增 `packages/core_embedding`。`TextChunker.chunk` 的入参是 `ParsedDocument`。依赖仍是单向：`core_embedding` 依赖 `core_parsing`，解析包不依赖嵌入包。本条 ADR 的方向仍然成立。

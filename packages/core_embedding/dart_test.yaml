@@ -1,0 +1,4 @@
+# Real model files and gitignored dataset images use this tag.
+# The default command excludes it, matching packages/core_parsing.
+tags:
+  integration:

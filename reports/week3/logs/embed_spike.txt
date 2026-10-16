@@ -1,0 +1,21 @@
+runtime=onnxruntime-cpu
+onnxruntime=1.30.0
+tokenizers=0.23.2
+pillow=12.3.0
+numpy=2.5.3
+infer_ms=mean of 3 runs after 1 warmup; session graph optimization disabled
+text_model=paraphrase-multilingual-MiniLM-L12-v2
+text_file=E:\Project\accessible-multimodal-retrieval\models\raw\text\paraphrase-multilingual-MiniLM-L12-v2\onnx\model.onnx
+image_model=mobileclip-s0
+image_file=E:\Project\accessible-multimodal-retrieval\models\raw\image\mobileclip-s0\onnx\vision_model.onnx
+image_preprocess=shortest_edge_256,bilinear,center_crop_256,rescale_1_255,do_normalize=false
+text_input name=input_ids type=tensor(int64) shape=['batch_size', 'sequence_length']
+text_input name=attention_mask type=tensor(int64) shape=['batch_size', 'sequence_length']
+text_input name=token_type_ids type=tensor(int64) shape=['batch_size', 'sequence_length']
+text_output name=last_hidden_state type=tensor(float) shape=['batch_size', 'sequence_length', 384]
+sentence index=0 lang=zh dim=384 l2_raw=3.823005 l2_normalized=1.000000 infer_ms=25.44 content_tokens=13 unk_tokens=0 finite=1
+sentence index=1 lang=en dim=384 l2_raw=4.611503 l2_normalized=1.000000 infer_ms=26.69 content_tokens=13 unk_tokens=0 finite=1
+image_input name=pixel_values type=tensor(float) shape=['batch_size', 3, 256, 256]
+image_output name=image_embeds type=tensor(float) shape=['batch_size', 512]
+image file=000000397133.jpg dim=512 l2_raw=0.821738 l2_normalized=1.000000 infer_ms=35.26 finite=1
+gate=pass
