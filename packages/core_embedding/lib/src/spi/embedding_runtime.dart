@@ -2,13 +2,14 @@ import 'dart:typed_data';
 
 import 'package:meta/meta.dart';
 
-/// 张量元素类型。只覆盖本包模型实际会用到的几种。
-enum TensorDType { float32, int32, int64, uint8, boolean }
+/// 张量元素类型。只覆盖本包模型实际会用到、且能放进 [TypedData] 的几种。
+enum TensorDType { float32, int32, int64, uint8 }
 
 /// 一次推理的输入或输出张量。
 ///
-/// [data] 的元素类型要和 [dtype] 一致：float32 用 `Float32List`，int64 用
-/// `Int64List`，其余类推。形状按模型签名，不含调用方自己的批外维。
+/// [data] 的元素类型要和 [dtype] 一致：float32 用 `Float32List`，int32 用
+/// `Int32List`，int64 用 `Int64List`，uint8 用 `Uint8List`。形状按模型签名，
+/// 不含调用方自己的批外维。
 @immutable
 class Tensor {
   const Tensor({required this.dtype, required this.shape, required this.data});
@@ -23,23 +24,30 @@ class Tensor {
   String toString() => 'Tensor(${dtype.name}, $shape)';
 }
 
-/// 模型端口的名字、类型和形状。动态维可以是 -1。
+/// 端口属于输入还是输出。只靠名字区分不了该放进 inputs 还是 outputs。
+enum TensorDirection { input, output }
+
+/// 模型端口的名字、方向、类型和形状。动态维可以是 -1。
 @immutable
 class TensorInfo {
   const TensorInfo({
     required this.name,
+    required this.direction,
     required this.dtype,
     required this.shape,
   });
 
   final String name;
 
+  final TensorDirection direction;
+
   final TensorDType dtype;
 
   final List<int> shape;
 
   @override
-  String toString() => 'TensorInfo($name, ${dtype.name}, $shape)';
+  String toString() =>
+      'TensorInfo($name, ${direction.name}, ${dtype.name}, $shape)';
 }
 
 /// 推理运行时。TFLite 动态库和外部 ONNX 进程实现同一个接口。

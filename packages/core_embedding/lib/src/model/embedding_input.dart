@@ -14,11 +14,16 @@ import 'embedding_space.dart';
 /// 图像宽高，不保留像素，所以批量服务会按原路径再读一次文件，不再做解析。
 @immutable
 class EmbeddingInput {
+  /// 文本输入。[text] 必须非空。字段仍是 [String?]，图像输入把该字段留空。
+  ///
+  /// 不用 initializing formal。写成 `this.text` 会让参数跟着字段变成
+  /// [String?]，`EmbeddingInput.text(null)` 就能编过。
   EmbeddingInput.text(
-    this.text, {
+    String text, {
     this.chunkId,
     this.space = EmbeddingSpace.documentText,
-  }) : imageBytes = null,
+  }) : text = text, // ignore: prefer_initializing_formals
+       imageBytes = null,
        imageWidth = null,
        imageHeight = null {
     if (chunkId == '') {

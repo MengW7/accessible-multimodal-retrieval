@@ -39,6 +39,19 @@ from w3_embed_lib import (
 )
 
 
+def _minimum(scores: list[float]) -> float:
+    """Return the lowest cosine, or NaN when any cosine is non-finite.
+
+    Python's min() uses ``<``. Comparisons with NaN are false, so
+    ``min([1.0, float("nan")])`` is ``1.0`` and a later bad score would
+    still clear the gate. The gate requires every cosine to pass.
+    """
+
+    if scores and all(np.isfinite(score) for score in scores):
+        return float(min(scores))
+    return float("nan")
+
+
 def _score_text(
     label: str,
     before_path,
@@ -68,7 +81,7 @@ def _score_text(
             f"{label}_cosine index={index} lang={lang} value={score:.6f} "
             f"dim={left.shape[0]}"
         )
-    minimum = float(min(scores)) if scores else float("nan")
+    minimum = _minimum(scores)
     lines.append(f"{label}_cosine_min={minimum:.6f}")
     return minimum, lines
 
@@ -92,7 +105,7 @@ def _score_images(before_path, after_path) -> tuple[float, list[str]]:
         lines.append(
             f"image_cosine file={path.name} value={score:.6f} dim={left.shape[0]}"
         )
-    minimum = float(min(scores)) if scores else float("nan")
+    minimum = _minimum(scores)
     lines.append(f"image_cosine_min={minimum:.6f}")
     return minimum, lines
 

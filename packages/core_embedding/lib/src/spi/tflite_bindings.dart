@@ -11,7 +11,8 @@ abstract interface class TfliteBindings {
   /// [RuntimeUnavailableException]。
   int loadModel(List<int> bytes);
 
-  /// 读出输入输出端口。
+  /// 读出输入和输出端口。每条 [TensorInfo.direction] 标明它属于 [invoke] 的
+  /// inputs 还是 outputs。
   List<TensorInfo> describe(int handle);
 
   /// 写入 [inputs]，调用解释器，把结果填进 [outputs]。
