@@ -10,6 +10,7 @@ enum EmbeddingFailureKind {
   timeout,
   spaceMismatch,
   cancelled,
+  overBudget,
   unknown,
 }
 

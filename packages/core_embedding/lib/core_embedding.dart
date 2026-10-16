@@ -13,4 +13,9 @@ export 'src/model/embedding_vector.dart';
 export 'src/model/model_info.dart';
 export 'src/model/text_chunk.dart';
 export 'src/spi/embedding_runtime.dart';
+export 'src/spi/onnx_process_runtime.dart';
 export 'src/spi/tflite_bindings.dart';
+export 'src/text/text_embedder.dart';
+export 'src/text/text_input_builder.dart';
+export 'src/text/unigram_tokenizer.dart'
+    show AddedToken, TokenEncoding, UnigramTokenizer;
