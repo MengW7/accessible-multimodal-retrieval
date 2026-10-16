@@ -1,6 +1,6 @@
 # 向量模块 API
 
-阶段 B 的文本部分。图像推理、`TextChunker` 的实现、`EmbeddingEngine.embed` 和 `EmbeddingService.embedAll` 都还没有实现。下面列出的是 `lib/core_embedding.dart` 已经导出的符号。
+阶段 C。文档文本、图像预处理、切块、统一入口和批量服务都已实现。下面列出的是 `lib/core_embedding.dart` 已经导出的符号。
 
 ## 1. 调用约定
 
@@ -31,7 +31,7 @@ final EmbeddingVector vector = await TextEmbedder(
 
 `IoProcessRunner` 来自 `package:core_parsing/core_parsing.dart`。取消令牌也来自那个包。本包不重新导出它们。
 
-**空间。** `EmbeddingSpace.documentText` 是文档正文和文本查询，维度 384。`EmbeddingSpace.clipShared` 是 MobileCLIP 的图文共享空间，维度 512。两个空间的数不能比较，也不能放进同一个索引。混用时实现必须抛 `EmbeddingSpaceMismatchException`。阶段 B 的 `TextEmbedder` 只产出 `documentText`。
+**空间。** `EmbeddingSpace.documentText` 是文档正文和文本查询，维度 384。`EmbeddingSpace.clipShared` 是 MobileCLIP 的图文共享空间，维度 512。两个空间的数不能比较，也不能放进同一个索引。混用时 `DefaultEmbeddingEngine` 抛 `EmbeddingSpaceMismatchException`。没有 CLIP 文本塔时，`clipShared` 的文本不会改走 384 维的文档模型。
 
 **文本单位。** `TextUnit` 只有 `utf16CodeUnit`。偏移与 Dart 的 `String.length`、`String.substring` 以及 `DocumentPage.charCount` 相同。BMP 里的汉字占 1 个 code unit，emoji 这类代理对占 2 个。`TextChunk.startOffset` 含首，`endOffset` 不含尾，所以 `pageText.substring(startOffset, endOffset)` 就是该块在页文本里的跨度。
 
@@ -41,7 +41,7 @@ final EmbeddingVector vector = await TextEmbedder(
 
 **线程。** 分词、拼张量和 pooling 都在调用方的 isolate 上。`OnnxProcessEmbeddingRuntime` 另起一个 Python 进程跑 ONNX Runtime，不在 Dart 里链接 TFLite。这些对象没有内部锁。
 
-**测试。** 默认套件是 `dart test --exclude-tags integration`。它不读 `tokenizer.json`，不读权重，也不读数据集。带 `integration` 标签的用例才加载真模型和 NQ 句子。
+**测试。** 默认套件是 `dart test --exclude-tags integration`。它不读 `tokenizer.json`，不读权重，也不读数据集。带 `integration` 标签的用例才加载真模型、NQ 句子、MobileCLIP 分词器和一张 COCO 图。
 
 **词表文件。** 分词器读的是模型目录里的 `tokenizer.json`（Unigram，词表 250002），不是 `vocab.txt`，也不是 `config.json` 里的 `vocab_size`（250037）。`lib/src/text/wordpiece_tokenizer.dart` 只是计划路径上的再导出，不是另一种算法，也不从公开入口导出。`##` 在这个模型里是普通正文，编码成一片 `▁##`，不是 WordPiece 续接。
 
@@ -114,7 +114,81 @@ abstract interface class TextChunker {
 }
 ```
 
-页用于定位，段落用于切分，超长才切窗口。级联是 `\n\n`、换行、句末标点、硬窗口。阶段 B 没有实现类。`documentId` 缺省时，实现应当用正文内容哈希。跨页合并不在本周。
+页用于定位，段落用于切分，超长才切窗口。级联是 `\n\n`、换行、句末标点、硬窗口。实现类是 `CascadeTextChunker`。`documentId` 缺省时用正文内容哈希。跨页合并不在本周。
+
+### `ChunkBudgetException`
+
+```dart
+const ChunkBudgetException({
+  required int tokenCount,
+  required int maxTokens,
+});
+```
+
+```dart
+const ChunkBudgetException over = ChunkBudgetException(tokenCount: 1000, maxTokens: 128);
+// over.toString() 含 token 数和上限，不含正文
+```
+
+一个 UTF-16 窗口仍然放不进 token 预算。批量服务把它记成 `EmbeddingFailureKind.overBudget`，不截断。不返回向量。
+
+### `CascadeTextChunker`
+
+```dart
+CascadeTextChunker({
+  required int Function(String text) countTokens,
+  int chunkChars = 120,
+  int maxTokens = 128,
+  String chunkerVersion = 'w3-cascade-1',
+  String counterLabel = 'unigram',
+});
+List<TextChunk> chunk(ParsedDocument document, {String? documentId});
+```
+
+```dart
+final CascadeTextChunker chunker = CascadeTextChunker(
+  countTokens: (String text) => tokenizer.encode(text).ids.length,
+);
+final List<TextChunk> chunks = chunker.chunk(document, documentId: metadata.contentHash);
+```
+
+`countTokens` 必须和嵌入器使用同一个分词器，并且把起止标记算进去。`chunkChars` 是字符窗口初值，默认 120，不是跨语言的最优长度。`datasets/samples` 的 `sample.docx` 和 `sample.pdf` 用真实 Unigram 计数后，120 字窗口都低于 128；这两份文本大约 4 字符一个 token，没有覆盖中文一字一 token 的上沿。分布在 `reports/week3/logs/chunk_chars_calibration.txt`。字符长度超过窗口，或 token 数超过 `maxTokens`，都会继续切。窗口仍然超预算就缩短；一个码位仍然超预算时抛 `ChunkBudgetException`。
+
+DOCX 只有单个换行时按行切开，页码为 null。存在空行时，短的单换行留在段落里。PDF 由 `pageCount` 或 `extractor` 属性，或多于一页，保留页码。偏移相对该页文本。代理对不会从中间切开。
+
+`chunkId` 含 `documentId`、分块器版本、计数标记、`chunkChars`、`maxTokens`、页序号和块序号。同一配置可以复现，但不是稳定主键。`chunkChars < 1`、`maxTokens < 2`、空的版本或计数标记抛 `ArgumentError`。
+
+### `clipVisionModel`
+
+```dart
+const ModelInfo clipVisionModel;
+```
+
+```dart
+// clipVisionModel.modelId == 'mobileclip-s0-vision'
+// clipVisionModel.space == EmbeddingSpace.clipShared
+// clipVisionModel.dim == 512
+// clipVisionModel.pooling == 'none'
+// clipVisionModel.normalized == true
+```
+
+ADR 0003 冻结的 MobileCLIP-S0 图像塔。图内输出 `image_embeds`，不做 L2。`normalized == true` 表示交给调用方的向量已经归一化。不加 mean/std。不抛异常。
+
+### `clipTextModel`
+
+```dart
+const ModelInfo clipTextModel;
+```
+
+```dart
+// clipTextModel.modelId == 'mobileclip-s0-text'
+// clipTextModel.space == EmbeddingSpace.clipShared
+// clipTextModel.dim == 512
+// clipTextModel.maxInputLength == 77
+// clipTextModel.pooling == 'none'
+```
+
+用来查图的文本塔。只收 `input_ids`，没有 attention mask。上限 77，含起止标记。不抛异常。
 
 ### `ModelInfo`
 
@@ -245,6 +319,36 @@ final TokenEncoding marker = tokenizer.encode('##');
 
 `pieces` 为空，或 `unkId` 不在词表下标里，抛 `ArgumentError`。某个 added token 的 `normalized` 为 true，或 `bosContent` / `eosContent` / `padContent` 在 added token 里找不到，抛 `ArgumentError`。`metaspace` 为空也抛 `ArgumentError`，空字符串会让按标记切开的循环停住。
 
+### `ClipBpeTokenizer`
+
+```dart
+ClipBpeTokenizer({
+  required Map<String, int> vocab,
+  required List<String> merges,
+  String endOfWordSuffix = '</w>',
+  String bosToken = '<|startoftext|>',
+  String eosToken = '<|endoftext|>',
+  String padToken = '!',
+  int? bosId,
+  int? eosId,
+  int? padId,
+  int? unkId,
+});
+factory ClipBpeTokenizer.fromJsonString(String jsonText);
+TokenEncoding encode(String text);
+```
+
+```dart
+final ClipBpeTokenizer clip = ClipBpeTokenizer.fromJsonString(tokenizerJson);
+final TokenEncoding hello = clip.encode('Hello');
+// hello.ids == [49406, 3306, 49407]
+// clip.padId == 0
+```
+
+MobileCLIP 文本塔的字节级 BPE。归一化是 NFC、空白压成一个空格、再小写。预切分用 CLIP 的词块正则，数字按单个字符切开，再映射 UTF-8 字节。词尾加 `</w>` 后按 merge 表合并。`encode` 包上 `<|startoftext|>` 和 `<|endoftext|>`，不补齐、不截断。补齐在 `ClipTextEmbedder` 里做。空文本是 `[bos, eos]`。
+
+`fromJsonString` 只接受和当前 `tokenizer.json` 相同的 BPE 结构。模型不是 BPE、`byte_fallback` 为 true、continuing prefix 非空、缺 `</w>`，或归一化、预切分、后处理对不上，抛 `FormatException`。空词表、空的词尾后缀、merge 不是用空格分开的两段，抛 `ArgumentError`。默认套件用玩具词表，不读这份两兆字节的文件。
+
 ### `TextInputResult`
 
 ```dart
@@ -313,7 +417,7 @@ final TextInputResult result = builder.build('离线检索可以在没有网络�
 
 把一句正文变成 MiniLM 的三份 int64 输入。`encode` 不传 `truncateTo`。`maxLength < 2` 抛 `ArgumentError`。`build` 本身不因为超长而抛异常。
 
-## 4. 文本向量
+## 4. 文本与图像向量
 
 ### `EmbeddingVector`
 
@@ -400,6 +504,123 @@ final List<double> unit = TextEmbedder.l2Normalize(<double>[3, 4]);
 `meanPool` 在 `dim <= 0` 时抛 `ArgumentError`。`hidden.length` 不是 `mask.length * dim` 时抛 `DimensionMismatchException`。mask 全是 0，或隐藏状态里有非有限数，抛 `BadOutputException`。
 
 `l2Normalize` 在向量为空、含非有限数、或范数为 0 时抛 `BadOutputException`。
+
+### `ClipTextEmbedder`
+
+```dart
+ClipTextEmbedder({
+  required ModelInfo model,
+  required ClipBpeTokenizer tokenizer,
+  required EmbeddingRuntime runtime,
+});
+Future<EmbeddingVector> embed(
+  String text, {
+  String? chunkId,
+  CancellationToken? cancel,
+});
+```
+
+```dart
+final EmbeddingVector query = await ClipTextEmbedder(
+  model: clipTextModel,
+  tokenizer: clipTokenizer,
+  runtime: clipRuntime,
+).embed('a man is in a kitchen making pizzas.', chunkId: 'q1');
+// query.space == EmbeddingSpace.clipShared
+// query.dim == 512
+// query.normalized == true
+```
+
+运行时只收到 `input_ids`，形状 `[1, 77]`，int64。不足 77 用 `padId`（`!`，id 0）补齐。超过 77 抛 `TextOverBudgetException`，不截断。图内输出 `text_embeds` 不做 L2，这里做完再把 `normalized` 设为 true。不要拿它和 384 维的文档向量比。
+
+空间不是 `clipShared`、`pooling` 不是 `none`，或 `maxInputLength` 小于 2，抛 `ArgumentError`。空文本、空的 `chunkId`、运行时不可用，也抛对应的调用错误或 `RuntimeUnavailableException`。维度不符原样抛出。
+
+### `DecodedImage`
+
+```dart
+const DecodedImage({
+  required Uint8List rgb24,
+  required int width,
+  required int height,
+});
+```
+
+一行行的 RGB24。解析层只留宽高，像素由解码器按原路径重新读出。不抛异常。
+
+### `ImageDecoder`
+
+```dart
+abstract interface class ImageDecoder {
+  DecodedImage decodeFile(String path);
+}
+```
+
+批量服务用这个接口读图像。默认套件注入假实现，不读数据集。
+
+### `PackageImageDecoder`
+
+```dart
+const PackageImageDecoder();
+DecodedImage decodeFile(String path);
+DecodedImage decodeBytes(Uint8List bytes);
+```
+
+`package:image` 的 JPEG/PNG 解码。不做 EXIF 旋转。文件不存在抛 `FileSystemException`。空字节或无法解码抛 `FormatException`。
+
+### `PreprocessedImage`
+
+```dart
+const PreprocessedImage({
+  required Float32List pixels,
+  required int edge,
+});
+int get channels;
+List<int> get shape;
+```
+
+NCHW float32，值域 0–1。`shape` 是 `[1, 3, edge, edge]`。不抛异常。
+
+### `ImagePreprocessor`
+
+```dart
+const ImagePreprocessor({int edge = ImagePreprocessor.mobileClipEdge});
+static const int mobileClipEdge = 256;
+PreprocessedImage preprocess({
+  required Uint8List rgb24,
+  required int width,
+  required int height,
+});
+```
+
+短边缩到 `edge`，用 Pillow `Image.BILINEAR`（缩小时加宽卷积核，8-bit 两遍、22 位定点），再中心裁成正方形，像素除以 255。不加 mean/std。`edge < 1`、宽高不是正数、或字节长度不是 `width * height * 3`，抛 `ArgumentError`。
+
+### `ImageEmbedder`
+
+```dart
+ImageEmbedder({
+  required ModelInfo model,
+  required EmbeddingRuntime runtime,
+  ImagePreprocessor? preprocessor,
+});
+Future<EmbeddingVector> embed({
+  required Uint8List bytes,
+  required int width,
+  required int height,
+  CancellationToken? cancel,
+});
+```
+
+```dart
+final EmbeddingVector image = await ImageEmbedder(
+  model: clipVisionModel,
+  runtime: visionRuntime,
+).embed(bytes: rgb24, width: width, height: height);
+// image.space == EmbeddingSpace.clipShared
+// image.dim == 512
+// image.normalized == true
+```
+
+输入张量名是 `pixel_values`，float32 NCHW。图内 `image_embeds` 不做 L2，这里做完再交出。空间不是 `clipShared` 或 `pooling` 不是 `none`，抛 `ArgumentError`。输出长度不是 `model.dim` 时抛 `DimensionMismatchException`。非有限数抛 `BadOutputException`。
 
 ## 5. 运行时
 
@@ -567,6 +788,33 @@ ADR 0003 的运行时。Dart 不链接 TFLite。`run` 把请求写成临时 JSON
 
 环境在当前进程环境上加上 `PYTHONIOENCODING=utf-8` 和 `PYTHONUNBUFFERED=1`。请求文件放在临时目录，调用结束后删除。
 
+### `OnnxTensorEmbeddingRuntime`
+
+```dart
+OnnxTensorEmbeddingRuntime({
+  required String pythonExecutable,
+  required String scriptPath,
+  required String modelPath,
+  required ProcessRunner processRunner,
+  required String outputName,
+  Duration timeout = const Duration(seconds: 120),
+});
+```
+
+```dart
+final OnnxTensorEmbeddingRuntime vision = OnnxTensorEmbeddingRuntime(
+  pythonExecutable: pythonExecutable,
+  scriptPath: r'engine\embed_onnx_output.py',
+  modelPath: visionOnnxPath,
+  processRunner: const IoProcessRunner(),
+  outputName: 'image_embeds',
+);
+```
+
+图像塔和 CLIP 文本塔共用的进程运行时。请求 JSON 带每个输入张量：float32 用小端 base64，int64 用数字列表。stdout 是 `outputName` 的小端 float32 base64。`outputName` 对图像是 `image_embeds`，对 CLIP 文本是 `text_embeds`。文档 MiniLM 仍走 `OnnxProcessEmbeddingRuntime`，请求形状不改。
+
+错误映射与文本运行时相同。输入为空，或张量的 `TypedData` 和 dtype 对不上，在起进程之前抛 `MissingTensorException`。脚本目录会加进 Python 路径，以便导入 `w3_embed_lib`。
+
 ### `TfliteBindings`
 
 ```dart
@@ -582,7 +830,7 @@ abstract interface class TfliteBindings {
 
 ## 6. 统一入口与批量报告
 
-这些类型在阶段 A 冻结。阶段 B 没有给出 `embed` 或 `embedAll` 的实现。图像字节的约定写在这里，避免阶段 C 再改形状。
+输入形状在阶段 A 冻结。`DefaultEmbeddingEngine` 和 `DefaultEmbeddingService` 是阶段 C 的实现。图像字节仍是行优先 RGB24。
 
 ### `EmbeddingInput`
 
@@ -628,7 +876,7 @@ const EmbeddingSpaceMismatchException mismatch = EmbeddingSpaceMismatchException
 );
 ```
 
-一次调用混用了两个向量空间。实现必须抛它，不能靠文档约定。阶段 B 的文本路径不产生这个异常，因为 `TextEmbedder` 固定使用 `documentTextModel`。
+一次调用混用了两个向量空间。实现必须抛它，不能靠文档约定。`DefaultEmbeddingEngine` 在请求空间和模型空间不一致时抛它，也在缺少 CLIP 文本塔时抛它。
 
 ### `EmbeddingEngine`
 
@@ -639,7 +887,31 @@ abstract interface class EmbeddingEngine {
 }
 ```
 
-文本和图像共用的入口。返回值带 `space`、`dim`、`modelId`、`normalized`。阶段 B 没有实现类。空间和模型不一致时，实现必须抛 `EmbeddingSpaceMismatchException`。
+文本和图像共用的入口。返回值带 `space`、`dim`、`modelId`、`normalized`。空间和模型不一致时，实现必须抛 `EmbeddingSpaceMismatchException`。
+
+### `DefaultEmbeddingEngine`
+
+```dart
+DefaultEmbeddingEngine({
+  required TextEmbedder text,
+  required ImageEmbedder image,
+  ClipTextEmbedder? clipText,
+});
+```
+
+```dart
+final DefaultEmbeddingEngine engine = DefaultEmbeddingEngine(
+  text: textEmbedder,
+  image: imageEmbedder,
+  clipText: clipTextEmbedder,
+);
+final EmbeddingVector vector = await engine.embed(
+  EmbeddingInput.text('页码在哪里', chunkId: 'q1'),
+);
+// engine.models 含文档模型、图像模型和 CLIP 文本塔
+```
+
+`documentText` 走 `TextEmbedder`。`clipShared` 的文本走 `ClipTextEmbedder`。图像走 `ImageEmbedder`。没有文本塔，或文本塔空间不是 `clipShared`，抛 `EmbeddingSpaceMismatchException`，不改用文档模型。`models` 按文档、图像、CLIP 文本的顺序给出；没传文本塔时只有前两个。
 
 ### `EmbeddingFailureKind`
 
@@ -770,10 +1042,41 @@ abstract interface class EmbeddingService {
 }
 ```
 
-批量向量化。只消费 `IngestionReport.indexable`。单条失败写进 `EmbeddingReport`，不中断后面的文件。阶段 B 没有实现类。
+批量向量化。只消费 `IngestionReport.indexable`。单条失败写进 `EmbeddingReport`，不中断后面的文件。
+
+### `DefaultEmbeddingService`
+
+```dart
+DefaultEmbeddingService({
+  required EmbeddingEngine engine,
+  required TextChunker chunker,
+  ImageDecoder? images,
+  DateTime Function()? clock,
+});
+```
+
+```dart
+final DefaultEmbeddingService service = DefaultEmbeddingService(
+  engine: engine,
+  chunker: CascadeTextChunker(
+    countTokens: (String text) => tokenizer.encode(text).ids.length,
+  ),
+);
+final EmbeddingReport report = await service.embedAll(
+  ingestion,
+  onProgress: (EmbeddingProgress progress) {},
+  cancel: token,
+);
+```
+
+进度按文件计。开始时回报 `0/total`，每个文件结束后再回报。已经取消的令牌直接返回空报告，`cancelled` 为 true，进度是 `0/0`。取消停在下一个文件或下一块之前，已经写好的记录保留。
+
+文本块的 `sourceId` 是 `chunkId`。图像的 `sourceId` 是相对路径。切块超预算时，这条记录的 `sourceId` 是内容哈希或元数据 id。图像按 `document.imageAsset`，没有则用 `metadata.imageAsset`，再按原路径解码。没有正文也没有图像、或可索引记录没有文档，记成 `unknown`。
+
+失败种类：`ChunkBudgetException` 和 `TextOverBudgetException` 是 `overBudget`；`RuntimeUnavailableException` 是 `runtimeUnavailable`；`BadOutputException` 和 `DimensionMismatchException` 是 `badOutput`；`MissingTensorException` 是 `missingTensor`；`EmbeddingTimeoutException` 是 `timeout`；`EmbeddingSpaceMismatchException` 是 `spaceMismatch`。其余运行时异常、读文件失败、解码失败和未知错误是 `unknown`。失败消息不含正文。服务不扫描目录，调用方先拿 `IngestionReport`。
 
 ## 7. 公开符号清单
 
 对照 `lib/core_embedding.dart`：
 
-`EmbeddingEngine`、`EmbeddingSpaceMismatchException`、`EmbeddingService`、`EmbeddingInput`、`EmbeddingFailureKind`、`EmbeddingFailure`、`EmbeddingRecord`、`EmbeddingReport`、`EmbeddingProgress`、`EmbeddingSpace`、`EmbeddingVector`、`ModelInfo`、`TextChunk`、`TextUnit`、`TextChunker`、`TensorDType`、`Tensor`、`TensorDirection`、`TensorInfo`、`EmbeddingRuntime`、`EmbeddingRuntimeException`、`RuntimeUnavailableException`、`DimensionMismatchException`、`MissingTensorException`、`EmbeddingTimeoutException`、`BadOutputException`、`OnnxProcessEmbeddingRuntime`、`TfliteBindings`、`documentTextModel`、`TextOverBudgetException`、`TextEmbedder`、`TextInputTensors`、`TextInputNeedsRechunk`、`TextInputResult`、`TextInputBuilder`、`AddedToken`、`TokenEncoding`、`UnigramTokenizer`。
+`DefaultEmbeddingEngine`、`EmbeddingEngine`、`EmbeddingSpaceMismatchException`、`DefaultEmbeddingService`、`EmbeddingService`、`DecodedImage`、`ImageDecoder`、`PackageImageDecoder`、`ImageEmbedder`、`clipVisionModel`、`ImagePreprocessor`、`ImagePreprocessor.mobileClipEdge`、`PreprocessedImage`、`EmbeddingInput`、`EmbeddingFailure`、`EmbeddingFailureKind`、`EmbeddingProgress`、`EmbeddingRecord`、`EmbeddingReport`、`EmbeddingSpace`、`EmbeddingVector`、`ModelInfo`、`TextChunk`、`TextChunker`、`TextUnit`、`BadOutputException`、`DimensionMismatchException`、`EmbeddingRuntime`、`EmbeddingRuntimeException`、`EmbeddingTimeoutException`、`MissingTensorException`、`RuntimeUnavailableException`、`Tensor`、`TensorDirection`、`TensorDType`、`TensorInfo`、`OnnxProcessEmbeddingRuntime`、`OnnxTensorEmbeddingRuntime`、`TfliteBindings`、`ClipBpeTokenizer`、`ClipTextEmbedder`、`clipTextModel`、`CascadeTextChunker`、`ChunkBudgetException`、`documentTextModel`、`TextEmbedder`、`TextOverBudgetException`、`TextInputBuilder`、`TextInputNeedsRechunk`、`TextInputResult`、`TextInputTensors`、`AddedToken`、`TokenEncoding`、`UnigramTokenizer`。

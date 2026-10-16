@@ -1,0 +1,16 @@
+compare=tokenizers-0.23.2
+tokenizer=mobileclip-s0
+mode=no_pad
+sentences=11
+match=1 len=11 ids=49406,320,786,533,530,320,4485,1665,30647,269,49407 sentence="a man is in a kitchen making pizzas."
+match=1 len=3 ids=49406,3306,49407 sentence="hello"
+match=1 len=3 ids=49406,3306,49407 sentence="Hello"
+match=1 len=2 ids=49406,49407 sentence=""
+match=1 len=3 ids=49406,256,49407 sentence="!"
+match=1 len=7 ids=49406,518,11554,272,278,3462,49407 sentence="the apollo 17 crew"
+match=1 len=4 ids=49406,3306,1002,49407 sentence="hello\nworld"
+match=1 len=6 ids=49406,3306,267,1002,256,49407 sentence="Hello, World!"
+match=1 len=4 ids=49406,10336,538,49407 sentence="  spaced  "
+match=1 len=3 ids=49406,15304,49407 sentence="café"
+match=1 len=8 ids=49406,163,99,119,163,118,379,49407 sentence="离线"
+gate=pass

@@ -1,0 +1,34 @@
+command=dart test --coverage=coverage --exclude-tags integration
+format=dart run coverage:format_coverage --lcov --in=coverage --out=coverage/lcov.info --report-on=lib --package=.
+package=packages/core_embedding
+lines_hit=1250
+lines_found=1458
+percent=85.73
+threshold=70
+g3_threshold=85.00
+gate=pass
+g3_gate=pass
+tests=93
+date=2026-10-16
+note=integration tests are excluded. They load tokenizer.json, the fp32 ONNX models, datasets/samples, and one COCO image. This recount includes the awaited expects, the non-int64 attention mask, and the clip-space assertions. The formatted copy is reports/week3/coverage/lcov.info. The earlier phase C count was 1248/1454 = 85.83.
+embedding_runtime=7/14
+embedding_engine=31/35
+embedding_service=98/116
+image_decoder=29/30
+image_embedder=21/24
+image_preprocess=98/101
+embedding_input=17/18
+embedding_report=50/54
+embedding_vector=19/33
+model_info=13/35
+text_chunk=36/36
+onnx_process_runtime=52/57
+onnx_tensor_runtime=64/70
+clip_bpe_tokenizer=145/167
+clip_text_embedder=28/38
+text_chunker=144/158
+text_embedder=57/64
+text_input_builder=30/31
+unigram_tokenizer=166/215
+precompiled_normalizer=62/65
+unigram_model=83/97
