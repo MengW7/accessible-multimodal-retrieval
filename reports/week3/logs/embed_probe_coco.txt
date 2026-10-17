@@ -1,0 +1,55 @@
+root: E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+embed_ms_includes=process_start_and_model_load
+text_model=paraphrase-multilingual-MiniLM-L12-v2  image_model=mobileclip-s0-vision
+ingest_total: 50  ingest_ok: 50  ingest_partial: 0  ingest_skipped: 0  ingest_failed: 0  ingest_cancelled: false  ingest_ms: 1873
+embed_total: 50  embed_ok: 50  embed_failed: 0  embed_cancelled: false  embed_ms: 78466  embed_calls: 50
+000000006818.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1641  v0=0.050844  v1=0.027057  v2=0.014415
+000000017627.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1409  v0=-0.018266  v1=0.015788  v2=-0.019883
+000000025560.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1426  v0=0.026422  v1=0.010063  v2=0.027859
+000000037777.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1326  v0=-0.027627  v1=-0.040409  v2=-0.014639
+000000041888.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1422  v0=0.039410  v1=-0.005083  v2=-0.033628
+000000058636.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1371  v0=0.067808  v1=-0.049793  v2=0.060729
+000000085329.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1332  v0=0.013321  v1=0.008000  v2=0.037566
+000000087038.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1378  v0=0.024563  v1=0.004094  v2=0.070954
+000000122745.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1434  v0=0.015542  v1=-0.053904  v2=0.104803
+000000143931.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1396  v0=0.088134  v1=0.001481  v2=0.024968
+000000153299.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1651  v0=0.018967  v1=0.006747  v2=-0.017908
+000000174482.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1462  v0=0.011268  v1=-0.054817  v2=0.033942
+000000181666.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1371  v0=-0.041565  v1=0.064080  v2=-0.015717
+000000184321.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1439  v0=-0.026361  v1=0.022535  v2=0.012375
+000000184791.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1526  v0=0.011432  v1=-0.003160  v2=0.015214
+000000219578.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1813  v0=-0.021449  v1=0.040255  v2=-0.044774
+000000226111.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1599  v0=0.014678  v1=-0.029507  v2=0.058806
+000000233771.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1492  v0=-0.001586  v1=-0.061158  v2=0.022158
+000000239274.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1450  v0=-0.026755  v1=0.031880  v2=0.028552
+000000252219.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1409  v0=-0.022749  v1=-0.038290  v2=0.020715
+000000286994.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1434  v0=-0.055577  v1=-0.019462  v2=-0.020633
+000000289393.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1495  v0=-0.011262  v1=0.064218  v2=-0.033860
+000000296649.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1516  v0=-0.016797  v1=0.038352  v2=-0.044600
+000000297343.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1499  v0=0.005745  v1=-0.043752  v2=0.025739
+000000303818.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1442  v0=-0.017911  v1=-0.013708  v2=-0.022133
+000000308394.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1509  v0=0.016423  v1=-0.005424  v2=0.006633
+000000314294.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1477  v0=-0.016310  v1=-0.005496  v2=-0.024241
+000000322864.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1452  v0=-0.002877  v1=-0.006491  v2=0.052553
+000000329323.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1816  v0=-0.014764  v1=-0.000757  v2=-0.057856
+000000331352.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1747  v0=0.016788  v1=0.080370  v2=-0.000350
+000000336587.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1584  v0=0.026228  v1=-0.046162  v2=0.077834
+000000348881.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1502  v0=0.013512  v1=0.005004  v2=-0.005495
+000000386912.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1793  v0=0.019473  v1=0.007584  v2=0.018966
+000000397133.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1545  v0=0.050304  v1=-0.046860  v2=0.062861
+000000403385.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1503  v0=-0.002917  v1=0.022810  v2=0.026354
+000000403817.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1679  v0=0.012896  v1=-0.006416  v2=0.074573
+000000418281.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1474  v0=-0.016519  v1=0.055963  v2=-0.036904
+000000443303.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1632  v0=-0.001032  v1=0.065731  v2=-0.021598
+000000456496.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1683  v0=-0.007592  v1=0.033486  v2=0.049377
+000000458054.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1719  v0=0.021944  v1=0.081897  v2=-0.015653
+000000460347.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1730  v0=0.040802  v1=-0.019500  v2=-0.032110
+000000463730.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1710  v0=-0.027716  v1=0.031235  v2=-0.050334
+000000480985.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1506  v0=0.022201  v1=-0.035965  v2=0.053058
+000000491497.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1543  v0=0.007155  v1=0.009125  v2=0.063645
+000000500663.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1551  v0=0.028087  v1=0.028439  v2=-0.020244
+000000502136.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1624  v0=-0.002014  v1=0.020915  v2=-0.014364
+000000511321.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1559  v0=-0.044471  v1=-0.011177  v2=0.027202
+000000522713.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1516  v0=0.002707  v1=0.006197  v2=-0.014540
+000000555705.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1474  v0=0.001148  v1=0.088788  v2=-0.015948
+000000565778.jpg  ok  dim=512  space=clipShared  model=mobileclip-s0-vision  ms=1517  v0=-0.010686  v1=0.017062  v2=0.001267

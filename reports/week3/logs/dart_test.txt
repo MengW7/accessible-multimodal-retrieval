@@ -1,0 +1,95 @@
+00:00 +0: loading test\engine\embedding_engine_test.dart
+00:00 +0: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +1: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +2: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +3: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +4: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +5: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +6: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +7: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +8: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +9: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +10: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +11: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +12: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +13: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +14: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +15: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +16: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +17: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +18: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +19: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +20: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +21: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +22: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +23: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +24: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +25: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +26: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +27: test\model\text_chunk_test.dart: a missing page stays null in json and in toString
+00:00 +28: test\engine\embedding_engine_test.dart: clip text without a text tower throws instead of using the document model
+00:00 +29: test\engine\embedding_engine_test.dart: clip text without a text tower throws instead of using the document model
+00:00 +30: test\engine\embedding_engine_test.dart: clip text without a text tower throws instead of using the document model
+00:00 +31: test\model\text_chunk_test.dart: toString shows the page and the half-open span
+00:00 +32: test\engine\embedding_engine_test.dart: a document request is rejected when the text model is in another space
+00:00 +33: test\engine\embedding_engine_test.dart: image input rejects a document space and a bad byte length
+00:00 +34: test\text\clip_bpe_tokenizer_test.dart: lowercase words merge and wrap the clip specials
+00:00 +35: test\text\clip_bpe_tokenizer_test.dart: lowercase words merge and wrap the clip specials
+00:00 +36: test\text\clip_bpe_tokenizer_test.dart: lowercase words merge and wrap the clip specials
+00:00 +37: test\text\clip_bpe_tokenizer_test.dart: lowercase words merge and wrap the clip specials
+00:00 +38: test\text\clip_bpe_tokenizer_test.dart: lowercase words merge and wrap the clip specials
+00:00 +39: test\text\clip_bpe_tokenizer_test.dart: lowercase words merge and wrap the clip specials
+00:00 +40: test\text\clip_bpe_tokenizer_test.dart: lowercase words merge and wrap the clip specials
+00:00 +41: test\text\clip_bpe_tokenizer_test.dart: lowercase words merge and wrap the clip specials
+00:00 +42: test\text\clip_bpe_tokenizer_test.dart: lowercase words merge and wrap the clip specials
+00:00 +43: test\text\clip_bpe_tokenizer_test.dart: lowercase words merge and wrap the clip specials
+00:00 +44: test\text\clip_bpe_tokenizer_test.dart: lowercase words merge and wrap the clip specials
+00:00 +45: test\text\clip_bpe_tokenizer_test.dart: lowercase words merge and wrap the clip specials
+00:00 +46: test\text\clip_bpe_tokenizer_test.dart: lowercase words merge and wrap the clip specials
+00:00 +47: test\text\clip_bpe_tokenizer_test.dart: lowercase words merge and wrap the clip specials
+00:00 +48: test\text\clip_bpe_tokenizer_test.dart: lowercase words merge and wrap the clip specials
+00:00 +49: test\text\clip_bpe_tokenizer_test.dart: lowercase words merge and wrap the clip specials
+00:00 +50: test\text\clip_bpe_tokenizer_test.dart: lowercase words merge and wrap the clip specials
+00:00 +51: test\text\clip_bpe_tokenizer_test.dart: lowercase words merge and wrap the clip specials
+00:00 +52: test\text\clip_text_embedder_test.dart: clip text pads with the exclamation id and has no attention mask
+00:00 +53: test\text\clip_text_embedder_test.dart: clip text pads with the exclamation id and has no attention mask
+00:00 +54: test\text\clip_text_embedder_test.dart: clip text pads with the exclamation id and has no attention mask
+00:00 +55: test\text\clip_text_embedder_test.dart: clip text pads with the exclamation id and has no attention mask
+00:00 +56: test\text\clip_text_embedder_test.dart: clip text pads with the exclamation id and has no attention mask
+00:00 +57: test\text\clip_text_embedder_test.dart: clip text pads with the exclamation id and has no attention mask
+00:00 +58: test\text\clip_text_embedder_test.dart: clip text pads with the exclamation id and has no attention mask
+00:00 +59: test\text\clip_text_embedder_test.dart: clip text pads with the exclamation id and has no attention mask
+00:00 +60: test\text\clip_text_embedder_test.dart: clip text pads with the exclamation id and has no attention mask
+00:00 +61: test\text\clip_text_embedder_test.dart: clip text pads with the exclamation id and has no attention mask
+00:00 +62: test\text\clip_text_embedder_test.dart: clip text pads with the exclamation id and has no attention mask
+00:00 +63: test\text\clip_text_embedder_test.dart: clip text pads with the exclamation id and has no attention mask
+00:00 +64: test\text\clip_text_embedder_test.dart: clip text pads with the exclamation id and has no attention mask
+00:00 +65: test\text\clip_text_embedder_test.dart: clip text pads with the exclamation id and has no attention mask
+00:00 +66: test\text\text_input_builder_test.dart: short text is padded to maxLength and does not drop tokens
+00:00 +67: test\text\text_input_builder_test.dart: short text is padded to maxLength and does not drop tokens
+00:00 +68: test\text\text_input_builder_test.dart: short text is padded to maxLength and does not drop tokens
+00:00 +69: test\text\text_input_builder_test.dart: short text is padded to maxLength and does not drop tokens
+00:00 +70: test\text\text_input_builder_test.dart: short text is padded to maxLength and does not drop tokens
+00:00 +71: test\text\text_input_builder_test.dart: short text is padded to maxLength and does not drop tokens
+00:00 +72: test\text\text_input_builder_test.dart: short text is padded to maxLength and does not drop tokens
+00:00 +73: test\text\text_input_builder_test.dart: text over the budget returns a rechunk signal and no tensor
+00:00 +74: test\text\unigram_model_test.dart: the highest score keeps the whole string
+00:00 +75: test\text\unigram_model_test.dart: unknown bytes stay as one fused surface with the unk id
+00:00 +76: test\text\unigram_model_test.dart: an empty piece has no tokens
+00:00 +77: test\text\unigram_model_test.dart: unk id outside the vocab is rejected
+00:00 +78: test\text\unigram_tokenizer_test.dart: a word becomes one metaspace piece between the boundary tokens
+00:00 +79: test\text\unigram_tokenizer_test.dart: a second character that is not glued to the prefix stays its own piece
+00:00 +80: test\text\unigram_tokenizer_test.dart: whitespace-only text keeps the boundary tokens and drops the spaces
+00:01 +81: test\text\unigram_tokenizer_test.dart: a literal unk marker is the added token, not a metaspace piece
+00:01 +82: test\text\unigram_tokenizer_test.dart: mask lstrip eats the spaces in front of the marker
+00:01 +83: test\text\unigram_tokenizer_test.dart: ## is one ordinary piece, not a WordPiece continuation
+00:01 +84: test\text\unigram_tokenizer_test.dart: explicit truncation keeps the closing special token
+00:01 +85: test\text\unigram_tokenizer_test.dart: an unknown character keeps its surface and uses the unk id
+00:01 +86: test\text\unigram_tokenizer_test.dart: two unknown characters fuse into one unk piece
+00:01 +87: test\text\unigram_tokenizer_test.dart: jsonDecode lists are accepted, including an integer score
+00:01 +88: test\text\unigram_tokenizer_test.dart: a tokenizer that is not Unigram is rejected
+00:01 +89: test\text\unigram_tokenizer_test.dart: an added token that asks to be normalized is rejected
+00:01 +90: test\text\unigram_tokenizer_test.dart: an added token with empty content is rejected
+00:01 +91: test\text\unigram_tokenizer_test.dart: an empty metaspace is rejected
+00:01 +92: test\text\unigram_tokenizer_test.dart: truncation must keep both boundary tokens
+00:01 +93: All tests passed!

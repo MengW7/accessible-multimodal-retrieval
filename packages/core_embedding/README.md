@@ -14,3 +14,9 @@
 `CascadeTextChunker` 按空行、换行、句末标点和字符窗口切块。页与页之间不合并。`chunkChars` 只是字符窗口初值，token 数才是硬门。
 
 模型文件、维度和转换校验记在仓库根的 `models/README.md`。文档文本走 `OnnxProcessEmbeddingRuntime` 和 `engine/embed_text_hidden.py`。图像和 CLIP 文本走 `OnnxTensorEmbeddingRuntime` 和 `engine/embed_onnx_output.py`。权重不打进包。默认 `dart test --exclude-tags integration` 不读模型，也不读数据集。API 说明见 `docs/api/embedding-module-api.md`。
+
+目录探针在仓库根目录运行。它扫描、解析、切块，再打印每条向量的结果、维度、耗时和前三个分量。耗时含进程启动和模型加载。
+
+```text
+dart run packages/core_embedding/bin/embed_probe.dart --path datasets/samples
+```
