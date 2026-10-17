@@ -12,36 +12,6 @@
 | 下游衔接 | W4 向量库 + 混合检索（本包输出向量，不负责存储与排序） |
 | 落地目录 | `reports/week3/`（计划、评测、报告、证据）＋ `packages/core_embedding/`（代码） |
 
-> **编号约定**：`Day 1`–`Day 4` 是工作日；`A1`–`A6`、`B1`–`B5`、`C1`–`C6`、`D1`–`D6` 是任务编号；`G1`–`G8` 是交付物编号（§3）。三者含义不同，不要混读。
-
-> **本文状态**：任务本体已全部执行完毕，阶段出口的实际数字写在各阶段末尾。本文是 W3 的任务定义与验收口径的权威副本；执行过程的逐条留证在 `reports/week3/W03_report.md` 与 `reports/week3/logs/`。
-
-### 本文 v3 修订点（相对 v2）
-
-| # | 修订 | 影响章节 |
-|---|---|---|
-| 1 | 去掉排期处置方案的对比小结。W3 按「23 个任务全做」执行完毕，保留三个备选方案的表只会让读者以为还要选一次 | 原 §12（已删除） |
-| 2 | 分词器方案按 ADR 0003 更正为 **Unigram**，不再是 WordPiece。`bert-base-uncased` 换成多语言检索模型后，词表就是 XLM-R 一系的 SentencePiece，`vocab.txt` / `##` 续接那一套不成立 | §0、§4 决策 1、B1 |
-| 3 | 覆盖率数字换成实测值：阶段 B **68.71%**（494/719），阶段 C/D **85.73%**（1250/1458） | §0、§5 阶段出口、§6 |
-| 4 | 模型许可证从「待核对项」改为已结案结论（apple-amlr，不得再分发） | §4 决策 5 |
-| 5 | 交付物清单改为仓库里实际存在的文件，去掉未产出的 `screenshots/*.png`，补上 CLIP 文本塔、图像解码器、Pillow 对照件与后加的评测/探针脚本 | §11 |
-| 6 | 附录 A 的接口骨架与冻结后的实际签名对齐（`documentId`、`abstract interface class`） | 附录 A |
-
-### 本文 v2 修订点（相对 v1）
-
-| # | 修订 | 影响章节 |
-|---|---|---|
-| 1 | 切块：明确「页=定位、段落=切分、窗口兜底」，加防御性级联；记录 DOCX 段落歧义 | §4 决策 3、A5 |
-| 2 | 明确偏移量单位为 **UTF-16 code unit**，高亮/切片/引用三处共用 | §4 决策 3、A6、附录 A |
-| 3 | chunkId 补 `textUnit`，写明「可复现」的前置条件 | §4 决策 3 |
-| 4 | 跨页答案改判为 **W4 邻域扩展**问题，W3 只保证 `pageNumber`+偏移可支撑 | §4 决策 3、附录 B |
-| 5 | 文本模型改为**多语言、面向检索训练**的句向量模型（`bert-base-uncased` 是纯英文词表，中文语料会失效） | §4 决策 1、A1、A2 |
-| 6 | 模型登记扩到 8 个字段；新增**转换等价性**为第二个硬门槛 | §4 决策 5、A2、A3 |
-| 7 | 评测改为**四层分层**，不混在一个完成标准里；NQ 池子从 100 更正为 **600**（300 题） | §4 决策 4、§8、D2–D4 |
-| 8 | 新增**自建证据集**（W3 建、W4 起用），含 dev/holdout 防泄漏 | §8.3、D2 |
-| 9 | 明确**生成闭环为未规划**，与检索闭环分列 | §0.1、§3、§10 |
-| 10 | 新增 `TfliteBindings` 接口，防止 FFI 适配器拖低覆盖率；补许可证待核对项与数据登记纠错 | §4 决策 6、A4、B3、§9、A2 |
-
 ---
 
 ## 0. 一页速览
@@ -190,7 +160,7 @@
 | 端侧运行时 | (a) `libtensorflowlite_c-win.dll` + `dart:ffi`<br>(b) `tflite_flutter` 插件（Flutter 依赖，纯 `dart test` 跑不了，覆盖率吃亏）<br>(c) **W2 同款兜底**：推理放 `engine/`，用 `ProcessRunner` 起外部进程 | **默认 (a)**；拿不到 DLL 就用 (c) 兜底 | **实际走 (c)**。(a) 不成立：通过门槛的权重是 ONNX，DLL 加载不了。(b) 与 W2 的打法相反 |
 | 兜底原则 | — | 运行时必须藏在 `EmbeddingRuntime` 接口后面；单测一律注入假实现，**绝不为了覆盖率去加载真模型** | 已落实；默认套件不加载模型 |
 
-**分词器方案（v3 更正）**：选定模型的 `tokenizer.json` 里 `model.type` 是 **Unigram**，词表 250002，归一化用 Precompiled——这是 XLM-R 一系的 SentencePiece，**不是 BERT WordPiece**。因此：
+**分词器方案**：选定模型的 `tokenizer.json` 里 `model.type` 是 **Unigram**，词表 250002，归一化用 Precompiled——这是 XLM-R 一系的 SentencePiece，**不是 BERT WordPiece**。因此：
 
 - 纯 Dart 分词器按 `tokenizer.json` 逐 id 对齐，**不按 `vocab.txt`**，也不做 `##` 续接（本模型里 `##` 是普通正文，编码成一片 `▁##`）。
 - `lib/src/text/wordpiece_tokenizer.dart` 只保留计划路径上的再导出，不是第二种算法，也不从公开入口导出。
@@ -614,6 +584,7 @@ reports/week3/
   evidence_set.jsonl  证据集说明.md           ← 自建证据集（G6）
   logs/                                       ← 每个任务的原始输出
   coverage/lcov.info                          ← G3 交付物
+  screenshots/*.png                           ← 各条命令的终端截屏
 apps/desktop/pubspec.yaml                     ← 增加 core_embedding path 依赖
 ```
 
