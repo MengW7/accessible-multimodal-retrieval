@@ -40,13 +40,13 @@
 
 | 编号 | 文件 | 状态 |
 |---|---|---|
-| G1 / G5 | `packages/core_embedding/bin/embed_probe.dart` | EMB-04、EMB-05 已跑通 |
-| G2 | `reports/week3/模型精度验证报告.md` | 四层分开 |
-| G3 | `reports/week3/coverage/lcov.info`、`覆盖率报告.md` | 85.73% |
-| G4 | `docs/api/embedding-module-api.md` | 公开符号仍是第 7 节那一份。探针是命令，不是库符号 |
-| G6 | `evidence_set.jsonl`、`证据集说明.md` | 已冻结，未评分 |
-| G7 | ADR 0003 阶段 D 后续项 | 已勾上。Q1、Q3、Q7 仍是 2026-10-15 的结案；TDD 补了证据集路径 |
-| G8 | 本报告和 `logs/` | 上表 |
+| G1 / G5 | `packages/core_embedding/bin/embed_probe.dart` | 已完成。EMB-04 出向量 97 条、EMB-05 出向量 50 条，失败 0 |
+| G2 | `reports/week3/模型精度验证报告.md` | 已完成。7 节，四层指标分列 |
+| G3 | `reports/week3/coverage/lcov.info`、`覆盖率报告.md` | 已完成。1250/1458 = 85.73%，门槛 85.00% |
+| G4 | `docs/api/embedding-module-api.md` | 已完成。53 个 public 符号小节 |
+| G6 | `evidence_set.jsonl`、`证据集说明.md` | 已完成。25 条，dev 15 / holdout 10，`scored=0` |
+| G7 | ADR 0003、TDD Q1/Q3/Q7 | 已完成。三条均标记已结案 |
+| G8 | 本报告、`logs/`、`screenshots/` | 已完成。12 条用例 |
 
 ---
 
