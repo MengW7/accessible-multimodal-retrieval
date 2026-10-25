@@ -33,7 +33,7 @@
 graph TB
     subgraph L6["6. UI 与无障碍层 — apps/desktop（W5）"]
         UI["Flutter 界面：文件库 / 搜索 / 结果 / 设置<br/>Semantics · 键盘焦点 · 高对比 · 动态字号"]
-        IX["导入编排（应用服务，不是第七层）<br/>W2：只调用 IngestionService<br/>W3/W4：组合根再调用 embed 与写入"]
+        IX["导入编排 packages/core_pipeline（不是第七层）<br/>W2：只调用 IngestionService<br/>W4：纯 Dart 编排调用 embed 与写入<br/>apps/desktop 只装配依赖"]
     end
 
     subgraph L5["5. 检索逻辑层 — packages/core_retrieval（W4）"]
@@ -89,7 +89,7 @@ graph TB
 
 实线是调用方向，含尚未落地的 W3–W5。虚线是可替换实现或开发期数据，不进入层间依赖。
 
-导入和搜索分开走。导入编排放在 `apps/desktop` 的组合根：W2 只调用 `IngestionService`（扫描 + 解析）；W3/W4 再依次把文本或图像字节送给 Embedding、把向量和正文写入存储。`core_parsing` 不依赖上层包。检索层同时调用 Embedding 和存储层，这两层互不依赖。关键词索引进存储层，融合打分留在检索层。L1、L2 标 W2 表示本周范围；接口已冻结。
+导入和搜索分开走。编排实现在纯 Dart 包 `packages/core_pipeline`（ADR 0004 决策 6）：W2 的能力仍只是 `IngestionService`（扫描 + 解析）；W4 起由这个包依次把文本或图像送给 Embedding，再把向量和正文写入存储。`apps/desktop` 只装配具体实现，不把流程写进 Widget。`core_parsing` 不依赖上层包。检索层同时调用 Embedding 和存储层。存储层可以引用 `EmbeddingVector` 这个值，但不调用嵌入器，也不依赖检索层。关键词索引进存储层，融合打分留在检索层。L1、L2 标 W2 表示本周范围；接口已冻结。
 
 ### 3.1 各层职责与边界
 
@@ -98,9 +98,10 @@ graph TB
 | **1. File I/O** | 目录递归扫描、白名单过滤、隐藏/临时文件跳过、`stat` 元数据、内容哈希；`IngestionService` 编排扫描和解析，带进度与取消 | 不解析正文、不调用嵌入、不写索引 | W2 |
 | **2. Parsing** | 按扩展名分派；TXT/PDF/DOCX/JPG/PNG → 文本分页 + 图像元数据 + `ParseOutcome` | 不做向量化、不做 OCR、不做 UI 文案 | W2 |
 | **3. Embedding Engine** | 统一 `embed()`；文本走 BERT(TFLite)、图像走 MobileCLIP；批处理。输入由导入编排传入 | 不解析文件、不知道向量存哪 | W3 |
-| **4. Vector Storage** | 本地持久化向量索引和关键词/全文索引、查询、按元数据删除 | 不打分、不排序、不融合关键词与向量 | W4 |
-| **5. Retrieval Logic** | 同时取查询向量和两类索引，做混合打分、排序、过滤、Top-K | 不碰文件系统、不直接读原始文件、不写索引 | W4 |
-| **6. UI 与无障碍** | 四个界面、Semantics、焦点顺序、高对比、字号；导入编排在应用服务里依次调用下层 | Widget 不读文件、不算相似度、不直接写索引 | W5 |
+| **4. Vector Storage** | 本地持久化向量索引和关键词/全文索引、查询、按元数据删除 | 不打分、不融合关键词与向量。暴力余弦只在本层排序单路结果 | W4 |
+| **4.5 编排** | `packages/core_pipeline`：`IndexingPipeline` / `SearchPipeline`。纯 Dart，可单测。桌面端只装配依赖 | 不实现解析器、不实现融合公式、不做界面 | W4 |
+| **5. Retrieval Logic** | 同时取查询向量和两类索引，做 RRF 融合、过滤、Top-K、邻域扩展 | 不碰文件系统、不直接读原始文件、不写索引 | W4 |
+| **6. UI 与无障碍** | 四个界面、Semantics、焦点顺序、高对比、字号。搜索只调用检索层 | Widget 不读文件、不算相似度、不直接写索引 | W5 |
 
 ### 3.2 横切关注点
 
@@ -118,8 +119,8 @@ graph TB
 
 ```text
 accessible-multimodal-retrieval/
-├─ apps/desktop/                     # 6. UI 与无障碍层（Flutter，W5）；导入编排在组合根
-│  └─ pubspec.yaml                   #    W2：以 path 依赖引入 core_parsing
+├─ apps/desktop/                     # 6. UI 与无障碍层（Flutter，W5）；只装配 core_pipeline
+│  └─ pubspec.yaml                   #    path 依赖：core_parsing、core_embedding、core_pipeline
 ├─ packages/
 │  ├─ core_parsing/                  # 1+2. File I/O + Parsing（W2）
 │  │  ├─ lib/core_parsing.dart       #    唯一公开入口（barrel）
@@ -132,8 +133,9 @@ accessible-multimodal-retrieval/
 │  │  ├─ tool/                       #    夹具生成等开发脚本
 │  │  └─ test/                       #    单测 + fixtures
 │  ├─ core_embedding/                # 3. Embedding 引擎（W3）
-│  ├─ core_storage/                  # 4. 向量存储（W4）
-│  └─ core_retrieval/                # 5. 检索逻辑（W4）
+│  ├─ core_storage/                  # 4. 向量存储（W4，系统 SQLite）
+│  ├─ core_retrieval/                # 5. 检索逻辑（W4，RRF 与邻域扩展）
+│  └─ core_pipeline/                 # 4.5 编排（W4）。依赖上面四个包，不被它们依赖
 ├─ native/                           # FFI 产物（不入库二进制，只留结构与 README）
 │  ├─ pdfium/{windows,include,tests} #    PDFium 动态库与头文件预留位
 │  ├─ tflite/windows/                #    libtensorflowlite_c 预留位
@@ -163,26 +165,28 @@ accessible-multimodal-retrieval/
 
 ```text
 导入：
-  UI → 导入编排
-         ├─ IngestionService
-         │    ├─ FileScanner / MetadataExtractor
-         │    └─ Parsing → TextExtractor
-         ├─ Embedding          （文本 / 图像字节）
-         └─ Storage            （向量 · 正文 · 元数据）
+  UI → apps/desktop 装配
+         └─ core_pipeline / IndexingPipeline
+              ├─ IngestionService
+              │    ├─ FileScanner / MetadataExtractor
+              │    └─ Parsing → TextExtractor
+              ├─ Embedding          （文本 / 图像字节）
+              └─ Storage            （向量 · 正文 · 元数据）
 
 搜索：
-  UI → Retrieval
-         ├─ Embedding          （查询向量）
-         └─ Storage            （向量查询 + 关键词查询）
+  UI → core_pipeline / SearchPipeline
+         └─ Retrieval
+              ├─ Embedding          （查询向量，两个空间各一次）
+              └─ Storage            （向量查询 + 关键词查询）
 ```
 
 规则：
 
-- **R1** 下层不得依赖上层。`core_parsing` 不 import `core_embedding`、`core_storage`、`core_retrieval`。
-- **R1a** 导入编排在应用组合根，可以依次调用 File I/O、Parsing、Embedding、Storage。Embedding 不调用 Parsing，也不调用 Storage；写入由编排者完成。
-- **R1b** 检索层同时依赖 Embedding 与 Storage。Storage 不调用 Embedding。
+- **R1** 下层不得依赖上层。`core_parsing` 不 import `core_embedding`、`core_storage`、`core_retrieval`、`core_pipeline`。`core_embedding` 不 import 存储、检索或编排。
+- **R1a** 导入编排的实现在 `packages/core_pipeline`。`apps/desktop` 只装配依赖。编排可以依次调用 File I/O、Parsing、Embedding、Storage。Embedding 不调用 Parsing，也不调用 Storage；写入由编排者完成。这一条在 ADR 0004 决策 6 从「只写在应用组合根」改为可单测的纯 Dart 包。
+- **R1b** 检索层同时依赖 Embedding 与 Storage。Storage 不调用 Embedding，也不 import 检索层。存储层可以持有 `EmbeddingVector` 值。`StorageFilter` 属于存储层，检索层的 `SearchFilters` 转换成它。
 - **R2** 层与层之间传 `ParsedDocument` / `FileMetadata` / `IngestRecord` 这类**不可变值**，不传文件句柄、不传 `File` 对象。交给 Embedding 的是文本或图像字节，交给 Storage 的是向量、正文和元数据。
-- **R3** 副作用（文件、进程、模型、存储）必须经 `spi/` 接口注入；`dart:io` 的 `Process` 只允许出现在 `spi/` 的实现里。
+- **R3** 副作用（文件、进程、模型、存储）必须经接口注入。`dart:io` 的 `Process` 只允许出现在 `core_parsing` 的 `spi/` 实现，以及 `core_pipeline` 的常驻运行时连接里。这两处都要能换成假实现。
 - **R4** Widget 不得 `import 'dart:io'` 读文件。导入由应用服务编排，搜索只消费检索层返回的结果。
 
 ---
@@ -284,7 +288,7 @@ sequenceDiagram
     autonumber
     actor U as 用户
     participant UI as UI 层（W5）
-    participant IX as 导入编排（组合根）
+    participant IX as 导入编排（core_pipeline）
     participant IS as IngestionService（W2）
     participant SC as FileScanner（W2）
     participant RG as ParserRegistry（W2）
@@ -447,7 +451,7 @@ sequenceDiagram
 | [ADR 0001](adr/0001-parsing-runtime-dart-package.md) | 解析模块做成独立纯 Dart 包 `packages/core_parsing` | 已采纳 |
 | [ADR 0002](adr/0002-pdf-extraction-tika-then-pdfium.md) | PDF 文本抽取先用 Apache Tika CLI，PDFium FFI 后续替换 | 已采纳（带迁移触发条件） |
 | [ADR 0003](adr/0003-embedding-model-and-runtime.md) | 文本用多语言 MiniLM，图像用 MobileCLIP-S0，两条空间分开，W3 用 ONNX Runtime 进程 | 已采纳 |
-| ADR 0004（待写，W4） | 向量存储选型：Chroma Dart FFI vs SQLite + 近邻 | 未决 |
+| [ADR 0004](adr/0004-vector-storage-and-fusion.md) | 产品存储用系统 SQLite，Chroma 只做余弦对照；RRF 融合；编排在 `core_pipeline` | 已采纳 |
 | ADR 0005（待写，W6） | 是否把批量解析移入 worker isolate | 未决 |
 
 

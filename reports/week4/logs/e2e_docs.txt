@@ -1,0 +1,57 @@
+# E2E docs index, first run
+
+# dart run packages/core_pipeline/bin/index_probe.dart --db week4/.index/docs.sqlite --path docs
+db=E:\Project\accessible-multimodal-retrieval\week4/.index/docs.sqlite
+progress 0/9 E:\Project\accessible-multimodal-retrieval\docs
+progress 1/9 E:\Project\accessible-multimodal-retrieval\docs
+progress 2/9 E:\Project\accessible-multimodal-retrieval\docs
+progress 3/9 E:\Project\accessible-multimodal-retrieval\docs
+progress 4/9 E:\Project\accessible-multimodal-retrieval\docs
+progress 5/9 E:\Project\accessible-multimodal-retrieval\docs
+progress 6/9 E:\Project\accessible-multimodal-retrieval\docs
+progress 7/9 E:\Project\accessible-multimodal-retrieval\docs
+progress 8/9 E:\Project\accessible-multimodal-retrieval\docs
+progress 9/9 E:\Project\accessible-multimodal-retrieval\docs
+path=E:\Project\accessible-multimodal-retrieval\docs
+key_prefix=docs
+ingest_total=9 ingest_ok=9 ingest_partial=0 ingest_skipped=0 ingest_failed=0 ingest_cancelled=false ingest_ms=5603
+documents=9 written=9 reused=0 failed=0 cancelled=false chunks=2870 index_ms=110092
+stats_chunks=2870 stats_documents=9 stats_document_text=2870 stats_clip_shared=0 stats_keyword_terms=14915
+index_ms_total=110092
+EXIT:0
+# E2E docs index, second run
+
+# dart run packages/core_pipeline/bin/index_probe.dart --db week4/.index/docs.sqlite --path docs
+db=E:\Project\accessible-multimodal-retrieval\week4/.index/docs.sqlite
+progress 0/9 E:\Project\accessible-multimodal-retrieval\docs
+progress 1/9 E:\Project\accessible-multimodal-retrieval\docs
+progress 2/9 E:\Project\accessible-multimodal-retrieval\docs
+progress 3/9 E:\Project\accessible-multimodal-retrieval\docs
+progress 4/9 E:\Project\accessible-multimodal-retrieval\docs
+progress 5/9 E:\Project\accessible-multimodal-retrieval\docs
+progress 6/9 E:\Project\accessible-multimodal-retrieval\docs
+progress 7/9 E:\Project\accessible-multimodal-retrieval\docs
+progress 8/9 E:\Project\accessible-multimodal-retrieval\docs
+progress 9/9 E:\Project\accessible-multimodal-retrieval\docs
+path=E:\Project\accessible-multimodal-retrieval\docs
+key_prefix=docs
+ingest_total=9 ingest_ok=9 ingest_partial=0 ingest_skipped=0 ingest_failed=0 ingest_cancelled=false ingest_ms=5474
+documents=9 written=0 reused=9 failed=0 cancelled=false chunks=0 index_ms=5481
+stats_chunks=2870 stats_documents=9 stats_document_text=2870 stats_clip_shared=0 stats_keyword_terms=14915
+index_ms_total=5481
+EXIT:0
+
+# dart run packages/core_pipeline/bin/search_probe.dart --db week4/.index/docs.sqlite --top 5 --query 产品侧用系统 SQLite 保存向量
+query=浜у搧渚х敤绯荤粺 SQLite 淇濆瓨鍚戦噺
+arm=A5 expand=true top=5 encode_ms=2096 store_ms=125 fuse_ms=4
+rank=1 score=0.012903 key=docs/architecture/adr/0004-vector-storage-and-fusion.md file=0004-vector-storage-and-fusion.md page=null start=1304 end=1336 channels=documentText,keyword modality=text
+snippet=---\n## 鍐崇瓥 1锛氫骇鍝佺敤绯荤粺 SQLite锛孋hroma 鍙仛瀵圭収\n**浜у搧杩愯鏃剁敤 Dart + 绯荤粺 SQLite銆侰hroma 鐣欏湪 `engine/`锛岀敤鍚屼竴鎵瑰悜閲忓仛鎺掑悕瀵圭収銆俙engine/` 涓嶈繘鍙戝竷鍖呫€?*
+rank=2 score=0.012742 key=docs/architecture/adr/0004-vector-storage-and-fusion.md file=0004-vector-storage-and-fusion.md page=null start=1439 end=1489 channels=documentText,keyword modality=text
+snippet=|---|---|\n| 浜у搧瀛樺偍 | 绯荤粺 SQLite锛圵indows 涓婄敱 `package:sqlite3` 2.\nx 鍥為€€鍒?`winsqlite3.
+rank=3 score=0.012500 key=docs/architecture/system-architecture.md file=system-architecture.md page=null start=16898 end=17015 channels=documentText,keyword modality=text
+snippet=md) | 鏂囨湰鐢ㄥ璇█ MiniLM锛屽浘鍍忕敤 MobileCLIP-S0锛屼袱鏉＄┖闂村垎寮€锛學3 鐢?ONNX Runtime 杩涚▼ | 宸查噰绾?|\n| [ADR 0004](adr/0004-vector-storage-and-fusion.md) | 浜у搧瀛樺偍鐢ㄧ郴缁?SQLite锛孋hroma 鍙仛浣欏鸡瀵圭収锛汻RF 铻嶅悎锛涚紪鎺掑湪 `core_pipeline` | 宸查噰绾?|\n| ADR 0005锛堝緟鍐欙紝W6锛?| 鏄惁鎶婃壒閲忚В鏋愮Щ鍏?worker isolate | 鏈喅 |
+rank=4 score=0.012454 key=docs/architecture/adr/0004-vector-storage-and-fusion.md file=0004-vector-storage-and-fusion.md page=null start=1338 end=1414 channels=documentText,keyword modality=text
+snippet=## 鍐崇瓥 1锛氫骇鍝佺敤绯荤粺 SQLite锛孋hroma 鍙仛瀵圭収\n**浜у搧杩愯鏃剁敤 Dart + 绯荤粺 SQLite銆侰hroma 鐣欏湪 `engine/`锛岀敤鍚屼竴鎵瑰悜閲忓仛鎺掑悕瀵圭収銆俙engine/` 涓嶈繘鍙戝竷鍖呫€?*\n| 瀛愰棶棰?| 閫夋嫨 |
+rank=5 score=0.011924 key=docs/architecture/system-architecture.md file=system-architecture.md page=null start=5200 end=5260 channels=documentText,keyword modality=text
+snippet=鈹? 鈹溾攢 core_embedding/                # 3. Embedding 寮曟搸锛圵3锛塡n鈹? 鈹溾攢 core_storage/                  # 4. 鍚戦噺瀛樺偍锛圵4锛岀郴缁?SQLite锛塡n鈹? 鈹溾攢 core_retrieval/                # 5. 妫€绱㈤€昏緫锛圵4锛孯RF 涓庨偦鍩熸墿灞曪級
+EXIT:0

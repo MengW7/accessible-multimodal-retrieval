@@ -1,0 +1,41 @@
+# E2E empty database and clear root=C:\Users\11758\AppData\Local\Temp\w4-empty
+
+# dart run packages/core_pipeline/bin/index_probe.dart --db C:\Users\11758\AppData\Local\Temp\w4-empty\empty.sqlite --clear
+db=C:\Users\11758\AppData\Local\Temp\w4-empty\empty.sqlite
+clear_before_chunks=0 clear_after_chunks=0
+EXIT:0
+
+# dart run packages/core_pipeline/bin/search_probe.dart --db C:\Users\11758\AppData\Local\Temp\w4-empty\empty.sqlite --top 5 --query 离线检索
+query=绂荤嚎妫€绱?arm=A5 expand=true top=0 encode_ms=1946 store_ms=9 fuse_ms=0
+hits=0
+EXIT:0
+
+# dart run packages/core_pipeline/bin/index_probe.dart --db C:\Users\11758\AppData\Local\Temp\w4-empty\empty.sqlite --path C:\Users\11758\AppData\Local\Temp\w4-empty
+db=C:\Users\11758\AppData\Local\Temp\w4-empty\empty.sqlite
+progress 0/1 C:\Users\11758\AppData\Local\Temp\w4-empty
+progress 1/1 C:\Users\11758\AppData\Local\Temp\w4-empty
+path=C:\Users\11758\AppData\Local\Temp\w4-empty
+key_prefix=C:/Users/11758/AppData/Local/Temp/w4-empty
+ingest_total=1 ingest_ok=1 ingest_partial=0 ingest_skipped=0 ingest_failed=0 ingest_cancelled=false ingest_ms=49
+documents=1 written=1 reused=0 failed=0 cancelled=false chunks=1 index_ms=1767
+stats_chunks=1 stats_documents=1 stats_document_text=1 stats_clip_shared=0 stats_keyword_terms=12
+index_ms_total=1767
+EXIT:0
+
+# dart run packages/core_pipeline/bin/search_probe.dart --db C:\Users\11758\AppData\Local\Temp\w4-empty\empty.sqlite --top 5 --query 清库前的句子
+query=娓呭簱鍓嶇殑鍙ュ瓙
+arm=A5 expand=true top=1 encode_ms=1987 store_ms=21 fuse_ms=2
+rank=1 score=0.013115 key=C:/Users/11758/AppData/Local/Temp/w4-empty/note.txt file=note.txt page=null start=0 end=16 channels=documentText,keyword modality=text
+snippet=娓呭簱鍓嶇殑鍙ュ瓙銆傜绾挎绱粛鍦ㄦ湰鏈恒€?
+EXIT:0
+
+# dart run packages/core_pipeline/bin/index_probe.dart --db C:\Users\11758\AppData\Local\Temp\w4-empty\empty.sqlite --clear
+db=C:\Users\11758\AppData\Local\Temp\w4-empty\empty.sqlite
+clear_before_chunks=1 clear_after_chunks=0
+EXIT:0
+
+# dart run packages/core_pipeline/bin/search_probe.dart --db C:\Users\11758\AppData\Local\Temp\w4-empty\empty.sqlite --top 5 --query 清库前的句子
+query=娓呭簱鍓嶇殑鍙ュ瓙
+arm=A5 expand=true top=0 encode_ms=2099 store_ms=8 fuse_ms=0
+hits=0
+EXIT:0

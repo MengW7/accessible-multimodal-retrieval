@@ -1,0 +1,31 @@
+# E2E incremental root=C:\Users\11758\AppData\Local\Temp\w4-incremental
+# fix: writeChunks deletes previous document ids that share document_key
+
+# dart run packages/core_pipeline/bin/index_probe.dart --db C:\Users\11758\AppData\Local\Temp\w4-incremental\inc.sqlite --path C:\Users\11758\AppData\Local\Temp\w4-incremental
+db=C:\Users\11758\AppData\Local\Temp\w4-incremental\inc.sqlite
+path=C:\Users\11758\AppData\Local\Temp\w4-incremental
+key_prefix=C:/Users/11758/AppData/Local/Temp/w4-incremental
+ingest_total=3 ingest_ok=3 ingest_partial=0 ingest_skipped=0 ingest_failed=0 ingest_cancelled=false ingest_ms=78
+documents=3 written=3 reused=0 failed=0 cancelled=false chunks=378 index_ms=16130
+stats_chunks=378 stats_documents=3 stats_document_text=378 stats_clip_shared=0 stats_keyword_terms=3781
+index_ms_total=16130
+progress 0/3 C:\Users\11758\AppData\Local\Temp\w4-incremental
+progress 1/3 C:\Users\11758\AppData\Local\Temp\w4-incremental
+progress 2/3 C:\Users\11758\AppData\Local\Temp\w4-incremental
+progress 3/3 C:\Users\11758\AppData\Local\Temp\w4-incremental
+EXIT:0
+
+# second run after appending one sentence to a.md
+# dart run packages/core_pipeline/bin/index_probe.dart --db C:\Users\11758\AppData\Local\Temp\w4-incremental\inc.sqlite --path C:\Users\11758\AppData\Local\Temp\w4-incremental
+db=C:\Users\11758\AppData\Local\Temp\w4-incremental\inc.sqlite
+path=C:\Users\11758\AppData\Local\Temp\w4-incremental
+key_prefix=C:/Users/11758/AppData/Local/Temp/w4-incremental
+ingest_total=3 ingest_ok=3 ingest_partial=0 ingest_skipped=0 ingest_failed=0 ingest_cancelled=false ingest_ms=38
+documents=3 written=1 reused=2 failed=0 cancelled=false chunks=85 index_ms=5117
+stats_chunks=379 stats_documents=3 stats_document_text=379 stats_clip_shared=0 stats_keyword_terms=3798
+index_ms_total=5117
+progress 0/3 C:\Users\11758\AppData\Local\Temp\w4-incremental
+progress 1/3 C:\Users\11758\AppData\Local\Temp\w4-incremental
+progress 2/3 C:\Users\11758\AppData\Local\Temp\w4-incremental
+progress 3/3 C:\Users\11758\AppData\Local\Temp\w4-incremental
+EXIT:0

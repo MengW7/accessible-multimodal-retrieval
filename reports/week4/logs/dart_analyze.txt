@@ -1,0 +1,12 @@
+package=core_storage exit=0
+Analyzing core_storage...
+No issues found!
+
+package=core_retrieval exit=0
+Analyzing core_retrieval...
+No issues found!
+
+package=core_pipeline exit=0
+Analyzing core_pipeline...
+No issues found!
+

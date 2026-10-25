@@ -1,0 +1,31 @@
+# E2E neighborhood: A5 expands, A4 keeps the hit body
+
+# dart run packages/core_pipeline/bin/search_probe.dart --db week4/.index/evidence.sqlite --top 5 --arm A5 --query 工具靠什么判断文件类型？
+query=宸ュ叿闈犱粈涔堝垽鏂枃浠剁被鍨嬶紵
+arm=A5 expand=true top=5 encode_ms=2515 store_ms=41 fuse_ms=3
+rank=1 score=0.008197 key=datasets/samples/sample.pdf file=sample.pdf page=1 start=423 end=517 channels=documentText modality=text
+snippet=The Apache Tika toolkit detects and extracts metadata and text from over a thousand different\nfile types (such as PPT, XLS, and PDF). All of these file types can be parsed through a single\ninterface, making Tika useful for search engine indexing, content analysis, translation, and
+rank=2 score=0.008065 key=datasets/samples/sample.pdf file=sample.pdf page=2 start=430 end=524 channels=documentText modality=text
+snippet=The Apache Tika toolkit detects and extracts metadata and text from over a thousand different\nfile types (such as PPT, XLS, and PDF). All of these file types can be parsed through a single\ninterface, making Tika useful for search engine indexing, content analysis, translation, and
+rank=3 score=0.007937 key=datasets/samples/sample.docx file=sample.docx page=null start=306 end=426 channels=documentText modality=text
+snippet=Contributions and corrections are welcome.\nThe Apache Tika toolkit detects and extracts metadata and text from over a thousand different file types (such as PPT, X\nLS, and PDF).
+rank=4 score=0.007813 key=datasets/samples/sample.pdf file=sample.pdf page=1 start=617 end=710 channels=documentText modality=text
+snippet=interface, making Tika useful for search engine indexing, content analysis, translation, and\nmuch more. Tika identifies a file鈥檚 type from its bytes, so a missing or misleading extension\ndoes not change the result.
+rank=5 score=0.007692 key=datasets/samples/sample.pdf file=sample.pdf page=2 start=626 end=719 channels=documentText modality=text
+snippet=interface, making Tika useful for search engine indexing, content analysis, translation, and\nmuch more. Tika identifies a file鈥檚 type from its bytes, so a missing or misleading extension\ndoes not change the result.
+EXIT:0
+
+# dart run packages/core_pipeline/bin/search_probe.dart --db week4/.index/evidence.sqlite --top 5 --arm A4 --query 工具靠什么判断文件类型？
+query=宸ュ叿闈犱粈涔堝垽鏂枃浠剁被鍨嬶紵
+arm=A4 expand=false top=5 encode_ms=2390 store_ms=28 fuse_ms=3
+rank=1 score=0.008197 key=datasets/samples/sample.pdf file=sample.pdf page=1 start=423 end=517 channels=documentText modality=text
+snippet=file types (such as PPT, XLS, and PDF). All of these file types can be parsed through a single
+rank=2 score=0.008065 key=datasets/samples/sample.pdf file=sample.pdf page=2 start=430 end=524 channels=documentText modality=text
+snippet=file types (such as PPT, XLS, and PDF). All of these file types can be parsed through a single
+rank=3 score=0.007937 key=datasets/samples/sample.docx file=sample.docx page=null start=306 end=426 channels=documentText modality=text
+snippet=The Apache Tika toolkit detects and extracts metadata and text from over a thousand different file types (such as PPT, X
+rank=4 score=0.007813 key=datasets/samples/sample.pdf file=sample.pdf page=1 start=617 end=710 channels=documentText modality=text
+snippet=much more. Tika identifies a file鈥檚 type from its bytes, so a missing or misleading extension
+rank=5 score=0.007692 key=datasets/samples/sample.pdf file=sample.pdf page=2 start=626 end=719 channels=documentText modality=text
+snippet=much more. Tika identifies a file鈥檚 type from its bytes, so a missing or misleading extension
+EXIT:0

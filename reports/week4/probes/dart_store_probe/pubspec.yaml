@@ -1,0 +1,12 @@
+name: w4_store_probe
+description: >-
+  Week 4 storage decision probe. Measures SQLite write cost, brute-force cosine
+  cost at corpus scale, and FTS5 trigram behaviour from Dart (not Python), so
+  the numbers match the implementation language.
+publish_to: none
+
+environment:
+  sdk: ^3.13.0
+
+dependencies:
+  sqlite3: ^2.9.0

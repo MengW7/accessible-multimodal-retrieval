@@ -1,0 +1,6 @@
+# A Dart package does not commit its lockfile. apps/desktop/pubspec.lock is
+# the source of truth for resolved versions.
+pubspec.lock
+
+.dart_tool/
+coverage/

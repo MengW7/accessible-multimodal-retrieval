@@ -114,15 +114,15 @@ Day 4 对同一目录又跑了一次探针，原始输出在 `reports/week2/logs
 
 ## 4. 未决问题
 
-Owner 一列是负责在对应周次做决定的角色，不是已经派给某个后续提交的任务编号。Q1、Q3、Q7 已于 2026-10-15 结案，结论写在表下。Q2、Q4、Q5、Q6 仍未决。
+Owner 一列是负责在对应周次做决定的角色，不是已经派给某个后续提交的任务编号。Q1、Q3、Q7 已于 2026-10-15 结案。Q2、Q5 已于 2026-10-20 结案。结论写在表下。Q4、Q6 仍未决，W4 只登记影响。
 
 | 编号 | 问题 | 结论或倾向 | Owner | 状态 |
 |---|---|---|---|---|
 | Q1 | ORT/PDFium 是否都能拿到可信的预编译产物？拿不到怎么办 | 结案：不落地 PDFium，继续 Tika。见下文 | Week 3 | 已结案 |
-| Q2 | `engine/`（Python + Chroma）是否进入发布包 | **不进入**：只做离线评测，发布版存储由 Dart 侧实现 | Week 2 架构 | W4 |
+| Q2 | `engine/`（Python + Chroma）是否进入发布包 | 结案：不进入。Chroma 只做评测对照，产品存储是 Dart + 系统 SQLite。见下文与 ADR 0004 | Week 4 | 已结案 |
 | Q3 | 长文档切块策略（按页 / 按段 / 按 token 窗口） | 结案：页定位、段落切分、超长才切窗口。见下文与 ADR 0003 | Week 3 | 已结案 |
 | Q4 | 扫描件（RVL-CDIP）是否引入 OCR | 先走图像向量，基准不达标再加。W2 只登记图像元数据 | Week 2 架构 | W6 |
-| Q5 | 图像-only 文档如何在结果列表里排序与展示 | 与文本同榜，展示缩略图 + 尺寸 | Week 2 架构 | W4 |
+| Q5 | 图像-only 文档如何在结果列表里排序与展示 | 结案：`clipShared` 单独召回，经 RRF 与文本同榜。见下文与 ADR 0004 | Week 4 | 已结案 |
 | Q6 | 批量解析是否需要 worker isolate | PDF 单文件 4857 ms，见 `reports/week2/logs/day3_jvm_single_file.txt`。W2 仍用 `ImmediateExecutor` | Week 2 架构 | W6 |
 | Q7 | PDF 页码策略会不会随 PDFium 改变 | 结案：W3 不换 PDFium，页码继续以 Tika `-x` 的 page div 为准 | Week 3 | 已结案 |
 
@@ -153,13 +153,37 @@ ONNX Runtime 已装在 `engine/.venv`（1.30.0），本周只用它跑 embedding
 
 偏移量单位是 **UTF-16 code unit**，与 `DocumentPage.charCount`（`String.length`）相同。`startOffset` 含首，`endOffset` 不含尾。高亮、切片、引用共用这一单位。
 
-`chunkId` 由内容哈希、分块器版本、页码和块序号组成。只有同一内容哈希、同一分块器版本、同一配置才可复现。文档或参数变了，编号就变。W4 不得把它当稳定主键。
+`chunkId` 由内容哈希、分块器版本、页码和块序号组成。只有同一内容哈希、同一分块器版本、同一配置才可复现。文档或参数变了，编号就变。W4 不把它当主键；能否复用改看五项代次键，见 ADR 0004 决策 4。
 
 跨页合并不做。`sample.pdf` 两页共 4358 字符，大约 2179 字符一页；检索用的块比一页短得多，所以「答案跨页」实际上是「答案跨过相邻块」。W3 保证 `pageNumber` 和偏移被留下来。**跨页答案的邻域扩展由 W4 承接。** 证据集里的跨页题，通过标准也定在 W4。
 
 证据集已在 2026-10-16T13:12:33Z 冻结：`reports/week3/evidence_set.jsonl`，25 条，dev 15 / holdout 10，说明见 `reports/week3/证据集说明.md`。其中 `ev-08`、`ev-16`、`ev-17` 的证据在 PDF 两页都有完整落点。抽出的两页是同一篇说明的重复排版，没有一句从页末续到下一页。W3 没有用这个集子算出检索分数，也没有回头改切块参数。
 
 字符长度用来切块，token 长度用来校验。超长必须重切或显式记 warning，不静默截断。`chunkChars` 的初值跟所选模型和语料走，不宣称某一组数字普遍最优。文本模型的运行上限是 128 个 token，见 `models/README.md`。
+
+### Q2 结案（2026-10-20）
+
+`engine/` 不进入发布包。Python 和 Chroma 只留在开发期评测。产品索引是 Dart 包 `packages/core_storage`：系统 SQLite，向量用 fp32 小端 BLOB，余弦用点积。
+
+Chroma 没有被丢掉。`chromadb 1.5.9` 用同一批向量建集合，集合度量必须是 `hnsw:space=cosine`，再和 Dart+SQLite 比 Top-5。一致率的出口是不低于 96%。2026-10-20 实测 121/125（96.8%），原始输出在 `week4/logs/storage_equivalence.txt`。4 处不一致都是第 5 名，落在 `sample.pdf` 两页重复排版上。Dart 侧的 `chromadb` HTTP 客户端要第二个进程，和「不把 `engine/` 打进安装包」冲突，所以不进产品运行时。
+
+依据是本机探针，不是容量估算：SQLite 3.53.4 的 FTS5 / WAL 可用（`week4/probes/probe_sqlite_capacity.txt`、`week4/probes/dart_store_probe.txt`）。`winsqlite3.dll` 的用法未写入系统文档，W8 再决定公开包是否改带自己的 `sqlite3.dll`。动态库通过 `SqliteLibraryLocator` 注入，路径不写死。
+
+### Q4 登记（2026-10-20，未结案）
+
+扫描件本周仍不引入 OCR。图像文件走 `clipShared`，和 Q5 的同榜规则一起检索。RVL-CDIP 的标注和 OCR 继续留到 W6。本周没有新的扫描件基准。
+
+### Q5 结案（2026-10-20）
+
+图像文档和文本文档上同一张结果榜。图像向量只在 `clipShared` 里召回，文本向量只在 `documentText` 里召回，两路不交叉算余弦。名次用 RRF 合并，`k=60`，图像路权重初值 0.2。图像路没有命中不是失败。
+
+结果携带 `modality`。图像行携带 `imageAsset`（格式、宽、高），界面用它做缩略图和尺寸，不另算一遍分数。`pageNumber == null` 的规则不变，图像行也不显示假页码。
+
+混合榜的臂是评测里的 A2 和 A4。那张表在精度基准里出数，不在本条结案里预写一个 Hit@5。
+
+### Q6 登记（2026-10-20，未结案）
+
+批量解析本周仍用 `ImmediateExecutor`，不把解析放进 worker isolate。常驻嵌入进程把大约 1454 块的前向从几十分钟降到大约 37 秒（`week4/probes/probe_persistent_runtime.txt` 的 25.5 ms/条）。PDF 仍是每个文件一次 JVM，`process_wait` 占单文件时间的大约 99%。isolate 有没有收益，等 W6 用这条计时基线再量。
 
 ### Q7 结案（2026-10-15）
 

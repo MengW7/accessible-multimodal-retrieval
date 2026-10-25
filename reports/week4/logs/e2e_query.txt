@@ -1,0 +1,69 @@
+# E2E single query, multi query, image question
+
+# dart run packages/core_pipeline/bin/search_probe.dart --db week4/.index/evidence.sqlite --top 10 --query 工具靠什么判断文件类型？ --query 这份说明在能够被完全信任之前，还要求人做什么？ --query 哪张图里有人在厨房做披萨？
+query=宸ュ叿闈犱粈涔堝垽鏂枃浠剁被鍨嬶紵
+arm=A5 expand=true top=10 encode_ms=2349 store_ms=35 fuse_ms=3
+rank=1 score=0.008197 key=datasets/samples/sample.pdf file=sample.pdf page=1 start=423 end=517 channels=documentText modality=text
+snippet=The Apache Tika toolkit detects and extracts metadata and text from over a thousand different\nfile types (such as PPT, XLS, and PDF). All of these file types can be parsed through a single\ninterface, making Tika useful for search engine indexing, content analysis, translation, and
+rank=2 score=0.008065 key=datasets/samples/sample.pdf file=sample.pdf page=2 start=430 end=524 channels=documentText modality=text
+snippet=The Apache Tika toolkit detects and extracts metadata and text from over a thousand different\nfile types (such as PPT, XLS, and PDF). All of these file types can be parsed through a single\ninterface, making Tika useful for search engine indexing, content analysis, translation, and
+rank=3 score=0.007937 key=datasets/samples/sample.docx file=sample.docx page=null start=306 end=426 channels=documentText modality=text
+snippet=Contributions and corrections are welcome.\nThe Apache Tika toolkit detects and extracts metadata and text from over a thousand different file types (such as PPT, X\nLS, and PDF).
+rank=4 score=0.007813 key=datasets/samples/sample.pdf file=sample.pdf page=1 start=617 end=710 channels=documentText modality=text
+snippet=interface, making Tika useful for search engine indexing, content analysis, translation, and\nmuch more. Tika identifies a file鈥檚 type from its bytes, so a missing or misleading extension\ndoes not change the result.
+rank=5 score=0.007692 key=datasets/samples/sample.pdf file=sample.pdf page=2 start=626 end=719 channels=documentText modality=text
+snippet=interface, making Tika useful for search engine indexing, content analysis, translation, and\nmuch more. Tika identifies a file鈥檚 type from its bytes, so a missing or misleading extension\ndoes not change the result.
+rank=6 score=0.007576 key=datasets/samples/sample.docx file=sample.docx page=null start=440 end=560 channels=documentText modality=text
+snippet=LS, and PDF).\nAll of these file types can be parsed through a single interface, making Tika useful for search engine indexing, content\nanalysis, translation, and much more.
+rank=7 score=0.007463 key=datasets/samples/sample.pdf file=sample.pdf page=1 start=326 end=419 channels=documentText modality=text
+snippet=but more work remains. Contributions and corrections are welcome.\nThe Apache Tika toolkit detects and extracts metadata and text from over a thousand different\nfile types (such as PPT, XLS, and PDF). All of these file types can be parsed through a single
+rank=8 score=0.007353 key=datasets/samples/sample.pdf file=sample.pdf page=2 start=332 end=425 channels=documentText modality=text
+snippet=but more work remains. Contributions and corrections are welcome.\nThe Apache Tika toolkit detects and extracts metadata and text from over a thousand different\nfile types (such as PPT, XLS, and PDF). All of these file types can be parsed through a single
+rank=9 score=0.007246 key=datasets/samples/sample.docx file=sample.docx page=null start=599 end=709 channels=documentText modality=text
+snippet=analysis, translation, and much more.\nTika identifies a file鈥檚 type from its bytes, so a missing or misleading extension does not change the result.\nWhere to start
+rank=10 score=0.007143 key=datasets/samples/sample.docx file=sample.docx page=null start=725 end=826 channels=documentText modality=text
+snippet=Where to start\nSupported Formats鈥夆€斺€墂hat Tika parses, family by family, plus the generated parser-to-media-type list.\nUsing Tika鈥夆€斺€塩hoose an integration method: Java API, command line, REST server, or gRPC.
+query=杩欎唤璇存槑鍦ㄨ兘澶熻瀹屽叏淇′换涔嬪墠锛岃繕瑕佹眰浜哄仛浠€涔堬紵
+arm=A5 expand=true top=10 encode_ms=67 store_ms=39 fuse_ms=0
+rank=1 score=0.008197 key=datasets/samples/sample.pdf file=sample.pdf page=1 start=160 end=253 channels=documentText modality=text
+snippet=This reference guide was generated with the assistance of AI and requires human review\nbefore it can be fully trusted. This documentation serves as an example and a starting point,\nbut more work remains. Contributions and corrections are welcome.
+rank=2 score=0.008065 key=datasets/samples/sample.pdf file=sample.pdf page=2 start=164 end=257 channels=documentText modality=text
+snippet=This reference guide was generated with the assistance of AI and requires human review\nbefore it can be fully trusted. This documentation serves as an example and a starting point,\nbut more work remains. Contributions and corrections are welcome.
+rank=3 score=0.007937 key=datasets/samples/sample.pdf file=sample.pdf page=1 start=1232 end=1314 channels=documentText modality=text
+snippet=content you do not control.\n鈥?Security鈥夆€斺€塼he trust model, and what to lock down before exposing tika-server or\ntika-grpc.
+rank=4 score=0.007813 key=datasets/samples/sample.pdf file=sample.pdf page=2 start=1252 end=1334 channels=documentText modality=text
+snippet=content you do not control.\n鈥?Security鈥夆€斺€塼he trust model, and what to lock down before exposing tika-server or\ntika-grpc.
+rank=5 score=0.007692 key=datasets/samples/sample.docx file=sample.docx page=null start=1160 end=1251 channels=documentText modality=text
+snippet=Setting Limits and Robustness鈥夆€斺€塨ounding time, memory and output when parsing content you do not control.\nSecurity鈥夆€斺€塼he trust model, and what to lock down before exposing tika-server or tika-grpc.\nMigrating to 4.x鈥夆€斺€墂hat changed since 3.x and what you have to update.
+rank=6 score=0.007576 key=datasets/samples/sample.pdf file=sample.pdf page=1 start=2005 end=2053 channels=documentText modality=text
+snippet=https://tika.apache.org/docs/4.0.x/advanced/robustness.html\nhttps://tika.apache.org/docs/4.0.x/security.html\nhttps://tika.apache.org/docs/4.0.x/migration-to-4x/index.html
+rank=7 score=0.007463 key=datasets/samples/sample.pdf file=sample.pdf page=2 start=2041 end=2089 channels=documentText modality=text
+snippet=https://tika.apache.org/docs/4.0.x/advanced/robustness.html\nhttps://tika.apache.org/docs/4.0.x/security.html\nhttps://tika.apache.org/docs/4.0.x/migration-to-4x/index.html
+rank=8 score=0.007353 key=datasets/samples/sample.docx file=sample.docx page=null start=59 end=177 channels=documentText modality=text
+snippet=Where to start\nThis reference guide was generated with the assistance of AI and requires human review before it can be fully trusted.\nThis documentation serves as an example and a starting point, but more work remains.
+rank=9 score=0.007246 key=datasets/samples/sample.docx file=sample.docx page=null start=178 end=262 channels=documentText modality=text
+snippet=This reference guide was generated with the assistance of AI and requires human review before it can be fully trusted.\nThis documentation serves as an example and a starting point, but more work remains.\nContributions and corrections are welcome.
+rank=10 score=0.007143 key=datasets/samples/sample.pdf file=sample.pdf page=1 start=1881 end=1944 channels=documentText modality=text
+snippet=https://tika.apache.org/docs/4.0.x/configuration/index.html\nhttps://tika.apache.org/docs/4.0.x/advanced/setting-limits.html\nhttps://tika.apache.org/docs/4.0.x/advanced/robustness.html
+query=鍝紶鍥鹃噷鏈変汉鍦ㄥ帹鎴垮仛鎶惃锛?arm=A5 expand=true top=10 encode_ms=59 store_ms=66 fuse_ms=0
+rank=1 score=0.008197 key=datasets/samples/sample.pdf file=sample.pdf page=1 start=1318 end=1328 channels=documentText modality=text
+snippet=鈥?Security鈥夆€斺€塼he trust model, and what to lock down before exposing tika-server or\ntika-grpc.\n鈥?Migrating to 4.x鈥夆€斺€墂hat changed since 3.x and what you have to update.
+rank=2 score=0.008065 key=datasets/samples/sample.pdf file=sample.pdf page=2 start=1339 end=1349 channels=documentText modality=text
+snippet=鈥?Security鈥夆€斺€塼he trust model, and what to lock down before exposing tika-server or\ntika-grpc.\n鈥?Migrating to 4.x鈥夆€斺€墂hat changed since 3.x and what you have to update.
+rank=3 score=0.007937 key=datasets/samples/sample.pdf file=sample.pdf page=1 start=763 end=847 channels=documentText modality=text
+snippet=Where to start\n鈥?Supported Formats鈥夆€斺€墂hat Tika parses, family by family, plus the generated parser-\nto-media-type list.
+rank=4 score=0.007813 key=datasets/samples/sample.pdf file=sample.pdf page=2 start=775 end=859 channels=documentText modality=text
+snippet=Where to start\n鈥?Supported Formats鈥夆€斺€墂hat Tika parses, family by family, plus the generated parser-\nto-media-type list.
+rank=5 score=0.007692 key=datasets/samples/sample.pdf file=sample.pdf page=1 start=970 end=1033 channels=documentText modality=text
+snippet=gRPC.\n鈥?Pipes鈥夆€斺€塸rocess-isolated, fault-tolerant extraction at scale.\n鈥?Configuration鈥夆€斺€塼he JSON config file: parsers, detectors, metadata filters.
+rank=6 score=0.007576 key=datasets/samples/sample.pdf file=sample.pdf page=2 start=986 end=1049 channels=documentText modality=text
+snippet=gRPC.\n鈥?Pipes鈥夆€斺€塸rocess-isolated, fault-tolerant extraction at scale.\n鈥?Configuration鈥夆€斺€塼he JSON config file: parsers, detectors, metadata filters.
+rank=7 score=0.007463 key=datasets/samples/sample.docx file=sample.docx page=null start=916 end=977 channels=documentText modality=text
+snippet=Using Tika鈥夆€斺€塩hoose an integration method: Java API, command line, REST server, or gRPC.\nPipes鈥夆€斺€塸rocess-isolated, fault-tolerant extraction at scale.\nConfiguration鈥夆€斺€塼he JSON config file: parsers, detectors, metadata filters.
+rank=8 score=0.007353 key=datasets/samples/sample.pdf file=sample.pdf page=1 start=961 end=966 channels=documentText modality=text
+snippet=鈥?Using Tika鈥夆€斺€塩hoose an integration method: Java API, command line, REST server, or\ngRPC.\n鈥?Pipes鈥夆€斺€塸rocess-isolated, fault-tolerant extraction at scale.
+rank=9 score=0.007246 key=datasets/samples/sample.pdf file=sample.pdf page=2 start=976 end=981 channels=documentText modality=text
+snippet=鈥?Using Tika鈥夆€斺€塩hoose an integration method: Java API, command line, REST server, or\ngRPC.\n鈥?Pipes鈥夆€斺€塸rocess-isolated, fault-tolerant extraction at scale.
+rank=10 score=0.007143 key=datasets/samples/sample.docx file=sample.docx page=null start=725 end=826 channels=documentText modality=text
+snippet=Where to start\nSupported Formats鈥夆€斺€墂hat Tika parses, family by family, plus the generated parser-to-media-type list.\nUsing Tika鈥夆€斺€塩hoose an integration method: Java API, command line, REST server, or gRPC.
+EXIT:0

@@ -1,0 +1,70 @@
+# E2E rebuild: unchanged files are reused
+
+# dart run packages/core_pipeline/bin/index_probe.dart --db week4/.index/evidence.sqlite --path datasets/samples --path datasets/coco/val_sample/images
+db=E:\Project\accessible-multimodal-retrieval\week4/.index/evidence.sqlite
+progress 0/3 E:\Project\accessible-multimodal-retrieval\datasets/samples
+progress 1/3 E:\Project\accessible-multimodal-retrieval\datasets/samples
+progress 2/3 E:\Project\accessible-multimodal-retrieval\datasets/samples
+progress 3/3 E:\Project\accessible-multimodal-retrieval\datasets/samples
+path=E:\Project\accessible-multimodal-retrieval\datasets/samples
+key_prefix=datasets/samples
+ingest_total=3 ingest_ok=3 ingest_partial=0 ingest_skipped=0 ingest_failed=0 ingest_cancelled=false ingest_ms=5597
+documents=3 written=0 reused=3 failed=0 cancelled=false chunks=0 index_ms=5605
+progress 0/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 1/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 2/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 3/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 4/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 5/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 6/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 7/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 8/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 9/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 10/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 11/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 12/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 13/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 14/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 15/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 16/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 17/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 18/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 19/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 20/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 21/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 22/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 23/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 24/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 25/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 26/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 27/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 28/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 29/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 30/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 31/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 32/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 33/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 34/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 35/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 36/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 37/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 38/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 39/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 40/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 41/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 42/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 43/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 44/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 45/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 46/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 47/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 48/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 49/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+progress 50/50 E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+path=E:\Project\accessible-multimodal-retrieval\datasets/coco/val_sample/images
+key_prefix=datasets/coco/val_sample/images
+ingest_total=50 ingest_ok=50 ingest_partial=0 ingest_skipped=0 ingest_failed=0 ingest_cancelled=false ingest_ms=1259
+documents=50 written=0 reused=50 failed=0 cancelled=false chunks=0 index_ms=1268
+stats_chunks=147 stats_documents=53 stats_document_text=96 stats_clip_shared=51 stats_keyword_terms=0
+index_ms_total=6873
+EXIT:0

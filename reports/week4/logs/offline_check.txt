@@ -1,0 +1,7 @@
+# offline grep 2026-10-25T16:09:01.4371110+08:00
+# roots: packages/core_storage/lib packages/core_retrieval/lib packages/core_pipeline/lib
+# pattern: HttpClient|Socket|import .http|package:http
+# files_scanned=40
+# matches=0
+# network_disabled=0
+# note: grep gate only; the machine network was left enabled

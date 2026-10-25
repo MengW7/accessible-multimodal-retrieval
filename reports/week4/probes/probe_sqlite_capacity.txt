@@ -1,0 +1,16 @@
+probe=sqlite_capacity dll=C:\Windows\System32\winsqlite3.dll open_rc=0
+capability version: rc=0 ok rows=[['3.53.4']]
+capability source_id: rc=0 ok rows=[['2026-07-24 19:02:57 bf7c7f30031888f4e796e429ab3978879485813aaca6f641c7b33e4e09459bcc']]
+capability json1: rc=0 ok rows=[['1']]
+capability fts5: rc=0 ok rows=[]
+capability fts4: rc=0 ok rows=[]
+capability trigram: rc=0 ok rows=[]
+unicode61_vocab: rc=0 rows=[['离线检索可以在没有网络的电脑上运行', '1'], ['键盘操作必须能走完整个流程', '1']]
+probe '离线' unicode61=0 trigram=0 like=1
+probe '离线检索' unicode61=0 trigram=1 like=1
+probe '键盘' unicode61=0 trigram=0 like=1
+probe '整个流程' unicode61=0 trigram=1 like=1
+probe '电脑上' unicode61=0 trigram=1 like=1
+bruteforce n=1500 dim=384 dots_ms_median=0.2 min=0.2 max=0.3
+bruteforce n=10000 dim=384 dots_ms_median=0.3 min=0.3 max=0.4
+journal_mode(memory_db): rc=0 rows=[['memory']]

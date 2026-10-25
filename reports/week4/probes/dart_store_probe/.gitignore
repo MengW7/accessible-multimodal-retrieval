@@ -1,0 +1,4 @@
+# 探针包是一次性验证，不是交付物。
+# 解析产物与锁文件不入库，与 packages/* 的规则一致。
+.dart_tool/
+pubspec.lock

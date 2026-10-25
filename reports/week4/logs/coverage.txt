@@ -1,0 +1,17 @@
+date=2026-10-25
+# From each package directory. integration tests are excluded and do not load models.
+#   dart test --coverage=coverage --exclude-tags integration
+#   dart run coverage:format_coverage --lcov --in=coverage --out=coverage\lcov.info --report-on=lib --package=.
+# Copies are week4/coverage/<package>.lcov.info
+
+core_storage lines_hit=488 lines_found=573 pct=85.17 suite=00:02 +14
+core_retrieval lines_hit=158 lines_found=164 pct=96.34 suite=00:02 +8
+core_pipeline lines_hit=280 lines_found=298 pct=93.96 suite=00:03 +23
+core_parsing lines_hit=979 lines_found=1091 pct=89.73 suite=00:07 +98
+core_embedding lines_hit=1250 lines_found=1458 pct=85.73 suite=00:09 +93
+
+gate_new_packages_min=85
+gate_core_parsing_min=80
+gate_core_embedding_min=85
+core_parsing_week2_snapshot=949/1043=90.99 on that week's 1043 instrumented lines
+core_embedding_matches_week3_snapshot=1250/1458=85.73
