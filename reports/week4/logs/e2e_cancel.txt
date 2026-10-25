@@ -1,0 +1,44 @@
+# E2E cancel root=C:\Users\11758\AppData\Local\Temp\w4-cancel
+
+# dart run packages/core_pipeline/bin/index_probe.dart --db C:\Users\11758\AppData\Local\Temp\w4-cancel\cancel.sqlite --path C:\Users\11758\AppData\Local\Temp\w4-cancel --cancel-after 1
+db=C:\Users\11758\AppData\Local\Temp\w4-cancel\cancel.sqlite
+progress 0/3 C:\Users\11758\AppData\Local\Temp\w4-cancel
+progress 1/3 C:\Users\11758\AppData\Local\Temp\w4-cancel
+path=C:\Users\11758\AppData\Local\Temp\w4-cancel
+key_prefix=C:/Users/11758/AppData/Local/Temp/w4-cancel
+ingest_total=3 ingest_ok=3 ingest_partial=0 ingest_skipped=0 ingest_failed=0 ingest_cancelled=false ingest_ms=55
+documents=3 written=1 reused=0 failed=0 cancelled=true chunks=1 index_ms=1618
+stats_chunks=1 stats_documents=1 stats_document_text=1 stats_clip_shared=0 stats_keyword_terms=15
+index_ms_total=1618
+EXIT:0
+
+# dart run packages/core_pipeline/bin/search_probe.dart --db C:\Users\11758\AppData\Local\Temp\w4-cancel\cancel.sqlite --top 5 --query 离线检索可以没有网络
+query=绂荤嚎妫€绱㈠彲浠ユ病鏈夌綉缁?arm=A5 expand=true top=1 encode_ms=1945 store_ms=19 fuse_ms=2
+rank=1 score=0.013115 key=C:/Users/11758/AppData/Local/Temp/w4-cancel/a.txt file=a.txt page=null start=0 end=19 channels=documentText,keyword modality=text
+snippet=绗竴浠芥枃浠朵繚鐣欍€傜绾挎绱㈠彲浠ユ病鏈夌綉缁溿€?
+EXIT:0
+
+# dart run packages/core_pipeline/bin/search_probe.dart --db C:\Users\11758\AppData\Local\Temp\w4-cancel\cancel.sqlite --top 5 --query 第二份文件不应写入
+query=绗簩浠芥枃浠朵笉搴斿啓鍏?arm=A5 expand=true top=1 encode_ms=1843 store_ms=20 fuse_ms=2
+rank=1 score=0.013115 key=C:/Users/11758/AppData/Local/Temp/w4-cancel/a.txt file=a.txt page=null start=0 end=19 channels=documentText,keyword modality=text
+snippet=绗竴浠芥枃浠朵繚鐣欍€傜绾挎绱㈠彲浠ユ病鏈夌綉缁溿€?
+EXIT:0
+# E2E bad file root=C:\Users\11758\AppData\Local\Temp\w4-bad
+
+# dart run packages/core_pipeline/bin/index_probe.dart --db C:\Users\11758\AppData\Local\Temp\w4-bad\bad.sqlite --path C:\Users\11758\AppData\Local\Temp\w4-bad
+db=C:\Users\11758\AppData\Local\Temp\w4-bad\bad.sqlite
+progress 0/1 C:\Users\11758\AppData\Local\Temp\w4-bad
+progress 1/1 C:\Users\11758\AppData\Local\Temp\w4-bad
+path=C:\Users\11758\AppData\Local\Temp\w4-bad
+key_prefix=C:/Users/11758/AppData/Local/Temp/w4-bad
+ingest_total=2 ingest_ok=1 ingest_partial=0 ingest_skipped=0 ingest_failed=1 ingest_cancelled=false ingest_ms=45
+documents=1 written=1 reused=0 failed=0 cancelled=false chunks=1 index_ms=1505
+stats_chunks=1 stats_documents=1 stats_document_text=1 stats_clip_shared=0 stats_keyword_terms=10
+index_ms_total=1505
+EXIT:0
+
+# dart run packages/core_pipeline/bin/search_probe.dart --db C:\Users\11758\AppData\Local\Temp\w4-bad\bad.sqlite --top 5 --query 完好的文本文件仍应入库
+query=瀹屽ソ鐨勬枃鏈枃浠朵粛搴斿叆搴?arm=A5 expand=true top=1 encode_ms=1771 store_ms=20 fuse_ms=3
+rank=1 score=0.013115 key=C:/Users/11758/AppData/Local/Temp/w4-bad/good.txt file=good.txt page=null start=0 end=12 channels=documentText,keyword modality=text
+snippet=瀹屽ソ鐨勬枃鏈枃浠朵粛搴斿叆搴撱€?
+EXIT:0

@@ -1,0 +1,11 @@
+chroma_vs_numpy_positions=125
+chroma_vs_numpy_agreed=125
+chroma_vs_numpy_agreement=1.000000
+score=1-distance
+hnsw_space=cosine
+chromadb_version=1.5.9
+queries=25
+hit@5=0.880000 [0.700442, 0.958332] (22/25)
+mrr@10=0.795714
+metric_layer=storage_baseline
+note=query vectors are the exported question embeddings; this is the Chroma control, not the product retriever

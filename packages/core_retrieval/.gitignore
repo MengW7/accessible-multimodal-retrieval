@@ -1,0 +1,8 @@
+# A Dart *package* does not commit its lockfile: the consuming application
+# (apps/desktop/pubspec.lock) is the source of truth for resolved versions, and
+# committing both invites them to drift apart.
+pubspec.lock
+
+# Local analysis / test artifacts (also covered by the repository root rules).
+.dart_tool/
+coverage/

@@ -1,0 +1,7 @@
+corpus_files=20 texts=24 script=embed_text_hidden.py
+one_shot n=24 median_ms=1382.4 p90_ms=1436.9 max_ms=1556.9 total_ms=33604
+session_load_ms=481
+persistent n=24 median_ms=25.5 p90_ms=27.3 max_ms=27.8 total_ms=618
+batched size=8 per_item_ms=21.9
+batched size=16 per_item_ms=24.0
+speedup_one_shot_over_persistent=54.3

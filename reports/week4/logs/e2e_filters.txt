@@ -1,0 +1,62 @@
+# E2E filters: extension, path prefix, modified time, image extension
+
+# dart run packages/core_pipeline/bin/search_probe.dart --db week4/.index/evidence.sqlite --top 5 --extension .pdf --query 工具靠什么判断文件类型？
+query=宸ュ叿闈犱粈涔堝垽鏂枃浠剁被鍨嬶紵
+arm=A5 expand=true top=5 encode_ms=2364 store_ms=32 fuse_ms=2
+rank=1 score=0.008197 key=datasets/samples/sample.pdf file=sample.pdf page=1 start=423 end=517 channels=documentText modality=text
+snippet=The Apache Tika toolkit detects and extracts metadata and text from over a thousand different\nfile types (such as PPT, XLS, and PDF). All of these file types can be parsed through a single\ninterface, making Tika useful for search engine indexing, content analysis, translation, and
+rank=2 score=0.008065 key=datasets/samples/sample.pdf file=sample.pdf page=2 start=430 end=524 channels=documentText modality=text
+snippet=The Apache Tika toolkit detects and extracts metadata and text from over a thousand different\nfile types (such as PPT, XLS, and PDF). All of these file types can be parsed through a single\ninterface, making Tika useful for search engine indexing, content analysis, translation, and
+rank=3 score=0.007937 key=datasets/samples/sample.pdf file=sample.pdf page=1 start=617 end=710 channels=documentText modality=text
+snippet=interface, making Tika useful for search engine indexing, content analysis, translation, and\nmuch more. Tika identifies a file鈥檚 type from its bytes, so a missing or misleading extension\ndoes not change the result.
+rank=4 score=0.007813 key=datasets/samples/sample.pdf file=sample.pdf page=2 start=626 end=719 channels=documentText modality=text
+snippet=interface, making Tika useful for search engine indexing, content analysis, translation, and\nmuch more. Tika identifies a file鈥檚 type from its bytes, so a missing or misleading extension\ndoes not change the result.
+rank=5 score=0.007692 key=datasets/samples/sample.pdf file=sample.pdf page=1 start=326 end=419 channels=documentText modality=text
+snippet=but more work remains. Contributions and corrections are welcome.\nThe Apache Tika toolkit detects and extracts metadata and text from over a thousand different\nfile types (such as PPT, XLS, and PDF). All of these file types can be parsed through a single
+EXIT:0
+
+# dart run packages/core_pipeline/bin/search_probe.dart --db week4/.index/evidence.sqlite --top 5 --path-prefix sample.pdf --query 工具靠什么判断文件类型？
+query=宸ュ叿闈犱粈涔堝垽鏂枃浠剁被鍨嬶紵
+arm=A5 expand=true top=5 encode_ms=2463 store_ms=30 fuse_ms=2
+rank=1 score=0.008197 key=datasets/samples/sample.pdf file=sample.pdf page=1 start=423 end=517 channels=documentText modality=text
+snippet=The Apache Tika toolkit detects and extracts metadata and text from over a thousand different\nfile types (such as PPT, XLS, and PDF). All of these file types can be parsed through a single\ninterface, making Tika useful for search engine indexing, content analysis, translation, and
+rank=2 score=0.008065 key=datasets/samples/sample.pdf file=sample.pdf page=2 start=430 end=524 channels=documentText modality=text
+snippet=The Apache Tika toolkit detects and extracts metadata and text from over a thousand different\nfile types (such as PPT, XLS, and PDF). All of these file types can be parsed through a single\ninterface, making Tika useful for search engine indexing, content analysis, translation, and
+rank=3 score=0.007937 key=datasets/samples/sample.pdf file=sample.pdf page=1 start=617 end=710 channels=documentText modality=text
+snippet=interface, making Tika useful for search engine indexing, content analysis, translation, and\nmuch more. Tika identifies a file鈥檚 type from its bytes, so a missing or misleading extension\ndoes not change the result.
+rank=4 score=0.007813 key=datasets/samples/sample.pdf file=sample.pdf page=2 start=626 end=719 channels=documentText modality=text
+snippet=interface, making Tika useful for search engine indexing, content analysis, translation, and\nmuch more. Tika identifies a file鈥檚 type from its bytes, so a missing or misleading extension\ndoes not change the result.
+rank=5 score=0.007692 key=datasets/samples/sample.pdf file=sample.pdf page=1 start=326 end=419 channels=documentText modality=text
+snippet=but more work remains. Contributions and corrections are welcome.\nThe Apache Tika toolkit detects and extracts metadata and text from over a thousand different\nfile types (such as PPT, XLS, and PDF). All of these file types can be parsed through a single
+EXIT:0
+
+# dart run packages/core_pipeline/bin/search_probe.dart --db week4/.index/evidence.sqlite --top 3 --modified-after 2020-01-01T00:00:00Z --query 工具靠什么判断文件类型？
+query=宸ュ叿闈犱粈涔堝垽鏂枃浠剁被鍨嬶紵
+arm=A5 expand=true top=3 encode_ms=2430 store_ms=37 fuse_ms=4
+rank=1 score=0.008197 key=datasets/samples/sample.pdf file=sample.pdf page=1 start=423 end=517 channels=documentText modality=text
+snippet=The Apache Tika toolkit detects and extracts metadata and text from over a thousand different\nfile types (such as PPT, XLS, and PDF). All of these file types can be parsed through a single\ninterface, making Tika useful for search engine indexing, content analysis, translation, and
+rank=2 score=0.008065 key=datasets/samples/sample.pdf file=sample.pdf page=2 start=430 end=524 channels=documentText modality=text
+snippet=The Apache Tika toolkit detects and extracts metadata and text from over a thousand different\nfile types (such as PPT, XLS, and PDF). All of these file types can be parsed through a single\ninterface, making Tika useful for search engine indexing, content analysis, translation, and
+rank=3 score=0.007937 key=datasets/samples/sample.docx file=sample.docx page=null start=306 end=426 channels=documentText modality=text
+snippet=Contributions and corrections are welcome.\nThe Apache Tika toolkit detects and extracts metadata and text from over a thousand different file types (such as PPT, X\nLS, and PDF).
+EXIT:0
+
+# dart run packages/core_pipeline/bin/search_probe.dart --db week4/.index/evidence.sqlite --top 3 --modified-after 2099-01-01T00:00:00Z --query 工具靠什么判断文件类型？
+query=宸ュ叿闈犱粈涔堝垽鏂枃浠剁被鍨嬶紵
+arm=A5 expand=true top=0 encode_ms=2111 store_ms=15 fuse_ms=1
+hits=0
+EXIT:0
+
+# dart run packages/core_pipeline/bin/search_probe.dart --db week4/.index/evidence.sqlite --top 5 --extension .jpg --query 哪张图里有人在厨房做披萨？
+query=鍝紶鍥鹃噷鏈変汉鍦ㄥ帹鎴垮仛鎶惃锛?arm=A5 expand=true top=5 encode_ms=2140 store_ms=27 fuse_ms=3
+rank=1 score=0.003279 key=datasets/coco/val_sample/images/000000403385.jpg file=000000403385.jpg page=null start=0 end=0 channels=clipShared modality=image
+snippet=
+rank=2 score=0.003226 key=datasets/coco/val_sample/images/000000296649.jpg file=000000296649.jpg page=null start=0 end=0 channels=clipShared modality=image
+snippet=
+rank=3 score=0.003175 key=datasets/coco/val_sample/images/000000463730.jpg file=000000463730.jpg page=null start=0 end=0 channels=clipShared modality=image
+snippet=
+rank=4 score=0.003125 key=datasets/coco/val_sample/images/000000006818.jpg file=000000006818.jpg page=null start=0 end=0 channels=clipShared modality=image
+snippet=
+rank=5 score=0.003077 key=datasets/coco/val_sample/images/000000329323.jpg file=000000329323.jpg page=null start=0 end=0 channels=clipShared modality=image
+snippet=
+EXIT:0

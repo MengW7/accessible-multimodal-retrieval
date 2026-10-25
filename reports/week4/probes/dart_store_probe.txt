@@ -1,0 +1,9 @@
+sqlite_version=3.53.4
+source=2026-07-24 19:02:57 bf7c7f30031888f4e796e429ab3978879485813aaca6f641c7b33e4e09459bcc
+journal_mode=wal
+token=离线 unicode61=0 trigram=0 like=1
+token=离线检索 unicode61=0 trigram=1 like=1
+token=键盘 unicode61=0 trigram=0 like=1
+token=整个流程 unicode61=0 trigram=1 like=1
+n=1500 write_ms=103 scan_ms_median=13.6 min=13.4 max=19.3
+n=10000 write_ms=528 scan_ms_median=51.9 min=51.2 max=68.9

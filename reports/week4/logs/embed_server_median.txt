@@ -1,0 +1,16 @@
+runtime=embed_server.py
+texts=24
+output=last_hidden_state
+pooling=not_in_server
+session_load_ms=749.3516000104137
+forward_ms_median=28.035
+forward_ms_max=44.704
+e2e_ms_median=30.460
+e2e_ms_max=46.935
+forward_excludes=session_load_and_ipc
+e2e_includes=length_prefix_and_base64_hidden_state
+forward_target_ms=30
+forward_target_met=1
+earlier_run_after_export_forward_ms_median=30.317
+earlier_run_after_export_e2e_ms_median=32.868
+kept_run=second

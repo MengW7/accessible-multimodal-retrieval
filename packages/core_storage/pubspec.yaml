@@ -1,0 +1,27 @@
+name: core_storage
+description: >-
+  Offline vector and keyword index for the accessible multimodal local
+  content retrieval system. Product data lives in the system SQLite library.
+  Chroma stays in the evaluation scripts and is not a runtime dependency.
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: ^3.13.0
+
+dependencies:
+  # sqlite3 3.x needs a build hook and native_toolchain_c. Week 4 stays on
+  # 2.x so the system library can be loaded without a native compile.
+  sqlite3: ^2.9.0
+  ffi: ^2.1.4
+  meta: ^1.18.0
+  path: ^1.9.1
+  core_parsing:
+    path: ../core_parsing
+  core_embedding:
+    path: ../core_embedding
+
+dev_dependencies:
+  coverage: ^1.15.1
+  lints: ^6.1.0
+  test: ^1.31.1

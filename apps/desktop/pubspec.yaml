@@ -47,6 +47,11 @@ dependencies:
   core_embedding:
     path: ../../packages/core_embedding
 
+  # Week 4 orchestration. The desktop app only wires this package; the UI does
+  # not call it yet.
+  core_pipeline:
+    path: ../../packages/core_pipeline
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
