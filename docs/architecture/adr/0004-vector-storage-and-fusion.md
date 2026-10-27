@@ -95,7 +95,7 @@ Week 4 要把已经算出来的两个空间的向量放进本地索引，并回�
 score(d) = Σ_i  w_i / (k + rank_i(d))
 ```
 
-`k=60`，这是 RRF 的常规取值，不是在 dev 上搜出来的最优值。权重初值按（文本向量，关键词，图像）= `(0.5, 0.3, 0.2)`。这是开工时定的一次选择，定完就冻结。dev 上如果要改，必须把 `parameters_changed_after_freeze` 加一，不能悄悄换。
+`k=60`，这是 RRF 的常规取值，不是在 dev 上搜出来的最优值。权重初值按（文本向量，关键词，图像）= `(0.5, 0.3, 0.2)`。这是开工时定的一次选择，定完就冻结。dev 上如果要改，必须把 `parameters_changed_after_freeze` 加一，不能悄悄换。2026-10-27 已把图像权重改为 0.49，文本权重和 `k` 未改，计数为 1。记录在本节 Consequences。
 
 细则：
 
@@ -115,7 +115,8 @@ score(d) = Σ_i  w_i / (k + rank_i(d))
 ### Consequences（融合）
 
 - 融合结果只依赖名次。单路缺失时那一项不加入求和。
-- H2 的门槛是 dev 上融合臂的 Hit@5 和 MRR@10 不低于任一单通道。2026-10-25 实测 A4 与只开文本的 A1 相同：Hit@5 0.666667（10/15），MRR@10 0.622222。两者都高于只开关键词的 A0（0/15）和只开图像的 A2（2/15）。「不低于」成立，但对最好的单通道没有正增益。英文样本库 `keyword_terms=0`，关键词臂加不上名次，所以 A3 也等于 A1。图像臂单独命中的 ev-13（第 1 名）和 ev-15（第 3 名）在三路融合后掉出 Top-5，文本块占满了名单。权重仍是 `(0.5, 0.3, 0.2)`，`k=60`，`parameters_changed_after_freeze=0`。没有回头调权重。数字在 `reports/week4/logs/retrieval_bench_dev.txt`。
+- H2 的门槛是 dev 上融合臂的 Hit@5 和 MRR@10 不低于任一单通道。2026-10-25 实测 A4 与只开文本的 A1 相同：Hit@5 0.666667（10/15），MRR@10 0.622222。两者都高于只开关键词的 A0（0/15）和只开图像的 A2（2/15）。「不低于」成立，但对最好的单通道没有正增益。英文样本库 `keyword_terms=0`，关键词臂加不上名次，所以 A3 也等于 A1。图像臂单独命中的 ev-13（第 1 名）和 ev-15（第 3 名）在三路融合后掉出 Top-5，文本块占满了名单。当时权重是 `(0.5, 0.3, 0.2)`，`k=60`，`parameters_changed_after_freeze=0`。数字在 `reports/week4/logs/retrieval_bench_dev.txt`，这张表不改。
+- 2026-10-27：图像权重改为 0.49。文本权重和 `k` 不变，所以 `parameters_changed_after_freeze=1`。在文本权重 0.5、`k=60` 下，图像单独第 2 名要进 Top-5，权重得大于 `0.5 * 62 / 64`；权重大于或等于 0.5 时，文本单独第 3 名会在同分路径序下掉出 Top-5。0.49 取在这个区间里，没有用 dev 的标签搜索。关键词仍打不中空正文的图像行。两路都命中的文本块（例如标题问句上的 `sample.pdf`）分数仍高于只在图像路出现的文件。新测量在 `reports/week4/logs/retrieval_bench_reweight_dev.txt` 和 `reports/week4/logs/retrieval_bench_reweight_holdout.txt`。
 
 ---
 
@@ -126,12 +127,15 @@ FTS5 的默认分词会让混合检索静默变成 0 命中。索引和查询都
 ```text
 索引时：连续中文切成 bigram，写入 keyword_term(term, chunk_rowid)
         同时写 FTS5 trigram，给英文和不少于 3 字的片段
-查询时：有中文 bigram → 按命中 term 的覆盖率给分（0–1）
-        没有 bigram 且查询不少于 3 个字符 → FTS5 trigram
+查询时：有中文 bigram → 词表覆盖率（0–1）
+        同时把长度不少于 3 的拉丁串，以及离线词表给出的英文词，
+        各自再查一次 FTS5 trigram。不把整句中文送进 trigram。
+        同一块保留较高的分数，不重复占一行。
+        没有 bigram 且查询不少于 3 个字符 → 整句 FTS5 trigram
         更短，或切不出 bigram → LIKE，带 LIMIT
 ```
 
-不引入 jieba 或别的词典。覆盖率只用于这一路内部的名次。进 RRF 之后只用名次。
+不引入 jieba，也不下载分词词典。覆盖率只用于这一路内部的名次。进 RRF 之后只用名次。2026-10-27 起仓库里有一份固定的视觉词表：命中时改写送给 MobileCLIP 文本塔的字符串，并给上面的 bigram 查询补 trigram 探针。它不切分中文。文档文本塔仍用原问句。这次改词表没有改权重；图像权重的改动记在融合后果里。
 
 ### Alternatives（关键词）
 
@@ -139,22 +143,23 @@ FTS5 的默认分词会让混合检索静默变成 0 命中。索引和查询都
 |---|---|
 | **A. 只开 FTS5 默认 unicode61** | 两字中文查询命中数是 0，而且成功返回 |
 | **B. 只开 trigram** | 两字查询仍然是 0。探针里「离线」「键盘」都是 0 |
-| **C. 中文分词词典** | 新依赖和新的不确定性。bigram 不需要词典 |
+| **C. 中文分词词典** | 新依赖和新的不确定性。bigram 不需要词典。固定视觉词表不是这个方案：它不切词，也不引入新包 |
 
 ### Consequences（关键词）
 
 - 反例要留在 `reports/week4/logs/keyword_probe.txt`：`unicode61=0`，bigram 对真实 Markdown 的两字查询命中数大于 0。
 - 单测覆盖两字中文、三字中文、英文、过短查询这四类。
+- 2026-10-27：原先「有中文 bigram 就不再走 trigram」。英文库上中文问句因此整路为空，A0 的 0/15 记的是那次冻结运行。查询侧现在在 bigram 之外补拉丁串和离线英文词的 trigram，同一块取较高分。整句中文仍不送进 trigram。图像块正文是空的，这条补查打不中图像行。新测量写在 `reports/week4/logs/query_rewrite_probe.txt`，不替换 `retrieval_bench_dev.txt` 的六臂表，也不把 E2E-07 改成通过。
 
 ---
 
 ## 决策 4：`chunkId` 不是主键
 
-能复用一条文档的条件是五项全等：`contentHash`、`parserName` + `parserVersion`、`chunkerVersion`、`modelId`、`vectorDim`。有一项不同，该文档的块和向量整组作废重写。不做块级 diff，因为窗口序号一变，块就对不齐。
+能复用一条文档的条件在本决策里称作五项全等：`contentHash`、解析器名加版本、`chunkerVersion`、`modelId`、`vectorDim`。`sameRecipe` 把解析器名和版本分成 `parserName`、`parserVersion` 两个字段来比，所以实际比较 6 个字段。有一个字段不同，该文档的块和向量整组作废重写。不做块级 diff，因为窗口序号一变，块就对不齐。
 
 `documentId` 用 `FileMetadata.contentHash ?? FileMetadata.id`，和 `DefaultEmbeddingService` 一致。
 
-删除按 `document_id` 删向量行，再按 `chunk_rowid` 删关键词表和 FTS 行。默认走五项判等。整库重做留给以后的 `--force`，本决策不把每次启动都做成全量重建。
+删除按 `document_id` 删向量行，再按 `chunk_rowid` 删关键词表和 FTS 行。默认走 `sameRecipe` 的六字段判等，也就是上面的五项。整库重做留给以后的 `--force`，本决策不把每次启动都做成全量重建。
 
 ### Alternatives（代次）
 
@@ -230,7 +235,7 @@ core_storage 不 import 检索
 
 ## 决策 7：评测口径
 
-冻结集 `reports/week3/evidence_set.jsonl` 25 条，2026-10-16T13:12:33Z，本周不改不删。dev 15 条用来看臂和看已经冻结的权重，holdout 10 条只在最终报告出一次数，并写明被看过几次。
+冻结集 `reports/week3/evidence_set.jsonl` 25 条，2026-10-16T13:12:33Z，本周不改不删。dev 15 条用来看臂和看已经冻结的权重，holdout 10 条原先定的是只在最终报告出一次数，并写明被看过几次。2026-10-27 改了查询与图像权重后又打了一次，因此 holdout 实际被看过 2 次：0.500 是冻结系统的那次，0.900 是改后的重测，两者不能并列成提升，0.900 也不再是无偏估计。记录在 `reports/week4/检索精度基准报告.md` 第 10 节末段。
 
 六个臂：A0 仅关键词，A1 仅文档向量，A2 仅图像向量，A3 文档向量加关键词，A4 三路（默认），A5 三路加邻域扩展。
 

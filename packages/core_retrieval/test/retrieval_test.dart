@@ -23,6 +23,24 @@ void main() {
     expect(fused.first.score, closeTo(0.5 / 62 + 0.3 / 61, 1e-12));
   });
 
+  test('image weight keeps an image-only rank 2 inside the top 5', () {
+    expect(rrfImageWeight, 0.49);
+    expect(rrfTextWeight, 0.5);
+    final List<FusedHit> fused = const RrfFusion().fuse(
+      text: <ScoredId>[
+        for (var index = 0; index < 6; index++) _hit('t$index'),
+      ],
+      image: <ScoredId>[
+        for (var index = 0; index < 6; index++) _hit('i$index'),
+      ],
+    );
+    final List<String> top = fused
+        .take(5)
+        .map((FusedHit hit) => hit.anchor.chunkId)
+        .toList(growable: false);
+    expect(top, <String>['t0', 't1', 'i0', 't2', 'i1']);
+  });
+
   test('neighborhood keeps the hit span and stays on the same page', () {
     final StoredChunk previous = _chunk('p', 0, 'before', pageNumber: 2);
     final StoredChunk hit = _chunk('h', 1, 'hit', pageNumber: 2, startOffset: 8);
@@ -92,6 +110,7 @@ void main() {
     expect(engine.calls, 2);
     expect(both.text?.space, EmbeddingSpace.documentText);
     expect(both.clip?.space, EmbeddingSpace.clipShared);
+    expect(engine.texts.take(2), <String?>['离线检索', '离线检索']);
 
     engine.clipError = const EmbeddingSpaceMismatchException(
       requested: EmbeddingSpace.clipShared,
@@ -100,6 +119,24 @@ void main() {
     final QueryVectors degraded = await encoder.encode('离线检索');
     expect(degraded.clip, isNull);
     expect(engine.calls, 4);
+  });
+
+  test('clip text uses offline glosses and document text stays the query', () async {
+    final _Engine engine = _Engine();
+    await QueryEncoder(engine).encode('哪张图里有人在厨房做披萨');
+    expect(engine.texts, <String?>[
+      '哪张图里有人在厨房做披萨',
+      'person kitchen pizza',
+    ]);
+    expect(engine.spaces, <EmbeddingSpace>[
+      EmbeddingSpace.documentText,
+      EmbeddingSpace.clipShared,
+    ]);
+
+    engine.texts.clear();
+    engine.spaces.clear();
+    await QueryEncoder(engine).encode('Tika 的文档');
+    expect(engine.texts, <String?>['Tika 的文档', 'Tika document']);
   });
 
   test('cancellation is not treated as a missing image tower', () async {
@@ -231,6 +268,10 @@ StoredChunk _chunk(
 final class _Engine implements EmbeddingEngine {
   int calls = 0;
 
+  final List<String?> texts = <String?>[];
+
+  final List<EmbeddingSpace> spaces = <EmbeddingSpace>[];
+
   Object? clipError;
 
   bool cancelOnClip = false;
@@ -241,6 +282,8 @@ final class _Engine implements EmbeddingEngine {
     CancellationToken? cancel,
   }) async {
     calls += 1;
+    texts.add(input.text);
+    spaces.add(input.space);
     cancel?.throwIfCancelled();
     if (input.space == EmbeddingSpace.clipShared) {
       if (cancelOnClip) {

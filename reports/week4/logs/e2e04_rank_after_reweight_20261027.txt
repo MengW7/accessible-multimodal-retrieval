@@ -1,0 +1,60 @@
+# 2026-10-27 post-weight-change re-measurement of the E2E-04 / E2E-08 question.
+# The 2026-10-25 records in e2e_query.txt and e2e_neighborhood.txt stay as they are.
+# Weights now (text, keyword, image) = (0.5, 0.3, 0.49), k=60.
+# This file turns the 'estimated, no separate log' note in W04_report.md into a measurement.
+
+# dart run packages/core_pipeline/bin/search_probe.dart --db reports/week4/.index/evidence.sqlite --top 10 --query 工具靠什么判断文件类型？
+query=工具靠什么判断文件类型？
+arm=A5 expand=true top=10 encode_ms=1913 store_ms=41 fuse_ms=5
+rank=1 score=0.008197 key=datasets/samples/sample.pdf file=sample.pdf page=1 start=423 end=517 channels=documentText modality=text
+snippet=The Apache Tika toolkit detects and extracts metadata and text from over a thousand different\nfile types (such as PPT, XLS, and PDF). All of these file types can be parsed through a single\ninterface, making Tika useful for search engine indexing, content analysis, translation, and
+rank=2 score=0.008065 key=datasets/samples/sample.pdf file=sample.pdf page=2 start=430 end=524 channels=documentText modality=text
+snippet=The Apache Tika toolkit detects and extracts metadata and text from over a thousand different\nfile types (such as PPT, XLS, and PDF). All of these file types can be parsed through a single\ninterface, making Tika useful for search engine indexing, content analysis, translation, and
+rank=3 score=0.008033 key=datasets/samples/sample.png file=sample.png page=null start=0 end=0 channels=clipShared modality=image
+snippet=
+rank=4 score=0.007937 key=datasets/samples/sample.docx file=sample.docx page=null start=306 end=426 channels=documentText modality=text
+snippet=Contributions and corrections are welcome.\nThe Apache Tika toolkit detects and extracts metadata and text from over a thousand different file types (such as PPT, X\nLS, and PDF).
+rank=5 score=0.007903 key=datasets/coco/val_sample/images/000000463730.jpg file=000000463730.jpg page=null start=0 end=0 channels=clipShared modality=image
+snippet=
+rank=6 score=0.007813 key=datasets/samples/sample.pdf file=sample.pdf page=1 start=617 end=710 channels=documentText modality=text
+snippet=interface, making Tika useful for search engine indexing, content analysis, translation, and\nmuch more. Tika identifies a file’s type from its bytes, so a missing or misleading extension\ndoes not change the result.
+rank=7 score=0.007778 key=datasets/coco/val_sample/images/000000296649.jpg file=000000296649.jpg page=null start=0 end=0 channels=clipShared modality=image
+snippet=
+rank=8 score=0.007692 key=datasets/samples/sample.pdf file=sample.pdf page=2 start=626 end=719 channels=documentText modality=text
+snippet=interface, making Tika useful for search engine indexing, content analysis, translation, and\nmuch more. Tika identifies a file’s type from its bytes, so a missing or misleading extension\ndoes not change the result.
+rank=9 score=0.007656 key=datasets/coco/val_sample/images/000000006818.jpg file=000000006818.jpg page=null start=0 end=0 channels=clipShared modality=image
+snippet=
+rank=10 score=0.007576 key=datasets/samples/sample.docx file=sample.docx page=null start=440 end=560 channels=documentText modality=text
+snippet=LS, and PDF).\nAll of these file types can be parsed through a single interface, making Tika useful for search engine indexing, content\nanalysis, translation, and much more.
+
+# same question, --arm A4 --top 6 (the E2E-08 comparison)
+query=工具靠什么判断文件类型？
+arm=A4 expand=false top=6 encode_ms=1831 store_ms=29 fuse_ms=3
+rank=1 score=0.008197 key=datasets/samples/sample.pdf file=sample.pdf page=1 start=423 end=517 channels=documentText modality=text
+snippet=file types (such as PPT, XLS, and PDF). All of these file types can be parsed through a single
+rank=2 score=0.008065 key=datasets/samples/sample.pdf file=sample.pdf page=2 start=430 end=524 channels=documentText modality=text
+snippet=file types (such as PPT, XLS, and PDF). All of these file types can be parsed through a single
+rank=3 score=0.008033 key=datasets/samples/sample.png file=sample.png page=null start=0 end=0 channels=clipShared modality=image
+snippet=
+rank=4 score=0.007937 key=datasets/samples/sample.docx file=sample.docx page=null start=306 end=426 channels=documentText modality=text
+snippet=The Apache Tika toolkit detects and extracts metadata and text from over a thousand different file types (such as PPT, X
+rank=5 score=0.007903 key=datasets/coco/val_sample/images/000000463730.jpg file=000000463730.jpg page=null start=0 end=0 channels=clipShared modality=image
+snippet=
+rank=6 score=0.007813 key=datasets/samples/sample.pdf file=sample.pdf page=1 start=617 end=710 channels=documentText modality=text
+snippet=much more. Tika identifies a file’s type from its bytes, so a missing or misleading extension
+
+# same question, --arm A5 --top 6
+query=工具靠什么判断文件类型？
+arm=A5 expand=true top=6 encode_ms=1898 store_ms=37 fuse_ms=4
+rank=1 score=0.008197 key=datasets/samples/sample.pdf file=sample.pdf page=1 start=423 end=517 channels=documentText modality=text
+snippet=The Apache Tika toolkit detects and extracts metadata and text from over a thousand different\nfile types (such as PPT, XLS, and PDF). All of these file types can be parsed through a single\ninterface, making Tika useful for search engine indexing, content analysis, translation, and
+rank=2 score=0.008065 key=datasets/samples/sample.pdf file=sample.pdf page=2 start=430 end=524 channels=documentText modality=text
+snippet=The Apache Tika toolkit detects and extracts metadata and text from over a thousand different\nfile types (such as PPT, XLS, and PDF). All of these file types can be parsed through a single\ninterface, making Tika useful for search engine indexing, content analysis, translation, and
+rank=3 score=0.008033 key=datasets/samples/sample.png file=sample.png page=null start=0 end=0 channels=clipShared modality=image
+snippet=
+rank=4 score=0.007937 key=datasets/samples/sample.docx file=sample.docx page=null start=306 end=426 channels=documentText modality=text
+snippet=Contributions and corrections are welcome.\nThe Apache Tika toolkit detects and extracts metadata and text from over a thousand different file types (such as PPT, X\nLS, and PDF).
+rank=5 score=0.007903 key=datasets/coco/val_sample/images/000000463730.jpg file=000000463730.jpg page=null start=0 end=0 channels=clipShared modality=image
+snippet=
+rank=6 score=0.007813 key=datasets/samples/sample.pdf file=sample.pdf page=1 start=617 end=710 channels=documentText modality=text
+snippet=interface, making Tika useful for search engine indexing, content analysis, translation, and\nmuch more. Tika identifies a file’s type from its bytes, so a missing or misleading extension\ndoes not change the result.

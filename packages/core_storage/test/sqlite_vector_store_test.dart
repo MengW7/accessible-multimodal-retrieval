@@ -351,6 +351,67 @@ void main() {
     expect(await store.keyword('nonexistent'), isEmpty);
   });
 
+  test('a chinese query also searches latin spans and offline glosses', () async {
+    expect(offlineGlosses('人行道上有人'), <String>['sidewalk', 'person']);
+    expect(latinSpans('说明里的 Tika'), <String>['Tika']);
+    expect(clipQueryText('离线检索'), '离线检索');
+    expect(clipQueryText('哪张图里有人在厨房做披萨'), 'person kitchen pizza');
+    expect(keywordTrigramProbes('离线'), isEmpty);
+
+    final KeywordPlan mixed = KeywordPlan.forQuery('说明里的 Tika');
+    expect(mixed.path, KeywordPath.bigram);
+    expect(mixed.trigramProbes, <String>['Tika']);
+    expect(mixed.trigramProbes, isNot(contains('说明里的 Tika')));
+
+    final KeywordPlan gloss = KeywordPlan.forQuery('哪里有披萨');
+    expect(gloss.path, KeywordPath.bigram);
+    expect(gloss.trigramProbes, <String>['pizza']);
+    expect(KeywordPlan.forQuery('retrieval').trigramProbes, isEmpty);
+    expect(KeywordPlan.forQuery('键').trigramProbes, isEmpty);
+
+    final SqliteVectorStore store = _memory();
+    await store.write(
+      <StoredChunk>[
+        _chunk('zh', body: '离线检索可以在没有网络的电脑上运行。'),
+        _chunk(
+          'en',
+          body: 'Apache Tika Documentation and a pizza oven',
+          relativePath: 'notes.pdf',
+          extension: '.pdf',
+        ),
+        _chunk('img', body: '', relativePath: 'photo.jpg', extension: '.jpg'),
+        _chunk(
+          'txt',
+          body: 'a pizza oven in the yard',
+          relativePath: 'yard.txt',
+          extension: '.txt',
+        ),
+      ],
+      <EmbeddingVector>[
+        _vector(<double>[1, 0]),
+        _vector(<double>[0, 1]),
+        _vector(<double>[1, 0]),
+        _vector(<double>[0, 1]),
+      ],
+    );
+
+    expect((await store.keyword('离线')).single.chunkId, 'zh');
+
+    final List<ScoredId> tika = await store.keyword('文档 Tika');
+    expect(tika.map((ScoredId hit) => hit.chunkId), <String>['en']);
+
+    final List<ScoredId> pizza = await store.keyword('哪里有披萨');
+    expect(pizza.map((ScoredId hit) => hit.chunkId).toSet(), <String>{'en', 'txt'});
+    expect(pizza.map((ScoredId hit) => hit.chunkId), isNot(contains('img')));
+    expect(pizza.map((ScoredId hit) => hit.chunkId).toSet().length, pizza.length);
+
+    final List<ScoredId> filtered = await store.keyword(
+      '哪里有披萨',
+      filter: const StorageFilter(extensions: <String>{'.txt'}),
+    );
+    expect(filtered.single.chunkId, 'txt');
+  });
+
   test('short queries fall back to the like path', () async {
     expect(KeywordPlan.forQuery('键').path, KeywordPath.like);
     final SqliteVectorStore store = _memory();

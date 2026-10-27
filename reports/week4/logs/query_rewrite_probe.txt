@@ -1,0 +1,169 @@
+# 2026-10-27 query-side probe on reports/week4/.index/evidence.sqlite.
+# Not scored into the frozen 25. Section 2 of 检索精度基准报告.md is unchanged.
+# Weights stay (0.5, 0.3, 0.2), k=60. parameters_changed_after_freeze stays 0.
+# E2E-07 stays failed: fused Top-5 is still text.
+#
+# Document-text tower receives the original Chinese query.
+# clipShared receives clipQueryText: offline glosses when any match, otherwise
+# the original query. The glosses are a fixed visual word list, not evidence
+# sentences.
+# Keyword: Chinese bigrams still score the term table. Latin spans of length
+# >= 3 and glosses of length >= 3 also go to FTS5 trigram. The raw Chinese
+# string is not sent to trigram. Same chunk keeps the higher score.
+# Image chunk bodies are empty, so trigram cannot hit an image row.
+#
+# Keyword rows: keywordTopK on a read-only open. openStore was not used.
+# Rank rows: dart run packages/core_pipeline/bin/search_probe.dart
+#   --db reports/week4/.index/evidence.sqlite --top 5
+#   --arm A2, then the same five queries with --arm A4.
+
+# --- plan and keyword ---
+
+query=哪张图里有人在厨房做披萨？
+path=bigram bigram_terms=11 probes=person,kitchen,pizza
+clip=person kitchen pizza
+keyword_hits=0
+
+query=哪张图里有一辆蓝色自行车停在路边？
+path=bigram bigram_terms=15 probes=blue,bicycle,parked,roadside
+clip=blue bicycle parked roadside
+keyword_hits=0
+
+query=哪张图里的浴室淋浴墙是破的？
+path=bigram bigram_terms=12 probes=bathroom,shower,wall,broken
+clip=bathroom shower wall broken
+keyword_hits=0
+
+query=哪张图里有大型客机停在机场跑道上？
+path=bigram bigram_terms=15 probes=large,airliner,parked,airport,runway
+clip=large airliner parked airport runway
+keyword_hits=0
+
+query=这张图片版面顶部的文档标题写的是什么？
+path=bigram bigram_terms=17 probes=picture,layout,top,document,title
+clip=picture layout top document title
+keyword_rank=1 score=1.000 file=sample.docx modality=text body_len=25
+keyword_rank=2 score=1.000 file=sample.docx modality=text body_len=84
+keyword_rank=3 score=1.000 file=sample.pdf modality=text body_len=25
+keyword_rank=4 score=1.000 file=sample.pdf modality=text body_len=93
+keyword_rank=5 score=1.000 file=sample.pdf modality=text body_len=25
+
+query=离线
+path=bigram bigram_terms=1 probes=
+clip=离线
+keyword_hits=0
+
+query=文档标题
+path=bigram bigram_terms=3 probes=document,title
+clip=document title
+keyword_rank=1 score=1.000 file=sample.docx modality=text body_len=25
+keyword_rank=2 score=1.000 file=sample.docx modality=text body_len=84
+keyword_rank=3 score=1.000 file=sample.pdf modality=text body_len=25
+keyword_rank=4 score=1.000 file=sample.pdf modality=text body_len=93
+keyword_rank=5 score=1.000 file=sample.pdf modality=text body_len=25
+
+query=说明里的 Tika
+path=bigram bigram_terms=3 probes=Tika
+clip=说明里的 Tika
+keyword_rank=1 score=1.000 file=sample.docx modality=text body_len=25
+keyword_rank=2 score=1.000 file=sample.docx modality=text body_len=120
+keyword_rank=3 score=1.000 file=sample.docx modality=text body_len=120
+keyword_rank=4 score=1.000 file=sample.docx modality=text body_len=110
+keyword_rank=5 score=1.000 file=sample.docx modality=text body_len=101
+
+# --- arm A2, clipShared only ---
+# Frozen A2 ranks from retrieval_bench_dev.txt are listed as frozen_rank.
+# 0 means the gold file was outside the recorded top 5.
+
+query=哪张图里有人在厨房做披萨？
+arm=A2 expand=false top=5 encode_ms=1842 store_ms=18 fuse_ms=4
+gold=000000397133.jpg frozen_rank=0
+rank=1 score=0.003279 file=000000397133.jpg channels=clipShared modality=image
+rank=2 score=0.003226 file=000000037777.jpg channels=clipShared modality=image
+rank=3 score=0.003175 file=000000252219.jpg channels=clipShared modality=image
+rank=4 score=0.003125 file=000000386912.jpg channels=clipShared modality=image
+rank=5 score=0.003077 file=000000085329.jpg channels=clipShared modality=image
+
+query=哪张图里有一辆蓝色自行车停在路边？
+arm=A2 expand=false top=5 encode_ms=16 store_ms=4 fuse_ms=0
+gold=000000174482.jpg frozen_rank=0
+rank=1 score=0.003279 file=000000174482.jpg channels=clipShared modality=image
+rank=2 score=0.003226 file=000000252219.jpg channels=clipShared modality=image
+rank=3 score=0.003175 file=000000184321.jpg channels=clipShared modality=image
+rank=4 score=0.003125 file=000000296649.jpg channels=clipShared modality=image
+rank=5 score=0.003077 file=000000463730.jpg channels=clipShared modality=image
+
+query=哪张图里的浴室淋浴墙是破的？
+arm=A2 expand=false top=5 encode_ms=14 store_ms=4 fuse_ms=0
+gold=000000403385.jpg frozen_rank=1
+rank=1 score=0.003279 file=000000006818.jpg channels=clipShared modality=image
+rank=2 score=0.003226 file=000000403385.jpg channels=clipShared modality=image
+rank=3 score=0.003175 file=000000458054.jpg channels=clipShared modality=image
+rank=4 score=0.003125 file=000000331352.jpg channels=clipShared modality=image
+rank=5 score=0.003077 file=000000297343.jpg channels=clipShared modality=image
+
+query=哪张图里有大型客机停在机场跑道上？
+arm=A2 expand=false top=5 encode_ms=13 store_ms=3 fuse_ms=0
+gold=000000348881.jpg frozen_rank=9
+rank=1 score=0.003279 file=000000348881.jpg channels=clipShared modality=image
+rank=2 score=0.003226 file=000000460347.jpg channels=clipShared modality=image
+rank=3 score=0.003175 file=000000184321.jpg channels=clipShared modality=image
+rank=4 score=0.003125 file=000000500663.jpg channels=clipShared modality=image
+rank=5 score=0.003077 file=000000058636.jpg channels=clipShared modality=image
+
+query=这张图片版面顶部的文档标题写的是什么？
+arm=A2 expand=false top=5 encode_ms=14 store_ms=3 fuse_ms=0
+gold=sample.png frozen_rank=3
+rank=1 score=0.003279 file=sample.png channels=clipShared modality=image
+rank=2 score=0.003226 file=000000456496.jpg channels=clipShared modality=image
+rank=3 score=0.003175 file=000000297343.jpg channels=clipShared modality=image
+rank=4 score=0.003125 file=000000491497.jpg channels=clipShared modality=image
+rank=5 score=0.003077 file=000000219578.jpg channels=clipShared modality=image
+
+# sample.png at A2 rank 1 is a file hit. It does not show that the model read
+# the printed title. The image body is empty.
+
+# --- arm A4, three channels, weights unchanged ---
+# Gold image files are absent from every Top-5 below.
+
+query=哪张图里有人在厨房做披萨？
+arm=A4 expand=false top=5 encode_ms=2157 store_ms=33 fuse_ms=4
+rank=1 score=0.008197 file=sample.pdf page=1 channels=documentText modality=text
+rank=2 score=0.008065 file=sample.pdf page=2 channels=documentText modality=text
+rank=3 score=0.007937 file=sample.pdf page=1 channels=documentText modality=text
+rank=4 score=0.007813 file=sample.pdf page=2 channels=documentText modality=text
+rank=5 score=0.007692 file=sample.pdf page=1 channels=documentText modality=text
+
+query=哪张图里有一辆蓝色自行车停在路边？
+arm=A4 expand=false top=5 encode_ms=51 store_ms=36 fuse_ms=0
+rank=1 score=0.008197 file=sample.pdf page=1 channels=documentText modality=text
+rank=2 score=0.008065 file=sample.pdf page=2 channels=documentText modality=text
+rank=3 score=0.007937 file=sample.pdf page=1 channels=documentText modality=text
+rank=4 score=0.007813 file=sample.pdf page=2 channels=documentText modality=text
+rank=5 score=0.007692 file=sample.docx channels=documentText modality=text
+
+query=哪张图里的浴室淋浴墙是破的？
+arm=A4 expand=false top=5 encode_ms=94 store_ms=10 fuse_ms=0
+rank=1 score=0.008197 file=sample.pdf page=1 channels=documentText modality=text
+rank=2 score=0.008065 file=sample.pdf page=2 channels=documentText modality=text
+rank=3 score=0.007937 file=sample.pdf page=1 channels=documentText modality=text
+rank=4 score=0.007813 file=sample.pdf page=2 channels=documentText modality=text
+rank=5 score=0.007692 file=sample.docx channels=documentText modality=text
+
+query=哪张图里有大型客机停在机场跑道上？
+arm=A4 expand=false top=5 encode_ms=50 store_ms=15 fuse_ms=0
+rank=1 score=0.008197 file=sample.pdf page=1 channels=documentText modality=text
+rank=2 score=0.008065 file=sample.pdf page=2 channels=documentText modality=text
+rank=3 score=0.007937 file=sample.pdf page=1 channels=documentText modality=text
+rank=4 score=0.007813 file=sample.pdf page=2 channels=documentText modality=text
+rank=5 score=0.007692 file=sample.docx channels=documentText modality=text
+
+query=这张图片版面顶部的文档标题写的是什么？
+arm=A4 expand=false top=5 encode_ms=61 store_ms=22 fuse_ms=12
+rank=1 score=0.012192 file=sample.docx channels=documentText,keyword modality=text
+rank=2 score=0.010712 file=sample.pdf page=1 channels=documentText,keyword modality=text
+rank=3 score=0.010536 file=sample.docx channels=documentText,keyword modality=text
+rank=4 score=0.010498 file=sample.pdf page=2 channels=documentText,keyword modality=text
+rank=5 score=0.010317 file=sample.pdf page=1 channels=documentText,keyword modality=text
+# rank 3 and rank 5 snippets are "Apache Tika Documentation".
+# sample.png is not in this Top-5.

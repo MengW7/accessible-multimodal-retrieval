@@ -1,0 +1,17 @@
+date=2026-10-27
+# Only core_storage and core_retrieval. The 2026-10-26 five-package log stays in coverage.txt.
+# From each package directory. integration tests are excluded and do not load models.
+#   dart test --coverage=coverage --exclude-tags integration
+#   dart run coverage:format_coverage --lcov --in=coverage --out=coverage\lcov.info --report-on=lib --package=.
+# Copies:
+#   reports/week4/coverage/core_storage_20261027.lcov.info
+#   reports/week4/coverage/core_retrieval_20261027.lcov.info
+# Does not replace reports/week4/coverage/core_storage.lcov.info or core_retrieval.lcov.info.
+# core_pipeline, core_parsing, and core_embedding were not rerun.
+
+core_storage lines_hit=637 lines_found=729 pct=87.38 suite=00:03 +24
+core_retrieval lines_hit=159 lines_found=165 pct=96.36 suite=00:02 +11
+
+gate_new_packages_min=85
+# COV-01 and screenshots/COV-01-coverage.png remain the 2026-10-26 measurement:
+# storage 574/666 = 86.19, retrieval 158/164 = 96.34.

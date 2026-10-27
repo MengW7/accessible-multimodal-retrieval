@@ -13,6 +13,8 @@ export 'src/model/sqlite_open_result.dart';
 export 'src/model/storage_failure.dart';
 export 'src/model/storage_filter.dart';
 export 'src/model/stored_chunk.dart';
+export 'src/offline_glossary.dart'
+    show clipQueryText, keywordTrigramProbes, latinSpans, offlineGlosses;
 export 'src/row_map.dart' show ScoredCandidate;
 export 'src/sqlite_library_locator.dart';
 export 'src/sqlite_vector_store.dart' show SqliteVectorStore;

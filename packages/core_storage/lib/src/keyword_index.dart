@@ -3,6 +3,7 @@ import 'package:sqlite3/sqlite3.dart';
 import 'filter_sql.dart';
 import 'model/scored_id.dart';
 import 'model/storage_filter.dart';
+import 'offline_glossary.dart';
 import 'row_map.dart';
 
 /// 连续 CJK 切成两字词。BMP 里的汉字一个 code unit 一个字。
@@ -34,22 +35,36 @@ bool _isCjk(int rune) {
   return (rune >= 0x3400 && rune <= 0x4DBF) || (rune >= 0x4E00 && rune <= 0x9FFF);
 }
 
-/// 查询走哪一层。有中文 bigram 时以 bigram 为主。
+/// 查询的主路径。有中文 bigram 时主路径仍是 bigram。
 enum KeywordPath { bigram, trigram, like }
 
 class KeywordPlan {
-  const KeywordPlan(this.path, this.terms);
+  const KeywordPlan(
+    this.path,
+    this.terms, {
+    this.trigramProbes = const <String>[],
+  });
 
   final KeywordPath path;
 
   /// bigram 路径里是去重后的两字词。其他路径为空。
   final List<String> terms;
 
+  /// bigram 路径上额外走 trigram 的拉丁串和英文词。其他路径为空。
+  ///
+  /// 这里没有整句中文。纯英文查询走 [KeywordPath.trigram]，用原问句，
+  /// 不使用这份名单。
+  final List<String> trigramProbes;
+
   static KeywordPlan forQuery(String query) {
     final String trimmed = query.trim();
     final List<String> terms = chineseBigrams(trimmed).toSet().toList(growable: false);
     if (terms.isNotEmpty) {
-      return KeywordPlan(KeywordPath.bigram, terms);
+      return KeywordPlan(
+        KeywordPath.bigram,
+        terms,
+        trigramProbes: keywordTrigramProbes(trimmed),
+      );
     }
     if (trimmed.length >= 3) {
       return KeywordPlan(KeywordPath.trigram, const <String>[]);
@@ -75,7 +90,7 @@ List<ScoredId> keywordTopK(
   }
   final KeywordPlan plan = KeywordPlan.forQuery(trimmed);
   final List<ScoredId> hits = switch (plan.path) {
-    KeywordPath.bigram => _bigram(database, plan.terms, filter),
+    KeywordPath.bigram => _bigramAndProbes(database, plan, filter, topK),
     KeywordPath.trigram => _trigram(database, trimmed, filter, topK),
     KeywordPath.like => _like(database, trimmed, filter, topK),
   };
@@ -135,6 +150,38 @@ const String _chunkColumns = '''
   c.extension, c.mime_type, c.page_number, c.chunk_index, c.start_offset,
   c.end_offset, c.body, c.modality, c.image_json
 ''';
+
+/// 词表命中保留。拉丁串和英文词再各查一次 trigram。同一块只留较高分。
+List<ScoredId> _bigramAndProbes(
+  Database database,
+  KeywordPlan plan,
+  StorageFilter? filter,
+  int topK,
+) {
+  List<ScoredId> hits = _bigram(database, plan.terms, filter);
+  for (final String probe in plan.trigramProbes) {
+    hits = _mergeMax(hits, _trigram(database, probe, filter, topK));
+  }
+  return hits;
+}
+
+List<ScoredId> _mergeMax(List<ScoredId> left, List<ScoredId> right) {
+  final Map<String, ScoredId> byChunk = <String, ScoredId>{};
+  void take(List<ScoredId> rows) {
+    for (final ScoredId hit in rows) {
+      final String key =
+          '${hit.documentId}\u0000${hit.chunkId}\u0000${hit.startOffset}';
+      final ScoredId? existing = byChunk[key];
+      if (existing == null || hit.score > existing.score) {
+        byChunk[key] = hit;
+      }
+    }
+  }
+
+  take(left);
+  take(right);
+  return byChunk.values.toList(growable: false);
+}
 
 List<ScoredId> _bigram(
   Database database,

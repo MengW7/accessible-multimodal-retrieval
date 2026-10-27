@@ -9,7 +9,13 @@ const int rrfK = 60;
 /// 开工时冻结的三路权重：文本向量、关键词、图像。
 const double rrfTextWeight = 0.5;
 const double rrfKeywordWeight = 0.3;
-const double rrfImageWeight = 0.2;
+
+/// 开工时是 0.2。2026-10-27 改为 0.49。
+///
+/// 文本权重仍是 0.5、`k` 仍是 60。图像单独排第 2 时，权重须大于
+/// `0.5 * 62 / 64`，融合名次才进得了 Top-5；须小于 0.5，文本单独排第 3
+/// 才不会在同分时被路径序挤出 Top-5。0.49 在这个区间内，不是在 dev 上搜的。
+const double rrfImageWeight = 0.49;
 
 /// 融合后的一条。分数只来自名次。
 @immutable

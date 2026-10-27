@@ -199,7 +199,7 @@ const StoredChunk({
 
 构造断言：`documentId`、`chunkId` 非空，偏移不倒序，页码要么 null 要么大于 0。断言失败抛 `AssertionError`。
 
-代次判等共 **6 个字段**：`contentHash`、`parserName`、`parserVersion`、`chunkerVersion`，再加上向量的 `modelId` 和 `vectorDim`。缺任何一项时这行仍可写入，但 `canReuse` 对不上。以 `IndexGeneration.sameRecipe` 的实现为准（逐字段等值比较）。
+代次判等共 **6 个字段**：`contentHash`、`parserName`、`parserVersion`、`chunkerVersion`，再加上向量的 `modelId` 和 `vectorDim`。ADR 0004 决策 4 把 `parserName` 与 `parserVersion` 合成「解析器名加版本」这一项，连同其余四项称作五项。缺任何一项时这行仍可写入，但 `canReuse` 对不上。以 `IndexGeneration.sameRecipe` 的实现为准（逐字段等值比较）。
 
 ### `StorageFilter`
 
@@ -258,7 +258,7 @@ const IndexGeneration({
 });
 ```
 
-`documentId` 加 `modelId` 定位到那一行（两者是主键）。`sameRecipe` 比较其余 **6 个字段**：`contentHash`、`parserName`、`parserVersion`、`chunkerVersion`、`modelId`、`vectorDim`。`embeddedAt` 不参与复用判断。构造断言要求这些字符串非空，且 `vectorDim > 0`。
+`documentId` 与 `modelId` 是 `index_generation` 的主键，用来找到这一行。`sameRecipe` 比较 6 个字段，其中仍包括 `modelId`：`contentHash`、`parserName`、`parserVersion`、`chunkerVersion`、`modelId`、`vectorDim`。`embeddedAt` 不参与复用判断。这 6 个字段就是决策 4 的五项，解析器名和版本分计。构造断言要求这些字符串非空，且 `vectorDim > 0`。
 
 ### `IndexStats`
 
@@ -319,7 +319,7 @@ abstract interface class VectorStore {
 
 不负责融合，也不读文件。`search` 的 `topK < 1` 抛 `ArgumentError`。查询向量未归一化抛 `StorageException(notNormalized)`。该空间没有行时返回空列表。该空间的维度和查询不一致抛 `dimensionMismatch`。
 
-`keyword` 的空查询返回空列表。`topK < 1` 抛 `ArgumentError`。有中文 bigram 时走词表；否则长度不少于 3 的查询走 FTS5 trigram；更短的走带 `LIMIT` 的 `LIKE`。
+`keyword` 的空查询返回空列表。`topK < 1` 抛 `ArgumentError`。有中文 bigram 时走词表，并额外用长度不少于 3 的拉丁串和离线英文词各查一次 FTS5 trigram，同一块保留较高分。没有 bigram 且长度不少于 3 时，整句走 FTS5 trigram。更短的走带 `LIMIT` 的 `LIKE`。整句中文不送进 trigram。
 
 `chunksForDocument` 按页码、块序号、偏移排序，null 页在后。`deleteDocument` 同时删向量行、关键词行和代次行。`clear` 清整库（`chunk`、`keyword_term`、`chunk_fts`、`index_generation` 四张表都清空，清完仍可继续写入）。`canReuse` 在没有代次行或 **6 个字段任一不一致**时返回 false。
 
@@ -351,6 +351,24 @@ chineseBigrams('离线检索');
 // ['离线', '线检', '检索']
 ```
 
+### `offlineGlosses`、`latinSpans`、`keywordTrigramProbes`、`clipQueryText`
+
+```dart
+List<String> offlineGlosses(String query);
+List<String> latinSpans(String query);
+List<String> keywordTrigramProbes(String query);
+String clipQueryText(String query);
+```
+
+固定视觉词表，最长词优先，从左到右，不重叠。`offlineGlosses` 是命中的英文词。`latinSpans` 是连续拉丁字母里长度不少于 3 的串。`keywordTrigramProbes` 是这两类里长度不少于 3 的串，供 bigram 查询补 trigram。`clipQueryText` 在有英文词时把这些串用空格拼起来，没有英文词时返回原问句。词表不读取证据句，也不切分未登录的中文。
+
+```dart
+clipQueryText('离线检索');
+// 离线检索
+clipQueryText('哪张图里有人在厨房做披萨');
+// person kitchen pizza
+```
+
 ### `KeywordPath`
 
 ```dart
@@ -362,17 +380,21 @@ enum KeywordPath { bigram, trigram, like }
 ### `KeywordPlan`
 
 ```dart
-const KeywordPlan(KeywordPath path, List<String> terms);
+const KeywordPlan(
+  KeywordPath path,
+  List<String> terms, {
+  List<String> trigramProbes = const <String>[],
+});
 
 static KeywordPlan forQuery(String query);
 ```
 
-`forQuery` 先 `trim`。有 bigram 就走 `bigram`，`terms` 是去重后的两字词。否则长度不少于 3 走 `trigram`，更短走 `like`。后两条的 `terms` 为空。
+`forQuery` 先 `trim`。有 bigram 就走 `bigram`，`terms` 是去重后的两字词，`trigramProbes` 来自 `keywordTrigramProbes`。否则长度不少于 3 走 `trigram`，更短走 `like`。后两条的 `terms` 和 `trigramProbes` 都为空。纯英文查询仍用整句走 trigram，不拆进 `trigramProbes`。
 
 ## 6. 公开符号
 
 `lib/core_storage.dart` 导出：
 
-`chineseBigrams`、`KeywordPath`、`KeywordPlan`、`IndexGeneration`、`IndexStats`、`WriteOutcome`、`Modality`、`ScoredId`、`SqliteOpenResult`、`StorageFailureKind`、`StorageFailure`、`StorageException`、`StorageFilter`、`StoredChunk`、`SqliteLibraryLocator`、`SystemSqliteLibraryLocator`、`RejectingSqliteLibraryLocator`、`SqliteVectorStore`、`OpenedStore`、`openStore`、`VectorStore`。
+`chineseBigrams`、`clipQueryText`、`keywordTrigramProbes`、`latinSpans`、`offlineGlosses`、`KeywordPath`、`KeywordPlan`、`IndexGeneration`、`IndexStats`、`WriteOutcome`、`Modality`、`ScoredId`、`SqliteOpenResult`、`StorageFailureKind`、`StorageFailure`、`StorageException`、`StorageFilter`、`StoredChunk`、`SqliteLibraryLocator`、`SystemSqliteLibraryLocator`、`RejectingSqliteLibraryLocator`、`SqliteVectorStore`、`OpenedStore`、`openStore`、`VectorStore`。
 
 没有从这里导出的名字都不是公开 API。

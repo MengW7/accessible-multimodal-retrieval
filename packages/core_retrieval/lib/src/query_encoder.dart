@@ -1,5 +1,6 @@
 import 'package:core_embedding/core_embedding.dart';
 import 'package:core_parsing/core_parsing.dart';
+import 'package:core_storage/core_storage.dart';
 import 'package:meta/meta.dart';
 
 /// 一次查询在两个空间里的向量。图像塔不可用时 [clip] 为 null。
@@ -15,7 +16,8 @@ class QueryVectors {
 
 /// 一次搜索只编码两次：文档文本一次，MobileCLIP 文本塔一次。
 ///
-/// 图像塔缺失或运行失败时降级成纯文本，不把这次搜索变成错误。
+/// 文档文本塔收到原问句。图像塔收到 [clipQueryText]：词表命中时是英文词，
+/// 未命中时仍是原问句。图像塔缺失或运行失败时降级成纯文本，不把这次搜索变成错误。
 /// 取消请求原样抛出。
 class QueryEncoder {
   const QueryEncoder(this.engine);
@@ -37,7 +39,10 @@ class QueryEncoder {
     if (includeClipText) {
       try {
         clip = await engine.embed(
-          EmbeddingInput.text(query, space: EmbeddingSpace.clipShared),
+          EmbeddingInput.text(
+            clipQueryText(query),
+            space: EmbeddingSpace.clipShared,
+          ),
           cancel: cancel,
         );
       } on EmbeddingSpaceMismatchException {

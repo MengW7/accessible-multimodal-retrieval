@@ -33,6 +33,7 @@ abstract interface class VectorStore {
 
   Future<IndexStats> stats();
 
-  /// 五项全等才返回 true。没有代次行时返回 false。
+  /// [IndexGeneration.sameRecipe] 的 6 个字段全等才返回 true。决策 4 把
+  /// 解析器名和版本合成一项，称作五项。没有代次行时返回 false。
   Future<bool> canReuse(IndexGeneration generation);
 }

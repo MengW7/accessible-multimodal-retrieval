@@ -1,0 +1,16 @@
+parameters_changed_after_freeze=1
+weights=text:0.5,keyword:0.3,image:0.49
+k=60
+holdout_scored_runs=1
+duplicate_questions_per_arm=0
+ev-16 split=holdout arm=A4 hit@5=1 rank=1 channels=documentText top5=[datasets/samples/sample.docx#pna@1, datasets/samples/sample.pdf#p1@2, datasets/samples/sample.png#pna@3, datasets/samples/sample.pdf#p2@4, datasets/coco/val_sample/images/000000296649.jpg#pna@5]
+ev-17 split=holdout arm=A4 hit@5=1 rank=1 channels=documentText,keyword top5=[datasets/samples/sample.pdf#p1@1, datasets/samples/sample.docx#pna@2, datasets/samples/sample.docx#pna@3, datasets/samples/sample.pdf#p1@4, datasets/samples/sample.docx#pna@5]
+ev-18 split=holdout arm=A4 hit@5=1 rank=1 channels=documentText top5=[datasets/samples/sample.docx#pna@1, datasets/samples/sample.pdf#p1@2, datasets/coco/val_sample/images/000000296649.jpg#pna@3, datasets/samples/sample.pdf#p2@4, datasets/coco/val_sample/images/000000463730.jpg#pna@5]
+ev-19 split=holdout arm=A4 hit@5=1 rank=1 channels=documentText top5=[datasets/samples/sample.docx#pna@1, datasets/samples/sample.pdf#p1@2, datasets/samples/sample.png#pna@3, datasets/samples/sample.pdf#p2@4, datasets/coco/val_sample/images/000000463730.jpg#pna@5]
+ev-20 split=holdout arm=A4 hit@5=1 rank=1 channels=documentText,keyword top5=[datasets/samples/sample.docx#pna@1, datasets/samples/sample.pdf#p1@2, datasets/samples/sample.pdf#p2@3, datasets/samples/sample.docx#pna@4, datasets/samples/sample.pdf#p1@5]
+ev-21 split=holdout arm=A4 hit@5=1 rank=3 channels=clipShared top5=[datasets/samples/sample.pdf#p1@1, datasets/samples/sample.pdf#p2@2, datasets/coco/val_sample/images/000000006818.jpg#pna@3, datasets/samples/sample.docx#pna@4, datasets/coco/val_sample/images/000000403385.jpg#pna@5]
+ev-22 split=holdout arm=A4 hit@5=1 rank=3 channels=clipShared top5=[datasets/samples/sample.pdf#p1@1, datasets/samples/sample.pdf#p2@2, datasets/coco/val_sample/images/000000181666.jpg#pna@3, datasets/samples/sample.pdf#p1@4, datasets/coco/val_sample/images/000000289393.jpg#pna@5]
+ev-23 split=holdout arm=A4 hit@5=1 rank=5 channels=clipShared top5=[datasets/samples/sample.pdf#p1@1, datasets/samples/sample.pdf#p2@2, datasets/coco/val_sample/images/000000058636.jpg#pna@3, datasets/samples/sample.pdf#p1@4, datasets/coco/val_sample/images/000000017627.jpg#pna@5]
+ev-24 split=holdout arm=A4 hit@5=1 rank=5 channels=clipShared top5=[datasets/samples/sample.pdf#p1@1, datasets/samples/sample.pdf#p2@2, datasets/coco/val_sample/images/000000239274.jpg#pna@3, datasets/samples/sample.docx#pna@4, datasets/coco/val_sample/images/000000522713.jpg#pna@5]
+ev-25 split=holdout arm=A4 hit@5=0 rank=7 channels=clipShared top5=[datasets/samples/sample.docx#pna@1, datasets/samples/sample.pdf#p1@2, datasets/samples/sample.pdf#p2@3, datasets/coco/val_sample/images/000000085329.jpg#pna@4, datasets/coco/val_sample/images/000000456496.jpg#pna@5]
+arm=A4 split=holdout n=10 multi_evidence=4 hit@5=0.900000 [0.595850, 0.982124] (9/10) mrr@10=0.620952 recall@5=0.900000 recall@10=1.000000 encode_ms_first=2114 encode_ms_median_after_first=64.0 store_ms_median=24.0 fuse_ms_median=0.5

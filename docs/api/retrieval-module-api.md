@@ -30,7 +30,7 @@ final List<SearchResult> hits = await retriever.search(
 
 **三路。** `documentText` 用文档文本模型，384 维。`keyword` 用存储层的中文 bigram、FTS5 trigram 或 LIKE。`clipShared` 用 MobileCLIP 文本塔去对图像向量，512 维。一次默认 `search` 对文本编码两次。图像塔缺失或运行失败时这一路变成空，不把整次搜索变成错误。取消请求原样抛出。
 
-**融合。** `score = Σ w_i / (k + rank_i)`，`rank` 从 1 起。`k` 是 60。权重是文本 0.5、关键词 0.3、图像 0.2。某一路没有命中，或权重为 0，这一路不加入求和。这不是把余弦和关键词覆盖率做加权和。同分仍按存储层的规则：分数降序，`relativePath` 升序，页码升序且 null 在后，起点升序。
+**融合。** `score = Σ w_i / (k + rank_i)`，`rank` 从 1 起。`k` 是 60。权重是文本 0.5、关键词 0.3、图像 0.49。某一路没有命中，或权重为 0，这一路不加入求和。这不是把余弦和关键词覆盖率做加权和。同分仍按存储层的规则：分数降序，`relativePath` 升序，页码升序且 null 在后，起点升序。图像权重开工时是 0.2，2026-10-27 改为 0.49，`parameters_changed_after_freeze` 因此为 1。文本权重和 `k` 没改。
 
 **邻域。** 默认在融合并截到 `topK` 之后，把同一 `pageNumber` 上 `chunkIndex ± 1` 的正文拼进 `snippet`。不跨页。页的两端缺一侧就不补。`pageNumber == null` 的块之间仍可相邻，例如 DOCX。偏移和分数不变。`expandNeighborhood: false` 时 `snippet` 就是命中块正文。
 
@@ -93,7 +93,7 @@ Future<QueryVectors> encode(
 });
 ```
 
-`includeDocumentText` 为真时调用一次 `EmbeddingInput.text`。`includeClipText` 为真时再调用一次 `clipShared`。CLIP 抛 `EmbeddingSpaceMismatchException` 或 `EmbeddingRuntimeException` 时 `clip` 为 null。其他异常不吞。取消不当成缺塔。
+`includeDocumentText` 为真时用原问句调用一次 `EmbeddingInput.text`。`includeClipText` 为真时再调用一次 `clipShared`，字符串是 `clipQueryText`：词表命中时为英文词，未命中时仍是原问句。CLIP 抛 `EmbeddingSpaceMismatchException` 或 `EmbeddingRuntimeException` 时 `clip` 为 null。其他异常不吞。取消不当成缺塔。权重不在这里改。
 
 ### `QueryVectors`
 
@@ -162,10 +162,10 @@ const SearchResult({
 const int rrfK = 60;
 const double rrfTextWeight = 0.5;
 const double rrfKeywordWeight = 0.3;
-const double rrfImageWeight = 0.2;
+const double rrfImageWeight = 0.49;
 ```
 
-开工时冻结。`RrfFusion` 的默认值就是它们。评测脚本把 `parameters_changed_after_freeze` 记为 0，不在 dev 上改这三个权重。
+`RrfFusion` 的默认值就是它们。文本 0.5、关键词 0.3、`k=60` 仍是开工时的值。图像从 0.2 改为 0.49，评测脚本据此把 `parameters_changed_after_freeze` 记为 1。0.49 不是在 dev 上搜出来的。
 
 ### `RrfFusion`
 

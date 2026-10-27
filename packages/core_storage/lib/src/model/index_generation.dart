@@ -2,8 +2,9 @@ import 'package:meta/meta.dart';
 
 /// 一个文档的一种模型能不能复用。
 ///
-/// 五项是 [contentHash]、解析器名加版本、[chunkerVersion]、[modelId]、[vectorDim]。
-/// [documentId] 用来找到这一行，不单独算成第六项。
+/// 决策 4 称作五项：[contentHash]、解析器名加版本、[chunkerVersion]、
+/// [modelId]、[vectorDim]。[sameRecipe] 把解析器名和版本分成两个字段，
+/// 一共比较 6 个字段。[documentId] 用来找到这一行，不参与比较。
 @immutable
 class IndexGeneration {
   const IndexGeneration({

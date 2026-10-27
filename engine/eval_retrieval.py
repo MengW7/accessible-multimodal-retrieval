@@ -1,7 +1,8 @@
-"""Score the frozen evidence set with the product retriever.
+"""Score the evidence set with the product retriever.
 
-Dev may be read while the arms are reported. Holdout is one final look.
-Weights stay at the frozen (0.5, 0.3, 0.2). This script does not change them.
+Dev may be read while the arms are reported. The first holdout look used the
+frozen weights. This script does not edit the constants. It reads them and
+counts how many differ from the frozen (0.5, 0.3, 0.2) and k=60.
 
     python engine/eval_retrieval.py --arms A0,A1,A2,A3,A4,A5 --split dev
     python engine/eval_retrieval.py --arms A4 --split holdout
