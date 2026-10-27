@@ -2,16 +2,11 @@ comparison=chroma_top5_vs_dart_sqlite_top5
 slots_per_query=5
 queries=25
 positions=125
-agreed=121
-agreement=0.968000
+agreed=125
+agreement=1.000000
 gate=0.96
 max_abs_score_delta_same_rank=0.00000039
 max_abs_score_delta_same_chunk=0.00000039
 tie_break=score_desc,relativePath_asc,page_asc_null_last,startOffset_asc
 query_vectors=exported_vectorB64
 passed=1
-mismatches:
-ev-07 slot=5 dart=87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i4 chroma=87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i4
-ev-08 slot=5 dart=87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i18 chroma=87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i18
-ev-17 slot=5 dart=87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i0 chroma=87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i0
-ev-20 slot=5 dart=87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i4 chroma=87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i4

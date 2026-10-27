@@ -165,9 +165,9 @@ ONNX Runtime 已装在 `engine/.venv`（1.30.0），本周只用它跑 embedding
 
 `engine/` 不进入发布包。Python 和 Chroma 只留在开发期评测。产品索引是 Dart 包 `packages/core_storage`：系统 SQLite，向量用 fp32 小端 BLOB，余弦用点积。
 
-Chroma 没有被丢掉。`chromadb 1.5.9` 用同一批向量建集合，集合度量必须是 `hnsw:space=cosine`，再和 Dart+SQLite 比 Top-5。一致率的出口是不低于 96%。2026-10-20 实测 121/125（96.8%），原始输出在 `week4/logs/storage_equivalence.txt`。4 处不一致都是第 5 名，落在 `sample.pdf` 两页重复排版上。Dart 侧的 `chromadb` HTTP 客户端要第二个进程，和「不把 `engine/` 打进安装包」冲突，所以不进产品运行时。
+Chroma 没有被丢掉。`chromadb 1.5.9` 用同一批向量建集合，集合度量必须是 `hnsw:space=cosine`，再和 Dart+SQLite 比 Top-5。一致率的出口是不低于 96%。2026-10-26 用当前两份 jsonl 重跑 `engine/compare_ranking.py`，125 个位置全部一致（`agreement=1.000000`），原始输出在 `reports/week4/logs/storage_equivalence.txt`；此前那份 121/125 由更早的 Chroma 输出算出，已作废。Dart 侧的 `chromadb` HTTP 客户端要第二个进程，和「不把 `engine/` 打进安装包」冲突，所以不进产品运行时。
 
-依据是本机探针，不是容量估算：SQLite 3.53.4 的 FTS5 / WAL 可用（`week4/probes/probe_sqlite_capacity.txt`、`week4/probes/dart_store_probe.txt`）。`winsqlite3.dll` 的用法未写入系统文档，W8 再决定公开包是否改带自己的 `sqlite3.dll`。动态库通过 `SqliteLibraryLocator` 注入，路径不写死。
+依据是本机探针，不是容量估算：SQLite 3.53.4 的 FTS5 / WAL 可用（`reports/week4/probes/probe_sqlite_capacity.txt`、`reports/week4/probes/dart_store_probe.txt`）。`winsqlite3.dll` 的用法未写入系统文档，W8 再决定公开包是否改带自己的 `sqlite3.dll`。动态库通过 `SqliteLibraryLocator` 注入，路径不写死。
 
 ### Q4 登记（2026-10-20，未结案）
 
@@ -183,7 +183,7 @@ Chroma 没有被丢掉。`chromadb 1.5.9` 用同一批向量建集合，集合�
 
 ### Q6 登记（2026-10-20，未结案）
 
-批量解析本周仍用 `ImmediateExecutor`，不把解析放进 worker isolate。常驻嵌入进程把大约 1454 块的前向从几十分钟降到大约 37 秒（`week4/probes/probe_persistent_runtime.txt` 的 25.5 ms/条）。PDF 仍是每个文件一次 JVM，`process_wait` 占单文件时间的大约 99%。isolate 有没有收益，等 W6 用这条计时基线再量。
+批量解析本周仍用 `ImmediateExecutor`，不把解析放进 worker isolate。常驻嵌入进程把大约 1454 块的前向从几十分钟降到大约 37 秒（`reports/week4/probes/probe_persistent_runtime.txt` 的 25.5 ms/条）。PDF 仍是每个文件一次 JVM，`process_wait` 占单文件时间的大约 99%。isolate 有没有收益，等 W6 用这条计时基线再量。
 
 ### Q7 结案（2026-10-15）
 

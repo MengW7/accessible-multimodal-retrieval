@@ -199,7 +199,7 @@ const StoredChunk({
 
 构造断言：`documentId`、`chunkId` 非空，偏移不倒序，页码要么 null 要么大于 0。断言失败抛 `AssertionError`。
 
-代次五项是 `contentHash`、`parserName`、`parserVersion`、`chunkerVersion`，再加上向量的 `modelId` 和 `dim`。缺任何一项时这行仍可写入，但 `canReuse` 对不上。
+代次判等共 **6 个字段**：`contentHash`、`parserName`、`parserVersion`、`chunkerVersion`，再加上向量的 `modelId` 和 `vectorDim`。缺任何一项时这行仍可写入，但 `canReuse` 对不上。以 `IndexGeneration.sameRecipe` 的实现为准（逐字段等值比较）。
 
 ### `StorageFilter`
 
@@ -258,7 +258,7 @@ const IndexGeneration({
 });
 ```
 
-`documentId` 加 `modelId` 找到那一行。`sameRecipe` 比较其余五项：哈希、解析器名、解析器版本、切块器版本、模型名、维度。`embeddedAt` 不参与复用判断。构造断言要求这些字符串非空，且 `vectorDim > 0`。
+`documentId` 加 `modelId` 定位到那一行（两者是主键）。`sameRecipe` 比较其余 **6 个字段**：`contentHash`、`parserName`、`parserVersion`、`chunkerVersion`、`modelId`、`vectorDim`。`embeddedAt` 不参与复用判断。构造断言要求这些字符串非空，且 `vectorDim > 0`。
 
 ### `IndexStats`
 
@@ -321,7 +321,7 @@ abstract interface class VectorStore {
 
 `keyword` 的空查询返回空列表。`topK < 1` 抛 `ArgumentError`。有中文 bigram 时走词表；否则长度不少于 3 的查询走 FTS5 trigram；更短的走带 `LIMIT` 的 `LIKE`。
 
-`chunksForDocument` 按页码、块序号、偏移排序，null 页在后。`deleteDocument` 同时删向量行、关键词行和代次行。`clear` 清整库。`canReuse` 在没有代次行或五项不一致时返回 false。
+`chunksForDocument` 按页码、块序号、偏移排序，null 页在后。`deleteDocument` 同时删向量行、关键词行和代次行。`clear` 清整库（`chunk`、`keyword_term`、`chunk_fts`、`index_generation` 四张表都清空，清完仍可继续写入）。`canReuse` 在没有代次行或 **6 个字段任一不一致**时返回 false。
 
 ### `SqliteVectorStore`
 
@@ -334,7 +334,7 @@ void close();
 
 `database` 公开，是为了让探针打 `EXPLAIN QUERY PLAN`。业务代码用上面的方法即可。`close` 可重复调用。文件库的 `journal_mode` 是 `wal`。
 
-暴力扫描会把该空间里通过过滤的行都读出来再排序。本次在 384 维、1 万块、`topK` 为 5 时，写入 576 ms，查询中位 104 ms。写入不超过 0.6 s。查询没有达到 60 ms，数字记在 `week4/logs/storage_capacity.txt`，没有改门槛。
+向量查询分三段：先只读 `id` 与 `vec` 打分（过滤仍在 SQL 里生效），再按 `id` 回表补 tie-break 列并排序，最后只为选中的 `topK` 行取展示列。本次在 384 维、1 万块、`topK` 为 5 时，写入 444 ms，查询中位 44 ms（最小 41，最大 50）。写入不超过 0.6 s，查询不超过 60 ms，两项都达标。数字记在 `reports/week4/logs/storage_capacity.txt`。同分行的取舍由 `ScoredId.compareTie` 决定，剪枝不会丢掉 tie-break 更优的行。
 
 ## 5. 关键词
 

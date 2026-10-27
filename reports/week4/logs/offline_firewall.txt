@@ -1,0 +1,346 @@
+offline_firewall 2026-10-26T14:42:42.4045744+08:00
+external_target=223.5.5.5:443
+note=1.1.1.1:443 times out on this network with no firewall rule, so it is not the probe target.
+admin=1
+dart=D:\flutter\bin\cache\dart-sdk\bin\dart.exe exists=True
+python=E:\Project\accessible-multimodal-retrieval\engine\.venv\Scripts\python.exe exists=True
+==== before add ====
+---- show w4-offline-dart-python-dart ----
+
+No rules match the specified criteria.
+---- show w4-offline-dart-python-python ----
+
+No rules match the specified criteria.
+---- delete w4-offline-dart-python-dart ----
+
+No rules match the specified criteria.
+---- delete w4-offline-dart-python-python ----
+
+No rules match the specified criteria.
+==== clean before add ====
+---- show w4-offline-dart-python-dart ----
+
+No rules match the specified criteria.
+---- show w4-offline-dart-python-python ----
+
+No rules match the specified criteria.
+==== external before add ====
+external_python=open
+python_external_before_exit=0
+==== add ====
+Ok.
+Ok.
+==== after add ====
+---- show w4-offline-dart-python-dart ----
+
+Rule Name:                            w4-offline-dart-python-dart
+----------------------------------------------------------------------
+Enabled:                              Yes
+Direction:                            Out
+Profiles:                             Domain,Private,Public
+Grouping:                             
+LocalIP:                              Any
+RemoteIP:                             Any
+Protocol:                             Any
+Edge traversal:                       No
+Program:                              D:\flutter\bin\cache\dart-sdk\bin\dart.exe
+InterfaceTypes:                       Any
+Security:                             NotRequired
+Rule source:                          Local Setting
+Action:                               Block
+Ok.
+---- show w4-offline-dart-python-python ----
+
+Rule Name:                            w4-offline-dart-python-python
+----------------------------------------------------------------------
+Enabled:                              Yes
+Direction:                            Out
+Profiles:                             Domain,Private,Public
+Grouping:                             
+LocalIP:                              Any
+RemoteIP:                             Any
+Protocol:                             Any
+Edge traversal:                       No
+Program:                              E:\Project\accessible-multimodal-retrieval\engine\.venv\Scripts\python.exe
+InterfaceTypes:                       Any
+Security:                             NotRequired
+Rule source:                          Local Setting
+Action:                               Block
+Ok.
+==== external while blocked ====
+external_python=open
+python_external_during_exit=0
+external_dart=open
+==== cleanup ====
+---- delete w4-offline-dart-python-dart ----
+
+Deleted 1 rule(s).
+Ok.
+
+No rules match the specified criteria.
+---- delete w4-offline-dart-python-python ----
+
+Deleted 1 rule(s).
+Ok.
+
+No rules match the specified criteria.
+---- delete w4-offline-dart-python-dartvm ----
+
+No rules match the specified criteria.
+
+No rules match the specified criteria.
+---- delete w4-offline-dart-python-python-base ----
+
+No rules match the specified criteria.
+
+No rules match the specified criteria.
+stop pid=24928 name=pwsh.exe
+stop pid=37596 name=pwsh.exe
+stop pid=51456 name=dart.exe
+stop pid=55136 name=dartvm.exe
+cleanup_done
+
+==== runtime block ====
+offline_firewall 2026-10-26T14:52:24.2823384+08:00
+external_target=223.5.5.5:443
+note=dart.exe and the venv python.exe are launchers. The socket is opened by dartvm.exe and C:\Python313\python.exe.
+admin=1
+exists D:\flutter\bin\cache\dart-sdk\bin\dart.exe = True
+exists D:\flutter\bin\cache\dart-sdk\bin\dartvm.exe = True
+exists E:\Project\accessible-multimodal-retrieval\engine\.venv\Scripts\python.exe = True
+exists C:\Python313\python.exe = True
+==== firewall profile ====
+
+Private Profile Settings: 
+----------------------------------------------------------------------
+State                                 ON
+Firewall Policy                       BlockInbound,AllowOutbound
+LocalFirewallRules                    N/A (GPO-store only)
+LocalConSecRules                      N/A (GPO-store only)
+InboundUserNotification               Enable
+RemoteManagement                      Disable
+UnicastResponseToMulticast            Enable
+
+Logging:
+LogAllowedConnections                 Disable
+LogDroppedConnections                 Disable
+FileName                              %systemroot%\system32\LogFiles\Firewall\pfirewall.log
+MaxFileSize                           4096
+
+
+Public Profile Settings: 
+----------------------------------------------------------------------
+State                                 ON
+Firewall Policy                       BlockInbound,AllowOutbound
+LocalFirewallRules                    N/A (GPO-store only)
+LocalConSecRules                      N/A (GPO-store only)
+InboundUserNotification               Enable
+RemoteManagement                      Disable
+UnicastResponseToMulticast            Enable
+
+Logging:
+LogAllowedConnections                 Disable
+LogDroppedConnections                 Disable
+FileName                              %systemroot%\system32\LogFiles\Firewall\pfirewall.log
+MaxFileSize                           4096
+
+Ok.
+==== before add ====
+---- show w4-offline-dart-python-dart ----
+
+No rules match the specified criteria.
+---- show w4-offline-dart-python-dartvm ----
+
+No rules match the specified criteria.
+---- show w4-offline-dart-python-python ----
+
+No rules match the specified criteria.
+---- show w4-offline-dart-python-python-base ----
+
+No rules match the specified criteria.
+---- delete w4-offline-dart-python-dart ----
+
+No rules match the specified criteria.
+---- delete w4-offline-dart-python-dartvm ----
+
+No rules match the specified criteria.
+---- delete w4-offline-dart-python-python ----
+
+No rules match the specified criteria.
+---- delete w4-offline-dart-python-python-base ----
+
+No rules match the specified criteria.
+==== clean before add ====
+---- show w4-offline-dart-python-dart ----
+
+No rules match the specified criteria.
+---- show w4-offline-dart-python-dartvm ----
+
+No rules match the specified criteria.
+---- show w4-offline-dart-python-python ----
+
+No rules match the specified criteria.
+---- show w4-offline-dart-python-python-base ----
+
+No rules match the specified criteria.
+==== external before add ====
+external_python=open
+python_base_before_exit=0
+==== add ====
+Ok.
+Ok.
+Ok.
+Ok.
+==== after add ====
+---- show w4-offline-dart-python-dart ----
+
+Rule Name:                            w4-offline-dart-python-dart
+----------------------------------------------------------------------
+Enabled:                              Yes
+Direction:                            Out
+Profiles:                             Domain,Private,Public
+Grouping:                             
+LocalIP:                              Any
+RemoteIP:                             Any
+Protocol:                             Any
+Edge traversal:                       No
+Program:                              D:\flutter\bin\cache\dart-sdk\bin\dart.exe
+InterfaceTypes:                       Any
+Security:                             NotRequired
+Rule source:                          Local Setting
+Action:                               Block
+Ok.
+---- show w4-offline-dart-python-dartvm ----
+
+Rule Name:                            w4-offline-dart-python-dartvm
+----------------------------------------------------------------------
+Enabled:                              Yes
+Direction:                            Out
+Profiles:                             Domain,Private,Public
+Grouping:                             
+LocalIP:                              Any
+RemoteIP:                             Any
+Protocol:                             Any
+Edge traversal:                       No
+Program:                              D:\flutter\bin\cache\dart-sdk\bin\dartvm.exe
+InterfaceTypes:                       Any
+Security:                             NotRequired
+Rule source:                          Local Setting
+Action:                               Block
+Ok.
+---- show w4-offline-dart-python-python ----
+
+Rule Name:                            w4-offline-dart-python-python
+----------------------------------------------------------------------
+Enabled:                              Yes
+Direction:                            Out
+Profiles:                             Domain,Private,Public
+Grouping:                             
+LocalIP:                              Any
+RemoteIP:                             Any
+Protocol:                             Any
+Edge traversal:                       No
+Program:                              E:\Project\accessible-multimodal-retrieval\engine\.venv\Scripts\python.exe
+InterfaceTypes:                       Any
+Security:                             NotRequired
+Rule source:                          Local Setting
+Action:                               Block
+Ok.
+---- show w4-offline-dart-python-python-base ----
+
+Rule Name:                            w4-offline-dart-python-python-base
+----------------------------------------------------------------------
+Enabled:                              Yes
+Direction:                            Out
+Profiles:                             Domain,Private,Public
+Grouping:                             
+LocalIP:                              Any
+RemoteIP:                             Any
+Protocol:                             Any
+Edge traversal:                       No
+Program:                              C:\Python313\python.exe
+InterfaceTypes:                       Any
+Security:                             NotRequired
+Rule source:                          Local Setting
+Action:                               Block
+Ok.
+==== external while blocked ====
+external_python=blocked PermissionError: [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions
+python_base_during_exit=1
+external_python=blocked PermissionError: [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions
+python_venv_during_exit=1
+external_dart=blocked SocketException: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied (OS Error: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied, errno = 10057), address = 223.5.5.5, port = 36786
+dart_during_exit=1
+==== search_probe ====
+query=工具靠什么判断文件类型？
+arm=A5 expand=true top=5 encode_ms=1759 store_ms=35 fuse_ms=4
+rank=1 score=0.008197 key=datasets/samples/sample.pdf file=sample.pdf page=1 start=423 end=517 channels=documentText modality=text
+snippet=The Apache Tika toolkit detects and extracts metadata and text from over a thousand different\nfile types (such as PPT, XLS, and PDF). All of these file types can be parsed through a single\ninterface, making Tika useful for search engine indexing, content analysis, translation, and
+rank=2 score=0.008065 key=datasets/samples/sample.pdf file=sample.pdf page=2 start=430 end=524 channels=documentText modality=text
+snippet=The Apache Tika toolkit detects and extracts metadata and text from over a thousand different\nfile types (such as PPT, XLS, and PDF). All of these file types can be parsed through a single\ninterface, making Tika useful for search engine indexing, content analysis, translation, and
+rank=3 score=0.007937 key=datasets/samples/sample.docx file=sample.docx page=null start=306 end=426 channels=documentText modality=text
+snippet=Contributions and corrections are welcome.\nThe Apache Tika toolkit detects and extracts metadata and text from over a thousand different file types (such as PPT, X\nLS, and PDF).
+rank=4 score=0.007813 key=datasets/samples/sample.pdf file=sample.pdf page=1 start=617 end=710 channels=documentText modality=text
+snippet=interface, making Tika useful for search engine indexing, content analysis, translation, and\nmuch more. Tika identifies a file’s type from its bytes, so a missing or misleading extension\ndoes not change the result.
+rank=5 score=0.007692 key=datasets/samples/sample.pdf file=sample.pdf page=2 start=626 end=719 channels=documentText modality=text
+snippet=interface, making Tika useful for search engine indexing, content analysis, translation, and\nmuch more. Tika identifies a file’s type from its bytes, so a missing or misleading extension\ndoes not change the result.
+search_exit=0
+==== delete ====
+---- delete w4-offline-dart-python-dart ----
+
+Deleted 1 rule(s).
+Ok.
+---- delete w4-offline-dart-python-dartvm ----
+
+Deleted 1 rule(s).
+Ok.
+---- delete w4-offline-dart-python-python ----
+
+Deleted 1 rule(s).
+Ok.
+---- delete w4-offline-dart-python-python-base ----
+
+Deleted 1 rule(s).
+Ok.
+==== after delete ====
+---- show w4-offline-dart-python-dart ----
+
+No rules match the specified criteria.
+---- show w4-offline-dart-python-dartvm ----
+
+No rules match the specified criteria.
+---- show w4-offline-dart-python-python ----
+
+No rules match the specified criteria.
+---- show w4-offline-dart-python-python-base ----
+
+No rules match the specified criteria.
+==== external after delete ====
+external_python=open
+python_base_after_exit=0
+==== delete again ====
+---- delete w4-offline-dart-python-dart ----
+
+No rules match the specified criteria.
+---- delete w4-offline-dart-python-dartvm ----
+
+No rules match the specified criteria.
+---- delete w4-offline-dart-python-python ----
+
+No rules match the specified criteria.
+---- delete w4-offline-dart-python-python-base ----
+
+No rules match the specified criteria.
+---- show w4-offline-dart-python-dart ----
+
+No rules match the specified criteria.
+---- show w4-offline-dart-python-dartvm ----
+
+No rules match the specified criteria.
+---- show w4-offline-dart-python-python ----
+
+No rules match the specified criteria.
+---- show w4-offline-dart-python-python-base ----
+
+No rules match the specified criteria.
+done

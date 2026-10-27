@@ -2,6 +2,7 @@ parameters_changed_after_freeze=0
 weights=text:0.5,keyword:0.3,image:0.2
 k=60
 holdout_scored_runs=1
+duplicate_questions_per_arm=0
 ev-16 split=holdout arm=A4 hit@5=1 rank=1 channels=documentText top5=[datasets/samples/sample.docx#pna@1, datasets/samples/sample.pdf#p1@2, datasets/samples/sample.pdf#p2@3, datasets/samples/sample.pdf#p1@4, datasets/samples/sample.pdf#p2@5]
 ev-17 split=holdout arm=A4 hit@5=1 rank=1 channels=documentText top5=[datasets/samples/sample.pdf#p1@1, datasets/samples/sample.pdf#p2@2, datasets/samples/sample.docx#pna@3, datasets/samples/sample.docx#pna@4, datasets/samples/sample.pdf#p1@5]
 ev-18 split=holdout arm=A4 hit@5=1 rank=1 channels=documentText top5=[datasets/samples/sample.docx#pna@1, datasets/samples/sample.pdf#p1@2, datasets/samples/sample.pdf#p2@3, datasets/samples/sample.pdf#p1@4, datasets/samples/sample.pdf#p2@5]
@@ -12,4 +13,4 @@ ev-22 split=holdout arm=A4 hit@5=0 rank=0 channels= top5=[datasets/samples/sampl
 ev-23 split=holdout arm=A4 hit@5=0 rank=0 channels= top5=[datasets/samples/sample.pdf#p1@1, datasets/samples/sample.pdf#p2@2, datasets/samples/sample.pdf#p1@3, datasets/samples/sample.pdf#p2@4, datasets/samples/sample.pdf#p1@5]
 ev-24 split=holdout arm=A4 hit@5=0 rank=0 channels= top5=[datasets/samples/sample.pdf#p1@1, datasets/samples/sample.pdf#p2@2, datasets/samples/sample.docx#pna@3, datasets/samples/sample.pdf#p1@4, datasets/samples/sample.pdf#p2@5]
 ev-25 split=holdout arm=A4 hit@5=0 rank=0 channels= top5=[datasets/samples/sample.docx#pna@1, datasets/samples/sample.pdf#p1@2, datasets/samples/sample.pdf#p2@3, datasets/samples/sample.pdf#p1@4, datasets/samples/sample.pdf#p2@5]
-arm=A4 split=holdout n=10 multi_evidence=4 hit@5=0.500000 [0.236593, 0.763407] (5/10) mrr@10=0.500000 recall@5=0.500000 recall@10=0.500000 encode_ms_first=2134 encode_ms_median_after_first=55.0 store_ms_median=21.5 fuse_ms_median=0.0
+arm=A4 split=holdout n=10 multi_evidence=4 hit@5=0.500000 [0.236593, 0.763407] (5/10) mrr@10=0.500000 recall@5=0.500000 recall@10=0.500000 encode_ms_first=1757 encode_ms_median_after_first=58.0 store_ms_median=9.0 fuse_ms_median=0.0

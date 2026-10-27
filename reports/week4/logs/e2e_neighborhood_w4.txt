@@ -1,0 +1,36 @@
+row w4-01 span=2 exists=1 forall=1
+row w4-03 span=4 exists=0 forall=0
+row w4-04 span=3 exists=1 forall=0
+row w4-06 span=2 exists=1 forall=1
+row w4-10 span=2 exists=1 forall=1
+row w4-11 span=2 exists=1 forall=1
+row w4-12 span=2 exists=1 forall=1
+evidence_rows=12
+chunk_coverage_ok=12
+cross_chunk_rows=7
+exists_one_anchor=6
+forall_anchors=5
+reachable_with_one_hop=5
+documents=3
+document_chunks=docs/architecture/adr/0004-vector-storage-and-fusion.md n=191
+document_chunks=docs/architecture/system-architecture.md n=360
+document_chunks=docs/tdd/technical-design-document.md n=230
+problems:
+  - w4-03: forall ±1 cannot cover [94, 95, 96, 97] (exists=0, positions [94, 95, 96, 97])
+  - w4-04: forall ±1 cannot cover [186, 187, 188] (exists=1, positions [186, 187, 188])
+
+# command
+# engine\.venv\Scripts\python.exe engine\eval_neighborhood.py
+# exit=1 is the existing forall gate (reached == cross_total). It is not a crash.
+#
+# interpretation
+# chunk_coverage_ok=12 means: for every one of the 12 rows, the claimed chunkIndexes
+#   exist and their concatenation contains the head of evidenceText. The jsonl was not edited.
+# reachable_with_one_hop=5 is forall_anchors. It is the same 5/7 already recorded:
+#   from every claimed chunk, ±1 covers all claimed chunks.
+# exists_one_anchor=6 is the other count: some one claimed chunk has a ±1 window
+#   that covers all claimed chunks. It does not replace the 5/7.
+# Five cross-chunk rows have span 2 and pass both counts (w4-01, w4-06, w4-10, w4-11, w4-12).
+# w4-04 span=3 passes exists only: chunk 187 covers [186, 187, 188]; the end chunks do not.
+# w4-03 span=4 fails both: no ±1 window covers [94, 95, 96, 97].
+# ±1 was not widened. Widening the chunk window is a later chunkerVersion rebuild, not this check.

@@ -234,6 +234,10 @@ void main() {
     );
   });
 
+  // 这条用例断言真实的产物存在：`.venv`、`embed_server.py` 和 470MB 的权重都被
+  // gitignore。默认套件不读它们（计划附录 B），所以在用例级打 integration 标签，
+  // 与其他文件里 `test(..., tags: 'integration')` 的写法一致。
+  // 同文件的其余用例都注入假 host，留在默认套件里。
   test('the python factory only checks that the three files exist', () {
     final Directory root = _repoRoot();
     final String python = p.join(
@@ -264,7 +268,7 @@ void main() {
     );
     expect(runtime.isAvailable, isTrue);
     expect(runtime.server.completed, 0);
-  });
+  }, tags: 'integration');
 }
 
 String _dtype(Map<String, Object?> request, String name) {

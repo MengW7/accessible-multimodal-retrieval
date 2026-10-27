@@ -87,22 +87,46 @@ List<ScoredId> keywordTopK(
 }
 
 /// 给刚插入的行写关键词。旧行已经按文档删掉，这里的 rowid 是新的。
+///
+/// 批量写入请用 [KeywordWriter]：它把两条 `INSERT` 只 prepare 一次，
+/// 避免每行各编译一遍（10k 块下这是写入耗时的主要来源之一）。
 void replaceKeywords(Database database, int chunkRowId, String body) {
-  final List<String> terms = chineseBigrams(body).toSet().toList(growable: false);
-  if (terms.isNotEmpty) {
-    final PreparedStatement insert = database.prepare(
-      'INSERT OR IGNORE INTO keyword_term(term, chunk_rowid) VALUES (?, ?)',
-    );
-    for (final String term in terms) {
-      insert.execute(<Object?>[term, chunkRowId]);
-    }
-    insert.dispose();
+  final KeywordWriter writer = KeywordWriter(database);
+  try {
+    writer.write(chunkRowId, body);
+  } finally {
+    writer.dispose();
   }
-  if (body.trim().isNotEmpty) {
-    database.execute(
-      'INSERT INTO chunk_fts(body, chunk_rowid) VALUES (?, ?)',
-      <Object?>[body, chunkRowId],
-    );
+}
+
+/// 可复用的关键词写入器。调用方负责 [dispose]。
+final class KeywordWriter {
+  KeywordWriter(Database database)
+    : _term = database.prepare(
+        'INSERT OR IGNORE INTO keyword_term(term, chunk_rowid) VALUES (?, ?)',
+      ),
+      _fts = database.prepare(
+        'INSERT INTO chunk_fts(body, chunk_rowid) VALUES (?, ?)',
+      );
+
+  final PreparedStatement _term;
+
+  final PreparedStatement _fts;
+
+  /// 写一行。正文为空时不写 FTS 行，与 [replaceKeywords] 行为一致。
+  void write(int chunkRowId, String body) {
+    final List<String> terms = chineseBigrams(body).toSet().toList(growable: false);
+    for (final String term in terms) {
+      _term.execute(<Object?>[term, chunkRowId]);
+    }
+    if (body.trim().isNotEmpty) {
+      _fts.execute(<Object?>[body, chunkRowId]);
+    }
+  }
+
+  void dispose() {
+    _term.dispose();
+    _fts.dispose();
   }
 }
 
@@ -145,12 +169,16 @@ List<ScoredId> _trigram(
   final SqlClause extra = filterClause(filter);
   final String where = extra.sql.isEmpty ? '' : ' AND ${extra.sql}';
   try {
+    // FTS5 的 MATCH 左侧只认被索引表的表名，不认别名：`f MATCH ?` 在
+    // 3.53.4 上直接报 `no such column: f`。这里不取别名，表名在 JOIN
+    // 与 MATCH 里都直接可用；`$where` 的过滤条件仍然靠 `c.` 前缀走
+    // chunk 表，不进 FTS 表。
     final ResultSet rows = database.select(
       '''
       SELECT $_chunkColumns
-      FROM chunk_fts f
-      JOIN chunk c ON c.id = f.chunk_rowid
-      WHERE f MATCH ?$where
+      FROM chunk_fts
+      JOIN chunk c ON c.id = chunk_fts.chunk_rowid
+      WHERE chunk_fts MATCH ?$where
       LIMIT ?
       ''',
       <Object?>['"${query.replaceAll('"', '""')}"', ...extra.args, topK],

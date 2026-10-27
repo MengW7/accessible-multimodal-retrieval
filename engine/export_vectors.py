@@ -3,7 +3,7 @@
 Chunk boundaries come from the Dart chunker, so chunk ids match the product.
 Both stores later decode vectorB64. They do not embed again.
 
-    python engine/export_vectors.py --path datasets/samples --out week4/vectors/w3_samples.jsonl
+    python engine/export_vectors.py --path datasets/samples --out reports/week4/vectors/w3_samples.jsonl
 """
 
 from __future__ import annotations
@@ -131,7 +131,7 @@ def _encode_caption(tokenizer, pad_id: int, text: str) -> np.ndarray:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--path", default="datasets/samples")
-    parser.add_argument("--out", default="week4/vectors/w3_samples.jsonl")
+    parser.add_argument("--out", default="reports/week4/vectors/w3_samples.jsonl")
     args = parser.parse_args()
     samples = Path(args.path)
     if not samples.is_absolute():

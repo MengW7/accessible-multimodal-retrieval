@@ -4,7 +4,6 @@ import 'dart:typed_data';
 
 import 'package:core_embedding/core_embedding.dart';
 import 'package:core_storage/core_storage.dart';
-import 'package:sqlite3/sqlite3.dart';
 
 /// Times the product writer and the brute-force cosine scan.
 ///
@@ -73,17 +72,15 @@ Future<void> _bulk(SqliteVectorStore store, int count) async {
 }
 
 void _explain(SqliteVectorStore store) {
-  final ResultSet plan = store.database.select(
-    '''
-    EXPLAIN QUERY PLAN
-    SELECT id FROM chunk
-    WHERE space = ? AND dim = ? AND extension IN (?)
-    ''',
-    <Object?>['documentText', 384, '.txt'],
+  // 解释生产扫描语句本身（与 cosineTopK 用的是同一条 SQL），不再另抄一份。
+  final List<String> plan = explainVectorScan(
+    store.database,
+    _vector(_unit(Random(11), 384), -1),
+    filter: const StorageFilter(extensions: <String>{'.txt'}),
   );
   stdout.writeln('explain_filter=extension_in_sql');
-  for (final Row row in plan) {
-    stdout.writeln('explain=${row.values.join('|')}');
+  for (final String line in plan) {
+    stdout.writeln('explain=$line');
   }
 }
 

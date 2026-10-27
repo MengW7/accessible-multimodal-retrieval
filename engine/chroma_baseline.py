@@ -17,8 +17,8 @@ from pathlib import Path
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
-VECTORS = ROOT / "week4" / "vectors"
-LOGS = ROOT / "week4" / "logs"
+VECTORS = ROOT / "reports" / "week4" / "vectors"
+LOGS = ROOT / "reports" / "week4" / "logs"
 
 
 def _load(path: Path) -> list[dict]:

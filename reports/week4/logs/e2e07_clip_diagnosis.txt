@@ -1,0 +1,36 @@
+# E2E-07 diagnosis. The Chinese question stays failed. Weights were not changed.
+# Three measurements on reports/week4/.index/evidence.sqlite.
+# MobileCLIP text tokenizer: models/raw/image/mobileclip-s0/tokenizer.json
+# model.type=BPE vocab=49408 han_tokens=0
+
+# (a) Chinese question, clipShared only. Already in logs/retrieval_bench_dev.txt.
+# This uses the CLIP text tower. It does not by itself separate a vocab miss from an image-vector miss.
+ev-11 split=dev arm=A2 hit@5=0 rank=0 channels= top5=[datasets/coco/val_sample/images/000000403385.jpg#pna@1, datasets/coco/val_sample/images/000000296649.jpg#pna@2, datasets/samples/sample.png#pna@3, datasets/coco/val_sample/images/000000463730.jpg#pna@4, datasets/coco/val_sample/images/000000006818.jpg#pna@5]
+
+# (b) English evidence sentence, clipShared only, product search_probe --arm A2.
+# dart run packages/core_pipeline/bin/search_probe.dart --db reports/week4/.index/evidence.sqlite --arm A2 --top 5 --query "A man is in a kitchen making pizzas."
+# Rank 1 is 000000397133.jpg. Score 0.003279 is the image weight 0.2 / (k + rank) with k=60 and rank=1.
+query=A man is in a kitchen making pizzas.
+arm=A2 expand=false top=5 encode_ms=1242 store_ms=17 fuse_ms=3
+rank=1 score=0.003279 key=datasets/coco/val_sample/images/000000397133.jpg file=000000397133.jpg page=null start=0 end=0 channels=clipShared modality=image
+rank=2 score=0.003226 key=datasets/coco/val_sample/images/000000037777.jpg file=000000037777.jpg page=null start=0 end=0 channels=clipShared modality=image
+rank=3 score=0.003175 key=datasets/coco/val_sample/images/000000252219.jpg file=000000252219.jpg page=null start=0 end=0 channels=clipShared modality=image
+rank=4 score=0.003125 key=datasets/coco/val_sample/images/000000308394.jpg file=000000308394.jpg page=null start=0 end=0 channels=clipShared modality=image
+rank=5 score=0.003077 key=datasets/coco/val_sample/images/000000403817.jpg file=000000403817.jpg page=null start=0 end=0 channels=clipShared modality=image
+
+# (c) Image-to-image. Stored clipShared vector of 000000397133.jpg, cosineTopK, top 6.
+# No text tower and no re-encode. Rank 1 is the same image (score 1.000000). This does not test the word pizza.
+mode=image_to_image
+text_tower=not_used
+query_file=000000397133.jpg
+space=clipShared dim=512 model=mobileclip-s0-vision
+rank=1 score=1.000000 file=000000397133.jpg
+rank=2 score=0.342318 file=000000037777.jpg
+rank=3 score=0.317026 file=000000502136.jpg
+rank=4 score=0.314620 file=000000252219.jpg
+rank=5 score=0.313607 file=000000500663.jpg
+rank=6 score=0.312678 file=000000386912.jpg
+
+# conclusion from (b): the image vector aligns with the English pizza sentence.
+# The Chinese question does not enter the MobileCLIP text-tower vocabulary.
+# E2E-07 stays failed. The Chinese query was not replaced.

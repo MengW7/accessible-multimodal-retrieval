@@ -10,9 +10,9 @@
 | 计划基线 | `reports/week1/个人计划.md`（W4 行）、`docs/tdd/technical-design-document.md`（Q2/Q5 本周结案） |
 | 上游交付 | `packages/core_parsing`（覆盖率 90.99%）、`packages/core_embedding`（覆盖率 85.73%，双空间冻结）、`reports/week3/evidence_set.jsonl`（25 条，已冻结） |
 | 下游衔接 | W5 只经检索层拿结果；W6 冲 ≥90% 覆盖率与性能；W8 打包不含 MobileCLIP 权重 |
-| 落地目录 | `week4/`（本计划、探针、日志、报告、覆盖率）＋ `packages/core_storage/`、`packages/core_retrieval/`、`packages/core_pipeline/` |
+| 落地目录 | `reports/week4/`（本计划、探针、日志、报告、覆盖率）＋ `packages/core_storage/`、`packages/core_retrieval/`、`packages/core_pipeline/` |
 
-> 口径说明：W1–W3 的报告在 `reports/weekN/`，本周按任务要求集中在 `week4/`。要并回总目录时整目录移动即可，文件名不变。
+> 口径说明：W1–W3 的报告在 `reports/weekN/`，本周按任务要求集中在 `reports/week4/`。要并回总目录时整目录移动即可，文件名不变。
 
 ---
 
@@ -122,11 +122,11 @@ W5 起**改为一周 5 天**，正好填满到 11/14，交付日不动：
 
 ### 2.2 W4 开工实测（本计划新增的探针，结论直接进决策）
 
-三份原始输出在 `week4/probes/`。**这三组数字是本周排期与选型的唯一依据，不是估算。**
+三份原始输出在 `reports/week4/probes/`。**这三组数字是本周排期与选型的唯一依据，不是估算。**
 
 #### （a）运行时常驻化：W3 的 2 s/向量不是模型的错
 
-`week4/probes/probe_persistent_runtime.txt`，同一批 24 条真实文本（取自 `docs/` + `reports/` 的 md，按 120 字符切）：
+`reports/week4/probes/probe_persistent_runtime.txt`，同一批 24 条真实文本（取自 `docs/` + `reports/` 的 md，按 120 字符切）：
 
 | 形态 | 每条中位 | p90 | 24 条合计 |
 |---|---:|---:|---:|
@@ -144,7 +144,7 @@ W5 起**改为一周 5 天**，正好填满到 11/14，交付日不动：
 
 #### （b）存储路线：系统 SQLite 实测可用
 
-`week4/probes/probe_sqlite_capacity.txt` + `week4/probes/dart_store_probe.txt`：
+`reports/week4/probes/probe_sqlite_capacity.txt` + `reports/week4/probes/dart_store_probe.txt`：
 
 | 项 | 实测 |
 |---|---|
@@ -189,9 +189,9 @@ W5 起**改为一周 5 天**，正好填满到 11/14，交付日不动：
 | 增量重建 | 无；`chunkId` 不稳定 | 代次键 `contentHash+parserVersion+chunkerVersion+modelId` | `core_storage` 的 `index_generation` |
 | 关键词索引 | 无 | FTS5 `trigram` + **中文 bigram 预切** + `LIKE` 兜底（决策 3） | `core_storage` 的 `keyword_index` |
 | 邻域扩展 | W3 明确移交 W4 | 命中块 → 同页相邻块 / 整页（决策 5） | `core_retrieval` |
-| 评测集缺口 | 冻结集 25 条**全是 answerable，无 no-answer 题**；跨页 3 条在 `sample.pdf` 上是「同一证据出现在两页」而非断句 | **另建** W4 邻域验证集（10–15 条），**不并入冻结集**（决策 7） | `week4/evidence_set_w4.jsonl` |
-| Chroma 对照 | venv 里有 `chromadb 1.5.9`，但没有任何 W3 向量导出物 | 导出 97 条向量，建 Chroma 集合，跑 H1 等价门槛 | `week4/vectors/`、`engine/chroma_baseline.py` |
-| 覆盖率证据 | 只有 W2/W3 的 | 新三包落盘 | `week4/coverage/` |
+| 评测集缺口 | 冻结集 25 条**全是 answerable，无 no-answer 题**；跨页 3 条在 `sample.pdf` 上是「同一证据出现在两页」而非断句 | **另建** W4 邻域验证集（10–15 条），**不并入冻结集**（决策 7） | `reports/week4/evidence_set_w4.jsonl` |
+| Chroma 对照 | venv 里有 `chromadb 1.5.9`，但没有任何 W3 向量导出物 | 导出 97 条向量，建 Chroma 集合，跑 H1 等价门槛 | `reports/week4/vectors/`、`engine/chroma_baseline.py` |
+| 覆盖率证据 | 只有 W2/W3 的 | 新三包落盘 | `reports/week4/coverage/` |
 
 ### 2.4 TDD 里本周要结案的未决问题
 
@@ -210,12 +210,12 @@ W5 起**改为一周 5 天**，正好填满到 11/14，交付日不动：
 |---|---|---|---|---|
 | **G1** | 集成向量存储与检索模块 | `packages/core_storage/`、`packages/core_retrieval/` | `dart analyze` 0 issue；默认套件全绿；两包各自覆盖率 ≥85% | 硬门 |
 | **G2** | 端到端 MVP 可运行 | `packages/core_pipeline/bin/index_probe.dart`、`search_probe.dart` | 一条命令建库；另一条命令 `--query "…"` 出 Top-K，含文件、页/段、偏移、分数、通道 | 硬门 **H3** |
-| **G3** | 端到端功能测试报告 | `week4/W04_report.md` + `week4/logs/` | 沿用 W2/W3 体例：用例 ID — 命令 — 期望 — 实际 — 判定 — 证据；E2E-01～E2E-12 齐备 | 硬门 |
-| **G4** | 检索精度基准报告 | `week4/检索精度基准报告.md` | 6 臂消融表 + Hit@5 / MRR@10 + **Wilson 95% 置信区间** + 逐题通过表；dev/holdout 分列；标明样本量限制 | 硬门 |
-| **G5** | 存储等价门槛 | `week4/logs/storage_equivalence.txt` | 同一批向量、同一批查询，Chroma 与 Dart+SQLite 的 **Top-5 一致率 ≥96%** | 硬门 **H1** |
+| **G3** | 端到端功能测试报告 | `reports/week4/W04_report.md` + `reports/week4/logs/` | 沿用 W2/W3 体例：用例 ID — 命令 — 期望 — 实际 — 判定 — 证据；E2E-01～E2E-12 齐备 | 硬门 |
+| **G4** | 检索精度基准报告 | `reports/week4/检索精度基准报告.md` | 6 臂消融表 + Hit@5 / MRR@10 + **Wilson 95% 置信区间** + 逐题通过表；dev/holdout 分列；标明样本量限制 | 硬门 |
+| **G5** | 存储等价门槛 | `reports/week4/logs/storage_equivalence.txt` | 同一批向量、同一批查询，Chroma 与 Dart+SQLite 的 **Top-5 一致率 ≥96%** | 硬门 **H1** |
 | **G6** | 决策记录 | `docs/architecture/adr/0004-vector-storage-and-fusion.md` | 8 个决策各含 Decision / Alternatives / Consequences；写明与 PDF 原文的一处偏差 | 硬门 |
 | **G7** | API 文档 | `docs/api/storage-module-api.md`、`docs/api/retrieval-module-api.md` | 每个 public 类型/方法有签名、参数、异常、示例；含 `space`、`filters`、`SearchResult` 语义 | 硬门 |
-| **G8** | 覆盖率达 W6 可达性检查 | `week4/coverage/*.lcov.info` + `覆盖率报告.md` | 三个新包 ≥85%，`core_parsing` 不回退到 80% 以下，`core_embedding` 不低于 85% | 硬门 |
+| **G8** | 覆盖率达 W6 可达性检查 | `reports/week4/coverage/*.lcov.info` + `覆盖率报告.md` | 三个新包 ≥85%，`core_parsing` 不回退到 80% 以下，`core_embedding` 不低于 85% | 硬门 |
 
 **四个 PDF 交付物 → G 编号**：集成存储与检索模块 = G1；可用 MVP = G2；端到端功能测试报告 = G3；检索精度基准报告 = G4。
 
@@ -364,7 +364,7 @@ W3 把跨页答案明确移交 W4（`证据集说明.md` §4），且记录了�
 **纪律**：
 
 1. **dev 只用于选臂与选权重，holdout 只在最终报告出一次数**；报告里必须写明「holdout 被看过几次」。
-2. 证据集已冻结（`2026-10-16T13:12:33Z`，sha256 有记录）。**本周不得改动这 25 条**。要加题就新建 `week4/evidence_set_w4.jsonl`，单独标注用途（邻域扩展验证），**不并入冻结集、不参与调参**。
+2. 证据集已冻结（`2026-10-16T13:12:33Z`，sha256 有记录）。**本周不得改动这 25 条**。要加题就新建 `reports/week4/evidence_set_w4.jsonl`，单独标注用途（邻域扩展验证），**不并入冻结集、不参与调参**。
 3. 25 条里**没有 no-answer 题**（`answerable` 全为 true）。所以「查不到时怎么办」本周**不出数**，只在报告的限制里写明——不许用 Hit@5 冒充「能判断无答案」。
 4. **不许拿 COCO 的 image→caption 分数冒充检索精度**（W3 已划清），也不许拿 NQ 代理指标当检索完成度。
 
@@ -390,8 +390,8 @@ W3 把跨页答案明确移交 W4（`证据集说明.md` §4），且记录了�
 | 编号 | 任务 | 具体产出 | 完成判据 | 依赖 | 工时 |
 |---|---|---|---|---|---|
 | **A1** | 冻结存储与融合路线（决策 1/2/6/8） | `docs/architecture/adr/0004-vector-storage-and-fusion.md` 前四节 | 每节含 Decision / Alternatives / Consequences；显式写出与 PDF「Chroma 进运行时」的偏差及理由 | — | 1 |
-| **A2** | W3 向量导出 + **Chroma 对照基线** | `week4/vectors/w3_samples.jsonl`（97 条：space/dim/modelId/chunkId/values）、`engine/chroma_baseline.py`、`week4/logs/chroma_baseline.txt` | Chroma 集合必须 `hnsw:space=cosine`；25 题跑出 Hit@5/MRR@10，并记录 `chromadb` 版本 | — | 1.5 |
-| **A3** | 关键词通道方案定稿 + 最小验证（决策 3） | `week4/logs/keyword_probe.txt` | bigram 预切在真实 md 语料上：两字中文查询命中率 >0；记录 `unicode61=0` 的反例 | — | 0.5 |
+| **A2** | W3 向量导出 + **Chroma 对照基线** | `reports/week4/vectors/w3_samples.jsonl`（97 条：space/dim/modelId/chunkId/values）、`engine/chroma_baseline.py`、`reports/week4/logs/chroma_baseline.txt` | Chroma 集合必须 `hnsw:space=cosine`；25 题跑出 Hit@5/MRR@10，并记录 `chromadb` 版本 | — | 1.5 |
+| **A3** | 关键词通道方案定稿 + 最小验证（决策 3） | `reports/week4/logs/keyword_probe.txt` | bigram 预切在真实 md 语料上：两字中文查询命中率 >0；记录 `unicode61=0` 的反例 | — | 0.5 |
 | **A4** | 建三个包并冻结 public API | `packages/core_{storage,retrieval,pipeline}/{pubspec.yaml,analysis_options.yaml}` | `dart pub get --offline` 成功、`dart analyze` 0 issue；`core_storage` 只依赖 `sqlite3` 与 `ffi`/`path` | — | 1 |
 | **A5** | Q2 / Q5 结案 + 架构文档同步（决策 6 的目录与分层） | TDD §4 的 Q2/Q5 更新；`docs/architecture/system-architecture.md` 增加 `core_pipeline` 说明 | 两条都有结论与理由；架构文档的目录映射与依赖规则同步 | — | 0.5 |
 | **A6** | 常驻运行时落地（决策 8） | `engine/embed_server.py` + `core_pipeline` 侧的 `PersistentOnnxRuntime` | 同一批 24 条文本，中位 ≤30 ms/条；进程崩溃可重启并保留已完成记录 | — | 0.5 |
@@ -429,8 +429,8 @@ W3 把跨页答案明确移交 W4（`证据集说明.md` §4），且记录了�
 | **D1** | `IndexingPipeline` / `SearchPipeline` | `lib/src/indexing_pipeline.dart`、`lib/src/search_pipeline.dart` | 只消费 `IngestionReport.indexable`，不重新读盘（R2）；两段都可取消、有 `processed/total` 进度 | B5,C4 | 2 |
 | **D2** | 增量重建（代次键） | `lib/src/incremental.dart` | 内容不变的文件第二次建库 `skipped`；改一个文件只重算该文件（有计时对比） | D1 | 1.5 |
 | **D3** | MVP 命令行 | `bin/index_probe.dart`、`bin/search_probe.dart` | `--path <目录> --db <路径>` 建库；`--query "…" --top 10` 出结果，逐条打印出处与偏移；沿用 `probe_common.dart` 风格 | D1 | 1.5 |
-| **D4** | 真实语料联调 | `week4/logs/e2e_samples.txt`、`week4/logs/e2e_docs.txt` | `datasets/samples` 3 文件 + 仓库 20 份 md 都能建库并检索；记录建库总耗时与单次查询耗时 | D3 | 1.5 |
-| **D5** | 取消 / 断点 / 坏文件隔离 | `week4/logs/e2e_cancel.txt` | 建库中途取消，已写入记录保留且索引自洽（可继续查）；坏文件不中断整批 | D4 | 0.5 |
+| **D4** | 真实语料联调 | `reports/week4/logs/e2e_samples.txt`、`reports/week4/logs/e2e_docs.txt` | `datasets/samples` 3 文件 + 仓库 20 份 md 都能建库并检索；记录建库总耗时与单次查询耗时 | D3 | 1.5 |
+| **D5** | 取消 / 断点 / 坏文件隔离 | `reports/week4/logs/e2e_cancel.txt` | 建库中途取消，已写入记录保留且索引自洽（可继续查）；坏文件不中断整批 | D4 | 0.5 |
 
 **阶段出口**：**H3 通过**——断网、中文问句、Top-5 命中目标文件、给出页/段与偏移、原文件路径存在。
 
@@ -438,11 +438,11 @@ W3 把跨页答案明确移交 W4（`证据集说明.md` §4），且记录了�
 
 | 编号 | 任务 | 具体产出 | 完成判据 | 依赖 | 工时 |
 |---|---|---|---|---|---|
-| **E1** | E2E 功能用例集（E2E-01～E2E-12） | `week4/logs/e2e_*.txt`、`week4/screenshots/` | 12 条用例覆盖：建库、重建、增量跳过、单查询、多查询、过滤（扩展名/路径/时间）、图像题、跨块邻域、取消、坏文件、空库查询、清库 | D5 | 2 |
-| **E2** | 精度基准 6 臂消融（决策 7） | `engine/eval_retrieval.py`、`week4/logs/retrieval_bench.txt` | A0–A5 各出 Hit@5 / MRR@10 + Wilson 区间；dev/holdout 分列；`parameters_changed_after_freeze` 计数为 0 | D4 | 2 |
-| **E3** | 邻域验证集（新建，独立于冻结集） | `week4/evidence_set_w4.jsonl`、`week4/证据集说明_w4.md` | 10–15 条，**必须含真实跨块样本**（长 md 切块后跨块），标 `crossChunk: true`；与冻结集分开统计 | D4 | 1.5 |
-| **E4** | 覆盖率 ≥85% 落盘 | `week4/coverage/*.lcov.info`、`week4/覆盖率报告.md` | 三个新包各自 ≥85%；`core_parsing` 不回退、`core_embedding` 不低于 85% | E1 | 1 |
-| **E5** | 离线自查 | `week4/logs/offline_check.txt` | `lib/` 下无 `HttpClient`/`Socket`/`http` 引用（grep 门禁 + 用例）；断网跑一遍建库与检索 | E1 | 0.5 |
+| **E1** | E2E 功能用例集（E2E-01～E2E-12） | `reports/week4/logs/e2e_*.txt`、`reports/week4/screenshots/` | 12 条用例覆盖：建库、重建、增量跳过、单查询、多查询、过滤（扩展名/路径/时间）、图像题、跨块邻域、取消、坏文件、空库查询、清库 | D5 | 2 |
+| **E2** | 精度基准 6 臂消融（决策 7） | `engine/eval_retrieval.py`、`reports/week4/logs/retrieval_bench_dev.txt` 与 `reports/week4/logs/retrieval_bench_holdout.txt` | A0–A5 各出 Hit@5 / MRR@10 + Wilson 区间；dev/holdout 分列；`parameters_changed_after_freeze` 计数为 0 | D4 | 2 |
+| **E3** | 邻域验证集（新建，独立于冻结集） | `reports/week4/evidence_set_w4.jsonl`、`reports/week4/证据集说明_w4.md` | 10–15 条，**必须含真实跨块样本**（长 md 切块后跨块），标 `crossChunk: true`；与冻结集分开统计 | D4 | 1.5 |
+| **E4** | 覆盖率 ≥85% 落盘 | `reports/week4/coverage/*.lcov.info`、`reports/week4/覆盖率报告.md` | 三个新包各自 ≥85%；`core_parsing` 不回退、`core_embedding` 不低于 85% | E1 | 1 |
+| **E5** | 离线自查 | `reports/week4/logs/offline_check.txt` | `lib/` 下无 `HttpClient`/`Socket`/`http` 引用（grep 门禁 + 用例）；断网跑一遍建库与检索 | E1 | 0.5 |
 
 **阶段出口**：ablation 表出数；覆盖率证据落盘；离线自查可复现。
 
@@ -450,14 +450,14 @@ W3 把跨页答案明确移交 W4（`证据集说明.md` §4），且记录了�
 
 | 编号 | 任务 | 具体产出 | 完成判据 | 依赖 | 工时 |
 |---|---|---|---|---|---|
-| **F1** | 端到端功能测试报告 | `week4/W04_report.md` | 沿用 W2/W3 体例：用例 ID — 命令 — 期望 — 实际 — 判定 — 证据；含环境、用例统计表、交付物表、证据索引、截屏 | E1–E5 | 2 |
-| **F2** | 检索精度基准报告 | `week4/检索精度基准报告.md` | 6 臂表 + 置信区间 + 逐题通过表 + 已知限制（n=25/无 no-answer 题/跨页样本性质） | E2,E3 | 2 |
+| **F1** | 端到端功能测试报告 | `reports/week4/W04_report.md` | 沿用 W2/W3 体例：用例 ID — 命令 — 期望 — 实际 — 判定 — 证据；含环境、用例统计表、交付物表、证据索引、截屏 | E1–E5 | 2 |
+| **F2** | 检索精度基准报告 | `reports/week4/检索精度基准报告.md` | 6 臂表 + 置信区间 + 逐题通过表 + 已知限制（n=25/无 no-answer 题/跨页样本性质） | E2,E3 | 2 |
 | **F3** | API 文档 + ADR 定稿 + 架构同步 | `docs/api/storage-module-api.md`、`docs/api/retrieval-module-api.md`、ADR 0004 全文 | 每个 public 符号有签名/参数/异常/示例；ADR 八节齐备 | A1–E5 | 1.5 |
 | **F4** | 交付物自检 | 本文件 §11 的清单逐条打勾 | 四份 PDF 交付物可逐条点开；`git status` 无意外文件 | F1–F3 | 1.5 |
 
 **合计 40h**（A 5 + B 7 + C 7 + D 7 + E 7 + F 7）。
 
-> 说明：报告不是最后一天才开始写。A–E 每个任务完成时就把原始输出写进 `week4/logs/`，F 只做汇总与定稿。
+> 说明：报告不是最后一天才开始写。A–E 每个任务完成时就把原始输出写进 `reports/week4/logs/`，F 只做汇总与定稿。
 
 ### 5.1 关键路径与并行机会
 
@@ -489,7 +489,7 @@ A1 ─┬─ A2 ──(H1)──┐
 | **Day 5**（10/24，7h） | E1 E2E 用例 → E3 邻域验证集 | E2 六臂消融 → E4 覆盖率 → E5 离线自查 | 12 条 E2E 全绿；ablation 出数；覆盖率 ≥85% |
 | **Day 6**（10/25，7h） | F1 端到端报告 | F2 精度基准报告 → F3 API/ADR/架构 → F4 自检 | 四份交付物齐全、可逐条点开 |
 
-每天收工前把当天原始输出写进 `week4/logs/`；**每个阶段的出口判据不满足就不要进下一阶段**——W2/W3 都证明了前置卡住时后补的代价更大。
+每天收工前把当天原始输出写进 `reports/week4/logs/`；**每个阶段的出口判据不满足就不要进下一阶段**——W2/W3 都证明了前置卡住时后补的代价更大。
 
 ---
 
@@ -501,10 +501,10 @@ java -version
 engine\.venv\Scripts\python.exe --version
 Test-Path C:\Windows\System32\winsqlite3.dll
 
-# 1) 计划阶段的探针（已跑，产物在 week4/probes/）
-engine\.venv\Scripts\python.exe week4\probes\probe_persistent_runtime.py > week4\probes\probe_persistent_runtime.txt
-engine\.venv\Scripts\python.exe week4\probes\probe_sqlite_capacity.py  > week4\probes\probe_sqlite_capacity.txt
-cd week4\probes\dart_store_probe; dart pub get; dart run bin\probe.dart > ..\dart_store_probe.txt; cd ..\..\..
+# 1) 计划阶段的探针（已跑，产物在 reports/week4/probes/）
+engine\.venv\Scripts\python.exe reports\week4\probes\probe_persistent_runtime.py > reports\week4\probes\probe_persistent_runtime.txt
+engine\.venv\Scripts\python.exe reports\week4\probes\probe_sqlite_capacity.py  > reports\week4\probes\probe_sqlite_capacity.txt
+cd reports\week4\probes\dart_store_probe; dart pub get; dart run bin\probe.dart > ..\dart_store_probe.txt; cd ..\..\..\..
 
 # 2) 三个新包：静态检查 + 默认单测
 foreach ($p in 'core_storage','core_retrieval','core_pipeline') {
@@ -516,16 +516,16 @@ foreach ($p in 'core_storage','core_retrieval','core_pipeline') {
 }
 
 # 3) 存储等价门槛（H1）
-engine\.venv\Scripts\python.exe engine\export_vectors.py --path datasets\samples --out week4\vectors\w3_samples.jsonl
-engine\.venv\Scripts\python.exe engine\chroma_baseline.py > week4\logs\chroma_baseline.txt
-dart run packages\core_pipeline\bin\search_probe.dart --db week4\.index\samples.sqlite --query "这份说明在能够被完全信任之前，还要求人做什么？" --top 5 --json > week4\logs\dart_top5.json
-engine\.venv\Scripts\python.exe engine\compare_ranking.py week4\logs\dart_top5.json > week4\logs\storage_equivalence.txt
+engine\.venv\Scripts\python.exe engine\export_vectors.py --path datasets\samples --out reports\week4\vectors\w3_samples.jsonl
+engine\.venv\Scripts\python.exe engine\chroma_baseline.py > reports\week4\logs\chroma_baseline.txt
+dart run packages\core_pipeline\bin\search_probe.dart --db reports\week4\.index\samples.sqlite --query "这份说明在能够被完全信任之前，还要求人做什么？" --top 5 --json > reports\week4\logs\dart_top5.json
+engine\.venv\Scripts\python.exe engine\compare_ranking.py reports\week4\logs\dart_top5.json > reports\week4\logs\storage_equivalence.txt
 
 # 4) MVP：建库 + 检索（G2）
-dart run packages\core_pipeline\bin\index_probe.dart  --path datasets\samples --db week4\.index\samples.sqlite
-dart run packages\core_pipeline\bin\search_probe.dart --db week4\.index\samples.sqlite --query "工具靠什么判断文件类型？" --top 10
-dart run packages\core_pipeline\bin\index_probe.dart  --path docs --db week4\.index\docs.sqlite
-dart run packages\core_pipeline\bin\index_probe.dart  --path docs --db week4\.index\docs.sqlite   # 第二次应全 skipped
+dart run packages\core_pipeline\bin\index_probe.dart  --path datasets\samples --db reports\week4\.index\samples.sqlite
+dart run packages\core_pipeline\bin\search_probe.dart --db reports\week4\.index\samples.sqlite --query "工具靠什么判断文件类型？" --top 10
+dart run packages\core_pipeline\bin\index_probe.dart  --path docs --db reports\week4\.index\docs.sqlite
+dart run packages\core_pipeline\bin\index_probe.dart  --path docs --db reports\week4\.index\docs.sqlite   # 第二次应全 skipped
 
 # 5) 覆盖率（G8）
 foreach ($p in 'core_storage','core_retrieval','core_pipeline') {
@@ -536,12 +536,12 @@ foreach ($p in 'core_storage','core_retrieval','core_pipeline') {
 }
 
 # 6) 精度基准（G4）
-engine\.venv\Scripts\python.exe engine\eval_retrieval.py --arms A0,A1,A2,A3,A4,A5 --split dev     > week4\logs\retrieval_bench_dev.txt
-engine\.venv\Scripts\python.exe engine\eval_retrieval.py --arms A4 --split holdout                > week4\logs\retrieval_bench_holdout.txt
+engine\.venv\Scripts\python.exe engine\eval_retrieval.py --arms A0,A1,A2,A3,A4,A5 --split dev     > reports\week4\logs\retrieval_bench_dev.txt
+engine\.venv\Scripts\python.exe engine\eval_retrieval.py --arms A4 --split holdout                > reports\week4\logs\retrieval_bench_holdout.txt
 
 # 7) 离线自查（E5）
 Get-ChildItem packages\core_storage\lib,packages\core_retrieval\lib,packages\core_pipeline\lib -Recurse -Include *.dart |
-  Select-String -Pattern 'HttpClient|Socket|import .http|package:http' | Out-File week4\logs\offline_check.txt
+  Select-String -Pattern 'HttpClient|Socket|import .http|package:http' | Out-File reports\week4\logs\offline_check.txt
 ```
 
 ---
@@ -563,7 +563,7 @@ n=15（dev）时，Hit@5=0.80 的 95% Wilson 区间约 **[0.55, 0.93]**；n=10�
 
 ### 8.3 逐题可审
 
-`week4/logs/retrieval_bench_*.txt` 每题一行：
+`reports/week4/logs/retrieval_bench_*.txt` 每题一行：
 
 ```text
 ev-01 split=dev hit@5=1 rank=2 channels=docvec,keyword top5=[ev-01@2, ev-03@1, ev-07@4, ...]
@@ -662,7 +662,7 @@ docs/
   api/retrieval-module-api.md
   tdd/technical-design-document.md             ← Q2/Q5 结案
 
-week4/
+reports/week4/
   W04_task_plan.md（本文件）      W04_report.md        检索精度基准报告.md
   覆盖率报告.md                   evidence_set_w4.jsonl  证据集说明_w4.md
   probes/（三个探针 + 原始输出；dart_store_probe/ 是独立的探针包）
@@ -778,4 +778,4 @@ abstract interface class SearchPipeline {
 | W4 → W7 | API 文档已定稿，W7 只做「架构深潜 + 维护手册」的汇编 |
 | W4 → W8 | 系统 SQLite 的依赖形态（自带 `sqlite3.dll` 与否）与 MobileCLIP 权重的分发方式，W8 定 |
 | 测试约定 | 真模型、真数据集用例一律带 `integration` 标签；默认套件不依赖 JDK、不依赖模型文件、不依赖 DLL 以外的网络 |
-| 证据约定 | 每个任务的原始输出落 `week4/logs/`，报告体例沿用 `reports/week2/W02_report.md` |
+| 证据约定 | 每个任务的原始输出落 `reports/week4/logs/`，报告体例沿用 `reports/week2/W02_report.md` |

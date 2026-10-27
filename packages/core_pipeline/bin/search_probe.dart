@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:core_embedding/core_embedding.dart';
 import 'package:core_parsing/core_parsing.dart';
+import 'package:core_pipeline/core_pipeline.dart';
 import 'package:core_retrieval/core_retrieval.dart';
 import 'package:core_storage/core_storage.dart';
 import 'package:path/path.dart' as p;
@@ -92,10 +93,14 @@ Future<void> main(List<String> args) async {
         runtime?.engine ?? const _UnusedEngine(),
       ),
     );
+    // 探针经由 SearchPipeline 调用，与 W5 将要使用的入口是同一条链。
+    // 分路与融合的计时仍来自 retriever 自己的 last*Ms。
+    final SearchPipeline pipeline = DefaultSearchPipeline(retriever);
     if (bench) {
       await _bench(
         flags: flags,
         repo: repo,
+        pipeline: pipeline,
         retriever: retriever,
         arms: arms,
         topK: topK,
@@ -107,7 +112,7 @@ Future<void> main(List<String> args) async {
     final bool asJson = flags.has('json');
     final List<Map<String, Object?>> payload = <Map<String, Object?>>[];
     for (final String query in queries) {
-      final List<SearchResult> hits = await retriever.search(
+      final List<SearchResult> hits = await pipeline.search(
         query,
         topK: topK,
         filters: filters,
@@ -142,6 +147,7 @@ Future<void> main(List<String> args) async {
 Future<void> _bench({
   required ProbeArgs flags,
   required ProbePaths repo,
+  required SearchPipeline pipeline,
   required DefaultRetriever retriever,
   required List<_Arm> arms,
   required int topK,
@@ -178,7 +184,7 @@ Future<void> _bench({
       throw FormatException('Evidence $id has an empty question.');
     }
     for (final _Arm arm in arms) {
-      final List<SearchResult> hits = await retriever.search(
+      final List<SearchResult> hits = await pipeline.search(
         question,
         topK: topK,
         filters: filters,

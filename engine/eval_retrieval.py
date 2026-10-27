@@ -18,10 +18,14 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+WEEK4 = ROOT / "reports" / "week4"
 EVIDENCE = ROOT / "reports" / "week3" / "evidence_set.jsonl"
-DB = ROOT / "week4" / ".index" / "evidence.sqlite"
+DB = WEEK4 / ".index" / "evidence.sqlite"
 WEIGHTS = (0.5, 0.3, 0.2)
-PARAMETERS_CHANGED_AFTER_FREEZE = 0
+# 冻结值。下面 _verify_freeze() 会拿这几个数去和代码里的常量比对，
+# 不再直接打印一个写死的 0 —— 那样不携带任何信息。
+FROZEN_K = 60
+FROZEN_WEIGHTS = (0.5, 0.3, 0.2)
 
 
 def _wilson(successes: int, total: int) -> tuple[float, float, float]:
@@ -65,6 +69,55 @@ def _load_labels() -> dict[str, dict]:
             row = json.loads(line)
             labels[row["id"]] = row
     return labels
+
+
+# 冻结参数的唯一事实来源是检索层代码本身。这里读它、比对，而不是复述一个常数。
+RRF_SOURCE = ROOT / "packages" / "core_retrieval" / "lib" / "src" / "rrf_fusion.dart"
+
+
+def _frozen_from_code() -> tuple[int, tuple[float, float, float]]:
+    """读 rrf_fusion.dart 里的 rrfK 与三个权重常量。读不到就报错，不猜。"""
+    if not RRF_SOURCE.exists():
+        raise SystemExit(f"Missing retriever source: {RRF_SOURCE}")
+    text = RRF_SOURCE.read_text(encoding="utf-8")
+    import re
+
+    def _int_const(name: str) -> int:
+        found = re.search(rf"const int {name} = (\d+);", text)
+        if not found:
+            raise SystemExit(f"Cannot read {name} from {RRF_SOURCE}")
+        return int(found.group(1))
+
+    def _double_const(name: str) -> float:
+        found = re.search(rf"const double {name} = ([\d.]+);", text)
+        if not found:
+            raise SystemExit(f"Cannot read {name} from {RRF_SOURCE}")
+        return float(found.group(1))
+
+    return (
+        _int_const("rrfK"),
+        (
+            _double_const("rrfTextWeight"),
+            _double_const("rrfKeywordWeight"),
+            _double_const("rrfImageWeight"),
+        ),
+    )
+
+
+def _verify_freeze() -> tuple[int, int, tuple[float, float, float]]:
+    """返回 (k, parameters_changed_after_freeze, (text, keyword, image))。
+
+    parameters_changed_after_freeze 是真实比较结果：代码里的 k 和三个权重
+    是否仍等于冻结值。改过任何一项就会变成非 0，而不是一条永真的日志。
+    """
+    k, weights = _frozen_from_code()
+    changed = 0
+    if k != FROZEN_K:
+        changed += 1
+    for actual, frozen in zip(weights, FROZEN_WEIGHTS):
+        if abs(actual - frozen) > 1e-9:
+            changed += 1
+    return k, changed, weights
 
 
 def _run_dart(arms: str, split: str) -> list[dict]:
@@ -115,10 +168,16 @@ def _score(rows: list[dict], labels: dict[str, dict]) -> None:
     grouped: dict[str, list[dict]] = {}
     for row in rows:
         grouped.setdefault(row["arm"], []).append(row)
-    print(f"parameters_changed_after_freeze={PARAMETERS_CHANGED_AFTER_FREEZE}")
-    print(f"weights=text:{WEIGHTS[0]},keyword:{WEIGHTS[1]},image:{WEIGHTS[2]}")
-    print("k=60")
-    print("holdout_scored_runs=1" if rows and rows[0].get("split") == "holdout" else "holdout_scored_runs=0")
+    k, changed, weights = _verify_freeze()
+    print(f"parameters_changed_after_freeze={changed}")
+    print(f"weights=text:{weights[0]},keyword:{weights[1]},image:{weights[2]}")
+    print(f"k={k}")
+    # holdout 跑了几次要能自证：同一次运行里每个 arm 的 (arm, split) 都不能重复，
+    # 且 split 必须一致。这里据此推导，不再按「第一行是不是 holdout」猜。
+    splits = {row.get("split", "") for row in rows}
+    repeated = sum(1 for arm, items in grouped.items() if len(items) != len({q["id"] for q in items}))
+    print(f"holdout_scored_runs={1 if splits == {'holdout'} else 0}")
+    print(f"duplicate_questions_per_arm={repeated}")
     for arm in sorted(grouped):
         questions = grouped[arm]
         split = questions[0].get("split", "")

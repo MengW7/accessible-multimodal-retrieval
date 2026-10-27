@@ -1,0 +1,36 @@
+# Two paths on reports/week4/.index/evidence.sqlite.
+# Not scored into the frozen 25. The Hit@5 table is unchanged.
+#
+# Read-only counts on that database:
+chunk_fts_rows=96
+keyword_term_rows=0
+trigram_Tika=46
+trigram_metadata=6
+trigram_xml=0
+#
+# KeywordPlan.forQuery, the same function keywordTopK uses.
+# A query with any CJK bigram returns bigram and does not fall through to trigram.
+plan query=哪张图里有人在厨房做披萨？ path=bigram term_count=11
+plan query=Tika path=trigram term_count=0
+plan query=metadata path=trigram term_count=0
+plan query=xml path=trigram term_count=0
+#
+# dart run packages/core_pipeline/bin/search_probe.dart --db reports/week4/.index/evidence.sqlite --arm A0 --top 5 --query "哪张图里有人在厨房做披萨？" --query Tika
+# encode_ms=0: arm A0 does not open the embedding models.
+# --top 5 truncates the Tika list. The FTS count above is 46.
+
+query=哪张图里有人在厨房做披萨？
+arm=A0 expand=false top=0 encode_ms=0 store_ms=8 fuse_ms=0
+hits=0
+query=Tika
+arm=A0 expand=false top=5 encode_ms=0 store_ms=8 fuse_ms=1
+rank=1 score=0.004918 key=datasets/samples/sample.docx file=sample.docx page=null start=0 end=25 channels=keyword modality=text
+snippet=Apache Tika Documentation
+rank=2 score=0.004839 key=datasets/samples/sample.docx file=sample.docx page=null start=306 end=426 channels=keyword modality=text
+snippet=The Apache Tika toolkit detects and extracts metadata and text from over a thousand different file types (such as PPT, X
+rank=3 score=0.004762 key=datasets/samples/sample.docx file=sample.docx page=null start=440 end=560 channels=keyword modality=text
+snippet=All of these file types can be parsed through a single interface, making Tika useful for search engine indexing, content
+rank=4 score=0.004687 key=datasets/samples/sample.docx file=sample.docx page=null start=599 end=709 channels=keyword modality=text
+snippet=Tika identifies a file’s type from its bytes, so a missing or misleading extension does not change the result.
+rank=5 score=0.004615 key=datasets/samples/sample.docx file=sample.docx page=null start=725 end=826 channels=keyword modality=text
+snippet=Supported Formats — what Tika parses, family by family, plus the generated parser-to-media-type list.

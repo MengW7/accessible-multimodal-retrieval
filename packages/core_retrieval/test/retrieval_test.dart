@@ -66,6 +66,25 @@ void main() {
     expect(unpaged.snippet, 'only');
   });
 
+  test('neighborhood at the page tail only extends backwards', () {
+    final StoredChunk previous = _chunk('p', 0, 'before', pageNumber: 2);
+    final StoredChunk hit = _chunk('n', 1, 'last', pageNumber: 2);
+    final StoredChunk otherPage = _chunk('x', 0, 'other', pageNumber: 3);
+    final SearchResult tail = expandHit(
+      FusedHit(
+        anchor: _hit('n', pageNumber: 2, startOffset: 8, endOffset: 12),
+        score: 0.3,
+        channels: const <SearchChannel>{SearchChannel.documentText},
+      ),
+      <StoredChunk>[previous, hit, otherPage],
+    );
+    expect(tail.snippet, 'before\nlast');
+    expect(tail.snippet.contains('other'), isFalse);
+    expect(tail.startOffset, 8);
+    expect(tail.endOffset, 12);
+    expect(tail.pageNumber, 2);
+  });
+
   test('a query encodes both spaces and degrades when the image tower is missing', () async {
     final _Engine engine = _Engine();
     final QueryEncoder encoder = QueryEncoder(engine);

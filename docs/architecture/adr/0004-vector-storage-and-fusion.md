@@ -6,7 +6,7 @@
 | 日期 | 2026-10-20 |
 | 决策者 | Week 4 阶段 A |
 | 影响范围 | 存储层、检索层、导入/检索编排；W5 只经检索层拿结果；W8 是否自带 `sqlite3.dll` |
-| 相关文档 | `week4/W04_task_plan.md` 决策 1–8；`docs/tdd/technical-design-document.md` Q2、Q5 |
+| 相关文档 | `reports/week4/W04_task_plan.md` 决策 1–8；`docs/tdd/technical-design-document.md` Q2、Q5 |
 
 ---
 
@@ -17,11 +17,11 @@ Week 4 要把已经算出来的两个空间的向量放进本地索引，并回�
 | 事实 | 证据 |
 |---|---|
 | 产品侧还没有向量库。`engine/chroma_data/` 只有 Week 1 的 `week1_smoke` | 仓库现状 |
-| `chromadb 1.5.9` 已装在 `engine/.venv`。pub.dev 上的 Dart `chromadb 2.0.0` 是 HTTP 客户端，要另起一个服务进程 | `week4/W04_task_plan.md` §1.1 |
-| 本机 `C:\Windows\System32\winsqlite3.dll` 是 SQLite 3.53.4，FTS5 / JSON1 / WAL 可用。`package:sqlite3` 2.9.4 在找不到 `sqlite3.dll` 时回退到 `winsqlite3.dll`，Dart 探针已跑通 | `week4/probes/probe_sqlite_capacity.txt`、`week4/probes/dart_store_probe.txt` |
+| `chromadb 1.5.9` 已装在 `engine/.venv`。pub.dev 上的 Dart `chromadb 2.0.0` 是 HTTP 客户端，要另起一个服务进程 | `reports/week4/W04_task_plan.md` §1.1 |
+| 本机 `C:\Windows\System32\winsqlite3.dll` 是 SQLite 3.53.4，FTS5 / JSON1 / WAL 可用。`package:sqlite3` 2.9.4 在找不到 `sqlite3.dll` 时回退到 `winsqlite3.dll`，Dart 探针已跑通 | `reports/week4/probes/probe_sqlite_capacity.txt`、`reports/week4/probes/dart_store_probe.txt` |
 | 384 维 fp32、1 万块的暴力余弦中位 51.9 ms，写入 528 ms | 同一份 Dart 探针 |
 | FTS5 默认 `unicode61` 把整段中文当成一个 token。两字查询命中数是 0，而且不报错。`trigram` 要至少 3 个字 | 同一份探针的 token 表 |
-| W3 的大约 2 秒/向量几乎全是进程启动和模型加载。常驻进程的前向中位是 25.5 ms，加速比 54.3 | `week4/probes/probe_persistent_runtime.txt` |
+| W3 的大约 2 秒/向量几乎全是进程启动和模型加载。常驻进程的前向中位是 25.5 ms，加速比 54.3 | `reports/week4/probes/probe_persistent_runtime.txt` |
 | `chunkId` 含块序号和窗口参数，不是稳定主键 | ADR 0003，`text_chunker.dart` |
 | 发布包不能带 `engine/`，也不能把 MobileCLIP 权重打进公开安装包 | TDD Q2 的原倾向；ADR 0003 决策 5 |
 
@@ -50,6 +50,23 @@ Week 4 要把已经算出来的两个空间的向量放进本地索引，并回�
 
 单测注入假连接，默认套件不加载 `model.onnx`。`engine/embed_text_hidden.py` 保留，作为每向量一次进程的对照，不删。
 
+#### Alternatives（运行时）
+
+| 方案 | 为什么没选 |
+|---|---|
+| **A. 每个向量起一次进程**（W3 现状，`embed_text_hidden.py`） | 实测每条 1382 ms，其中推理只有 25 ms，其余是进程启动与 470 MB 模型加载。全仓库 1454 块要 33.5 分钟，建库不可用。保留为对照，不作主路径 |
+| **B. 常驻进程 + 逐条前向**（采用） | 实测中位 25.5 ms/条，加速 54.3×；1454 块约 37 秒。协议要自带请求 id 与长度前缀，否则半包无法定位 |
+| **C. 常驻进程 + 批前向** | 实测 batch=8 为 21.9 ms/条、batch=16 为 24.0 ms/条，**反而不如单条 25.5 ms**。本机 CPU 上没有批收益，且批会拉高首字节延迟、恶化取消粒度。不做 |
+| **D. Dart 进程内 TFLite（`libtensorflowlite_c`）** | 通过 0.999 门槛的产物是 ONNX fp32，DLL 加载不了；`native/tflite/windows/` 至今为空。ADR 0003 决策 4 已把进程内推理推到 W8 |
+
+#### Consequences（运行时）
+
+- 建库从「几十分钟」回到「几十秒」量级，W4 的增量重建与反复回归才有可行性。
+- 代价一：产品路径依赖 `engine/.venv` 里的 Python 与 onnxruntime。**这不是发布形态**，Q2 已结案 `engine/` 不进发布包；W8 要换成进程内运行时，届时 `EmbeddingRuntime` 接口不变。
+- 代价二：多一层 IPC（长度前缀 + base64 隐藏态），e2e 中位 30.5 ms，比纯前向 28.0 ms 多约 2.5 ms。这条开销记在 `logs/embed_server_median.txt`。
+- 代价三：常驻进程是有状态服务，必须处理崩溃重启。重启后已返回给调用方的向量保留，未完成的那一条由调用方重试；这条语义与 `EmbeddingReport.cancelled` 一致。
+- 约束：**默认套件不得加载模型**。凡需要真模型的用例一律打 `integration` 标签，否则换机器即红。
+
 ### Alternatives（存储）
 
 | 方案 | 为什么没选 |
@@ -63,8 +80,8 @@ Week 4 要把已经算出来的两个空间的向量放进本地索引，并回�
 
 - 存储层依赖 `sqlite3` 2.x、`ffi`、`path`，以及 `EmbeddingVector` 这个值类型。它调用不了嵌入器。
 - 两个空间分表查询。维度或 `normalized == false` 直接拒绝，因为余弦被实现成点积。
-- H1：同一批向量、同一批查询，Chroma 与 Dart+SQLite 的 Top-5 一致率不低于 96%。2026-10-20 实测 121/125（96.8%），见 `week4/logs/storage_equivalence.txt`。4 处不一致都是第 5 名，落在 `sample.pdf` 两页重复排版的相邻块上，同一块分数差约 3.9e-7。不过此门，不做融合。
-- 全量扫描在 1 万块量级是几十毫秒。本周不做 ANN。
+- H1：同一批向量、同一批查询，Chroma 与 Dart+SQLite 的 Top-5 一致率不低于 96%。2026-10-26 用当前两份 jsonl 重跑 `engine/compare_ranking.py`：125 个位置全部一致（`agreement=1.000000`），见 `reports/week4/logs/storage_equivalence.txt`。此前那份 121/125（0.968）由更早的 Chroma 输出算出，与已提交的 jsonl 不一致，已作废。此门已过，融合继续。
+- 全量扫描在 1 万块量级是几十毫秒（向量查询三段式：打分、候选回表、展示回表；10k 块写入 449 ms / 查询中位 44 ms）。本周不做 ANN。
 
 ---
 
@@ -98,7 +115,7 @@ score(d) = Σ_i  w_i / (k + rank_i(d))
 ### Consequences（融合）
 
 - 融合结果只依赖名次。单路缺失时那一项不加入求和。
-- H2 的门槛是 dev 上融合臂的 Hit@5 和 MRR@10 不低于任一单通道。2026-10-25 实测 A4 与只开文本的 A1 相同：Hit@5 0.666667（10/15），MRR@10 0.622222。两者都高于只开关键词的 A0（0/15）和只开图像的 A2（2/15）。「不低于」成立，但对最好的单通道没有正增益。英文样本库 `keyword_terms=0`，关键词臂加不上名次，所以 A3 也等于 A1。图像臂单独命中的 ev-13（第 1 名）和 ev-15（第 3 名）在三路融合后掉出 Top-5，文本块占满了名单。权重仍是 `(0.5, 0.3, 0.2)`，`k=60`，`parameters_changed_after_freeze=0`。没有回头调权重。数字在 `week4/logs/retrieval_bench_dev.txt`。
+- H2 的门槛是 dev 上融合臂的 Hit@5 和 MRR@10 不低于任一单通道。2026-10-25 实测 A4 与只开文本的 A1 相同：Hit@5 0.666667（10/15），MRR@10 0.622222。两者都高于只开关键词的 A0（0/15）和只开图像的 A2（2/15）。「不低于」成立，但对最好的单通道没有正增益。英文样本库 `keyword_terms=0`，关键词臂加不上名次，所以 A3 也等于 A1。图像臂单独命中的 ev-13（第 1 名）和 ev-15（第 3 名）在三路融合后掉出 Top-5，文本块占满了名单。权重仍是 `(0.5, 0.3, 0.2)`，`k=60`，`parameters_changed_after_freeze=0`。没有回头调权重。数字在 `reports/week4/logs/retrieval_bench_dev.txt`。
 
 ---
 
@@ -126,7 +143,7 @@ FTS5 的默认分词会让混合检索静默变成 0 命中。索引和查询都
 
 ### Consequences（关键词）
 
-- 反例要留在 `week4/logs/keyword_probe.txt`：`unicode61=0`，bigram 对真实 Markdown 的两字查询命中数大于 0。
+- 反例要留在 `reports/week4/logs/keyword_probe.txt`：`unicode61=0`，bigram 对真实 Markdown 的两字查询命中数大于 0。
 - 单测覆盖两字中文、三字中文、英文、过短查询这四类。
 
 ---
@@ -164,7 +181,7 @@ FTS5 的默认分词会让混合检索静默变成 0 命中。索引和查询都
 | 顺序 | 先按块级分数取 Top-K，再扩展。扩展不改分数 |
 | 页码 | `pageNumber == null` 时不得当成真实页码。TXT/DOCX 保持 null |
 
-跨页断句的通过标准等有真实跨页文档再定。本周若要验证邻域，用长 Markdown 切出来的跨块样本，另建 `week4/evidence_set_w4.jsonl`，不并入已冻结的 25 条。
+跨页断句的通过标准等有真实跨页文档再定。本周若要验证邻域，用长 Markdown 切出来的跨块样本，另建 `reports/week4/evidence_set_w4.jsonl`，不并入已冻结的 25 条。
 
 ### Alternatives（邻域）
 
@@ -219,7 +236,7 @@ core_storage 不 import 检索
 
 每个 Hit@5 带 Wilson 95% 区间，写成 `0.80 [0.55, 0.93] (12/15)` 这种三件套。逐题保留名次。25 条里没有 no-answer 题，本周不报「查不到」。不把 COCO image→caption 或 NQ 代理分数写成检索精度。
 
-邻域验证若加题，写入 `week4/evidence_set_w4.jsonl`，标记 `crossChunk: true`，不参与调参，也不并进冻结集。
+邻域验证若加题，写入 `reports/week4/evidence_set_w4.jsonl`，标记 `crossChunk: true`，不参与调参，也不并进冻结集。
 
 ### Alternatives（评测）
 

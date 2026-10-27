@@ -112,6 +112,33 @@ void main() {
     expect(results, isEmpty);
   });
 
+  test('search pipeline carries filters, channels, expansion and cancel', () async {
+    // 这一层最初只转发 query/topK，把过滤与取消丢在路上。W5 会经它调用，
+    // 所以每一个参数都必须真的到达 Retriever。
+    final _Retriever retriever = _Retriever();
+    final CancellationToken cancel = CancellationTokenSource().token;
+    const SearchFilters filters = SearchFilters(
+      extensions: <String>{'.md'},
+      pathPrefix: 'docs',
+    );
+    await DefaultSearchPipeline(retriever).search(
+      '向量库',
+      filters: filters,
+      topK: 7,
+      cancel: cancel,
+      channels: const <SearchChannel>{SearchChannel.documentText},
+      expandNeighborhood: false,
+    );
+    expect(retriever.limits, <int>[7]);
+    expect(retriever.filtersSeen.single, same(filters));
+    expect(
+      retriever.channelsSeen.single,
+      const <SearchChannel>{SearchChannel.documentText},
+    );
+    expect(retriever.expandSeen.single, isFalse);
+    expect(retriever.cancelSeen.single, isTrue);
+  });
+
   test('a document key can use the repository path', () async {
     final _Store store = _Store();
     final IndexReport report = await _pipeline(
@@ -369,6 +396,10 @@ final class _Store implements VectorStore {
 final class _Retriever implements Retriever {
   final List<String> queries = <String>[];
   final List<int> limits = <int>[];
+  final List<SearchFilters?> filtersSeen = <SearchFilters?>[];
+  final List<Set<SearchChannel>?> channelsSeen = <Set<SearchChannel>?>[];
+  final List<bool> expandSeen = <bool>[];
+  final List<bool> cancelSeen = <bool>[];
 
   @override
   Future<List<SearchResult>> search(
@@ -381,6 +412,10 @@ final class _Retriever implements Retriever {
   }) async {
     queries.add(query);
     limits.add(topK);
+    filtersSeen.add(filters);
+    channelsSeen.add(channels);
+    expandSeen.add(expandNeighborhood);
+    cancelSeen.add(cancel != null);
     return const <SearchResult>[];
   }
 }

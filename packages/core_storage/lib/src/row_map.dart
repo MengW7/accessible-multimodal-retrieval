@@ -28,6 +28,64 @@ ScoredId scoredFromRow(Row row, double score) {
   );
 }
 
+/// 两阶段向量查询的第一阶段候选。只带打分与 tie-break 需要的列。
+///
+/// 排序口径与 [ScoredId.compareTie] 一致：分数降序、路径升序、页码升序且
+/// `null` 在后、起始偏移升序。第二阶段按 [rowId] 补齐展示列时沿用这个名次。
+final class ScoredCandidate {
+  const ScoredCandidate({
+    required this.rowId,
+    required this.relativePath,
+    required this.pageNumber,
+    required this.startOffset,
+    required this.score,
+  });
+
+  /// `chunk.id`，第二阶段的回表键。
+  final int rowId;
+
+  final String relativePath;
+
+  final int? pageNumber;
+
+  final int startOffset;
+
+  final double score;
+
+  /// 与 [ScoredId.compareTie] 同序。
+  static int compareTie(ScoredCandidate left, ScoredCandidate right) {
+    final int score = right.score.compareTo(left.score);
+    if (score != 0) {
+      return score;
+    }
+    final int path = left.relativePath.compareTo(right.relativePath);
+    if (path != 0) {
+      return path;
+    }
+    final int page = _page(left.pageNumber, right.pageNumber);
+    if (page != 0) {
+      return page;
+    }
+    return left.startOffset.compareTo(right.startOffset);
+  }
+
+  static int _page(int? left, int? right) {
+    if (left == null && right == null) {
+      return 0;
+    }
+    if (left == null) {
+      return 1;
+    }
+    if (right == null) {
+      return -1;
+    }
+    return left.compareTo(right);
+  }
+}
+
+/// 读 `chunk.id`。两阶段查询拿它做回表键。
+int rowIdOf(Row row) => _requiredInt(row, 'id');
+
 StoredChunk chunkFromRow(Row row) {
   final ScoredId scored = scoredFromRow(row, 0);
   return StoredChunk(

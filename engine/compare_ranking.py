@@ -14,7 +14,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-LOGS = ROOT / "week4" / "logs"
+LOGS = ROOT / "reports" / "week4" / "logs"
 GATE = 0.96
 
 

@@ -1,17 +1,20 @@
-date=2026-10-25
+date=2026-10-26
 # From each package directory. integration tests are excluded and do not load models.
 #   dart test --coverage=coverage --exclude-tags integration
 #   dart run coverage:format_coverage --lcov --in=coverage --out=coverage\lcov.info --report-on=lib --package=.
-# Copies are week4/coverage/<package>.lcov.info
+# Copies are reports/week4/coverage/<package>.lcov.info
 
-core_storage lines_hit=488 lines_found=573 pct=85.17 suite=00:02 +14
-core_retrieval lines_hit=158 lines_found=164 pct=96.34 suite=00:02 +8
-core_pipeline lines_hit=280 lines_found=298 pct=93.96 suite=00:03 +23
-core_parsing lines_hit=979 lines_found=1091 pct=89.73 suite=00:07 +98
-core_embedding lines_hit=1250 lines_found=1458 pct=85.73 suite=00:09 +93
+core_storage lines_hit=574 lines_found=666 pct=86.19 suite=00:02 +23
+core_retrieval lines_hit=158 lines_found=164 pct=96.34 suite=00:02 +9
+core_pipeline lines_hit=272 lines_found=298 pct=91.28 suite=00:03 +23
+core_parsing lines_hit=979 lines_found=1091 pct=89.73 suite=00:06 +98
+core_embedding lines_hit=1250 lines_found=1458 pct=85.73 suite=00:11 +93
 
 gate_new_packages_min=85
 gate_core_parsing_min=80
 gate_core_embedding_min=85
 core_parsing_week2_snapshot=949/1043=90.99 on that week's 1043 instrumented lines
 core_embedding_matches_week3_snapshot=1250/1458=85.73
+# 2026-10-26: core_storage 分母 573 -> 666，来自新增的 ScoredCandidate/rowIdOf 与三阶段向量查询。
+# 新增 10 条用例后命中 574 行，回到 85% 门槛之上。
+# core_pipeline 93.96 -> 91.28：产物存在性用例归入 integration 后少覆盖 8 行，属下降但仍在门槛之上。

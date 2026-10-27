@@ -1,7 +1,12 @@
-# offline grep 2026-10-25T16:09:01.4371110+08:00
+# offline check 2026-10-26T10:40:00+08:00
 # roots: packages/core_storage/lib packages/core_retrieval/lib packages/core_pipeline/lib
 # pattern: HttpClient|Socket|import .http|package:http
 # files_scanned=40
 # matches=0
-# network_disabled=0
-# note: grep gate only; the machine network was left enabled
+# network_disabled=1
+# namespace_check: network_reachable=0 dns_resolves=0 index_readable=1 corpus_readable=1
+# note: the grep gate runs over the three lib roots only (40 dart files, 0 matches).
+# note: the namespace check uses `unshare -rn`, where only lo exists: no default route and no DNS.
+# note: the Dart SDK on this machine is the Windows build, so the probe binary could not be executed inside the Linux namespace.
+# note: covered here: (a) no network code in lib/, (b) index and corpus stay readable with no route or DNS.
+# note: not covered yet: running the end-to-end search while the network is disabled. Tracked as an open item in W04_report.md.

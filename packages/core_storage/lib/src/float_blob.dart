@@ -62,3 +62,33 @@ double dot(List<double> left, List<double> right) {
   }
   return sum;
 }
+
+/// 把一行 fp32 小端 BLOB 读成 [Float32List]。
+///
+/// 小端平台上直接返回视图，不做逐元素解码；大端平台退回
+/// [floatsFromBlob]。长度与 [dim] 不符时照旧抛
+/// [StorageFailureKind.dimensionMismatch]。
+Float32List float32View(Uint8List bytes, int dim) {
+  if (bytes.length != dim * 4) {
+    throw StorageException(
+      StorageFailure(
+        kind: StorageFailureKind.dimensionMismatch,
+        message: 'Blob length ${bytes.length} is not $dim float32 values.',
+      ),
+    );
+  }
+  if (Endian.host == Endian.little) {
+    return bytes.buffer.asFloat32List(bytes.offsetInBytes, dim);
+  }
+  return floatsFromBlob(bytes, dim);
+}
+
+/// [Float32List] 专用的点积。扫描 10k 行时，避免 [List<double]> 的
+/// 逐元素动态分派。
+double dotFloat32(Float32List left, Float32List right) {
+  var sum = 0.0;
+  for (var index = 0; index < left.length; index++) {
+    sum += left[index] * right[index];
+  }
+  return sum;
+}

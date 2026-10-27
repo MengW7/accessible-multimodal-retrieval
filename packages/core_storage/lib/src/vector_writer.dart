@@ -66,36 +66,42 @@ WriteOutcome writeChunks(
         chunker_version, vec
       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     ''');
-    for (var index = 0; index < chunks.length; index++) {
-      final StoredChunk chunk = chunks[index];
-      final EmbeddingVector vector = vectors[index];
-      insert.execute(<Object?>[
-        chunk.documentId,
-        chunk.chunkId,
-        vector.space.name,
-        vector.dim,
-        vector.modelId,
-        chunk.relativePath.replaceAll('\\', '/'),
-        chunk.storedDocumentKey,
-        chunk.fileName,
-        chunk.storedExtension,
-        chunk.mimeType,
-        chunk.pageNumber,
-        chunk.chunkIndex,
-        chunk.startOffset,
-        chunk.endOffset,
-        chunk.body,
-        chunk.modality.name,
-        _imageJson(chunk.imageAsset),
-        chunk.modifiedAt?.toUtc().toIso8601String(),
-        chunk.contentHash,
-        chunk.parserName,
-        chunk.parserVersion,
-        chunk.chunkerVersion,
-        float32Blob(vector),
-      ]);
-      final int rowId = database.lastInsertRowId;
-      replaceKeywords(database, rowId, chunk.body);
+    // 关键词与 FTS 的预编译语句在整个批次里复用一次。
+    final KeywordWriter keywords = KeywordWriter(database);
+    try {
+      for (var index = 0; index < chunks.length; index++) {
+        final StoredChunk chunk = chunks[index];
+        final EmbeddingVector vector = vectors[index];
+        insert.execute(<Object?>[
+          chunk.documentId,
+          chunk.chunkId,
+          vector.space.name,
+          vector.dim,
+          vector.modelId,
+          chunk.relativePath.replaceAll('\\', '/'),
+          chunk.storedDocumentKey,
+          chunk.fileName,
+          chunk.storedExtension,
+          chunk.mimeType,
+          chunk.pageNumber,
+          chunk.chunkIndex,
+          chunk.startOffset,
+          chunk.endOffset,
+          chunk.body,
+          chunk.modality.name,
+          _imageJson(chunk.imageAsset),
+          chunk.modifiedAt?.toUtc().toIso8601String(),
+          chunk.contentHash,
+          chunk.parserName,
+          chunk.parserVersion,
+          chunk.chunkerVersion,
+          float32Blob(vector),
+        ]);
+        final int rowId = database.lastInsertRowId;
+        keywords.write(rowId, chunk.body);
+      }
+    } finally {
+      keywords.dispose();
     }
     insert.dispose();
     _saveGenerations(database, chunks, vectors);
