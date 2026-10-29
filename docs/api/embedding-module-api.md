@@ -139,7 +139,7 @@ CascadeTextChunker({
   required int Function(String text) countTokens,
   int chunkChars = 120,
   int maxTokens = 128,
-  String chunkerVersion = 'w3-cascade-1',
+  String? chunkerVersion,
   String counterLabel = 'unigram',
 });
 List<TextChunk> chunk(ParsedDocument document, {String? documentId});
@@ -156,7 +156,9 @@ final List<TextChunk> chunks = chunker.chunk(document, documentId: metadata.cont
 
 DOCX 只有单个换行时按行切开，页码为 null。存在空行时，短的单换行留在段落里。PDF 由 `pageCount` 或 `extractor` 属性，或多于一页，保留页码。偏移相对该页文本。代理对不会从中间切开。
 
-`chunkId` 含 `documentId`、分块器版本、计数标记、`chunkChars`、`maxTokens`、页序号和块序号。同一配置可以复现，但不是稳定主键。`chunkChars < 1`、`maxTokens < 2`、空的版本或计数标记抛 `ArgumentError`。
+省略 `chunkerVersion` 时，默认的 120 字和 128 token 仍得到 `w3-cascade-1`。窗口或 token 上限离开这两个默认值时，版本串是 `w3-cascade-1-c<窗口>-t<上限>`。非默认窗口上，显式传入的版本串必须包含 `c<窗口>-t<上限>`。默认窗口上可以另写一个非空版本串，调用方传入的字符串会原样保留。
+
+`chunkId` 含 `documentId`、分块器版本、计数标记、`chunkChars`、`maxTokens`、页序号和块序号。同一配置可以复现，但不是稳定主键。`chunkChars < 1`、`maxTokens < 2`、空的版本或计数标记抛 `ArgumentError`。非默认窗口上，显式版本串不含对应的 `c<窗口>-t<上限>` 时也抛 `ArgumentError`。
 
 ### `clipVisionModel`
 

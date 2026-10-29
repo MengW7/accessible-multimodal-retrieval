@@ -1,0 +1,38 @@
+# fusion attribution  base=A1 fused=A4 cut=5
+jsonl=E:\Project\accessible-multimodal-retrieval\reports\week5\logs\w5_dev.jsonl
+answerable=105
+both_hit=66 base_only=17 fused_only=6 neither=16
+
+# --- base_only (fusion lost it): 17 ---
+w5-010 base_rank=1 fused_rank=6 mix={'text_and_keyword': 5} question=W02_day1_checkpoint 里「契约测试覆盖（28 个用例）」这一节讲的内容是什么？
+w5-014 base_rank=2 fused_rank=6 mix={'text_and_keyword': 4, 'text_only': 1} question=W03_report 里「2. 用例表」这一节讲的内容是什么？
+w5-027 base_rank=3 fused_rank=9 mix={'text_and_keyword': 5} question=哪份文档写了「一个坏文件不能中断一批文件」？
+w5-031 base_rank=1 fused_rank=6 mix={'text_and_keyword': 5} question=环境搭建验证报告 里「ENV-01 Flutter SDK 安装验证」这一节讲的内容是什么？
+w5-035 base_rank=1 fused_rank=8 mix={'text_and_keyword': 5} question=环境搭建验证报告 里「ENV-05 Git 可用性」这一节讲的内容是什么？
+w5-037 base_rank=5 fused_rank=16 mix={'text_and_keyword': 5} question=证据集说明 里「4. 跨页」这一节讲的内容是什么？
+w5-043 base_rank=5 fused_rank=12 mix={'text_and_keyword': 5} question=0003-embedding-model-and-runtime 里「Alternatives（文本模型）」这一节讲的内
+w5-044 base_rank=4 fused_rank=8 mix={'text_and_keyword': 4, 'text_only': 1} question=0003-embedding-model-and-runtime 里「Context（背景）」这一节讲的内容是什么？
+w5-048 base_rank=1 fused_rank=7 mix={'text_and_keyword': 5} question=W02_day1_checkpoint 里「4. 与计划的偏差（及理由）」这一节讲的内容是什么？
+w5-050 base_rank=1 fused_rank=6 mix={'text_and_keyword': 5} question=哪份文档写了「文本模型的运行上限是 128 个 token」？
+w5-052 base_rank=5 fused_rank=9 mix={'text_and_keyword': 4, 'text_only': 1} question=哪份文档写了「偏移相对抽出的整篇正文」？
+w5-059 base_rank=3 fused_rank=7 mix={'text_and_keyword': 4, 'text_only': 1} question=模型精度验证报告 里「5. COCO 图像到 caption」这一节讲的内容是什么？
+w5-070 base_rank=1 fused_rank=11 mix={'text_and_keyword': 5} question=哪份文档写了「已改为按 `hasText` 判断（空白 → 0 页）」？
+w5-076 base_rank=1 fused_rank=7 mix={'text_and_keyword': 5} question=环境搭建验证报告 里「ENV-03 Flutter 可用设备枚举」这一节讲的内容是什么？
+w5-079 base_rank=1 fused_rank=7 mix={'text_and_keyword': 5} question=0004-vector-storage-and-fusion 里「Context（背景）」这一节讲的内容是什么？
+w5-096 base_rank=1 fused_rank=6 mix={'text_and_keyword': 5} question=0003-embedding-model-and-runtime 里「Alternatives（空间）」这一节讲的内容是
+w5-099 base_rank=4 fused_rank=6 mix={'text_and_keyword': 5} question=模型精度验证报告 里「1. 四层分别是什么」这一节讲的内容是什么？
+subtotal channel rows across 17 questions x 5: {'text_and_keyword': 81, 'text_only': 4}
+
+# --- fused_only (fusion gained it): 6 ---
+w5-003 base_rank=21 fused_rank=3 mix={'text_and_keyword': 3, 'text_only': 2} question=0002-pdf-extraction-tika-then-pdfium 里「Decision（决策）」这一节讲的内容是
+w5-026 base_rank=14 fused_rank=3 mix={'text_and_keyword': 3, 'text_only': 2} question=0002-pdf-extraction-tika-then-pdfium 里「Alternatives consider
+w5-061 base_rank=18 fused_rank=3 mix={'text_and_keyword': 4, 'text_only': 1} question=0002-pdf-extraction-tika-then-pdfium 里「Consequences（后果）」这一节讲
+w5-063 base_rank=23 fused_rank=3 mix={'text_and_keyword': 3, 'text_only': 2} question=0002-pdf-extraction-tika-then-pdfium 里「Context（背景）」这一节讲的内容是什
+w5-071 base_rank=15 fused_rank=5 mix={'text_and_keyword': 5} question=哪份文档写了「`isImageOnly` 表示有图且没有正文」？
+w5-080 base_rank=14 fused_rank=3 mix={'text_and_keyword': 3, 'text_only': 2} question=0002-pdf-extraction-tika-then-pdfium 里「Follow-up（后续动作）」这一节讲的
+subtotal channel rows across 6 questions x 5: {'text_and_keyword': 21, 'text_only': 9}
+
+# --- fused top-5 channel occupancy ---
+fused_occupancy=text_and_keyword rows=287 share=0.5467
+fused_occupancy=text_only rows=238 share=0.4533
+fused_occupancy_slots=525

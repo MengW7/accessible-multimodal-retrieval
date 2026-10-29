@@ -1,0 +1,90 @@
+# section scope
+jsonl=E:\Project\accessible-multimodal-retrieval\reports\week5\logs\w5_dev.jsonl
+evidence=E:\Project\accessible-multimodal-retrieval\reports\week5\evidence_set_w5.jsonl
+retrieval_rerun=0
+cut=5
+db=E:\Project\accessible-multimodal-retrieval\reports\week5\.index\bench.sqlite
+
+heading_section_located=107 unresolved=0
+section_utf16_chars n=107 min=107 median=805 p90=4366 max=6875
+section_body_hit_definition=stored chunk of the gold document whose start offset is strictly inside the section
+section_hit_definition=stored chunk of the gold document overlaps the section, heading line included; diagnostic
+heading_line_allowance=6 pure_heading_line means the longest in-section stored chunk that contains the heading start is at most len(heading)+allowance
+stored_hits_limit=the jsonl keeps 10 hits; a rank above 10 is unseen
+span_chance_one_chunk=0.000996 does not test a section-body hit
+# --- heading body chance, this payload ---
+pool_chunks=5020 space=documentText
+relevant_definition=chunk of the gold document with section.start < start_offset < section.end
+relevant_chunks n=77 min=1 median=19 p90=106 max=191
+mean_body_chance@5=0.031280
+arm=A0 section_body_hits=1 body_null_p=0.918528 questions=77
+arm=A1 section_body_hits=8 body_null_p=0.002138 questions=77
+arm=A3 section_body_hits=6 body_null_p=0.030193 questions=77
+arm=A4 section_body_hits=6 body_null_p=0.030193 questions=77
+
+# --- per arm, per family ---
+arm=A0 family=heading n=77 section_located=77 doc_hit@5=0.116883 [0.062726, 0.207451] (9/77) span_hit@5=0.000000 [0.000000, 0.047518] (0/77) section_body_hit@5=0.012987 [0.002296, 0.069962] (1/77) section_hit@5=0.038961 [0.013338, 0.108400] (3/77) heading_line_only=2 pure_heading_line=2 longer_than_heading=0 file_outside_cut=68 file_in_section_not_in_stored_hits=6 wrong_span=9 wrong_span_inside_section=3 section_miss_file_outside_cut=68 section_miss_wrong_section=6 section_miss_other=0
+arm=A0 family=verbatim n=28 section_located=28 doc_hit@5=0.035714 [0.006333, 0.177122] (1/28) span_hit@5=0.000000 [0.000000, 0.120643] (0/28) section_body_hit@5=0.035714 [0.006333, 0.177122] (1/28) section_hit@5=0.035714 [0.006333, 0.177122] (1/28) heading_line_only=0 pure_heading_line=0 longer_than_heading=0 file_outside_cut=27 file_in_section_not_in_stored_hits=0 wrong_span=0 wrong_span_inside_section=0 section_miss_file_outside_cut=27 section_miss_wrong_section=0 section_miss_other=0
+arm=A1 family=heading n=77 section_located=77 doc_hit@5=0.805195 [0.703149, 0.878236] (62/77) span_hit@5=0.000000 [0.000000, 0.047518] (0/77) section_body_hit@5=0.103896 [0.053593, 0.191844] (8/77) section_hit@5=0.571429 [0.460105, 0.675963] (44/77) heading_line_only=36 pure_heading_line=34 longer_than_heading=2 file_outside_cut=15 file_in_section_not_in_stored_hits=18 wrong_span=53 wrong_span_inside_section=36 section_miss_file_outside_cut=15 section_miss_wrong_section=17 section_miss_other=1
+arm=A1 family=heading longer_than_heading_ids=w5-031,w5-078
+arm=A1 family=verbatim n=28 section_located=28 doc_hit@5=0.750000 [0.566443, 0.873235] (21/28) span_hit@5=0.571429 [0.390708, 0.734915] (16/28) section_body_hit@5=0.642857 [0.458303, 0.792942] (18/28) section_hit@5=0.642857 [0.458303, 0.792942] (18/28) heading_line_only=0 pure_heading_line=0 longer_than_heading=0 file_outside_cut=7 file_in_section_not_in_stored_hits=3 wrong_span=1 wrong_span_inside_section=0 section_miss_file_outside_cut=7 section_miss_wrong_section=1 section_miss_other=2
+arm=A3 family=heading n=77 section_located=77 doc_hit@5=0.701299 [0.591506, 0.791961] (54/77) span_hit@5=0.012987 [0.002296, 0.069962] (1/77) section_body_hit@5=0.077922 [0.036201, 0.159756] (6/77) section_hit@5=0.480519 [0.372530, 0.590360] (37/77) heading_line_only=31 pure_heading_line=30 longer_than_heading=1 file_outside_cut=23 file_in_section_not_in_stored_hits=17 wrong_span=46 wrong_span_inside_section=29 section_miss_file_outside_cut=23 section_miss_wrong_section=17 section_miss_other=0
+arm=A3 family=heading longer_than_heading_ids=w5-078
+arm=A3 family=verbatim n=28 section_located=28 doc_hit@5=0.642857 [0.458303, 0.792942] (18/28) span_hit@5=0.464286 [0.295316, 0.641873] (13/28) section_body_hit@5=0.535714 [0.358127, 0.704684] (15/28) section_hit@5=0.535714 [0.358127, 0.704684] (15/28) heading_line_only=0 pure_heading_line=0 longer_than_heading=0 file_outside_cut=10 file_in_section_not_in_stored_hits=3 wrong_span=1 wrong_span_inside_section=1 section_miss_file_outside_cut=10 section_miss_wrong_section=0 section_miss_other=3
+arm=A4 family=heading n=77 section_located=77 doc_hit@5=0.701299 [0.591506, 0.791961] (54/77) span_hit@5=0.012987 [0.002296, 0.069962] (1/77) section_body_hit@5=0.077922 [0.036201, 0.159756] (6/77) section_hit@5=0.480519 [0.372530, 0.590360] (37/77) heading_line_only=31 pure_heading_line=30 longer_than_heading=1 file_outside_cut=23 file_in_section_not_in_stored_hits=17 wrong_span=46 wrong_span_inside_section=29 section_miss_file_outside_cut=23 section_miss_wrong_section=17 section_miss_other=0
+arm=A4 family=heading longer_than_heading_ids=w5-078
+arm=A4 family=verbatim n=28 section_located=28 doc_hit@5=0.642857 [0.458303, 0.792942] (18/28) span_hit@5=0.464286 [0.295316, 0.641873] (13/28) section_body_hit@5=0.535714 [0.358127, 0.704684] (15/28) section_hit@5=0.535714 [0.358127, 0.704684] (15/28) heading_line_only=0 pure_heading_line=0 longer_than_heading=0 file_outside_cut=10 file_in_section_not_in_stored_hits=3 wrong_span=1 wrong_span_inside_section=1 section_miss_file_outside_cut=10 section_miss_wrong_section=0 section_miss_other=3
+
+# --- A1 heading, file in the cut, section not in the stored hits ---
+db=E:\Project\accessible-multimodal-retrieval\reports\week5\.index\bench.sqlite
+w5-006 rank=4 offsets=0-13 chars=13 heading=4. 未决问题 body=# 技术设计文档（TDD）
+w5-008 rank=3 offsets=0-10 chars=10 heading=6. 自建证据集 body=# 模型精度验证报告
+w5-014 rank=2 offsets=0-8 chars=8 heading=2. 用例表 body=# W03 报告
+w5-017 rank=1 offsets=0-23 chars=23 heading=Consequences（存储） body=# ADR 0004：向量存储、融合与编排落点
+w5-030 rank=1 offsets=0-23 chars=23 heading=Alternatives（运行时） body=# ADR 0004：向量存储、融合与编排落点
+w5-033 rank=1 offsets=0-23 chars=23 heading=运行时（决策 8） body=# ADR 0004：向量存储、融合与编排落点
+w5-040 rank=2 offsets=2444-2486 chars=42 heading=0. 一页速览 body=**个人计划补充的 W3 目标**（`reports/week1/个人计划.md`）
+w5-043 rank=5 offsets=0-31 chars=31 heading=Alternatives（文本模型） body=# ADR 0003：Embedding 模型、双空间与运行时
+w5-044 rank=4 offsets=0-31 chars=31 heading=Context（背景） body=# ADR 0003：Embedding 模型、双空间与运行时
+w5-049 rank=2 offsets=0-12 chars=12 heading=3. 用例表 body=# W02 报告 ---
+w5-059 rank=3 offsets=0-10 chars=10 heading=5. COCO 图像到 caption body=# 模型精度验证报告
+w5-077 rank=3 offsets=2957-3004 chars=47 heading=Alternatives considered（考虑过的其他方案） body=- [x] W2 Day 2–3：填充 5 个解析器与 `IngestionService`。
+w5-079 rank=1 offsets=0-23 chars=23 heading=Context（背景） body=# ADR 0004：向量存储、融合与编排落点
+w5-083 rank=4 offsets=0-13 chars=13 heading=2. 解析层 body=# 技术设计文档（TDD）
+w5-089 rank=1 offsets=0-23 chars=23 heading=Consequences（融合） body=# ADR 0004：向量存储、融合与编排落点
+w5-096 rank=1 offsets=0-31 chars=31 heading=Alternatives（空间） body=# ADR 0003：Embedding 模型、双空间与运行时
+w5-097 rank=1 offsets=0-10 chars=10 heading=3.应对方法 body=# 项目风险管理计划
+w5-099 rank=4 offsets=0-10 chars=10 heading=1. 四层分别是什么 body=# 模型精度验证报告
+shown=18 same_file_best_hit_starts_at_0=16
+reading=the gold file is inside the cut and no stored hit overlaps the named section. same_file_best_hit_starts_at_0 counts how often that chunk is the H1 at offset 0
+
+# --- keyword difference, gold document ---
+answerable=105 cut=5
+both_doc_hit=8 a0_only=2 a1_only=75 neither=20
+a0_only_ids=w5-012,w5-068
+a0_top5_slots_whose_document_is_absent_from_a1_stored_hits=278
+questions_with_such_a_slot=66 stored_hits_limit=10
+reading=a0_only is a gold-file the keyword arm ranks in the cut and the text arm does not; fused keyword_only=0 does not measure this
+
+# --- holdout payload, not a new retrieval ---
+jsonl=E:\Project\accessible-multimodal-retrieval\reports\week5\logs\w5_holdout.jsonl
+retrieval_rerun=0
+heading_section_located=107 unresolved=0
+section_utf16_chars n=107 min=107 median=805 p90=4366 max=6875
+section_body_hit_definition=stored chunk of the gold document whose start offset is strictly inside the section
+section_hit_definition=stored chunk of the gold document overlaps the section, heading line included; diagnostic
+heading_line_allowance=6 pure_heading_line means the longest in-section stored chunk that contains the heading start is at most len(heading)+allowance
+stored_hits_limit=the jsonl keeps 10 hits; a rank above 10 is unseen
+span_chance_one_chunk=0.000996 does not test a section-body hit
+# --- heading body chance, this payload ---
+pool_chunks=5020 space=documentText
+relevant_definition=chunk of the gold document with section.start < start_offset < section.end
+relevant_chunks n=30 min=2 median=24 p90=138 max=176
+mean_body_chance@5=0.044706
+arm=A4 section_body_hits=2 body_null_p=0.393104 questions=30
+
+# --- per arm, per family ---
+arm=A4 family=heading n=30 section_located=30 doc_hit@5=0.833333 [0.664356, 0.926635] (25/30) span_hit@5=0.000000 [0.000000, 0.113513] (0/30) section_body_hit@5=0.066667 [0.018477, 0.213235] (2/30) section_hit@5=0.633333 [0.455136, 0.781261] (19/30) heading_line_only=17 pure_heading_line=16 longer_than_heading=1 file_outside_cut=5 file_in_section_not_in_stored_hits=6 wrong_span=23 wrong_span_inside_section=17 section_miss_file_outside_cut=5 section_miss_wrong_section=6 section_miss_other=0
+arm=A4 family=heading longer_than_heading_ids=w5-117
+arm=A4 family=verbatim n=23 section_located=23 doc_hit@5=0.652174 [0.448903, 0.811887] (15/23) span_hit@5=0.608696 [0.407855, 0.778424] (14/23) section_body_hit@5=0.608696 [0.407855, 0.778424] (14/23) section_hit@5=0.608696 [0.407855, 0.778424] (14/23) heading_line_only=0 pure_heading_line=0 longer_than_heading=0 file_outside_cut=8 file_in_section_not_in_stored_hits=1 wrong_span=1 wrong_span_inside_section=0 section_miss_file_outside_cut=8 section_miss_wrong_section=1 section_miss_other=0
+

@@ -1,0 +1,289 @@
+{
+  "tier": "t0",
+  "description": "Repository Markdown snapshot, flattened names, frozen for benchmark reuse.",
+  "self_referential": true,
+  "limitation": "Every document describes this project. Questions derived from it are self-referential and must be reported separately from any external corpus.",
+  "include_roots": [
+    "docs",
+    "packages",
+    "apps",
+    "reports/week1",
+    "reports/week2",
+    "reports/week3"
+  ],
+  "include_suffixes": [
+    ".md",
+    ".pdf"
+  ],
+  "excluded_patterns": [
+    {
+      "pattern": "retrieval-module-api.md",
+      "reason": "states results under test"
+    },
+    {
+      "pattern": "storage-module-api.md",
+      "reason": "states results under test"
+    },
+    {
+      "pattern": "reports/week4/",
+      "reason": "states results under test"
+    },
+    {
+      "pattern": "reports/week1/week1_report.pdf",
+      "reason": "duplicate of a markdown already included"
+    },
+    {
+      "pattern": "reports/week2/week2_report.pdf",
+      "reason": "duplicate of a markdown already included"
+    },
+    {
+      "pattern": "reports/week3/W03_report.pdf",
+      "reason": "duplicate of a markdown already included"
+    },
+    {
+      "pattern": "packages/core_parsing/test/fixtures/",
+      "reason": "deliberately broken fixture"
+    }
+  ],
+  "min_chars": 800,
+  "files": [
+    {
+      "source": "docs/api/embedding-module-api.md",
+      "snapshot": "datasets/corpus_t0/docs__api__embedding-module-api.md",
+      "sha256": "97b655a7a59c73679049cb9bd5d21cf395c80ed20bd12969cfa1558d04b79a1c",
+      "chars": 30404,
+      "lines": 1083,
+      "kind": "md"
+    },
+    {
+      "source": "docs/api/parsing-module-api.md",
+      "snapshot": "datasets/corpus_t0/docs__api__parsing-module-api.md",
+      "sha256": "20da1b27f3b1aacad089638849b47d3e3dcfdf52aa1fbdfb9e026bcae597ef31",
+      "chars": 20679,
+      "lines": 708,
+      "kind": "md"
+    },
+    {
+      "source": "docs/architecture/adr/0001-parsing-runtime-dart-package.md",
+      "snapshot": "datasets/corpus_t0/docs__architecture__adr__0001-parsing-runtime-dart-package.md",
+      "sha256": "e0c883b88bc06722b9eafed42dfbbf577145eaad96e4e50feee13551e70f12c7",
+      "chars": 3232,
+      "lines": 71,
+      "kind": "md"
+    },
+    {
+      "source": "docs/architecture/adr/0002-pdf-extraction-tika-then-pdfium.md",
+      "snapshot": "datasets/corpus_t0/docs__architecture__adr__0002-pdf-extraction-tika-then-pdfium.md",
+      "sha256": "669a961b57e79aae28fce3b6638cc8b11dbe856ec68f910239c5711e33a01063",
+      "chars": 4453,
+      "lines": 84,
+      "kind": "md"
+    },
+    {
+      "source": "docs/architecture/adr/0003-embedding-model-and-runtime.md",
+      "snapshot": "datasets/corpus_t0/docs__architecture__adr__0003-embedding-model-and-runtime.md",
+      "sha256": "60afa2e25556938f4dfcad97d97578b35394d0c95ce1672b12b08f8be5d205b5",
+      "chars": 11332,
+      "lines": 311,
+      "kind": "md"
+    },
+    {
+      "source": "docs/architecture/adr/0004-vector-storage-and-fusion.md",
+      "snapshot": "datasets/corpus_t0/docs__architecture__adr__0004-vector-storage-and-fusion.md",
+      "sha256": "ca667bfd4f149e88aa4b986bdcbcb690d51a506e1e5114e2c56c0a524a1fc475",
+      "chars": 10186,
+      "lines": 263,
+      "kind": "md"
+    },
+    {
+      "source": "docs/architecture/system-architecture.md",
+      "snapshot": "datasets/corpus_t0/docs__architecture__system-architecture.md",
+      "sha256": "916870ab8d346f70703ae5f05d3832a7b1b280c73a8ef55602df72818b32ce13",
+      "chars": 17070,
+      "lines": 458,
+      "kind": "md"
+    },
+    {
+      "source": "docs/tasks/Software Engineering Project Offline Accessible Multimodal Local Content Retrieval System.pdf",
+      "snapshot": "datasets/corpus_t0/docs__tasks__Software Engineering Project Offline Accessible Multimodal Local Content Retrieval System.pdf",
+      "sha256": "8ba58779953020dfaf279023b8cc75edd9d3c64d62547e3025546a50ee5d6863",
+      "chars": 86534,
+      "lines": 0,
+      "kind": "pdf"
+    },
+    {
+      "source": "docs/tdd/technical-design-document.md",
+      "snapshot": "datasets/corpus_t0/docs__tdd__technical-design-document.md",
+      "sha256": "9b1a4b04bd2dd4711f8b3c152c214d63a253995a04b0da58748816b44692a0c1",
+      "chars": 9060,
+      "lines": 193,
+      "kind": "md"
+    },
+    {
+      "source": "packages/core_embedding/README.md",
+      "snapshot": "datasets/corpus_t0/packages__core_embedding__README.md",
+      "sha256": "3b6d027203a85f193cda5d78878dcd682972049d54405f096c3dad15c7cf4b63",
+      "chars": 1290,
+      "lines": 23,
+      "kind": "md"
+    },
+    {
+      "source": "packages/core_parsing/README.md",
+      "snapshot": "datasets/corpus_t0/packages__core_parsing__README.md",
+      "sha256": "b575c67c77fcaa8f258e0ecbd559a1abb2fd5a5d4ad56a911de7bf6cfa6d18f4",
+      "chars": 1333,
+      "lines": 38,
+      "kind": "md"
+    },
+    {
+      "source": "packages/core_storage/README.md",
+      "snapshot": "datasets/corpus_t0/packages__core_storage__README.md",
+      "sha256": "ce0e9008b320904c490b7803bbc75d398bf31764a5eeb21b0f8869aaa30b04df",
+      "chars": 860,
+      "lines": 20,
+      "kind": "md"
+    },
+    {
+      "source": "reports/week1/PRD.md",
+      "snapshot": "datasets/corpus_t0/reports__week1__PRD.md",
+      "sha256": "cf69e53e739f94c008fe475dd4acf295680dd744bc20198b92b44ee3504e5a3a",
+      "chars": 1860,
+      "lines": 74,
+      "kind": "md"
+    },
+    {
+      "source": "reports/week1/W01_report.md",
+      "snapshot": "datasets/corpus_t0/reports__week1__W01_report.md",
+      "sha256": "932b2d1f0ea9af5d02140bcb221c1af3688acfcca563ecab7e968b7ba6ec2967",
+      "chars": 1481,
+      "lines": 72,
+      "kind": "md"
+    },
+    {
+      "source": "reports/week1/个人计划.md",
+      "snapshot": "datasets/corpus_t0/reports__week1__个人计划.md",
+      "sha256": "799212b2bf7e73b4bb773b60c5770cd8707adb96bbdc989f6b2b590fe1a2e197",
+      "chars": 1907,
+      "lines": 69,
+      "kind": "md"
+    },
+    {
+      "source": "reports/week1/环境搭建验证报告.md",
+      "snapshot": "datasets/corpus_t0/reports__week1__环境搭建验证报告.md",
+      "sha256": "fd07c5f7200ec744665fce4f88982d108efad6f1bc8fb80df832a2bef3d548f0",
+      "chars": 10215,
+      "lines": 357,
+      "kind": "md"
+    },
+    {
+      "source": "reports/week1/项目风险管理计划.md",
+      "snapshot": "datasets/corpus_t0/reports__week1__项目风险管理计划.md",
+      "sha256": "caaade0f264dd315e22bebb44ab6cfbd2c03a1833e7d0be33fa8216370607745",
+      "chars": 2154,
+      "lines": 59,
+      "kind": "md"
+    },
+    {
+      "source": "reports/week2/W02_day1_checkpoint.md",
+      "snapshot": "datasets/corpus_t0/reports__week2__W02_day1_checkpoint.md",
+      "sha256": "42c39e7887c2dd7480d7656f355a6f5b4ac1ef2d3a2e69e8d980876d7a49774f",
+      "chars": 5504,
+      "lines": 116,
+      "kind": "md"
+    },
+    {
+      "source": "reports/week2/W02_report.md",
+      "snapshot": "datasets/corpus_t0/reports__week2__W02_report.md",
+      "sha256": "571af00d4a1ea2b1f031ee600b1cc2a63efc70889f227c3163b8e9caf623550a",
+      "chars": 11650,
+      "lines": 172,
+      "kind": "md"
+    },
+    {
+      "source": "reports/week3/W03_report.md",
+      "snapshot": "datasets/corpus_t0/reports__week3__W03_report.md",
+      "sha256": "8e28635e7277b5e80cbe6472c6a09bd3667579210f5c7089d2533c56cefc3c16",
+      "chars": 5713,
+      "lines": 107,
+      "kind": "md"
+    },
+    {
+      "source": "reports/week3/W03_task_plan.md",
+      "snapshot": "datasets/corpus_t0/reports__week3__W03_task_plan.md",
+      "sha256": "dff0f4bc2c6f82b7ca735e3b6b8061d2f8b485542bbddb36e182ed35878b13e3",
+      "chars": 32869,
+      "lines": 676,
+      "kind": "md"
+    },
+    {
+      "source": "reports/week3/模型精度验证报告.md",
+      "snapshot": "datasets/corpus_t0/reports__week3__模型精度验证报告.md",
+      "sha256": "8351607f78d6d9b16b432195f2c180106323a8d7899a90f7643e8debcbdd1ec2",
+      "chars": 4134,
+      "lines": 111,
+      "kind": "md"
+    },
+    {
+      "source": "reports/week3/证据集说明.md",
+      "snapshot": "datasets/corpus_t0/reports__week3__证据集说明.md",
+      "sha256": "8cfafcebf8d7e6868efe4da8b448d9fe3c2be1831054814bb67581348961930e",
+      "chars": 2070,
+      "lines": 63,
+      "kind": "md"
+    }
+  ],
+  "skipped": [
+    {
+      "path": "docs/api/retrieval-module-api.md",
+      "reason": "states results under test"
+    },
+    {
+      "path": "docs/api/storage-module-api.md",
+      "reason": "states results under test"
+    },
+    {
+      "path": "packages/core_parsing/test/fixtures/truncated.pdf",
+      "reason": "deliberately broken fixture"
+    },
+    {
+      "path": "packages/core_parsing/test/fixtures/zero.pdf",
+      "reason": "deliberately broken fixture"
+    },
+    {
+      "path": "packages/core_pipeline/README.md",
+      "reason": "too short (441 < 800)"
+    },
+    {
+      "path": "packages/core_retrieval/README.md",
+      "reason": "too short (357 < 800)"
+    },
+    {
+      "path": "apps/desktop/README.md",
+      "reason": "too short (629 < 800)"
+    },
+    {
+      "path": "reports/week1/week1_report.pdf",
+      "reason": "duplicate of a markdown already included"
+    },
+    {
+      "path": "reports/week2/week2_report.pdf",
+      "reason": "duplicate of a markdown already included"
+    },
+    {
+      "path": "reports/week2/覆盖率报告.md",
+      "reason": "too short (654 < 800)"
+    },
+    {
+      "path": "reports/week3/W03_report.pdf",
+      "reason": "duplicate of a markdown already included"
+    },
+    {
+      "path": "reports/week3/覆盖率报告.md",
+      "reason": "too short (576 < 800)"
+    }
+  ],
+  "totals": {
+    "files": 23,
+    "chars": 275990
+  }
+}

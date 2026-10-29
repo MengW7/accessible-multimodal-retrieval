@@ -188,6 +188,40 @@ void main() {
     expect(store.imageSearches, 0);
   });
 
+  test('a query over the clip budget degrades instead of throwing', () async {
+    // MobileCLIP pads to exactly 77 tokens and the encoder does not truncate, so
+    // a long query raises TextOverBudgetException from the clip tower. Before
+    // the fix that exception escaped `search()` and the whole query failed even
+    // though the text channel could still answer.
+    final _Engine engine = _Engine()
+      ..clipError = const TextOverBudgetException(tokenCount: 79, maxLength: 77);
+    final _Store store = _Store()..textHits = <ScoredId>[_hit('a')];
+    final List<SearchResult> results = await DefaultRetriever(
+      store: store,
+      encoder: QueryEncoder(engine),
+    ).search('一个很长很长的问句');
+    expect(results.single.chunkId, 'a');
+    expect(store.textSearches, 1);
+    expect(store.imageSearches, 0);
+  });
+
+  test('a query over the text budget is a typed error, not a crash', () async {
+    final _Engine engine = _Engine()
+      ..textError = const TextOverBudgetException(
+        tokenCount: 200,
+        maxLength: 128,
+      );
+    final _Store store = _Store();
+    await expectLater(
+      DefaultRetriever(
+        store: store,
+        encoder: QueryEncoder(engine),
+      ).search('超长问句'),
+      throwsA(isA<QueryTooLongException>()),
+    );
+    expect(store.textSearches, 0);
+  });
+
   test('a keyword-only arm skips encoding and neighborhood', () async {
     final _Engine engine = _Engine();
     final _Store store = _Store()
@@ -274,6 +308,8 @@ final class _Engine implements EmbeddingEngine {
 
   Object? clipError;
 
+  Object? textError;
+
   bool cancelOnClip = false;
 
   @override
@@ -290,6 +326,11 @@ final class _Engine implements EmbeddingEngine {
         throw const CancelledException();
       }
       final Object? error = clipError;
+      if (error != null) {
+        throw error;
+      }
+    } else {
+      final Object? error = textError;
       if (error != null) {
         throw error;
       }

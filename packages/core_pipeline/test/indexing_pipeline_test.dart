@@ -181,13 +181,40 @@ void main() {
     expect(report.written, 0);
     expect(store.writes, isEmpty);
   });
+
+  test('a wider cascade window cannot be stored as the default version', () {
+    final CascadeTextChunker wider = CascadeTextChunker(
+      countTokens: (String text) => text.length,
+      chunkChars: 400,
+    );
+    expect(wider.chunkerVersion, 'w3-cascade-1-c400-t128');
+    expect(
+      () => _pipeline(
+        engine: _Engine(),
+        store: _Store(),
+        chunker: wider,
+        records: <IngestRecord>[],
+        chunkerVersion: CascadeTextChunker.defaultVersion,
+      ),
+      throwsArgumentError,
+    );
+    final DefaultIndexingPipeline pipeline = _pipeline(
+      engine: _Engine(),
+      store: _Store(),
+      chunker: wider,
+      records: <IngestRecord>[],
+      chunkerVersion: wider.chunkerVersion,
+    );
+    expect(pipeline.chunkerVersion, 'w3-cascade-1-c400-t128');
+  });
 }
 
 DefaultIndexingPipeline _pipeline({
   required _Engine engine,
   required _Store store,
-  _Chunker? chunker,
+  TextChunker? chunker,
   required List<IngestRecord> records,
+  String chunkerVersion = 'w3-cascade-1',
   String Function(FileMetadata metadata)? documentKeyOf,
 }) {
   return DefaultIndexingPipeline(
@@ -211,7 +238,7 @@ DefaultIndexingPipeline _pipeline({
       pooling: 'none',
       normalized: true,
     ),
-    chunkerVersion: 'w3-cascade-1',
+    chunkerVersion: chunkerVersion,
     documentKeyOf: documentKeyOf,
   );
 }

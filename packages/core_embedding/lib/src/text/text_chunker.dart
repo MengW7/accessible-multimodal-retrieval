@@ -37,21 +37,18 @@ final class CascadeTextChunker implements TextChunker {
     required this.countTokens,
     this.chunkChars = defaultChunkChars,
     this.maxTokens = defaultMaxTokens,
-    this.chunkerVersion = defaultVersion,
+    String? chunkerVersion,
     this.counterLabel = 'unigram',
-  }) {
+  }) : chunkerVersion = resolveVersion(
+         chunkChars: chunkChars,
+         maxTokens: maxTokens,
+         supplied: chunkerVersion,
+       ) {
     if (chunkChars < 1) {
       throw ArgumentError.value(chunkChars, 'chunkChars', 'must be positive');
     }
     if (maxTokens < 2) {
       throw ArgumentError.value(maxTokens, 'maxTokens', 'must be at least 2');
-    }
-    if (chunkerVersion.isEmpty) {
-      throw ArgumentError.value(
-        chunkerVersion,
-        'chunkerVersion',
-        'must not be empty',
-      );
     }
     if (counterLabel.isEmpty) {
       throw ArgumentError.value(
@@ -60,6 +57,50 @@ final class CascadeTextChunker implements TextChunker {
         'must not be empty',
       );
     }
+  }
+
+  /// 默认窗口仍是 [defaultVersion]，已入库的代次因此继续对得上。
+  /// 窗口或 token 上限离开默认值时，版本串必须带上 `c<窗口>-t<上限>`，
+  /// 否则 `sameRecipe` 会把另一种切法当成同一代。
+  static String versionFor({
+    int chunkChars = defaultChunkChars,
+    int maxTokens = defaultMaxTokens,
+  }) {
+    if (chunkChars == defaultChunkChars && maxTokens == defaultMaxTokens) {
+      return defaultVersion;
+    }
+    return '$defaultVersion-c$chunkChars-t$maxTokens';
+  }
+
+  static String resolveVersion({
+    required int chunkChars,
+    required int maxTokens,
+    String? supplied,
+  }) {
+    final String derived = versionFor(
+      chunkChars: chunkChars,
+      maxTokens: maxTokens,
+    );
+    if (supplied == null) {
+      return derived;
+    }
+    if (supplied.isEmpty) {
+      throw ArgumentError.value(
+        supplied,
+        'chunkerVersion',
+        'must not be empty',
+      );
+    }
+    final bool defaults =
+        chunkChars == defaultChunkChars && maxTokens == defaultMaxTokens;
+    if (!defaults && !supplied.contains('c$chunkChars-t$maxTokens')) {
+      throw ArgumentError.value(
+        supplied,
+        'chunkerVersion',
+        'must contain c$chunkChars-t$maxTokens',
+      );
+    }
+    return supplied;
   }
 
   /// MiniLM 上的字符窗口初值。中文大约一字一 token，120 加两个特殊标记仍低于

@@ -1,0 +1,15 @@
+heading_template=no-filename
+headings_seen=284 unique_headings=273 dropped_multi_document=11 dropped_repeated_in_one_document=0
+dropped_multi_document_headings=1. 测试范围与环境 | 1. 调用约定 | 1.1 测试范围 | 1.2 测试环境 | Alternatives considered（考虑过的其他方案） | Alternatives（评测） | Alternatives（运行时） | Consequences（后果） | Context（背景） | Decision（决策） | Follow-up（后续动作）
+verbatim=omitted negative=omitted reason=those templates are unchanged and stay in reports/week5/evidence_set_w5.jsonl
+db=E:\Project\accessible-multimodal-retrieval\reports\week5\.index\bench.sqlite
+heading_template=no-filename
+skipped_not_unique=22
+questions=91 answerable=91 negative=0
+split dev=60 holdout=31
+lexOverlap median=0.0000 min=0.0000 max=0.1111
+lexOverlap bucket lex>=0.5: 0
+lexOverlap bucket 0.2-0.5: 0
+lexOverlap bucket <0.2: 91
+out=E:\Project\accessible-multimodal-retrieval\reports\week5\evidence_set_w5_nofile.jsonl
+sha256=4660e89d32a004a2d8bcf1dcc39193c1e4fe1e1b8617b32da9fccbba51fcb4ae

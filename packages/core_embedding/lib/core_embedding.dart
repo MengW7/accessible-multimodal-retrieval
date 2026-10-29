@@ -22,6 +22,12 @@ export 'src/spi/tflite_bindings.dart';
 export 'src/text/clip_bpe_tokenizer.dart';
 export 'src/text/clip_text_embedder.dart';
 export 'src/text/text_chunker.dart';
+// `TextOverBudgetException` is thrown by `TextEmbedder` and `ClipTextEmbedder`
+// when the input exceeds the model's `maxInputLength`. Callers that degrade
+// instead of failing (see `QueryEncoder` in `core_retrieval`) must be able to
+// catch it, so the type has to be visible through this barrel. Keeping it
+// internal made the exception uncatchable outside this package, which turned a
+// long query into a crash instead of a text-only search.
 export 'src/text/text_embedder.dart';
 export 'src/text/text_input_builder.dart';
 export 'src/text/unigram_tokenizer.dart'

@@ -1,0 +1,47 @@
+# error analysis
+db=E:\Project\accessible-multimodal-retrieval\reports\week4\.index\evidence.sqlite
+evidence=E:\Project\accessible-multimodal-retrieval\reports\week3\evidence_set.jsonl
+split=holdout arms=A4 cut=5 top=50 tolerance=0 draws=1000
+frozen_evidence=E:\Project\accessible-multimodal-retrieval\reports\week3\evidence_set.jsonl
+frozen_evidence_sha256=82c080c0c91e29551d7e3ee4a67f4ae3e421d424a2b2fb5a5d8079b23e4eb9d6
+frozen_evidence_intact=1
+evidence_is_frozen_set=1
+class_vocabulary=label_defect,modality_gap,no_recall,ranked_low,wrong_span_same_doc,span_ranked_low,hit
+rrf=k:60,text:0.5,keyword:0.3,image:0.49
+clip_text_tokenizer_han_tokens=0
+space=clipShared chunks=51 documents=51
+space=documentText chunks=96 documents=2
+keyword_term_rows=0
+chunk_fts_rows=96
+chunk_with_body=96
+image_can_enter_cut=1 why=image_rank1:0.4900/61 vs text_rank5:0.5000/65
+keyword_can_enter_cut=0 why=keyword_rank1:0.3000/61 vs text_rank5:0.5000/65
+
+# --- per question ---
+ev-16 arm=A4 split=holdout modality=text class=hit doc_rank=1 span_rank=1 doc_hit@5=1 span_hit@5=1 chance_analytic=1.000000 chance_shuffle_doc=0.980000 chance_shuffle_span=0.267000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-17 arm=A4 split=holdout modality=text class=hit doc_rank=1 span_rank=1 doc_hit@5=1 span_hit@5=1 chance_analytic=1.000000 chance_shuffle_doc=0.992000 chance_shuffle_span=0.268000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-18 arm=A4 split=holdout modality=text class=hit doc_rank=1 span_rank=1 doc_hit@5=1 span_hit@5=1 chance_analytic=1.000000 chance_shuffle_doc=0.985000 chance_shuffle_span=0.194000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-19 arm=A4 split=holdout modality=text class=hit doc_rank=1 span_rank=1 doc_hit@5=1 span_hit@5=1 chance_analytic=1.000000 chance_shuffle_doc=0.975000 chance_shuffle_span=0.193000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-20 arm=A4 split=holdout modality=metadata class=hit doc_rank=1 span_rank=0 doc_hit@5=1 span_hit@5=1 chance_analytic=0.736458 chance_shuffle_doc=0.678000 chance_shuffle_span=0.682000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-21 arm=A4 split=holdout modality=image class=hit doc_rank=3 span_rank=0 doc_hit@5=1 span_hit@5=1 chance_analytic=0.098039 chance_shuffle_doc=0.097000 chance_shuffle_span=0.108000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-22 arm=A4 split=holdout modality=image class=hit doc_rank=3 span_rank=0 doc_hit@5=1 span_hit@5=1 chance_analytic=0.098039 chance_shuffle_doc=0.102000 chance_shuffle_span=0.099000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-23 arm=A4 split=holdout modality=image class=hit doc_rank=5 span_rank=0 doc_hit@5=1 span_hit@5=1 chance_analytic=0.098039 chance_shuffle_doc=0.111000 chance_shuffle_span=0.104000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-24 arm=A4 split=holdout modality=image class=hit doc_rank=5 span_rank=0 doc_hit@5=1 span_hit@5=1 chance_analytic=0.098039 chance_shuffle_doc=0.108000 chance_shuffle_span=0.094000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-25 arm=A4 split=holdout modality=image class=ranked_low doc_rank=7 span_rank=0 doc_hit@5=0 span_hit@5=0 chance_analytic=0.098039 chance_shuffle_doc=0.087000 chance_shuffle_span=0.102000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label,printed_text_only
+
+# --- per arm ---
+note=doc_hit is the week-4 report convention (file match); span_hit needs the returned chunk to overlap the labelled span
+arm=A4 n=10 doc_hit@5=0.900000 [0.595850, 0.982124] (9/10) span_hit@5=0.900000 [0.595850, 0.982124] (9/10) null_doc_chance=0.522665 null_doc_shuffle=0.511500 null_span_shuffle=0.211100 p_doc_vs_chance=0.0003 p_doc_vs_shuffle=0.0003 p_span_vs_shuffle=0.0000
+arm=A4 class=ranked_low count=1
+arm=A4 class=hit count=9
+arm=A4 flag=clip_vocab_gap count=10
+arm=A4 flag=free_label count=4
+arm=A4 flag=keyword_bigram_dead count=10
+arm=A4 flag=no_span_label count=6
+arm=A4 flag=printed_text_only count=1
+
+# --- per class, all arms ---
+class=ranked_low count=1 ids=ev-25
+class=hit count=9 ids=ev-16,ev-17,ev-18,ev-19,ev-20,ev-21,ev-22,ev-23,ev-24
+
+jsonl=E:\Project\accessible-multimodal-retrieval\reports\week4\logs\error_analysis_holdout.jsonl

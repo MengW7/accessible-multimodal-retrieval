@@ -27,11 +27,15 @@ ParsedDocument _doc(
   );
 }
 
-void _expectSpans(String page, List<TextChunk> chunks) {
+void _expectSpans(
+  String page,
+  List<TextChunk> chunks, {
+  required String version,
+}) {
   for (final TextChunk chunk in chunks) {
     expect(page.substring(chunk.startOffset, chunk.endOffset), chunk.text);
     expect(chunk.textUnit, TextUnit.utf16CodeUnit);
-    expect(chunk.chunkerVersion, CascadeTextChunker.defaultVersion);
+    expect(chunk.chunkerVersion, version);
   }
 }
 
@@ -48,7 +52,7 @@ void main() {
     expect(chunks[0].chunkId, contains('docx-1'));
     expect(chunks[0].chunkId, contains('-pna-i0'));
     expect(chunks[1].chunkId, contains('-pna-i1'));
-    _expectSpans(text, chunks);
+    _expectSpans(text, chunks, version: 'w3-cascade-1-c8-t100');
   });
 
   test('txt keeps a short single newline inside a blank-line paragraph', () {
@@ -57,7 +61,7 @@ void main() {
     expect(chunks.map((TextChunk chunk) => chunk.text), <String>['甲\n乙', '丙']);
     expect(chunks[0].pageNumber, isNull);
     expect(chunks[1].startOffset, 5);
-    _expectSpans(text, chunks);
+    _expectSpans(text, chunks, version: 'w3-cascade-1-c8-t100');
   });
 
   test('a pdf page without paragraphs splits on sentence punctuation', () {
@@ -69,7 +73,7 @@ void main() {
     expect(chunks.map((TextChunk chunk) => chunk.text), <String>['第一句。', '第二句。']);
     expect(chunks.map((TextChunk chunk) => chunk.pageNumber), <int>[1, 1]);
     expect(chunks[0].chunkId, contains('-p1-i0'));
-    _expectSpans(text, chunks);
+    _expectSpans(text, chunks, version: 'w3-cascade-1-c8-t6');
   });
 
   test('a pdf page with no breaks falls through to the character window', () {
@@ -90,7 +94,7 @@ void main() {
     for (final TextChunk chunk in chunks) {
       expect(chunker.countTokens(chunk.text), lessThanOrEqualTo(5));
     }
-    _expectSpans(text, chunks);
+    _expectSpans(text, chunks, version: 'w3-cascade-1-c3-t5');
   });
 
   test('pages are not merged', () {
@@ -132,7 +136,7 @@ void main() {
     );
     expect(chunks.map((TextChunk chunk) => chunk.text), <String>['ab🙂', 'cd']);
     expect(chunks[0].endOffset - chunks[0].startOffset, 4);
-    _expectSpans(text, chunks);
+    _expectSpans(text, chunks, version: 'w3-cascade-1-c3-t100');
   });
 
   test('one code unit over the token budget throws instead of truncating', () {
@@ -142,6 +146,51 @@ void main() {
         documentId: 'over',
       ),
       throwsA(isA<ChunkBudgetException>()),
+    );
+  });
+
+  test('the default window keeps the version string already stored in indexes', () {
+    final CascadeTextChunker chunker = CascadeTextChunker(
+      countTokens: (String text) => text.length,
+    );
+    expect(chunker.chunkerVersion, CascadeTextChunker.defaultVersion);
+    final List<TextChunk> chunks = chunker.chunk(_doc('甲'), documentId: 'plain');
+    expect(chunks.single.chunkerVersion, 'w3-cascade-1');
+    expect(chunks.single.chunkId, contains('-w3-cascade-1-'));
+    final CascadeTextChunker named = CascadeTextChunker(
+      countTokens: (String text) => text.length,
+      chunkerVersion: 'w3-cascade-1-note',
+    );
+    expect(named.chunkerVersion, 'w3-cascade-1-note');
+  });
+
+  test('a different window is named in the version string', () {
+    final CascadeTextChunker wider = CascadeTextChunker(
+      countTokens: (String text) => text.length,
+      chunkChars: 400,
+    );
+    expect(wider.chunkerVersion, 'w3-cascade-1-c400-t128');
+    final CascadeTextChunker shorter = CascadeTextChunker(
+      countTokens: (String text) => text.length,
+      maxTokens: 64,
+    );
+    expect(shorter.chunkerVersion, 'w3-cascade-1-c120-t64');
+    expect(
+      () => CascadeTextChunker(
+        countTokens: (String text) => text.length,
+        chunkChars: 400,
+        chunkerVersion: CascadeTextChunker.defaultVersion,
+      ),
+      throwsArgumentError,
+    );
+    expect(
+      () => CascadeTextChunker(
+        countTokens: (String text) => text.length,
+        chunkChars: 8,
+        maxTokens: 100,
+        chunkerVersion: 'w3-cascade-1-c80-t100',
+      ),
+      throwsArgumentError,
     );
   });
 

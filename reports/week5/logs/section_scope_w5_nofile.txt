@@ -1,0 +1,43 @@
+# section scope
+jsonl=E:\Project\accessible-multimodal-retrieval\reports\week5\logs\w5n_dev.jsonl
+evidence=E:\Project\accessible-multimodal-retrieval\reports\week5\evidence_set_w5_nofile.jsonl
+retrieval_rerun=0
+cut=5
+db=E:\Project\accessible-multimodal-retrieval\reports\week5\.index\bench.sqlite
+
+heading_section_located=91 unresolved=0
+section_utf16_chars n=91 min=107 median=864 p90=4839 max=6875
+section_body_hit_definition=stored chunk of the gold document whose start offset is strictly inside the section
+section_hit_definition=stored chunk of the gold document overlaps the section, heading line included; diagnostic
+heading_line_allowance=6 pure_heading_line means the longest in-section stored chunk that contains the heading start is at most len(heading)+allowance
+stored_hits_limit=the jsonl keeps 10 hits; a rank above 10 is unseen
+span_chance_one_chunk=0.000996 does not test a section-body hit
+# --- heading body chance, this payload ---
+pool_chunks=5020 space=documentText
+relevant_definition=chunk of the gold document with section.start < start_offset < section.end
+relevant_chunks n=60 min=1 median=18 p90=116 max=191
+mean_body_chance@5=0.034536
+arm=A0 section_body_hits=6 body_null_p=0.014351 questions=60
+arm=A1 section_body_hits=11 body_null_p=0.000002 questions=60
+
+# --- per arm, per family ---
+arm=A0 family=heading n=60 section_located=60 doc_hit@5=0.733333 [0.609913, 0.828674] (44/60) span_hit@5=0.000000 [0.000000, 0.060172] (0/60) section_body_hit@5=0.100000 [0.046643, 0.201495] (6/60) section_hit@5=0.666667 [0.540569, 0.772707] (40/60) heading_line_only=34 pure_heading_line=30 longer_than_heading=4 file_outside_cut=16 file_in_section_not_in_stored_hits=4 wrong_span=36 wrong_span_inside_section=32 section_miss_file_outside_cut=16 section_miss_wrong_section=4 section_miss_other=0
+arm=A0 family=heading longer_than_heading_ids=w5n-013,w5n-036,w5n-050,w5n-051
+arm=A1 family=heading n=60 section_located=60 doc_hit@5=0.950000 [0.862995, 0.982850] (57/60) span_hit@5=0.000000 [0.000000, 0.060172] (0/60) section_body_hit@5=0.183333 [0.105578, 0.299198] (11/60) section_hit@5=0.900000 [0.798505, 0.953357] (54/60) heading_line_only=43 pure_heading_line=42 longer_than_heading=1 file_outside_cut=3 file_in_section_not_in_stored_hits=3 wrong_span=47 wrong_span_inside_section=44 section_miss_file_outside_cut=3 section_miss_wrong_section=3 section_miss_other=0
+arm=A1 family=heading longer_than_heading_ids=w5n-051
+
+# --- A1 heading, file in the cut, section not in the stored hits ---
+db=E:\Project\accessible-multimodal-retrieval\reports\week5\.index\bench.sqlite
+w5n-021 rank=1 offsets=4528-4547 chars=19 heading=Consequences（运行时） body=记录在本节 Consequences。
+w5n-038 rank=2 offsets=9178-9190 chars=12 heading=运行时（决策 8） body=## 决策 7：评测口径
+w5n-045 rank=2 offsets=4181-4230 chars=49 heading=Alternatives（空间） body=| 空间 | 谁用 | 维度 | |---|---|---| | `EmbeddingSpace.
+shown=3 same_file_best_hit_starts_at_0=0
+reading=the gold file is inside the cut and no stored hit overlaps the named section. same_file_best_hit_starts_at_0 counts how often that chunk is the H1 at offset 0
+
+# --- keyword difference, gold document ---
+answerable=60 cut=5
+both_doc_hit=41 a0_only=3 a1_only=16 neither=0
+a0_only_ids=w5n-015,w5n-036,w5n-050
+a0_top5_slots_whose_document_is_absent_from_a1_stored_hits=106
+questions_with_such_a_slot=41 stored_hits_limit=10
+reading=a0_only is a gold-file the keyword arm ranks in the cut and the text arm does not; fused keyword_only=0 does not measure this

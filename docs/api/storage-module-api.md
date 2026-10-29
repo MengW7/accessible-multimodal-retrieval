@@ -201,6 +201,8 @@ const StoredChunk({
 
 代次判等共 **6 个字段**：`contentHash`、`parserName`、`parserVersion`、`chunkerVersion`，再加上向量的 `modelId` 和 `vectorDim`。ADR 0004 决策 4 把 `parserName` 与 `parserVersion` 合成「解析器名加版本」这一项，连同其余四项称作五项。缺任何一项时这行仍可写入，但 `canReuse` 对不上。以 `IndexGeneration.sameRecipe` 的实现为准（逐字段等值比较）。
 
+`chunkerVersion` 在默认窗口（120 字、128 token）上仍是 `w3-cascade-1`。窗口或上限不同时，这个字符串本身带上 `c<窗口>-t<上限>`。`sameRecipe` 不另加字段。
+
 ### `StorageFilter`
 
 ```dart

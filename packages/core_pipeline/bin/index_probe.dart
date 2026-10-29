@@ -103,15 +103,16 @@ Future<void> main(List<String> args) async {
       ),
     );
     var prefixSlot = 0;
+    final CascadeTextChunker chunker = probeChunker(live.tokenizer);
     final DefaultIndexingPipeline indexing = DefaultIndexingPipeline(
       source: source,
       engine: live.engine,
       store: ready,
-      chunker: probeChunker(live.tokenizer),
+      chunker: chunker,
       images: const PackageImageDecoder(),
       textModel: documentTextModel,
       imageModel: clipVisionModel,
-      chunkerVersion: CascadeTextChunker.defaultVersion,
+      chunkerVersion: chunker.chunkerVersion,
       documentKeyOf: (FileMetadata metadata) {
         return joinDocumentKey(
           resolvedPrefixes[prefixSlot],

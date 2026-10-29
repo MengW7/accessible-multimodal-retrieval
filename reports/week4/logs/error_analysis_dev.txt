@@ -1,0 +1,183 @@
+# error analysis
+db=E:\Project\accessible-multimodal-retrieval\reports\week4\.index\evidence.sqlite
+evidence=E:\Project\accessible-multimodal-retrieval\reports\week3\evidence_set.jsonl
+split=dev arms=A0,A1,A2,A3,A4,A5 cut=5 top=50 tolerance=0 draws=1000
+frozen_evidence=E:\Project\accessible-multimodal-retrieval\reports\week3\evidence_set.jsonl
+frozen_evidence_sha256=82c080c0c91e29551d7e3ee4a67f4ae3e421d424a2b2fb5a5d8079b23e4eb9d6
+frozen_evidence_intact=1
+evidence_is_frozen_set=1
+class_vocabulary=label_defect,modality_gap,no_recall,ranked_low,wrong_span_same_doc,span_ranked_low,hit
+rrf=k:60,text:0.5,keyword:0.3,image:0.49
+clip_text_tokenizer_han_tokens=0
+space=clipShared chunks=51 documents=51
+space=documentText chunks=96 documents=2
+keyword_term_rows=0
+chunk_fts_rows=96
+chunk_with_body=96
+image_can_enter_cut=1 why=image_rank1:0.4900/61 vs text_rank5:0.5000/65
+keyword_can_enter_cut=0 why=keyword_rank1:0.3000/61 vs text_rank5:0.5000/65
+
+# --- per question ---
+ev-01 arm=A0 split=dev modality=text class=no_recall doc_rank=0 span_rank=0 doc_hit@5=0 span_hit@5=0 chance_analytic=1.000000 chance_shuffle_doc=0.000000 chance_shuffle_span=0.000000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-01 arm=A1 split=dev modality=text class=span_ranked_low doc_rank=1 span_rank=8 doc_hit@5=1 span_hit@5=0 chance_analytic=1.000000 chance_shuffle_doc=1.000000 chance_shuffle_span=0.124000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-01 arm=A2 split=dev modality=text class=modality_gap doc_rank=0 span_rank=0 doc_hit@5=0 span_hit@5=0 chance_analytic=1.000000 chance_shuffle_doc=0.000000 chance_shuffle_span=0.000000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-01 arm=A3 split=dev modality=text class=span_ranked_low doc_rank=1 span_rank=8 doc_hit@5=1 span_hit@5=0 chance_analytic=1.000000 chance_shuffle_doc=1.000000 chance_shuffle_span=0.096000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-01 arm=A4 split=dev modality=text class=span_ranked_low doc_rank=1 span_rank=14 doc_hit@5=1 span_hit@5=0 chance_analytic=1.000000 chance_shuffle_doc=0.980000 chance_shuffle_span=0.099000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-01 arm=A5 split=dev modality=text class=span_ranked_low doc_rank=1 span_rank=14 doc_hit@5=1 span_hit@5=0 chance_analytic=1.000000 chance_shuffle_doc=0.978000 chance_shuffle_span=0.101000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-02 arm=A0 split=dev modality=text class=no_recall doc_rank=0 span_rank=0 doc_hit@5=0 span_hit@5=0 chance_analytic=1.000000 chance_shuffle_doc=0.000000 chance_shuffle_span=0.000000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-02 arm=A1 split=dev modality=text class=hit doc_rank=1 span_rank=1 doc_hit@5=1 span_hit@5=1 chance_analytic=1.000000 chance_shuffle_doc=1.000000 chance_shuffle_span=0.205000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-02 arm=A2 split=dev modality=text class=modality_gap doc_rank=0 span_rank=0 doc_hit@5=0 span_hit@5=0 chance_analytic=1.000000 chance_shuffle_doc=0.000000 chance_shuffle_span=0.000000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-02 arm=A3 split=dev modality=text class=hit doc_rank=1 span_rank=1 doc_hit@5=1 span_hit@5=1 chance_analytic=1.000000 chance_shuffle_doc=1.000000 chance_shuffle_span=0.181000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-02 arm=A4 split=dev modality=text class=hit doc_rank=1 span_rank=1 doc_hit@5=1 span_hit@5=1 chance_analytic=1.000000 chance_shuffle_doc=0.978000 chance_shuffle_span=0.168000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-02 arm=A5 split=dev modality=text class=hit doc_rank=1 span_rank=1 doc_hit@5=1 span_hit@5=1 chance_analytic=1.000000 chance_shuffle_doc=0.978000 chance_shuffle_span=0.201000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-03 arm=A0 split=dev modality=text class=no_recall doc_rank=0 span_rank=0 doc_hit@5=0 span_hit@5=0 chance_analytic=1.000000 chance_shuffle_doc=0.000000 chance_shuffle_span=0.000000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-03 arm=A1 split=dev modality=text class=span_ranked_low doc_rank=1 span_rank=24 doc_hit@5=1 span_hit@5=0 chance_analytic=1.000000 chance_shuffle_doc=1.000000 chance_shuffle_span=0.174000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-03 arm=A2 split=dev modality=text class=modality_gap doc_rank=0 span_rank=0 doc_hit@5=0 span_hit@5=0 chance_analytic=1.000000 chance_shuffle_doc=0.000000 chance_shuffle_span=0.000000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-03 arm=A3 split=dev modality=text class=span_ranked_low doc_rank=1 span_rank=24 doc_hit@5=1 span_hit@5=0 chance_analytic=1.000000 chance_shuffle_doc=1.000000 chance_shuffle_span=0.200000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-03 arm=A4 split=dev modality=text class=span_ranked_low doc_rank=1 span_rank=46 doc_hit@5=1 span_hit@5=0 chance_analytic=1.000000 chance_shuffle_doc=0.979000 chance_shuffle_span=0.094000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-03 arm=A5 split=dev modality=text class=span_ranked_low doc_rank=1 span_rank=46 doc_hit@5=1 span_hit@5=0 chance_analytic=1.000000 chance_shuffle_doc=0.987000 chance_shuffle_span=0.098000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-04 arm=A0 split=dev modality=text class=hit doc_rank=1 span_rank=1 doc_hit@5=1 span_hit@5=1 chance_analytic=1.000000 chance_shuffle_doc=1.000000 chance_shuffle_span=1.000000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-04 arm=A1 split=dev modality=text class=hit doc_rank=1 span_rank=1 doc_hit@5=1 span_hit@5=1 chance_analytic=1.000000 chance_shuffle_doc=1.000000 chance_shuffle_span=0.196000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-04 arm=A2 split=dev modality=text class=modality_gap doc_rank=0 span_rank=0 doc_hit@5=0 span_hit@5=0 chance_analytic=1.000000 chance_shuffle_doc=0.000000 chance_shuffle_span=0.000000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-04 arm=A3 split=dev modality=text class=hit doc_rank=1 span_rank=1 doc_hit@5=1 span_hit@5=1 chance_analytic=1.000000 chance_shuffle_doc=1.000000 chance_shuffle_span=0.199000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-04 arm=A4 split=dev modality=text class=hit doc_rank=1 span_rank=1 doc_hit@5=1 span_hit@5=1 chance_analytic=1.000000 chance_shuffle_doc=0.983000 chance_shuffle_span=0.197000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-04 arm=A5 split=dev modality=text class=hit doc_rank=1 span_rank=1 doc_hit@5=1 span_hit@5=1 chance_analytic=1.000000 chance_shuffle_doc=0.982000 chance_shuffle_span=0.195000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-05 arm=A0 split=dev modality=text class=no_recall doc_rank=0 span_rank=0 doc_hit@5=0 span_hit@5=0 chance_analytic=1.000000 chance_shuffle_doc=0.000000 chance_shuffle_span=0.000000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-05 arm=A1 split=dev modality=text class=hit doc_rank=1 span_rank=1 doc_hit@5=1 span_hit@5=1 chance_analytic=1.000000 chance_shuffle_doc=1.000000 chance_shuffle_span=0.198000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-05 arm=A2 split=dev modality=text class=modality_gap doc_rank=0 span_rank=0 doc_hit@5=0 span_hit@5=0 chance_analytic=1.000000 chance_shuffle_doc=0.000000 chance_shuffle_span=0.000000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-05 arm=A3 split=dev modality=text class=hit doc_rank=1 span_rank=1 doc_hit@5=1 span_hit@5=1 chance_analytic=1.000000 chance_shuffle_doc=1.000000 chance_shuffle_span=0.194000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-05 arm=A4 split=dev modality=text class=hit doc_rank=1 span_rank=1 doc_hit@5=1 span_hit@5=1 chance_analytic=1.000000 chance_shuffle_doc=0.976000 chance_shuffle_span=0.195000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-05 arm=A5 split=dev modality=text class=hit doc_rank=1 span_rank=1 doc_hit@5=1 span_hit@5=1 chance_analytic=1.000000 chance_shuffle_doc=0.982000 chance_shuffle_span=0.166000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-06 arm=A0 split=dev modality=text class=no_recall doc_rank=0 span_rank=0 doc_hit@5=0 span_hit@5=0 chance_analytic=1.000000 chance_shuffle_doc=0.000000 chance_shuffle_span=0.000000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-06 arm=A1 split=dev modality=text class=hit doc_rank=1 span_rank=3 doc_hit@5=1 span_hit@5=1 chance_analytic=1.000000 chance_shuffle_doc=1.000000 chance_shuffle_span=0.171000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-06 arm=A2 split=dev modality=text class=modality_gap doc_rank=0 span_rank=0 doc_hit@5=0 span_hit@5=0 chance_analytic=1.000000 chance_shuffle_doc=0.000000 chance_shuffle_span=0.000000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-06 arm=A3 split=dev modality=text class=hit doc_rank=1 span_rank=3 doc_hit@5=1 span_hit@5=1 chance_analytic=1.000000 chance_shuffle_doc=1.000000 chance_shuffle_span=0.163000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-06 arm=A4 split=dev modality=text class=hit doc_rank=1 span_rank=4 doc_hit@5=1 span_hit@5=1 chance_analytic=1.000000 chance_shuffle_doc=0.983000 chance_shuffle_span=0.104000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-06 arm=A5 split=dev modality=text class=hit doc_rank=1 span_rank=4 doc_hit@5=1 span_hit@5=1 chance_analytic=1.000000 chance_shuffle_doc=0.983000 chance_shuffle_span=0.116000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-07 arm=A0 split=dev modality=text class=wrong_span_same_doc doc_rank=1 span_rank=0 doc_hit@5=1 span_hit@5=0 chance_analytic=1.000000 chance_shuffle_doc=1.000000 chance_shuffle_span=0.000000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-07 arm=A1 split=dev modality=text class=hit doc_rank=1 span_rank=4 doc_hit@5=1 span_hit@5=1 chance_analytic=1.000000 chance_shuffle_doc=1.000000 chance_shuffle_span=0.188000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-07 arm=A2 split=dev modality=text class=modality_gap doc_rank=0 span_rank=0 doc_hit@5=0 span_hit@5=0 chance_analytic=1.000000 chance_shuffle_doc=0.000000 chance_shuffle_span=0.000000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-07 arm=A3 split=dev modality=text class=span_ranked_low doc_rank=1 span_rank=10 doc_hit@5=1 span_hit@5=0 chance_analytic=1.000000 chance_shuffle_doc=1.000000 chance_shuffle_span=0.193000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-07 arm=A4 split=dev modality=text class=span_ranked_low doc_rank=1 span_rank=12 doc_hit@5=1 span_hit@5=0 chance_analytic=1.000000 chance_shuffle_doc=0.984000 chance_shuffle_span=0.204000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-07 arm=A5 split=dev modality=text class=span_ranked_low doc_rank=1 span_rank=12 doc_hit@5=1 span_hit@5=0 chance_analytic=1.000000 chance_shuffle_doc=0.978000 chance_shuffle_span=0.185000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-08 arm=A0 split=dev modality=text class=hit doc_rank=1 span_rank=1 doc_hit@5=1 span_hit@5=1 chance_analytic=1.000000 chance_shuffle_doc=1.000000 chance_shuffle_span=1.000000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-08 arm=A1 split=dev modality=text class=hit doc_rank=1 span_rank=1 doc_hit@5=1 span_hit@5=1 chance_analytic=1.000000 chance_shuffle_doc=1.000000 chance_shuffle_span=0.285000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-08 arm=A2 split=dev modality=text class=modality_gap doc_rank=0 span_rank=0 doc_hit@5=0 span_hit@5=0 chance_analytic=1.000000 chance_shuffle_doc=0.000000 chance_shuffle_span=0.000000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-08 arm=A3 split=dev modality=text class=hit doc_rank=1 span_rank=1 doc_hit@5=1 span_hit@5=1 chance_analytic=1.000000 chance_shuffle_doc=1.000000 chance_shuffle_span=0.279000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-08 arm=A4 split=dev modality=text class=hit doc_rank=1 span_rank=1 doc_hit@5=1 span_hit@5=1 chance_analytic=1.000000 chance_shuffle_doc=0.982000 chance_shuffle_span=0.250000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-08 arm=A5 split=dev modality=text class=hit doc_rank=1 span_rank=1 doc_hit@5=1 span_hit@5=1 chance_analytic=1.000000 chance_shuffle_doc=0.973000 chance_shuffle_span=0.275000 flags=free_label,keyword_bigram_dead,clip_vocab_gap
+ev-09 arm=A0 split=dev modality=metadata class=hit doc_rank=1 span_rank=0 doc_hit@5=1 span_hit@5=1 chance_analytic=0.736458 chance_shuffle_doc=1.000000 chance_shuffle_span=1.000000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-09 arm=A1 split=dev modality=metadata class=hit doc_rank=3 span_rank=0 doc_hit@5=1 span_hit@5=1 chance_analytic=0.736458 chance_shuffle_doc=0.723000 chance_shuffle_span=0.728000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-09 arm=A2 split=dev modality=metadata class=modality_gap doc_rank=0 span_rank=0 doc_hit@5=0 span_hit@5=0 chance_analytic=0.736458 chance_shuffle_doc=0.000000 chance_shuffle_span=0.000000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-09 arm=A3 split=dev modality=metadata class=hit doc_rank=2 span_rank=0 doc_hit@5=1 span_hit@5=1 chance_analytic=0.736458 chance_shuffle_doc=0.698000 chance_shuffle_span=0.733000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-09 arm=A4 split=dev modality=metadata class=hit doc_rank=2 span_rank=0 doc_hit@5=1 span_hit@5=1 chance_analytic=0.736458 chance_shuffle_doc=0.549000 chance_shuffle_span=0.531000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-09 arm=A5 split=dev modality=metadata class=hit doc_rank=2 span_rank=0 doc_hit@5=1 span_hit@5=1 chance_analytic=0.736458 chance_shuffle_doc=0.537000 chance_shuffle_span=0.529000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-10 arm=A0 split=dev modality=metadata class=hit doc_rank=1 span_rank=0 doc_hit@5=1 span_hit@5=1 chance_analytic=0.736458 chance_shuffle_doc=0.947000 chance_shuffle_span=0.961000 flags=keyword_bigram_dead,clip_vocab_gap,empty_evidence_text,no_span_label
+ev-10 arm=A1 split=dev modality=metadata class=hit doc_rank=1 span_rank=0 doc_hit@5=1 span_hit@5=1 chance_analytic=0.736458 chance_shuffle_doc=0.700000 chance_shuffle_span=0.666000 flags=keyword_bigram_dead,clip_vocab_gap,empty_evidence_text,no_span_label
+ev-10 arm=A2 split=dev modality=metadata class=modality_gap doc_rank=0 span_rank=0 doc_hit@5=0 span_hit@5=0 chance_analytic=0.736458 chance_shuffle_doc=0.000000 chance_shuffle_span=0.000000 flags=keyword_bigram_dead,clip_vocab_gap,empty_evidence_text,no_span_label
+ev-10 arm=A3 split=dev modality=metadata class=hit doc_rank=1 span_rank=0 doc_hit@5=1 span_hit@5=1 chance_analytic=0.736458 chance_shuffle_doc=0.711000 chance_shuffle_span=0.694000 flags=keyword_bigram_dead,clip_vocab_gap,empty_evidence_text,no_span_label
+ev-10 arm=A4 split=dev modality=metadata class=hit doc_rank=1 span_rank=0 doc_hit@5=1 span_hit@5=1 chance_analytic=0.736458 chance_shuffle_doc=0.423000 chance_shuffle_span=0.429000 flags=keyword_bigram_dead,clip_vocab_gap,empty_evidence_text,no_span_label
+ev-10 arm=A5 split=dev modality=metadata class=hit doc_rank=1 span_rank=0 doc_hit@5=1 span_hit@5=1 chance_analytic=0.736458 chance_shuffle_doc=0.430000 chance_shuffle_span=0.426000 flags=keyword_bigram_dead,clip_vocab_gap,empty_evidence_text,no_span_label
+ev-11 arm=A0 split=dev modality=image class=modality_gap doc_rank=0 span_rank=0 doc_hit@5=0 span_hit@5=0 chance_analytic=0.098039 chance_shuffle_doc=0.000000 chance_shuffle_span=0.000000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-11 arm=A1 split=dev modality=image class=modality_gap doc_rank=0 span_rank=0 doc_hit@5=0 span_hit@5=0 chance_analytic=0.098039 chance_shuffle_doc=0.000000 chance_shuffle_span=0.000000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-11 arm=A2 split=dev modality=image class=hit doc_rank=1 span_rank=0 doc_hit@5=1 span_hit@5=1 chance_analytic=0.098039 chance_shuffle_doc=0.084000 chance_shuffle_span=0.113000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-11 arm=A3 split=dev modality=image class=modality_gap doc_rank=0 span_rank=0 doc_hit@5=0 span_hit@5=0 chance_analytic=0.098039 chance_shuffle_doc=0.000000 chance_shuffle_span=0.000000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-11 arm=A4 split=dev modality=image class=hit doc_rank=3 span_rank=0 doc_hit@5=1 span_hit@5=1 chance_analytic=0.098039 chance_shuffle_doc=0.099000 chance_shuffle_span=0.114000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-11 arm=A5 split=dev modality=image class=hit doc_rank=3 span_rank=0 doc_hit@5=1 span_hit@5=1 chance_analytic=0.098039 chance_shuffle_doc=0.101000 chance_shuffle_span=0.099000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-12 arm=A0 split=dev modality=image class=modality_gap doc_rank=0 span_rank=0 doc_hit@5=0 span_hit@5=0 chance_analytic=0.098039 chance_shuffle_doc=0.000000 chance_shuffle_span=0.000000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-12 arm=A1 split=dev modality=image class=modality_gap doc_rank=0 span_rank=0 doc_hit@5=0 span_hit@5=0 chance_analytic=0.098039 chance_shuffle_doc=0.000000 chance_shuffle_span=0.000000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-12 arm=A2 split=dev modality=image class=hit doc_rank=1 span_rank=0 doc_hit@5=1 span_hit@5=1 chance_analytic=0.098039 chance_shuffle_doc=0.106000 chance_shuffle_span=0.116000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-12 arm=A3 split=dev modality=image class=modality_gap doc_rank=0 span_rank=0 doc_hit@5=0 span_hit@5=0 chance_analytic=0.098039 chance_shuffle_doc=0.000000 chance_shuffle_span=0.000000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-12 arm=A4 split=dev modality=image class=hit doc_rank=3 span_rank=0 doc_hit@5=1 span_hit@5=1 chance_analytic=0.098039 chance_shuffle_doc=0.111000 chance_shuffle_span=0.098000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-12 arm=A5 split=dev modality=image class=hit doc_rank=3 span_rank=0 doc_hit@5=1 span_hit@5=1 chance_analytic=0.098039 chance_shuffle_doc=0.087000 chance_shuffle_span=0.114000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-13 arm=A0 split=dev modality=image class=modality_gap doc_rank=0 span_rank=0 doc_hit@5=0 span_hit@5=0 chance_analytic=0.098039 chance_shuffle_doc=0.000000 chance_shuffle_span=0.000000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-13 arm=A1 split=dev modality=image class=modality_gap doc_rank=0 span_rank=0 doc_hit@5=0 span_hit@5=0 chance_analytic=0.098039 chance_shuffle_doc=0.000000 chance_shuffle_span=0.000000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-13 arm=A2 split=dev modality=image class=hit doc_rank=2 span_rank=0 doc_hit@5=1 span_hit@5=1 chance_analytic=0.098039 chance_shuffle_doc=0.099000 chance_shuffle_span=0.097000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-13 arm=A3 split=dev modality=image class=modality_gap doc_rank=0 span_rank=0 doc_hit@5=0 span_hit@5=0 chance_analytic=0.098039 chance_shuffle_doc=0.000000 chance_shuffle_span=0.000000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-13 arm=A4 split=dev modality=image class=hit doc_rank=5 span_rank=0 doc_hit@5=1 span_hit@5=1 chance_analytic=0.098039 chance_shuffle_doc=0.086000 chance_shuffle_span=0.088000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-13 arm=A5 split=dev modality=image class=hit doc_rank=5 span_rank=0 doc_hit@5=1 span_hit@5=1 chance_analytic=0.098039 chance_shuffle_doc=0.105000 chance_shuffle_span=0.093000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-14 arm=A0 split=dev modality=image class=modality_gap doc_rank=0 span_rank=0 doc_hit@5=0 span_hit@5=0 chance_analytic=0.098039 chance_shuffle_doc=0.000000 chance_shuffle_span=0.000000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-14 arm=A1 split=dev modality=image class=modality_gap doc_rank=0 span_rank=0 doc_hit@5=0 span_hit@5=0 chance_analytic=0.098039 chance_shuffle_doc=0.000000 chance_shuffle_span=0.000000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-14 arm=A2 split=dev modality=image class=hit doc_rank=1 span_rank=0 doc_hit@5=1 span_hit@5=1 chance_analytic=0.098039 chance_shuffle_doc=0.115000 chance_shuffle_span=0.101000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-14 arm=A3 split=dev modality=image class=modality_gap doc_rank=0 span_rank=0 doc_hit@5=0 span_hit@5=0 chance_analytic=0.098039 chance_shuffle_doc=0.000000 chance_shuffle_span=0.000000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-14 arm=A4 split=dev modality=image class=hit doc_rank=3 span_rank=0 doc_hit@5=1 span_hit@5=1 chance_analytic=0.098039 chance_shuffle_doc=0.097000 chance_shuffle_span=0.084000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-14 arm=A5 split=dev modality=image class=hit doc_rank=3 span_rank=0 doc_hit@5=1 span_hit@5=1 chance_analytic=0.098039 chance_shuffle_doc=0.112000 chance_shuffle_span=0.073000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label
+ev-15 arm=A0 split=dev modality=image class=modality_gap doc_rank=0 span_rank=0 doc_hit@5=0 span_hit@5=0 chance_analytic=0.098039 chance_shuffle_doc=0.000000 chance_shuffle_span=0.000000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label,printed_text_only
+ev-15 arm=A1 split=dev modality=image class=modality_gap doc_rank=0 span_rank=0 doc_hit@5=0 span_hit@5=0 chance_analytic=0.098039 chance_shuffle_doc=0.000000 chance_shuffle_span=0.000000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label,printed_text_only
+ev-15 arm=A2 split=dev modality=image class=hit doc_rank=1 span_rank=0 doc_hit@5=1 span_hit@5=1 chance_analytic=0.098039 chance_shuffle_doc=0.097000 chance_shuffle_span=0.109000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label,printed_text_only
+ev-15 arm=A3 split=dev modality=image class=modality_gap doc_rank=0 span_rank=0 doc_hit@5=0 span_hit@5=0 chance_analytic=0.098039 chance_shuffle_doc=0.000000 chance_shuffle_span=0.000000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label,printed_text_only
+ev-15 arm=A4 split=dev modality=image class=ranked_low doc_rank=9 span_rank=0 doc_hit@5=0 span_hit@5=0 chance_analytic=0.098039 chance_shuffle_doc=0.092000 chance_shuffle_span=0.103000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label,printed_text_only
+ev-15 arm=A5 split=dev modality=image class=ranked_low doc_rank=9 span_rank=0 doc_hit@5=0 span_hit@5=0 chance_analytic=0.098039 chance_shuffle_doc=0.094000 chance_shuffle_span=0.101000 flags=keyword_bigram_dead,clip_vocab_gap,no_span_label,printed_text_only
+
+# --- per arm ---
+note=doc_hit is the week-4 report convention (file match); span_hit needs the returned chunk to overlap the labelled span
+arm=A0 n=15 doc_hit@5=0.333333 [0.151763, 0.582865] (5/15) span_hit@5=0.266667 [0.108975, 0.519504] (4/15) null_doc_chance=0.664207 null_doc_shuffle=0.329800 null_span_shuffle=0.264067 p_doc_vs_chance=1.0000 p_doc_vs_shuffle=0.9470 p_span_vs_shuffle=0.9610
+arm=A0 class=modality_gap count=5
+arm=A0 class=no_recall count=5
+arm=A0 class=wrong_span_same_doc count=1
+arm=A0 class=hit count=4
+arm=A0 flag=clip_vocab_gap count=15
+arm=A0 flag=empty_evidence_text count=1
+arm=A0 flag=free_label count=8
+arm=A0 flag=keyword_bigram_dead count=15
+arm=A0 flag=no_span_label count=7
+arm=A0 flag=printed_text_only count=1
+arm=A1 n=15 doc_hit@5=0.666667 [0.417135, 0.848237] (10/15) span_hit@5=0.533333 [0.301170, 0.751905] (8/15) null_doc_chance=0.664207 null_doc_shuffle=0.628200 null_span_shuffle=0.195667 p_doc_vs_chance=0.7043 p_doc_vs_shuffle=0.5061 p_span_vs_shuffle=0.0005
+arm=A1 class=modality_gap count=5
+arm=A1 class=span_ranked_low count=2
+arm=A1 class=hit count=8
+arm=A1 flag=clip_vocab_gap count=15
+arm=A1 flag=empty_evidence_text count=1
+arm=A1 flag=free_label count=8
+arm=A1 flag=keyword_bigram_dead count=15
+arm=A1 flag=no_span_label count=7
+arm=A1 flag=printed_text_only count=1
+arm=A2 n=15 doc_hit@5=0.333333 [0.151763, 0.582865] (5/15) span_hit@5=0.333333 [0.151763, 0.582865] (5/15) null_doc_chance=0.664207 null_doc_shuffle=0.033400 null_span_shuffle=0.035733 p_doc_vs_chance=1.0000 p_doc_vs_shuffle=0.0000 p_span_vs_shuffle=0.0000
+arm=A2 class=modality_gap count=10
+arm=A2 class=hit count=5
+arm=A2 flag=clip_vocab_gap count=15
+arm=A2 flag=empty_evidence_text count=1
+arm=A2 flag=free_label count=8
+arm=A2 flag=keyword_bigram_dead count=15
+arm=A2 flag=no_span_label count=7
+arm=A2 flag=printed_text_only count=1
+arm=A3 n=15 doc_hit@5=0.666667 [0.417135, 0.848237] (10/15) span_hit@5=0.466667 [0.248095, 0.698830] (7/15) null_doc_chance=0.664207 null_doc_shuffle=0.627267 null_span_shuffle=0.195467 p_doc_vs_chance=0.7043 p_doc_vs_shuffle=0.4963 p_span_vs_shuffle=0.0041
+arm=A3 class=modality_gap count=5
+arm=A3 class=span_ranked_low count=3
+arm=A3 class=hit count=7
+arm=A3 flag=clip_vocab_gap count=15
+arm=A3 flag=empty_evidence_text count=1
+arm=A3 flag=free_label count=8
+arm=A3 flag=keyword_bigram_dead count=15
+arm=A3 flag=no_span_label count=7
+arm=A3 flag=printed_text_only count=1
+arm=A4 n=15 doc_hit@5=0.933333 [0.701835, 0.988133] (14/15) span_hit@5=0.733333 [0.480496, 0.891025] (11/15) null_doc_chance=0.664207 null_doc_shuffle=0.620133 null_span_shuffle=0.183867 p_doc_vs_chance=0.0002 p_doc_vs_shuffle=0.0001 p_span_vs_shuffle=0.0000
+arm=A4 class=ranked_low count=1
+arm=A4 class=span_ranked_low count=3
+arm=A4 class=hit count=11
+arm=A4 flag=clip_vocab_gap count=15
+arm=A4 flag=empty_evidence_text count=1
+arm=A4 flag=free_label count=8
+arm=A4 flag=keyword_bigram_dead count=15
+arm=A4 flag=no_span_label count=7
+arm=A4 flag=printed_text_only count=1
+arm=A5 n=15 doc_hit@5=0.933333 [0.701835, 0.988133] (14/15) span_hit@5=0.733333 [0.480496, 0.891025] (11/15) null_doc_chance=0.664207 null_doc_shuffle=0.620467 null_span_shuffle=0.184800 p_doc_vs_chance=0.0002 p_doc_vs_shuffle=0.0001 p_span_vs_shuffle=0.0000
+arm=A5 class=ranked_low count=1
+arm=A5 class=span_ranked_low count=3
+arm=A5 class=hit count=11
+arm=A5 flag=clip_vocab_gap count=15
+arm=A5 flag=empty_evidence_text count=1
+arm=A5 flag=free_label count=8
+arm=A5 flag=keyword_bigram_dead count=15
+arm=A5 flag=no_span_label count=7
+arm=A5 flag=printed_text_only count=1
+
+# --- per class, all arms ---
+class=modality_gap count=25 ids=ev-01,ev-02,ev-03,ev-04,ev-05,ev-06,ev-07,ev-08,ev-09,ev-10,ev-11,ev-12,ev-13,ev-14,ev-15
+class=no_recall count=5 ids=ev-01,ev-02,ev-03,ev-05,ev-06
+class=ranked_low count=2 ids=ev-15
+class=wrong_span_same_doc count=1 ids=ev-07
+class=span_ranked_low count=11 ids=ev-01,ev-03,ev-07
+class=hit count=46 ids=ev-02,ev-04,ev-05,ev-06,ev-07,ev-08,ev-09,ev-10,ev-11,ev-12,ev-13,ev-14,ev-15
+
+jsonl=E:\Project\accessible-multimodal-retrieval\reports\week4\logs\error_analysis_dev.jsonl

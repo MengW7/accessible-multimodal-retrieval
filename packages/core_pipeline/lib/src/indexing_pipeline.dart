@@ -27,9 +27,9 @@ final class DefaultIndexingPipeline implements IndexingPipeline {
     required this.images,
     required this.textModel,
     required this.imageModel,
-    required this.chunkerVersion,
+    required String chunkerVersion,
     this.documentKeyOf,
-  }) : assert(chunkerVersion != '', 'chunkerVersion must not be empty');
+  }) : chunkerVersion = bindChunkerVersion(chunker, chunkerVersion);
 
   final IndexSource source;
 
@@ -52,6 +52,27 @@ final class DefaultIndexingPipeline implements IndexingPipeline {
   final String Function(FileMetadata metadata)? documentKeyOf;
 
   static const String imageChunkerVersion = 'none';
+
+  /// 文本代次必须用切块器自己的版本串。
+  /// 另写一个常量会让 `sameRecipe` 在窗口已经变了的时候仍复用旧库。
+  static String bindChunkerVersion(TextChunker chunker, String supplied) {
+    if (supplied.isEmpty) {
+      throw ArgumentError.value(
+        supplied,
+        'chunkerVersion',
+        'must not be empty',
+      );
+    }
+    if (chunker is CascadeTextChunker && supplied != chunker.chunkerVersion) {
+      throw ArgumentError.value(
+        supplied,
+        'chunkerVersion',
+        'must equal CascadeTextChunker.chunkerVersion '
+            '(${chunker.chunkerVersion})',
+      );
+    }
+    return supplied;
+  }
 
   @override
   Future<IndexReport> index(

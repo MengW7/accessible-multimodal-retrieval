@@ -351,6 +351,10 @@ Map<String, Object?> _hitJson(
     'relativePath': hit.relativePath,
     'fileName': hit.fileName,
     'pageNumber': hit.pageNumber,
+    // Needed by engine/error_analysis.py to tell "this chunk is the gold span"
+    // apart from "this chunk is the gold span's immediate neighbour", which the
+    // returned snippet also shows.
+    'chunkIndex': hit.chunkIndex,
     'startOffset': hit.startOffset,
     'endOffset': hit.endOffset,
     'score': hit.score,

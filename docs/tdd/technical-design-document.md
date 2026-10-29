@@ -153,7 +153,7 @@ ONNX Runtime 已装在 `engine/.venv`（1.30.0），本周只用它跑 embedding
 
 偏移量单位是 **UTF-16 code unit**，与 `DocumentPage.charCount`（`String.length`）相同。`startOffset` 含首，`endOffset` 不含尾。高亮、切片、引用共用这一单位。
 
-`chunkId` 由内容哈希、分块器版本、页码和块序号组成。只有同一内容哈希、同一分块器版本、同一配置才可复现。文档或参数变了，编号就变。W4 不把它当主键。能否复用见 ADR 0004 决策 4：五项是 `contentHash`、解析器名加版本、`chunkerVersion`、`modelId`、`vectorDim`。`sameRecipe` 把解析器名和版本分计，比较 6 个字段。
+`chunkId` 由内容哈希、分块器版本、页码和块序号组成。只有同一内容哈希、同一分块器版本、同一配置才可复现。文档或参数变了，编号就变。W4 不把它当主键。能否复用见 ADR 0004 决策 4：五项是 `contentHash`、解析器名加版本、`chunkerVersion`、`modelId`、`vectorDim`。`sameRecipe` 把解析器名和版本分计，比较 6 个字段。默认的 120 字、128 token 仍用 `w3-cascade-1`。离开这个窗口时，版本串带上 `c<窗口>-t<上限>`，代次比较因此能看见窗口变化。
 
 跨页合并不做。`sample.pdf` 两页共 4358 字符，大约 2179 字符一页；检索用的块比一页短得多，所以「答案跨页」实际上是「答案跨过相邻块」。W3 保证 `pageNumber` 和偏移被留下来。**跨页答案的邻域扩展由 W4 承接。** 证据集里的跨页题，通过标准也定在 W4。
 

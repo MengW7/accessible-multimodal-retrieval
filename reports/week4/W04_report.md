@@ -109,7 +109,6 @@ E2E-01 到 E2E-12 里，E2E-07 未通过，其余通过。NEI-01 的严格口径
 
 ## 5. 截屏
 
-按第 2 节的用例 ID 排列。UNIT-01 和 DOC-01 没有单独的终端截屏，证据仍是对应日志。CAP-01 与 CAP-02 共用一张图。
 
 ![ANA-01 dart analyze](screenshots/ANA-01-dart-analyze.png)
 

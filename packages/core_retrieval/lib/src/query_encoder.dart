@@ -14,6 +14,29 @@ class QueryVectors {
   final EmbeddingVector? clip;
 }
 
+/// 问句超过了文本塔的 token 预算，无法编码。
+///
+/// 单独成一个类型，而不是把 `TextOverBudgetException` 透出去，是因为调用方
+/// （W5 的界面）要能区分「问句太长」和「向量运行时坏了」：前者要提示用户
+/// 缩短问句，后者要提示重试。两者都不可用同一条错误文案。
+class QueryTooLongException implements Exception {
+  const QueryTooLongException({
+    required this.tokenCount,
+    required this.maxLength,
+    required this.query,
+  });
+
+  final int tokenCount;
+
+  final int maxLength;
+
+  final String query;
+
+  @override
+  String toString() =>
+      'QueryTooLongException: query is $tokenCount tokens, limit is $maxLength.';
+}
+
 /// 一次搜索只编码两次：文档文本一次，MobileCLIP 文本塔一次。
 ///
 /// 文档文本塔收到原问句。图像塔收到 [clipQueryText]：词表命中时是英文词，
@@ -33,7 +56,19 @@ class QueryEncoder {
     cancel?.throwIfCancelled();
     EmbeddingVector? text;
     if (includeDocumentText) {
-      text = await engine.embed(EmbeddingInput.text(query), cancel: cancel);
+      try {
+        text = await engine.embed(EmbeddingInput.text(query), cancel: cancel);
+      } on TextOverBudgetException catch (error) {
+        // The text tower has a 128-token budget and, by design, does not
+        // truncate: `TextEmbedder` raises instead of returning a half-sentence
+        // vector. A query is user input, so "too long" must be a typed error
+        // the caller can explain, not an unhandled crash deep inside search.
+        throw QueryTooLongException(
+          tokenCount: error.tokenCount,
+          maxLength: error.maxLength,
+          query: query,
+        );
+      }
     }
     EmbeddingVector? clip;
     if (includeClipText) {
@@ -48,6 +83,14 @@ class QueryEncoder {
       } on EmbeddingSpaceMismatchException {
         clip = null;
       } on EmbeddingRuntimeException {
+        clip = null;
+      } on TextOverBudgetException {
+        // MobileCLIP's text tower pads to exactly 77 tokens and this encoder
+        // does not truncate. A long query therefore exceeds the budget. That is
+        // a property of the tower, not a failure of the search, so the image
+        // channel is dropped and the text channel still answers. Without this
+        // clause the exception escaped `search()` and a long query crashed
+        // instead of degrading.
         clip = null;
       }
     }
