@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import 'application/app_controller.dart';
 import 'application/search_models.dart';
+import 'accessibility_widgets.dart';
 
 class ResultsPage extends StatelessWidget {
   const ResultsPage({super.key, required this.app});
@@ -12,70 +13,71 @@ class ResultsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final request = app.submittedSearch;
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        if (request != null) ...[
-          SelectableText('本次查询：${request.query}'),
-          Text(
-            '类型：${request.filters.extensions?.join('、') ?? '全部'}；'
-            '相对路径：${request.filters.pathPrefix ?? '不限'}；'
-            '修改时间晚于：${request.filters.modifiedAfter?.toLocal() ?? '不限'}',
-          ),
-          const SizedBox(height: 12),
-        ],
-        Align(
-          alignment: Alignment.centerLeft,
-          child: TextButton(
-            onPressed: () => app.navigate(AppSection.search),
-            child: const Text('修改搜索条件'),
-          ),
-        ),
-        if (app.searchPhase == SearchPhase.loading) ...[
-          Semantics(liveRegion: true, child: const Text('正在检索本地索引…')),
-          const LinearProgressIndicator(semanticsLabel: '正在搜索'),
+    return Semantics(
+      container: true,
+      explicitChildNodes: true,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          if (request != null) ...[
+            SelectableText('本次查询：${request.query}'),
+            Text(
+              '类型：${request.filters.extensions?.join('、') ?? '全部'}；'
+              '相对路径：${request.filters.pathPrefix ?? '不限'}；'
+              '修改时间晚于：${request.filters.modifiedAfter?.toLocal() ?? '不限'}',
+            ),
+            const SizedBox(height: 12),
+          ],
           Align(
             alignment: Alignment.centerLeft,
-            child: OutlinedButton(
-              onPressed: app.cancelCurrentSearch,
-              child: const Text('取消当前搜索'),
+            child: AccessibleControl(
+              child: TextButton(
+                onPressed: () => app.navigate(AppSection.search),
+                child: const Text('修改搜索条件'),
+              ),
             ),
           ),
-        ] else if (app.searchPhase == SearchPhase.emptyLibrary) ...[
-          const Text('索引库为空。请先添加目录并完成建库，再重新搜索。'),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: FilledButton(
-              onPressed: () => app.navigate(AppSection.library),
-              child: const Text('前往文件库'),
+          if (app.searchPhase == SearchPhase.loading) ...[
+            const Text('正在检索本地索引…'),
+            const LinearProgressIndicator(semanticsLabel: '正在搜索'),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: AccessibleControl(
+                child: OutlinedButton(
+                  onPressed: app.cancelCurrentSearch,
+                  child: const Text('取消当前搜索'),
+                ),
+              ),
             ),
-          ),
-        ] else if (app.searchPhase == SearchPhase.noMatches)
-          Semantics(
-            liveRegion: true,
-            child: const Text('当前条件下没有检索结果。请修改查询或清除筛选后重试。'),
-          )
-        else if (app.searchPhase == SearchPhase.failed ||
-            app.searchPhase == SearchPhase.invalid)
-          Semantics(
-            liveRegion: true,
-            child: Text(app.searchError ?? '搜索失败，请返回搜索页面重试。'),
-          )
-        else if (app.searchPhase == SearchPhase.cancelled)
-          const Text('搜索已取消。后台会在当前安全点结束，可重新提交查询。')
-        else if (app.searchPhase == SearchPhase.idle) ...[
-          Text(app.query.isEmpty ? '尚未提交查询。' : '查询草稿：${app.query}'),
-          if (app.searchNotice != null) Text(app.searchNotice!),
-        ] else ...[
-          Semantics(
-            liveRegion: true,
-            child: Text('找到 ${app.results.length} 条结果。'),
-          ),
-          const Text('结果按相关性排序，排序分值不代表正确概率。'),
-          for (var i = 0; i < app.results.length; i++)
-            _result(context, app.results[i], i + 1),
+          ] else if (app.searchPhase == SearchPhase.emptyLibrary) ...[
+            const Text('索引库为空。请先添加目录并完成建库，再重新搜索。'),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: AccessibleControl(
+                child: FilledButton(
+                  onPressed: () => app.navigate(AppSection.library),
+                  child: const Text('前往文件库'),
+                ),
+              ),
+            ),
+          ] else if (app.searchPhase == SearchPhase.noMatches)
+            Semantics(child: const Text('当前条件下没有检索结果。请修改查询或清除筛选后重试。'))
+          else if (app.searchPhase == SearchPhase.failed ||
+              app.searchPhase == SearchPhase.invalid)
+            Semantics(child: Text(app.searchError ?? '搜索失败，请返回搜索页面重试。'))
+          else if (app.searchPhase == SearchPhase.cancelled)
+            const Text('搜索已取消。后台会在当前安全点结束，可重新提交查询。')
+          else if (app.searchPhase == SearchPhase.idle) ...[
+            Text(app.query.isEmpty ? '尚未提交查询。' : '查询草稿：${app.query}'),
+            if (app.searchNotice != null) Text(app.searchNotice!),
+          ] else ...[
+            Semantics(child: Text('找到 ${app.results.length} 条结果。')),
+            const Text('结果按相关性排序，排序分值不代表正确概率。'),
+            for (var i = 0; i < app.results.length; i++)
+              _result(context, app.results[i], i + 1),
+          ],
         ],
-      ],
+      ),
     );
   }
 
@@ -95,17 +97,23 @@ class ResultsPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(
+            accessibleHeading(
+              context,
               '$rank. ${hit.fileName}',
               style: Theme.of(context).textTheme.titleMedium,
             ),
             Text('类型：${image ? '图片' : hit.mimeType ?? '文本'}'),
             if (image) ...[
-              Icon(
-                Icons.image_outlined,
-                semanticLabel: '图片文件：${hit.fileName}，$description',
+              ExcludeSemantics(
+                child: Icon(
+                  Icons.image_outlined,
+                  semanticLabel: '图片文件：${hit.fileName}，$description',
+                ),
               ),
-              Text(description),
+              Text(
+                description,
+                semanticsLabel: '图片文件：${hit.fileName}，$description',
+              ),
               const Text('此结果显示文件元数据，未生成图像内容描述。'),
             ] else
               SelectableText(hit.snippet),
@@ -122,18 +130,25 @@ class ResultsPage extends StatelessWidget {
             const SizedBox(height: 8),
             Align(
               alignment: Alignment.centerLeft,
-              child: OutlinedButton.icon(
-                onPressed: opening || app.fileOpener == null || app.shuttingDown
-                    ? null
-                    : () => app.openResult(hit),
-                icon: const Icon(Icons.open_in_new),
-                label: Text(opening ? '正在请求打开…' : '打开原文件'),
+              child: AccessibleControl(
+                child: OutlinedButton.icon(
+                  onPressed:
+                      opening || app.fileOpener == null || app.shuttingDown
+                      ? null
+                      : () => app.openResult(hit),
+                  icon: const Icon(Icons.open_in_new),
+                  label: Text(
+                    opening ? '正在请求打开…' : '打开原文件',
+                    semanticsLabel: opening
+                        ? '正在请求打开 ${hit.fileName}'
+                        : '打开原文件：${hit.fileName}',
+                  ),
+                ),
               ),
             ),
             const Text('系统查看器可能无法直接定位到上述页或片段。'),
             if (outcome != null)
               Semantics(
-                liveRegion: true,
                 child: Text(
                   outcome.message,
                   style: outcome.status == FileOpenStatus.requested

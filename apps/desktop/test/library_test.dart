@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:core_storage/core_storage.dart';
 import 'package:desktop/src/app.dart';
+import 'package:desktop/src/library_page.dart';
 import 'package:desktop/src/application/app_controller.dart';
 import 'package:desktop/src/application/library_models.dart';
 import 'package:desktop/src/application/library_service.dart';
@@ -134,7 +135,13 @@ void main() {
       await tester.tap(find.text('取消索引任务'));
       await tester.pump();
       expect(library.cancellations, 1);
-      expect(find.textContaining('正在取消'), findsOneWidget);
+      expect(
+        find.descendant(
+          of: find.byType(LibraryPage),
+          matching: find.textContaining('正在取消'),
+        ),
+        findsOneWidget,
+      );
       final run = LibraryRun(
         root: r'C:\data',
         finishedAt: DateTime(2026),
@@ -145,7 +152,13 @@ void main() {
       );
       library.pending.complete(LibraryResult(run: run, snapshot: empty));
       await tester.pumpAndSettle();
-      expect(find.textContaining('已取消：新写入 1'), findsOneWidget);
+      expect(
+        find.descendant(
+          of: find.byType(LibraryPage),
+          matching: find.textContaining('已取消：新写入 1'),
+        ),
+        findsOneWidget,
+      );
       expect(app.canIndex, isTrue);
     },
   );
@@ -172,7 +185,13 @@ void main() {
       await tester.tap(find.text('确认清除索引'));
       await tester.pumpAndSettle();
       expect(library.clears, 1);
-      expect(find.text('索引及目录记录已清除，源文件保留。'), findsOneWidget);
+      expect(
+        find.descendant(
+          of: find.byType(LibraryPage),
+          matching: find.text('索引及目录记录已清除，源文件保留。'),
+        ),
+        findsOneWidget,
+      );
     },
   );
 
@@ -203,7 +222,13 @@ void main() {
       library.pending.complete(LibraryResult(run: run, snapshot: empty));
       await tester.pumpAndSettle();
       expect(find.text('Permission denied.'), findsOneWidget);
-      expect(find.textContaining('失败：新写入 0'), findsOneWidget);
+      expect(
+        find.descendant(
+          of: find.byType(LibraryPage),
+          matching: find.textContaining('失败：新写入 0'),
+        ),
+        findsOneWidget,
+      );
       expect(app.canIndex, isTrue);
     },
   );

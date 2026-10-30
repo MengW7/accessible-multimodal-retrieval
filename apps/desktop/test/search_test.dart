@@ -6,6 +6,7 @@ import 'package:core_parsing/core_parsing.dart';
 import 'package:core_retrieval/core_retrieval.dart';
 import 'package:core_storage/core_storage.dart';
 import 'package:desktop/src/app.dart';
+import 'package:desktop/src/results_page.dart';
 import 'package:desktop/src/application/app_controller.dart';
 import 'package:desktop/src/application/search_models.dart';
 import 'package:desktop/src/runtime/file_opener.dart';
@@ -333,7 +334,13 @@ void main() {
       await tester.tap(find.text('打开原文件').first);
       await tester.pumpAndSettle();
       expect(opener.path, hit('text.pdf').documentKey);
-      expect(find.text('已请求系统打开'), findsOneWidget);
+      expect(
+        find.descendant(
+          of: find.byType(ResultsPage),
+          matching: find.text('已请求系统打开'),
+        ),
+        findsOneWidget,
+      );
     },
   );
   testWidgets('clear filters resets the visible fields and type choice', (

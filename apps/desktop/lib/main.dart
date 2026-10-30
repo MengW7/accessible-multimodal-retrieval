@@ -12,6 +12,7 @@ import 'src/runtime/library_worker.dart';
 import 'src/runtime/library_smoke.dart';
 import 'src/runtime/window_lifecycle.dart';
 import 'src/runtime/file_opener.dart';
+import 'src/runtime/display_settings_store.dart';
 
 Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -43,6 +44,9 @@ Future<void> main(List<String> args) async {
     searchService: worker,
     fileOpener: NativeFileOpener(),
     directoryPicker: const NativeDirectoryPicker(),
+    settingsStore: config.configurationErrors.isEmpty
+        ? FileDisplaySettingsStore(config.dataDirectory)
+        : null,
   );
   bindWindowLifecycle(controller);
   runApp(RetrievalApp(controller: controller));
