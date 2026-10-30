@@ -1,0 +1,78 @@
+{
+  "ok": false,
+  "startup": {
+    "ready": false,
+    "mode": "development",
+    "resourceRoot": "E:\\Project\\accessible-multimodal-retrieval",
+    "databasePath": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-runtime-b249d89eafdb4031983f43cef05a30de\\missing_java\\library.sqlite",
+    "documents": 0,
+    "chunks": 0,
+    "checks": [
+      {
+        "name": "开发运行时",
+        "status": "warning",
+        "detail": "当前使用外部 Python/ONNX 开发环境，不能作为独立发布包验收。"
+      },
+      {
+        "name": "Python",
+        "status": "passed",
+        "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\engine\\.venv\\Scripts\\python.exe"
+      },
+      {
+        "name": "嵌入服务",
+        "status": "passed",
+        "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\engine\\embed_server.py"
+      },
+      {
+        "name": "嵌入服务辅助模块",
+        "status": "passed",
+        "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\engine\\w3_embed_lib.py"
+      },
+      {
+        "name": "文本分词器",
+        "status": "passed",
+        "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\text\\paraphrase-multilingual-MiniLM-L12-v2\\tokenizer.json"
+      },
+      {
+        "name": "文本模型",
+        "status": "passed",
+        "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\text\\paraphrase-multilingual-MiniLM-L12-v2\\onnx\\model.onnx"
+      },
+      {
+        "name": "图像模型",
+        "status": "passed",
+        "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\image\\mobileclip-s0\\onnx\\vision_model.onnx"
+      },
+      {
+        "name": "图文文本模型",
+        "status": "passed",
+        "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\image\\mobileclip-s0\\onnx\\text_model.onnx"
+      },
+      {
+        "name": "图文分词器",
+        "status": "passed",
+        "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\image\\mobileclip-s0\\tokenizer.json"
+      },
+      {
+        "name": "PDF 解析器",
+        "status": "passed",
+        "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\tools\\tika-app\\tika-app-4.0.0.jar"
+      },
+      {
+        "name": "Python 模块",
+        "status": "passed",
+        "detail": "E:\\Project\\accessible-multimodal-retrieval\\engine\\.venv\\Scripts\\python.exe；exit=0；onnxruntime=1.30.0"
+      },
+      {
+        "name": "Java",
+        "status": "blocked",
+        "detail": "无法运行 E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-runtime-b249d89eafdb4031983f43cef05a30de\\no-java.exe：ProcessException: The system cannot find the file specified (at ../../../flutter/third_party/dart/runtime/bin/process_win.cc:579)\n  Command: E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-runtime-b249d89eafdb4031983f43cef05a30de\\no-java.exe -version"
+      },
+      {
+        "name": "SQLite / 数据目录",
+        "status": "passed",
+        "detail": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-runtime-b249d89eafdb4031983f43cef05a30de\\missing_java\\library.sqlite；文档 0，块 0"
+      }
+    ]
+  }
+}

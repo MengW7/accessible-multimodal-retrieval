@@ -1,0 +1,18 @@
+[
+  {
+    "Path": "E:\\Project\\accessible-multimodal-retrieval\\apps\\desktop\\build\\windows\\x64\\runner\\Release\\desktop.exe",
+    "Hash": "31B5A4F0E81FE42747D423FAF52AFA3355D29158E7F4B69E436A33E67B54915B"
+  },
+  {
+    "Path": "E:\\Project\\accessible-multimodal-retrieval\\apps\\desktop\\build\\windows\\x64\\runner\\Release\\flutter_windows.dll",
+    "Hash": "8BD7B61EEE31AA436EDB182DB41624D1CD3B2688A7E03622320DBEAE067B5251"
+  },
+  {
+    "Path": "E:\\Project\\accessible-multimodal-retrieval\\apps\\desktop\\build\\windows\\x64\\runner\\Release\\data\\app.so",
+    "Hash": "17D26034E7B933233B2F3F2667839BD4028147EF099C465BEC29C0D2CBF34334"
+  },
+  {
+    "Path": "E:\\Project\\accessible-multimodal-retrieval\\apps\\desktop\\build\\windows\\x64\\runner\\Release\\data\\icudtl.dat",
+    "Hash": "325A86063D26334C2EABE1743CEA073B612540FBF3D8FC2EF0B5708E3763A8C7"
+  }
+]

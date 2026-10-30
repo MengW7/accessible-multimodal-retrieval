@@ -1,0 +1,30 @@
+Window: "desktop", App: desktop.exe.
+	0 window desktop Secondary Actions: Raise
+		1 pane
+			3350 group
+				3351 group
+					3352 group
+						3353 group
+							3354 group
+								3355 group 本地内容检索
+							3356 group
+								3357 text 文件库 Tab 1 of 4
+								3358 text 搜索 Tab 2 of 4
+								3359 text 结果 Tab 3 of 4
+								3360 text 设置 Tab 4 of 4
+							3361 group
+								3362 group
+									3363 text 结果
+									3364 group
+										3365 group 运行依赖尚未就绪，请在设置中查看并处理。
+											3366 button 查看依赖详情
+									3367 text 尚未提交查询。
+									3368 text 尚无查询结果。提交查询后将在此显示文件、出处和内容片段。
+		24 title bar (settable, string) Value: desktop
+			25 menu bar System ID: MenuBar
+				1175 menu item System
+			27 button Minimize
+			28 button Maximize
+			29 button Close
+
+The focused UI element is 1 pane.

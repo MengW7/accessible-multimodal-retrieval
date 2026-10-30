@@ -1,0 +1,14 @@
+[
+  {
+    "Path": "E:\\Project\\accessible-multimodal-retrieval\\reports\\week5\\evidence_set_w5.jsonl",
+    "Hash": "6DDB062DD23B10909D4EA3EDB27A4F69BD2F8CCE0B91A8D4604B008E488AC428"
+  },
+  {
+    "Path": "E:\\Project\\accessible-multimodal-retrieval\\reports\\week5\\evidence_set_w5_nofile.jsonl",
+    "Hash": "4660E89D32A004A2D8BCF1DCC39193C1E4FE1E1B8617B32DA9FCCBBA51FCB4AE"
+  },
+  {
+    "Path": "E:\\Project\\accessible-multimodal-retrieval\\reports\\week5\\.index\\bench.sqlite",
+    "Hash": "7B2C6A19A78742496DE227CB3D5608B504FB9FA6B096119A4D8ABBFB54E30D14"
+  }
+]

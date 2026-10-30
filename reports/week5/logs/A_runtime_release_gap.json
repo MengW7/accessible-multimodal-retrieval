@@ -1,0 +1,23 @@
+{
+  "ok": false,
+  "startup": {
+    "ready": false,
+    "mode": "release",
+    "resourceRoot": "E:\\Project\\accessible-multimodal-retrieval\\apps\\desktop\\build\\windows\\x64\\runner\\Release\\runtime",
+    "databasePath": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-runtime-b249d89eafdb4031983f43cef05a30de\\release_gap\\library.sqlite",
+    "documents": 0,
+    "chunks": 0,
+    "checks": [
+      {
+        "name": "生产嵌入运行时",
+        "status": "blocked",
+        "detail": "生产推理适配器尚未接通。开发验证需显式设置 AMR_DEV_ROOT；engine/Python 不属于正式发布包。"
+      },
+      {
+        "name": "SQLite / 数据目录",
+        "status": "passed",
+        "detail": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-runtime-b249d89eafdb4031983f43cef05a30de\\release_gap\\library.sqlite；文档 0，块 0"
+      }
+    ]
+  }
+}

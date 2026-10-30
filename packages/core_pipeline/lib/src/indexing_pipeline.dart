@@ -96,6 +96,8 @@ final class DefaultIndexingPipeline implements IndexingPipeline {
         cancelled = true;
         break;
       }
+      IndexFileOutcome fileOutcome;
+      String? errorMessage;
       try {
         final _FileOutcome outcome = await _indexFile(
           record,
@@ -104,20 +106,36 @@ final class DefaultIndexingPipeline implements IndexingPipeline {
         );
         if (outcome.reused) {
           reused += 1;
+          fileOutcome = IndexFileOutcome.reused;
         } else {
           written += 1;
           chunksWritten += outcome.chunks;
+          fileOutcome = IndexFileOutcome.written;
         }
       } on CancelledException {
         cancelled = true;
         break;
-      } on Object {
+      } on Object catch (error) {
         failed += 1;
+        fileOutcome = IndexFileOutcome.failed;
+        errorMessage = error.toString();
       }
       processed += 1;
       onProgress?.call(
-        IndexProgress(processed: processed, total: records.length),
+        IndexProgress(
+          processed: processed,
+          total: records.length,
+          path: record.metadata.path,
+          outcome: fileOutcome,
+          errorMessage: errorMessage,
+          written: written,
+          reused: reused,
+          failed: failed,
+        ),
       );
+      // Let worker-isolate ports deliver cancellation even when SQLite reuse
+      // completes only through microtasks and no new inference is needed.
+      await Future<void>.delayed(Duration.zero);
     }
     return IndexReport(
       documents: records.length,
@@ -191,13 +209,13 @@ final class DefaultIndexingPipeline implements IndexingPipeline {
         ),
         cancel: cancel,
       );
-      chunks.add(
-        _imageChunk(metadata, documentId: documentId, asset: asset),
-      );
+      chunks.add(_imageChunk(metadata, documentId: documentId, asset: asset));
       vectors.add(vector);
     }
     if (chunks.isEmpty) {
-      throw StateError('Indexable file ${metadata.relativePath} has no chunks.');
+      throw StateError(
+        'Indexable file ${metadata.relativePath} has no chunks.',
+      );
     }
     await store.write(chunks, vectors);
     return _FileOutcome.wrote(chunks.length);

@@ -1,0 +1,2 @@
+Building Windows application...                                    43.2s
+√ Built build\windows\x64\runner\Release\desktop.exe

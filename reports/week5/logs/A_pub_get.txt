@@ -1,0 +1,13 @@
+Resolving dependencies...
+Downloading packages...
+  meta 1.18.3 (1.19.0 available)
+  petitparser 7.0.2 (7.1.0 available)
+  test_api 0.7.12 (0.7.15 available)
+  vm_service 15.3.0 (15.4.0 available)
+These packages are no longer being depended on:
+- plugin_platform_interface 2.1.8
+- quiver 3.2.2
+- tflite_flutter 0.12.1
+Changed 3 dependencies!
+4 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.

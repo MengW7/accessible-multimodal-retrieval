@@ -120,6 +120,11 @@ week4/.index/
 week4/.chroma/
 reports/week4/.index/
 
+# Week 5 desktop runtime smoke and demo indexes (evidence stays in reports).
+/tmp/w05-runtime-*/
+/tmp/w05-library-*/
+/tmp/desktop-demo/
+
 # Symbols
 app.*.symbols
 

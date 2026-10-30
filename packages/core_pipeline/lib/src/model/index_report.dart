@@ -1,13 +1,34 @@
 import 'package:meta/meta.dart';
 
+enum IndexFileOutcome { written, reused, failed }
+
 /// 建库进度。两个数都要有，界面才能报「第几份，共几份」。
 @immutable
 class IndexProgress {
-  const IndexProgress({required this.processed, required this.total});
+  const IndexProgress({
+    required this.processed,
+    required this.total,
+    this.path,
+    this.outcome,
+    this.errorMessage,
+    this.written = 0,
+    this.reused = 0,
+    this.failed = 0,
+  });
 
   final int processed;
 
   final int total;
+
+  /// Absolute source path and outcome of the last completed file. Null for
+  /// the initial event. Counts only embedding/storage; parse failures belong
+  /// to the source's IngestionReport.
+  final String? path;
+  final IndexFileOutcome? outcome;
+  final String? errorMessage;
+  final int written;
+  final int reused;
+  final int failed;
 }
 
 /// 一次建库的计数。

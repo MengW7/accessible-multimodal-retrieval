@@ -1,0 +1,29 @@
+00:00 +0: loading test\embed_server_test.dart
+00:00 +0: test\embed_server_test.dart: a split frame is reassembled
+00:00 +1: test\indexing_pipeline_test.dart: progress identifies written, reused and failed files with cumulative counts
+00:00 +2: test\indexing_pipeline_test.dart: progress identifies written, reused and failed files with cumulative counts
+00:00 +3: test\indexing_pipeline_test.dart: progress identifies written, reused and failed files with cumulative counts
+00:00 +4: test\embed_server_test.dart: a structured error keeps the same process
+00:00 +5: test\indexing_pipeline_test.dart: event-loop cancellation interrupts a fast sequence of reused files
+00:00 +6: test\embed_server_test.dart: a dart subprocess echoes one length-prefixed frame
+00:00 +7: test\embed_server_test.dart: a dart subprocess echoes one length-prefixed frame
+00:00 +8: test\embed_server_test.dart: a dart subprocess echoes one length-prefixed frame
+00:00 +9: test\embed_server_test.dart: a dart subprocess echoes one length-prefixed frame
+00:00 +10: test\embed_server_test.dart: a dart subprocess echoes one length-prefixed frame
+00:00 +11: test\embed_server_test.dart: a dart subprocess echoes one length-prefixed frame
+00:00 +12: test\embed_server_test.dart: a dart subprocess echoes one length-prefixed frame
+00:00 +13: test\embed_server_test.dart: a dart subprocess echoes one length-prefixed frame
+00:00 +14: test\embed_server_test.dart: a dart subprocess echoes one length-prefixed frame
+00:00 +15: test\embed_server_test.dart: a dart subprocess echoes one length-prefixed frame
+00:00 +16: test\embed_server_test.dart: a dart subprocess echoes one length-prefixed frame
+00:00 +17: test\embed_server_test.dart: a dart subprocess echoes one length-prefixed frame
+00:00 +18: test\embed_server_test.dart: a dart subprocess echoes one length-prefixed frame
+00:00 +19: test\embed_server_test.dart: a dart subprocess echoes one length-prefixed frame
+00:00 +20: test\embed_server_test.dart: a dart subprocess echoes one length-prefixed frame
+00:00 +21: test\embed_server_test.dart: a response id that does not match drops the connection
+00:00 +22: test\embed_server_test.dart: an unavailable runtime refuses to run
+00:00 +23: test\embed_server_test.dart: float32 int32 and uint8 inputs keep their dtypes
+00:00 +24: test\embed_server_test.dart: a tensor whose bytes do not match its dtype is rejected
+00:00 +25: test\embed_server_test.dart: a bad vector payload is a bad output
+00:00 +26: test\embed_server_test.dart: the python factory only checks that the three files exist
+00:00 +27: All tests passed!
