@@ -2,6 +2,7 @@
 
 #include <optional>
 #include <shobjidl.h>
+#include <shellapi.h>
 #include <flutter/standard_method_codec.h>
 #include <flutter/method_result_functions.h>
 
@@ -83,6 +84,44 @@ bool FlutterWindow::OnCreate() {
             std::to_string(static_cast<long>(status)) + "). Enter an absolute path instead.");
       });
 
+  file_channel_ = std::make_unique<flutter::MethodChannel<flutter::EncodableValue>>(
+      flutter_controller_->engine()->messenger(), "accessible_retrieval/files",
+      &flutter::StandardMethodCodec::GetInstance());
+  file_channel_->SetMethodCallHandler([this](const auto& call, auto result) {
+    if (call.method_name() != "openFile") { result->NotImplemented(); return; }
+    const auto* path = call.arguments() ? std::get_if<std::string>(call.arguments()) : nullptr;
+    if (!path || path->empty() || path->find('\0') != std::string::npos) {
+      result->Error("invalid_path", "A complete local source path is required.");
+      return;
+    }
+    const int length = MultiByteToWideChar(CP_UTF8, MB_ERR_INVALID_CHARS,
+        path->data(), static_cast<int>(path->size()), nullptr, 0);
+    if (length <= 0) { result->Error("invalid_path", "Source path is not valid UTF-8."); return; }
+    std::wstring wide(static_cast<size_t>(length), L'\0');
+    MultiByteToWideChar(CP_UTF8, MB_ERR_INVALID_CHARS, path->data(),
+        static_cast<int>(path->size()), wide.data(), length);
+    const DWORD attributes = GetFileAttributesW(wide.c_str());
+    if (attributes == INVALID_FILE_ATTRIBUTES) {
+      const DWORD error = GetLastError();
+      result->Error(error == ERROR_FILE_NOT_FOUND || error == ERROR_PATH_NOT_FOUND
+          ? "source_missing" : "open_failed", "Source is missing or inaccessible.");
+      return;
+    }
+    if (attributes & FILE_ATTRIBUTE_DIRECTORY) {
+      result->Error("source_missing", "Source path refers to a directory.");
+      return;
+    }
+    // lpParameters is null: filenames are never interpreted as shell command
+    // text. This reports OS acceptance, not viewer navigation to a page/span.
+    const auto status = reinterpret_cast<INT_PTR>(ShellExecuteW(GetHandle(), L"open",
+        wide.c_str(), nullptr, nullptr, SW_SHOWNORMAL));
+    if (status <= 32) {
+      result->Error("open_failed", "Windows could not open the file (code " + std::to_string(status) + ").");
+      return;
+    }
+    result->Success();
+  });
+
   flutter_controller_->engine()->SetNextFrameCallback([&]() {
     this->Show();
   });
@@ -97,6 +136,7 @@ bool FlutterWindow::OnCreate() {
 
 void FlutterWindow::OnDestroy() {
   lifecycle_channel_.reset();
+  file_channel_.reset();
   directory_channel_.reset();
   if (flutter_controller_) {
     flutter_controller_ = nullptr;

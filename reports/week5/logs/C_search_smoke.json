@@ -1,0 +1,939 @@
+{
+  "ok": true,
+  "databasePath": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-search-582e4512\\index\\library.sqlite",
+  "fixtureRoot": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-search-582e4512\\fixtures",
+  "osInteractions": false,
+  "emptyLibrary": true,
+  "indexed": {
+    "roots": [
+      {
+        "root": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-search-582e4512\\fixtures",
+        "finishedAt": "2026-10-30T11:05:47.643586",
+        "written": 6,
+        "reused": 0,
+        "cancelled": false,
+        "files": [
+          {
+            "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-search-582e4512\\fixtures\\images\\sample.png",
+            "status": "indexed",
+            "detail": null,
+            "warning": false
+          },
+          {
+            "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-search-582e4512\\fixtures\\notes%_archive\\special.txt",
+            "status": "indexed",
+            "detail": null,
+            "warning": false
+          },
+          {
+            "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-search-582e4512\\fixtures\\notes\\recent.txt",
+            "status": "indexed",
+            "detail": null,
+            "warning": false
+          },
+          {
+            "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-search-582e4512\\fixtures\\notes\\sample.pdf",
+            "status": "indexed",
+            "detail": null,
+            "warning": false
+          },
+          {
+            "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-search-582e4512\\fixtures\\old\\old.md",
+            "status": "indexed",
+            "detail": null,
+            "warning": false
+          },
+          {
+            "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-search-582e4512\\fixtures\\root.txt",
+            "status": "indexed",
+            "detail": null,
+            "warning": false
+          }
+        ]
+      }
+    ],
+    "stats": {
+      "documents": 6,
+      "chunks": 80,
+      "documentText": 79,
+      "clipShared": 1,
+      "keywordTerms": 66
+    }
+  },
+  "cases": {
+    "all": {
+      "request": {
+        "query": "离线检索",
+        "topK": 20,
+        "extensions": null,
+        "pathPrefix": null,
+        "modifiedAfter": null,
+        "modality": null
+      },
+      "indexedDocuments": 6,
+      "hits": [
+        {
+          "fileName": "special.txt",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes%_archive/special.txt",
+          "relativePath": "notes%_archive/special.txt",
+          "pageNumber": null,
+          "startOffset": 0,
+          "endOffset": 16,
+          "modality": "text",
+          "score": 0.012574404761904762,
+          "image": null
+        },
+        {
+          "fileName": "recent.txt",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/recent.txt",
+          "relativePath": "notes/recent.txt",
+          "pageNumber": null,
+          "startOffset": 0,
+          "endOffset": 27,
+          "modality": "text",
+          "score": 0.01124714671093588,
+          "image": null
+        },
+        {
+          "fileName": "old.md",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/old/old.md",
+          "relativePath": "old/old.md",
+          "pageNumber": null,
+          "startOffset": 16,
+          "endOffset": 34,
+          "modality": "text",
+          "score": 0.010652663165791448,
+          "image": null
+        },
+        {
+          "fileName": "root.txt",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/root.txt",
+          "relativePath": "root.txt",
+          "pageNumber": null,
+          "startOffset": 0,
+          "endOffset": 20,
+          "modality": "text",
+          "score": 0.009360397196261682,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 1,
+          "startOffset": 1318,
+          "endOffset": 1328,
+          "modality": "text",
+          "score": 0.00819672131147541,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 2,
+          "startOffset": 1339,
+          "endOffset": 1349,
+          "modality": "text",
+          "score": 0.008064516129032258,
+          "image": null
+        },
+        {
+          "fileName": "sample.png",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/images/sample.png",
+          "relativePath": "images/sample.png",
+          "pageNumber": null,
+          "startOffset": 0,
+          "endOffset": 0,
+          "modality": "image",
+          "score": 0.008032786885245901,
+          "image": {
+            "format": "png",
+            "width": 1186,
+            "height": 1137,
+            "colorMode": "rgb",
+            "orientation": null
+          }
+        },
+        {
+          "fileName": "old.md",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/old/old.md",
+          "relativePath": "old/old.md",
+          "pageNumber": null,
+          "startOffset": 0,
+          "endOffset": 15,
+          "modality": "text",
+          "score": 0.007936507936507936,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 1,
+          "startOffset": 970,
+          "endOffset": 1033,
+          "modality": "text",
+          "score": 0.007692307692307693,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 2,
+          "startOffset": 986,
+          "endOffset": 1049,
+          "modality": "text",
+          "score": 0.007575757575757576,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 1,
+          "startOffset": 961,
+          "endOffset": 966,
+          "modality": "text",
+          "score": 0.007462686567164179,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 2,
+          "startOffset": 976,
+          "endOffset": 981,
+          "modality": "text",
+          "score": 0.007352941176470588,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 1,
+          "startOffset": 50,
+          "endOffset": 66,
+          "modality": "text",
+          "score": 0.007246376811594203,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 2,
+          "startOffset": 52,
+          "endOffset": 68,
+          "modality": "text",
+          "score": 0.007142857142857143,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 1,
+          "startOffset": 1118,
+          "endOffset": 1197,
+          "modality": "text",
+          "score": 0.007042253521126761,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 2,
+          "startOffset": 1136,
+          "endOffset": 1215,
+          "modality": "text",
+          "score": 0.006944444444444444,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 1,
+          "startOffset": 745,
+          "endOffset": 759,
+          "modality": "text",
+          "score": 0.00684931506849315,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 2,
+          "startOffset": 756,
+          "endOffset": 770,
+          "modality": "text",
+          "score": 0.006756756756756757,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 1,
+          "startOffset": 1881,
+          "endOffset": 1944,
+          "modality": "text",
+          "score": 0.006666666666666667,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 2,
+          "startOffset": 1915,
+          "endOffset": 1978,
+          "modality": "text",
+          "score": 0.006578947368421052,
+          "image": null
+        }
+      ]
+    },
+    "pdf": {
+      "request": {
+        "query": "离线检索",
+        "topK": 20,
+        "extensions": [
+          ".pdf"
+        ],
+        "pathPrefix": null,
+        "modifiedAfter": null,
+        "modality": null
+      },
+      "indexedDocuments": 6,
+      "hits": [
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 1,
+          "startOffset": 1318,
+          "endOffset": 1328,
+          "modality": "text",
+          "score": 0.00819672131147541,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 2,
+          "startOffset": 1339,
+          "endOffset": 1349,
+          "modality": "text",
+          "score": 0.008064516129032258,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 1,
+          "startOffset": 970,
+          "endOffset": 1033,
+          "modality": "text",
+          "score": 0.007936507936507936,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 2,
+          "startOffset": 986,
+          "endOffset": 1049,
+          "modality": "text",
+          "score": 0.0078125,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 1,
+          "startOffset": 961,
+          "endOffset": 966,
+          "modality": "text",
+          "score": 0.007692307692307693,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 2,
+          "startOffset": 976,
+          "endOffset": 981,
+          "modality": "text",
+          "score": 0.007575757575757576,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 1,
+          "startOffset": 50,
+          "endOffset": 66,
+          "modality": "text",
+          "score": 0.007462686567164179,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 2,
+          "startOffset": 52,
+          "endOffset": 68,
+          "modality": "text",
+          "score": 0.007352941176470588,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 1,
+          "startOffset": 1118,
+          "endOffset": 1197,
+          "modality": "text",
+          "score": 0.007246376811594203,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 2,
+          "startOffset": 1136,
+          "endOffset": 1215,
+          "modality": "text",
+          "score": 0.007142857142857143,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 1,
+          "startOffset": 745,
+          "endOffset": 759,
+          "modality": "text",
+          "score": 0.007042253521126761,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 2,
+          "startOffset": 756,
+          "endOffset": 770,
+          "modality": "text",
+          "score": 0.006944444444444444,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 1,
+          "startOffset": 1881,
+          "endOffset": 1944,
+          "modality": "text",
+          "score": 0.00684931506849315,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 2,
+          "startOffset": 1915,
+          "endOffset": 1978,
+          "modality": "text",
+          "score": 0.006756756756756757,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 1,
+          "startOffset": 1602,
+          "endOffset": 1663,
+          "modality": "text",
+          "score": 0.006666666666666667,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 2,
+          "startOffset": 1631,
+          "endOffset": 1692,
+          "modality": "text",
+          "score": 0.006578947368421052,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 1,
+          "startOffset": 1769,
+          "endOffset": 1820,
+          "modality": "text",
+          "score": 0.006493506493506494,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 2,
+          "startOffset": 1801,
+          "endOffset": 1852,
+          "modality": "text",
+          "score": 0.00641025641025641,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 1,
+          "startOffset": 2054,
+          "endOffset": 2115,
+          "modality": "text",
+          "score": 0.006329113924050633,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 2,
+          "startOffset": 2091,
+          "endOffset": 2152,
+          "modality": "text",
+          "score": 0.00625,
+          "image": null
+        }
+      ]
+    },
+    "images": {
+      "request": {
+        "query": "图片",
+        "topK": 20,
+        "extensions": [
+          ".jpg",
+          ".jpeg",
+          ".png"
+        ],
+        "pathPrefix": null,
+        "modifiedAfter": null,
+        "modality": null
+      },
+      "indexedDocuments": 6,
+      "hits": [
+        {
+          "fileName": "sample.png",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/images/sample.png",
+          "relativePath": "images/sample.png",
+          "pageNumber": null,
+          "startOffset": 0,
+          "endOffset": 0,
+          "modality": "image",
+          "score": 0.008032786885245901,
+          "image": {
+            "format": "png",
+            "width": 1186,
+            "height": 1137,
+            "colorMode": "rgb",
+            "orientation": null
+          }
+        }
+      ]
+    },
+    "directory": {
+      "request": {
+        "query": "离线检索",
+        "topK": 20,
+        "extensions": null,
+        "pathPrefix": "notes",
+        "modifiedAfter": null,
+        "modality": null
+      },
+      "indexedDocuments": 6,
+      "hits": [
+        {
+          "fileName": "recent.txt",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/recent.txt",
+          "relativePath": "notes/recent.txt",
+          "pageNumber": null,
+          "startOffset": 0,
+          "endOffset": 27,
+          "modality": "text",
+          "score": 0.01141153928039174,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 1,
+          "startOffset": 1318,
+          "endOffset": 1328,
+          "modality": "text",
+          "score": 0.00819672131147541,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 2,
+          "startOffset": 1339,
+          "endOffset": 1349,
+          "modality": "text",
+          "score": 0.008064516129032258,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 1,
+          "startOffset": 970,
+          "endOffset": 1033,
+          "modality": "text",
+          "score": 0.007936507936507936,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 2,
+          "startOffset": 986,
+          "endOffset": 1049,
+          "modality": "text",
+          "score": 0.0078125,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 1,
+          "startOffset": 961,
+          "endOffset": 966,
+          "modality": "text",
+          "score": 0.007692307692307693,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 2,
+          "startOffset": 976,
+          "endOffset": 981,
+          "modality": "text",
+          "score": 0.007575757575757576,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 1,
+          "startOffset": 50,
+          "endOffset": 66,
+          "modality": "text",
+          "score": 0.007462686567164179,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 2,
+          "startOffset": 52,
+          "endOffset": 68,
+          "modality": "text",
+          "score": 0.007352941176470588,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 1,
+          "startOffset": 1118,
+          "endOffset": 1197,
+          "modality": "text",
+          "score": 0.007246376811594203,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 2,
+          "startOffset": 1136,
+          "endOffset": 1215,
+          "modality": "text",
+          "score": 0.007142857142857143,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 1,
+          "startOffset": 745,
+          "endOffset": 759,
+          "modality": "text",
+          "score": 0.007042253521126761,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 2,
+          "startOffset": 756,
+          "endOffset": 770,
+          "modality": "text",
+          "score": 0.006944444444444444,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 1,
+          "startOffset": 1881,
+          "endOffset": 1944,
+          "modality": "text",
+          "score": 0.00684931506849315,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 2,
+          "startOffset": 1915,
+          "endOffset": 1978,
+          "modality": "text",
+          "score": 0.006756756756756757,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 1,
+          "startOffset": 1602,
+          "endOffset": 1663,
+          "modality": "text",
+          "score": 0.006666666666666667,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 2,
+          "startOffset": 1631,
+          "endOffset": 1692,
+          "modality": "text",
+          "score": 0.006578947368421052,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 1,
+          "startOffset": 1769,
+          "endOffset": 1820,
+          "modality": "text",
+          "score": 0.00641025641025641,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 2,
+          "startOffset": 1801,
+          "endOffset": 1852,
+          "modality": "text",
+          "score": 0.006329113924050633,
+          "image": null
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/sample.pdf",
+          "relativePath": "notes/sample.pdf",
+          "pageNumber": 1,
+          "startOffset": 2054,
+          "endOffset": 2115,
+          "modality": "text",
+          "score": 0.00625,
+          "image": null
+        }
+      ]
+    },
+    "exactFile": {
+      "request": {
+        "query": "离线检索",
+        "topK": 20,
+        "extensions": null,
+        "pathPrefix": "notes/recent.txt",
+        "modifiedAfter": null,
+        "modality": null
+      },
+      "indexedDocuments": 6,
+      "hits": [
+        {
+          "fileName": "recent.txt",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/recent.txt",
+          "relativePath": "notes/recent.txt",
+          "pageNumber": null,
+          "startOffset": 0,
+          "endOffset": 27,
+          "modality": "text",
+          "score": 0.013114754098360656,
+          "image": null
+        }
+      ]
+    },
+    "literalDirectory": {
+      "request": {
+        "query": "检索",
+        "topK": 20,
+        "extensions": null,
+        "pathPrefix": "notes%_archive",
+        "modifiedAfter": null,
+        "modality": null
+      },
+      "indexedDocuments": 6,
+      "hits": [
+        {
+          "fileName": "special.txt",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes%_archive/special.txt",
+          "relativePath": "notes%_archive/special.txt",
+          "pageNumber": null,
+          "startOffset": 0,
+          "endOffset": 16,
+          "modality": "text",
+          "score": 0.013114754098360656,
+          "image": null
+        }
+      ]
+    },
+    "date": {
+      "request": {
+        "query": "离线检索",
+        "topK": 20,
+        "extensions": null,
+        "pathPrefix": null,
+        "modifiedAfter": "2026-10-25T00:00:00.000",
+        "modality": null
+      },
+      "indexedDocuments": 6,
+      "hits": [
+        {
+          "fileName": "recent.txt",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/recent.txt",
+          "relativePath": "notes/recent.txt",
+          "pageNumber": null,
+          "startOffset": 0,
+          "endOffset": 27,
+          "modality": "text",
+          "score": 0.013114754098360656,
+          "image": null
+        }
+      ]
+    },
+    "combined": {
+      "request": {
+        "query": "离线检索",
+        "topK": 20,
+        "extensions": [
+          ".txt"
+        ],
+        "pathPrefix": "notes",
+        "modifiedAfter": "2026-10-25T00:00:00.000",
+        "modality": null
+      },
+      "indexedDocuments": 6,
+      "hits": [
+        {
+          "fileName": "recent.txt",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-search-582e4512/fixtures/notes/recent.txt",
+          "relativePath": "notes/recent.txt",
+          "pageNumber": null,
+          "startOffset": 0,
+          "endOffset": 27,
+          "modality": "text",
+          "score": 0.013114754098360656,
+          "image": null
+        }
+      ]
+    },
+    "noMatches": {
+      "request": {
+        "query": "离线检索",
+        "topK": 20,
+        "extensions": [
+          ".pdf"
+        ],
+        "pathPrefix": "absent",
+        "modifiedAfter": null,
+        "modality": null
+      },
+      "indexedDocuments": 6,
+      "hits": []
+    }
+  },
+  "concurrentQueries": [
+    "cancelled",
+    "cancelled",
+    "latest query"
+  ],
+  "coreEquivalence": {
+    "all": true,
+    "pdf": true,
+    "images": true,
+    "directory": true,
+    "exactFile": true,
+    "literalDirectory": true,
+    "date": true,
+    "combined": true,
+    "noMatches": true
+  },
+  "searchThenIndex": {
+    "reused": 6,
+    "fileStatuses": 6
+  },
+  "elapsedMs": 50094
+}

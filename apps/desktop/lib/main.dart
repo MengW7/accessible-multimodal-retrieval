@@ -11,6 +11,7 @@ import 'src/runtime/directory_picker.dart';
 import 'src/runtime/library_worker.dart';
 import 'src/runtime/library_smoke.dart';
 import 'src/runtime/window_lifecycle.dart';
+import 'src/runtime/file_opener.dart';
 
 Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,9 +36,12 @@ Future<void> main(List<String> args) async {
         .writeAsString(const JsonEncoder.withIndent('  ').convert(report));
     exit(report['ok'] == true ? 0 : 1);
   }
+  final worker = WorkerLibraryService(config);
   final controller = AppController(
     service,
-    library: WorkerLibraryService(config),
+    library: worker,
+    searchService: worker,
+    fileOpener: NativeFileOpener(),
     directoryPicker: const NativeDirectoryPicker(),
   );
   bindWindowLifecycle(controller);

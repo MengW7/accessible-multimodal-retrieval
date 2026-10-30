@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'application/app_controller.dart';
 import 'application/desktop_service.dart';
 import 'library_page.dart';
+import 'search_page.dart';
+import 'results_page.dart';
 
 /// Owns its controller. Services finish and close resources inside workers.
 class RetrievalApp extends StatefulWidget {
@@ -137,29 +139,8 @@ class _RetrievalAppState extends State<RetrievalApp> {
 
   List<Widget> _page(BuildContext context) => switch (app.section) {
     AppSection.library => [LibraryPage(app: app)],
-    AppSection.search => [
-      TextField(
-        key: const Key('query-field'),
-        controller: _query,
-        decoration: const InputDecoration(
-          labelText: '搜索本地内容',
-          hintText: '输入关键词或自然语言描述',
-          border: OutlineInputBorder(),
-        ),
-        onChanged: app.updateQuery,
-      ),
-      const SizedBox(height: 16),
-      const Align(
-        alignment: Alignment.centerLeft,
-        child: FilledButton(onPressed: null, child: Text('开始搜索')),
-      ),
-      const Text('查询提交与筛选尚未接入，输入内容会在切换页面后保留。'),
-    ],
-    AppSection.results => [
-      Text(app.query.isEmpty ? '尚未提交查询。' : '查询草稿：${app.query}'),
-      const SizedBox(height: 12),
-      const Text('尚无查询结果。提交查询后将在此显示文件、出处和内容片段。'),
-    ],
+    AppSection.search => [SearchForm(app: app, queryController: _query)],
+    AppSection.results => [ResultsPage(app: app)],
     AppSection.settings => [
       SelectableText('索引位置：${app.runtime?.config.databasePath ?? '检查中'}'),
       const SizedBox(height: 12),
