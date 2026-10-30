@@ -1,0 +1,28 @@
+{
+  "capturedAtUtc": "2026-10-30T08:40:21.8584639Z",
+  "gitHead": "e9a4dde428726ba72cc760efabc27c1d764ed722",
+  "os": "windows",
+  "osVersion": "\"Windows 11 Pro\" 10.0 (Build 26300)",
+  "dart": "3.13.4 (stable) (Tue Sep 15 01:01:15 2026 -0700) on \"windows_x64\"",
+  "flutter": {
+    "frameworkVersion": "3.47.5",
+    "channel": "stable",
+    "repositoryUrl": "https://github.com/flutter/flutter.git",
+    "frameworkRevision": "6a19cca56475dbfba1478ee68d7bd0c2ef891da1",
+    "frameworkCommitDate": "2026-09-17 14:13:22 -0400",
+    "engineRevision": "af7e796e161ae0bb1ff0758c71a7105418bd9ded",
+    "engineCommitDate": "2026-09-16 18:35:09.000Z",
+    "engineContentHash": "ab598368592da0064197e2bc15c7f5b0a2c6bb1f",
+    "engineBuildDate": "2026-09-17 03:35:21.428",
+    "dartSdkVersion": "3.13.4",
+    "devToolsVersion": "2.60.0",
+    "flutterVersion": "3.47.5",
+    "flutterRoot": "D:\\flutter"
+  },
+  "testSourceSha256": "2D5CD7C99A8FA41CFA7A4863CC3D6660F4A362A34F43BE12866B8BD93D7E54FF",
+  "desktopInteractions": false,
+  "screenReaderTested": false,
+  "networkIsolated": false,
+  "nativeOpen": "mock MethodChannel",
+  "releaseBuild": "D build, unchanged SHA-256 verified; no rebuild or launch in E"
+}

@@ -88,6 +88,29 @@ flutter run -d windows
 D 的自动证据与 WCAG 检查范围见 `reports/week5/W05_D_checkpoint.md`。
 所有桌面交互、截图和读屏测试由用户执行，见 `reports/week5/D_截图与人工检查.md`；语义测试不等于实际读屏通过。
 
+## E：验证与可用性
+
+E 增加 `test/acceptance_integration_test.dart`，在无界面的 flutter_tester 内把页面、控制器接到真实
+`LocalDesktopService`、worker、开发模型、SQLite 和显示设置文件。样本和索引新建于
+`tmp/w05-acceptance-*`，不使用评测库；系统打开通道被模拟，不启动文件夹选择器或查看器。
+它检查混合导入、后台任务期间导航、PDF/图片/组合筛选、空态/无效日期、真实源文件改名恢复、
+控制器重建后的持久化、增量复用及清除保留源文件/显示设置。
+
+默认 `flutter test --no-pub` 跳过这一个需要本地模型的集成用例。具备开发依赖时，在本目录执行：
+
+```powershell
+flutter analyze --no-pub
+flutter test --no-pub --dart-define=AMR_E_REAL_RUNTIME=true --reporter expanded
+```
+
+本轮 E 全部 54 项通过；集成结果写入 `reports/week5/logs/E_headless_acceptance.json`。
+没有重新构建或启动 release 程序；现有四个构建文件与 D 的 SHA-256 一致。
+这不等于真实进程重启、原生窗口操作或 NVDA/VoiceOver 已通过。
+
+统一人工入口是 `reports/week5/E_截图与人工检查.md`，结果回填 `E_验收矩阵.md`，
+问题与复测记入 `E_问题与复测记录.md`。`UI可用性测试报告.md` 提供独立试用脚本和空白记录，
+当前独立参与者和已执行任务均为 0，尚无可计算的完成率。完整阶段结果见 `W05_E_checkpoint.md`。
+
 ## 构建与复现验证
 
 ```powershell
