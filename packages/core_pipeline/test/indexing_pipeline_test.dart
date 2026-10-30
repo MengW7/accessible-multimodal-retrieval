@@ -8,6 +8,55 @@ import 'package:core_storage/core_storage.dart';
 import 'package:test/test.dart';
 
 void main() {
+  test('progress identifies written, reused and failed files with cumulative counts', () async {
+    final store = _Store()..reusable.add('same:text-model');
+    final events = <IndexProgress>[];
+    await _pipeline(
+      engine: _Engine(),
+      store: store,
+      records: [
+        _record('new', 'hello'),
+        _record('same', 'same'),
+        _record('bad', 'bad'),
+      ],
+    ).index('root', onProgress: events.add);
+    expect(events.skip(1).map((e) => e.outcome), [
+      IndexFileOutcome.written,
+      IndexFileOutcome.reused,
+      IndexFileOutcome.failed,
+    ]);
+    expect(events.skip(1).every((e) => e.path != null), isTrue);
+    expect(events.last.written, 1);
+    expect(events.last.reused, 1);
+    expect(events.last.failed, 1);
+    expect(events.last.errorMessage, isNotEmpty);
+  });
+
+  test(
+    'event-loop cancellation interrupts a fast sequence of reused files',
+    () async {
+      final cancel = CancellationTokenSource();
+      final store = _Store()
+        ..reusable.addAll(['h1:text-model', 'h2:text-model']);
+      final report =
+          await _pipeline(
+            engine: _Engine(),
+            store: store,
+            records: [_record('h1', 'one'), _record('h2', 'two')],
+          ).index(
+            'root',
+            cancel: cancel.token,
+            onProgress: (event) {
+              if (event.processed == 1) {
+                Future<void>.delayed(Duration.zero, cancel.cancel);
+              }
+            },
+          );
+      expect(report.cancelled, isTrue);
+      expect(report.reused, 1);
+    },
+  );
+
   test('a matching generation skips embedding', () async {
     final _Engine engine = _Engine();
     final _Store store = _Store()..reusable.add('h1:text-model');
@@ -30,10 +79,7 @@ void main() {
       engine: engine,
       store: store,
       chunker: chunker,
-      records: <IngestRecord>[
-        _record('bad', 'bad'),
-        _record('h1', 'hello'),
-      ],
+      records: <IngestRecord>[_record('bad', 'bad'), _record('h1', 'hello')],
     ).index('root', force: true);
     expect(report.failed, 1);
     expect(report.written, 1);
@@ -61,20 +107,21 @@ void main() {
     final CancellationTokenSource source = CancellationTokenSource();
     final _Store store = _Store();
     final List<IndexProgress> progress = <IndexProgress>[];
-    final IndexReport report = await _pipeline(
-      engine: _Engine(),
-      store: store,
-      records: <IngestRecord>[_record('h1', 'one'), _record('h2', 'two')],
-    ).index(
-      'root',
-      cancel: source.token,
-      onProgress: (IndexProgress update) {
-        progress.add(update);
-        if (update.processed == 1) {
-          source.cancel();
-        }
-      },
-    );
+    final IndexReport report =
+        await _pipeline(
+          engine: _Engine(),
+          store: store,
+          records: <IngestRecord>[_record('h1', 'one'), _record('h2', 'two')],
+        ).index(
+          'root',
+          cancel: source.token,
+          onProgress: (IndexProgress update) {
+            progress.add(update);
+            if (update.processed == 1) {
+              source.cancel();
+            }
+          },
+        );
     expect(report.cancelled, isTrue);
     expect(report.written, 1);
     expect(store.writes.single.single.documentId, 'h1');
@@ -103,41 +150,41 @@ void main() {
 
   test('search pipeline forwards the limit', () async {
     final _Retriever retriever = _Retriever();
-    final List<SearchResult> results = await DefaultSearchPipeline(retriever).search(
-      '离线',
-      topK: 3,
-    );
+    final List<SearchResult> results = await DefaultSearchPipeline(retriever)
+        .search('离线', topK: 3);
     expect(retriever.queries, <String>['离线']);
     expect(retriever.limits, <int>[3]);
     expect(results, isEmpty);
   });
 
-  test('search pipeline carries filters, channels, expansion and cancel', () async {
-    // 这一层最初只转发 query/topK，把过滤与取消丢在路上。W5 会经它调用，
-    // 所以每一个参数都必须真的到达 Retriever。
-    final _Retriever retriever = _Retriever();
-    final CancellationToken cancel = CancellationTokenSource().token;
-    const SearchFilters filters = SearchFilters(
-      extensions: <String>{'.md'},
-      pathPrefix: 'docs',
-    );
-    await DefaultSearchPipeline(retriever).search(
-      '向量库',
-      filters: filters,
-      topK: 7,
-      cancel: cancel,
-      channels: const <SearchChannel>{SearchChannel.documentText},
-      expandNeighborhood: false,
-    );
-    expect(retriever.limits, <int>[7]);
-    expect(retriever.filtersSeen.single, same(filters));
-    expect(
-      retriever.channelsSeen.single,
-      const <SearchChannel>{SearchChannel.documentText},
-    );
-    expect(retriever.expandSeen.single, isFalse);
-    expect(retriever.cancelSeen.single, isTrue);
-  });
+  test(
+    'search pipeline carries filters, channels, expansion and cancel',
+    () async {
+      // 这一层最初只转发 query/topK，把过滤与取消丢在路上。W5 会经它调用，
+      // 所以每一个参数都必须真的到达 Retriever。
+      final _Retriever retriever = _Retriever();
+      final CancellationToken cancel = CancellationTokenSource().token;
+      const SearchFilters filters = SearchFilters(
+        extensions: <String>{'.md'},
+        pathPrefix: 'docs',
+      );
+      await DefaultSearchPipeline(retriever).search(
+        '向量库',
+        filters: filters,
+        topK: 7,
+        cancel: cancel,
+        channels: const <SearchChannel>{SearchChannel.documentText},
+        expandNeighborhood: false,
+      );
+      expect(retriever.limits, <int>[7]);
+      expect(retriever.filtersSeen.single, same(filters));
+      expect(retriever.channelsSeen.single, const <SearchChannel>{
+        SearchChannel.documentText,
+      });
+      expect(retriever.expandSeen.single, isFalse);
+      expect(retriever.cancelSeen.single, isTrue);
+    },
+  );
 
   test('a document key can use the repository path', () async {
     final _Store store = _Store();
@@ -273,7 +320,10 @@ final class _Source implements IndexSource {
   final List<IngestRecord> records;
 
   @override
-  Future<IngestionReport> load(String rootPath, {CancellationToken? cancel}) async {
+  Future<IngestionReport> load(
+    String rootPath, {
+    CancellationToken? cancel,
+  }) async {
     final DateTime now = DateTime.utc(2026, 10, 20);
     return IngestionReport(
       rootPath: rootPath,
@@ -355,7 +405,11 @@ final class _Images implements ImageDecoder {
 
   @override
   DecodedImage decodeFile(String path) {
-    return DecodedImage(rgb24: Uint8List.fromList(<int>[1, 2, 3]), width: 1, height: 1);
+    return DecodedImage(
+      rgb24: Uint8List.fromList(<int>[1, 2, 3]),
+      width: 1,
+      height: 1,
+    );
   }
 }
 

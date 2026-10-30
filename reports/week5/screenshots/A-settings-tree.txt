@@ -1,0 +1,35 @@
+Window: "desktop", App: desktop.exe.
+	0 window desktop Secondary Actions: Raise
+		1 pane
+			1814 group
+				1815 group
+					1816 group
+						1817 group
+							1818 group
+								1819 group 本地内容检索
+							1820 group
+								1821 text 文件库 Tab 1 of 4
+								1822 text 搜索 Tab 2 of 4
+								1823 text 结果 Tab 3 of 4
+								1824 text 设置 Tab 4 of 4
+							1825 group
+								1826 group
+									1827 text 设置
+									1828 group
+										1829 text 运行依赖尚未就绪，请在设置中查看并处理。
+									1830 text (settable, string) Value: 索引位置：C:\Users\11758\AppData\Local\AccessibleMultimodalRetrieval\library.sqlite
+									1831 text 显示与无障碍设置尚未接入。
+									1832 group
+										1833 button 重新检查依赖
+									1834 text 阻塞 · 生产嵌入运行时
+									1835 text (settable, string) Value: 生产推理适配器尚未接通。开发验证需显式设置 AMR_DEV_ROOT；engine/Python 不属于正式发布包。
+									1836 text 通过 · SQLite / 数据目录
+									1837 text (settable, string) Value: C:\Users\11758\AppData\Local\AccessibleMultimodalRetrieval\library.sqlite；文档 0，块 0
+		24 title bar (settable, string) Value: desktop
+			25 menu bar System ID: MenuBar
+				1175 menu item System
+			27 button Minimize
+			28 button Maximize
+			29 button Close
+
+The focused UI element is 1 pane.

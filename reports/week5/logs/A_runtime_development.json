@@ -1,0 +1,280 @@
+{
+  "ok": true,
+  "startup": {
+    "ready": true,
+    "mode": "development",
+    "resourceRoot": "E:\\Project\\accessible-multimodal-retrieval",
+    "databasePath": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-runtime-b249d89eafdb4031983f43cef05a30de\\development\\library.sqlite",
+    "documents": 0,
+    "chunks": 0,
+    "checks": [
+      {
+        "name": "开发运行时",
+        "status": "warning",
+        "detail": "当前使用外部 Python/ONNX 开发环境，不能作为独立发布包验收。"
+      },
+      {
+        "name": "Python",
+        "status": "passed",
+        "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\engine\\.venv\\Scripts\\python.exe"
+      },
+      {
+        "name": "嵌入服务",
+        "status": "passed",
+        "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\engine\\embed_server.py"
+      },
+      {
+        "name": "嵌入服务辅助模块",
+        "status": "passed",
+        "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\engine\\w3_embed_lib.py"
+      },
+      {
+        "name": "文本分词器",
+        "status": "passed",
+        "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\text\\paraphrase-multilingual-MiniLM-L12-v2\\tokenizer.json"
+      },
+      {
+        "name": "文本模型",
+        "status": "passed",
+        "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\text\\paraphrase-multilingual-MiniLM-L12-v2\\onnx\\model.onnx"
+      },
+      {
+        "name": "图像模型",
+        "status": "passed",
+        "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\image\\mobileclip-s0\\onnx\\vision_model.onnx"
+      },
+      {
+        "name": "图文文本模型",
+        "status": "passed",
+        "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\image\\mobileclip-s0\\onnx\\text_model.onnx"
+      },
+      {
+        "name": "图文分词器",
+        "status": "passed",
+        "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\image\\mobileclip-s0\\tokenizer.json"
+      },
+      {
+        "name": "PDF 解析器",
+        "status": "passed",
+        "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\tools\\tika-app\\tika-app-4.0.0.jar"
+      },
+      {
+        "name": "Python 模块",
+        "status": "passed",
+        "detail": "E:\\Project\\accessible-multimodal-retrieval\\engine\\.venv\\Scripts\\python.exe；exit=0；onnxruntime=1.30.0"
+      },
+      {
+        "name": "Java",
+        "status": "passed",
+        "detail": "java；exit=0；openjdk version \"21.0.12.1\" 2026-08-18 LTS\r\nOpenJDK Runtime Environment Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS)\r\nOpenJDK 64-Bit Server VM Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS, mixed mode, sharing)"
+      },
+      {
+        "name": "SQLite / 数据目录",
+        "status": "passed",
+        "detail": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-runtime-b249d89eafdb4031983f43cef05a30de\\development\\library.sqlite；文档 0，块 0"
+      }
+    ]
+  },
+  "smokeDatabase": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-runtime-b249d89eafdb4031983f43cef05a30de\\development\\runtime-smoke-66b81f8b\\smoke.sqlite",
+  "ingestion": {
+    "rootPath": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-runtime-b249d89eafdb4031983f43cef05a30de\\fixtures",
+    "startedAt": "2026-10-29T14:42:47.534357Z",
+    "finishedAt": "2026-10-29T14:42:52.224407Z",
+    "durationMs": 4690,
+    "cancelled": false,
+    "isClean": true,
+    "counts": {
+      "total": 4,
+      "ok": 4,
+      "partial": 0,
+      "skipped": 0,
+      "failed": 0
+    },
+    "records": [
+      {
+        "metadata": {
+          "id": "0ae2c86a937bbe7c735ecf1400fb9114cba4e57837acf472043c8765f37088ca",
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-runtime-b249d89eafdb4031983f43cef05a30de\\fixtures\\sample.docx",
+          "relativePath": "sample.docx",
+          "fileName": "sample.docx",
+          "extension": ".docx",
+          "sizeBytes": 16526,
+          "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+          "createdAt": "2026-10-29T22:42:33.860298",
+          "modifiedAt": "2026-09-24T11:19:35.784236",
+          "accessedAt": "2026-10-29T22:42:36.481043",
+          "contentHash": "0ae2c86a937bbe7c735ecf1400fb9114cba4e57837acf472043c8765f37088ca",
+          "indexedAt": "2026-10-29T14:42:47.535357Z",
+          "parserName": "docx",
+          "parserVersion": "1",
+          "parseDurationMs": 22,
+          "status": "ok",
+          "errorMessage": null,
+          "imageAsset": null
+        },
+        "outcome": "ok",
+        "failure": null,
+        "pageCount": 1,
+        "charCount": 1499,
+        "text": null
+      },
+      {
+        "metadata": {
+          "id": "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010",
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-runtime-b249d89eafdb4031983f43cef05a30de\\fixtures\\sample.pdf",
+          "relativePath": "sample.pdf",
+          "fileName": "sample.pdf",
+          "extension": ".pdf",
+          "sizeBytes": 71250,
+          "mimeType": "application/pdf",
+          "createdAt": "2026-10-29T22:42:33.847365",
+          "modifiedAt": "2026-09-24T11:19:19.071950",
+          "accessedAt": "2026-10-29T22:42:36.515599",
+          "contentHash": "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010",
+          "indexedAt": "2026-10-29T14:42:47.535357Z",
+          "parserName": "pdf",
+          "parserVersion": "1",
+          "parseDurationMs": 4687,
+          "status": "ok",
+          "errorMessage": null,
+          "imageAsset": null
+        },
+        "outcome": "ok",
+        "failure": null,
+        "pageCount": 2,
+        "charCount": 4358,
+        "text": null
+      },
+      {
+        "metadata": {
+          "id": "fca8cd1a7f56fb49a538651c5e4bcd0a4d48ffd553adeb9b49a792391692393b",
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-runtime-b249d89eafdb4031983f43cef05a30de\\fixtures\\sample.png",
+          "relativePath": "sample.png",
+          "fileName": "sample.png",
+          "extension": ".png",
+          "sizeBytes": 193566,
+          "mimeType": "image/png",
+          "createdAt": "2026-10-29T22:42:33.869378",
+          "modifiedAt": "2026-09-24T11:20:31.524847",
+          "accessedAt": "2026-10-29T22:42:36.554266",
+          "contentHash": "fca8cd1a7f56fb49a538651c5e4bcd0a4d48ffd553adeb9b49a792391692393b",
+          "indexedAt": "2026-10-29T14:42:47.560302Z",
+          "parserName": "image",
+          "parserVersion": "1",
+          "parseDurationMs": 73,
+          "status": "ok",
+          "errorMessage": null,
+          "imageAsset": {
+            "format": "png",
+            "width": 1186,
+            "height": 1137,
+            "colorMode": "rgb",
+            "orientation": null
+          }
+        },
+        "outcome": "ok",
+        "failure": null,
+        "pageCount": 0,
+        "charCount": 0,
+        "text": null
+      },
+      {
+        "metadata": {
+          "id": "537b9da5ba97758300f4d69580789c76cfc9a0da7c7a2f361c483d562f8aa90a",
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-runtime-b249d89eafdb4031983f43cef05a30de\\fixtures\\smoke.txt",
+          "relativePath": "smoke.txt",
+          "fileName": "smoke.txt",
+          "extension": ".txt",
+          "sizeBytes": 86,
+          "mimeType": "text/plain",
+          "createdAt": "2026-10-29T22:42:33.838366",
+          "modifiedAt": "2026-10-29T22:42:33.839366",
+          "accessedAt": "2026-10-29T22:42:36.592904",
+          "contentHash": "537b9da5ba97758300f4d69580789c76cfc9a0da7c7a2f361c483d562f8aa90a",
+          "indexedAt": "2026-10-29T14:42:47.636439Z",
+          "parserName": "txt",
+          "parserVersion": "1",
+          "parseDurationMs": 0,
+          "status": "ok",
+          "errorMessage": null,
+          "imageAsset": null
+        },
+        "outcome": "ok",
+        "failure": null,
+        "pageCount": 1,
+        "charCount": 29,
+        "text": null
+      }
+    ]
+  },
+  "index": {
+    "written": 4,
+    "reused": 0,
+    "failed": 0,
+    "cancelled": false
+  },
+  "stats": {
+    "documents": 4,
+    "chunks": 98,
+    "documentText": 97,
+    "clipShared": 1
+  },
+  "search": {
+    "query": "离线检索",
+    "count": 5,
+    "files": [
+      {
+        "fileName": "sample.pdf",
+        "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-runtime-b249d89eafdb4031983f43cef05a30de/fixtures/sample.pdf",
+        "pageNumber": 1,
+        "startOffset": 1318,
+        "endOffset": 1328,
+        "channels": [
+          "documentText"
+        ]
+      },
+      {
+        "fileName": "sample.pdf",
+        "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-runtime-b249d89eafdb4031983f43cef05a30de/fixtures/sample.pdf",
+        "pageNumber": 2,
+        "startOffset": 1339,
+        "endOffset": 1349,
+        "channels": [
+          "documentText"
+        ]
+      },
+      {
+        "fileName": "sample.png",
+        "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-runtime-b249d89eafdb4031983f43cef05a30de/fixtures/sample.png",
+        "pageNumber": null,
+        "startOffset": 0,
+        "endOffset": 0,
+        "channels": [
+          "clipShared"
+        ]
+      },
+      {
+        "fileName": "sample.pdf",
+        "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-runtime-b249d89eafdb4031983f43cef05a30de/fixtures/sample.pdf",
+        "pageNumber": 1,
+        "startOffset": 970,
+        "endOffset": 1033,
+        "channels": [
+          "documentText"
+        ]
+      },
+      {
+        "fileName": "sample.pdf",
+        "sourcePath": "E:/Project/accessible-multimodal-retrieval/tmp/w05-runtime-b249d89eafdb4031983f43cef05a30de/fixtures/sample.pdf",
+        "pageNumber": 2,
+        "startOffset": 986,
+        "endOffset": 1049,
+        "channels": [
+          "documentText"
+        ]
+      }
+    ]
+  },
+  "inferenceRequests": 100,
+  "elapsedMs": 31207
+}

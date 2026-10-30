@@ -1,0 +1,34 @@
+[
+  {
+    "case": "development",
+    "expectedSuccess": true,
+    "actualSuccess": true,
+    "exitCode": 0,
+    "report": "E:\\Project\\accessible-multimodal-retrieval\\reports\\week5\\logs\\A_runtime_development.json",
+    "workingDirectory": "C:\\Users\\11758\\AppData\\Local\\Temp\\"
+  },
+  {
+    "case": "release_gap",
+    "expectedSuccess": false,
+    "actualSuccess": false,
+    "exitCode": 1,
+    "report": "E:\\Project\\accessible-multimodal-retrieval\\reports\\week5\\logs\\A_runtime_release_gap.json",
+    "workingDirectory": "C:\\Users\\11758\\AppData\\Local\\Temp\\"
+  },
+  {
+    "case": "missing_resources",
+    "expectedSuccess": false,
+    "actualSuccess": false,
+    "exitCode": 1,
+    "report": "E:\\Project\\accessible-multimodal-retrieval\\reports\\week5\\logs\\A_runtime_missing_resources.json",
+    "workingDirectory": "C:\\Users\\11758\\AppData\\Local\\Temp\\"
+  },
+  {
+    "case": "missing_java",
+    "expectedSuccess": false,
+    "actualSuccess": false,
+    "exitCode": 1,
+    "report": "E:\\Project\\accessible-multimodal-retrieval\\reports\\week5\\logs\\A_runtime_missing_java.json",
+    "workingDirectory": "C:\\Users\\11758\\AppData\\Local\\Temp\\"
+  }
+]
