@@ -7,6 +7,7 @@ import 'desktop_service.dart';
 import 'library_models.dart';
 import 'library_service.dart';
 import 'search_models.dart';
+import 'display_settings.dart';
 
 enum AppSection { library, search, results, settings }
 
@@ -21,6 +22,7 @@ final class AppController extends ChangeNotifier {
     this.directoryPicker,
     this.searchService,
     this.fileOpener,
+    this.settingsStore,
   }) {
     _progressSubscription = library?.progress.listen((progress) {
       if (_disposed) return;
@@ -36,6 +38,108 @@ final class AppController extends ChangeNotifier {
   final DirectoryPicker? directoryPicker;
   final SearchService? searchService;
   final FileOpener? fileOpener;
+  final DisplaySettingsStore? settingsStore;
+  DisplaySettings displaySettings = const DisplaySettings();
+  String? settingsError;
+  bool settingsLoading = false;
+  bool settingsSaving = false;
+  Future<void>? _settingsLoad;
+  Future<void> _settingsWrite = Future<void>.value();
+  int _settingsRevision = 0;
+
+  Future<void> loadDisplaySettings() =>
+      _settingsLoad ??= _loadDisplaySettings();
+  Future<void> _loadDisplaySettings() async {
+    if (settingsStore == null) return;
+    final revision = _settingsRevision;
+    settingsLoading = true;
+    if (!_disposed) notifyListeners();
+    try {
+      final settings = await settingsStore!.load();
+      if (!_disposed && revision == _settingsRevision) {
+        displaySettings = settings;
+      }
+    } catch (error) {
+      if (!_disposed && revision == _settingsRevision) {
+        settingsError = '无法恢复显示设置，已使用当前默认设置：$error。可恢复默认后重新保存。';
+      }
+    } finally {
+      if (!_disposed) {
+        settingsLoading = false;
+        notifyListeners();
+      }
+    }
+  }
+
+  Future<void> updateDisplaySettings(DisplaySettings value) {
+    displaySettings = value;
+    settingsError = null;
+    final revision = ++_settingsRevision;
+    settingsSaving = settingsStore != null;
+    notifyListeners();
+    if (settingsStore == null) return Future<void>.value();
+    _settingsWrite = _settingsWrite.then((_) async {
+      try {
+        await settingsStore!.save(value);
+      } catch (error) {
+        if (!_disposed && revision == _settingsRevision) {
+          settingsError = '显示设置已应用，但保存失败：$error。请检查数据目录权限后重试。';
+        }
+      } finally {
+        if (!_disposed && revision == _settingsRevision) {
+          settingsSaving = false;
+          notifyListeners();
+        }
+      }
+    });
+    return _settingsWrite;
+  }
+
+  Future<void> resetDisplaySettings() =>
+      updateDisplaySettings(const DisplaySettings());
+
+  String get accessibilityStatus {
+    if (shuttingDown) return '正在结束后台任务并关闭应用，请等待当前安全点。';
+    if (phase == StartupPhase.checking) return '正在检查本地运行依赖。';
+    if (libraryBusy) {
+      if (cancelling) return '正在取消索引任务，已提交的数据会保留。';
+      final progress = libraryProgress;
+      if (progress == null) return '正在更新文件库。';
+      final stage = switch (progress.stage) {
+        LibraryStage.preparing => '准备本地运行时',
+        LibraryStage.parsing => '扫描与解析',
+        LibraryStage.indexing => '嵌入与建库',
+        LibraryStage.saving => '保存目录记录',
+      };
+      final total = progress.total;
+      final percent = total != null && total > 0
+          ? (progress.processed / total * 10).floor().clamp(0, 10) * 10
+          : null;
+      return '$stage${percent == null ? '。' : '，约 $percent%。'}';
+    }
+    if (searchPhase == SearchPhase.loading) return '正在搜索本地索引。';
+    if (settingsSaving) return '正在保存显示设置。';
+    if (settingsError != null) return settingsError!;
+    if (fileOpenOutcomes.isNotEmpty) {
+      return fileOpenOutcomes.values.last.message;
+    }
+    if (section == AppSection.results || section == AppSection.search) {
+      return switch (searchPhase) {
+        SearchPhase.matches => '搜索完成，找到 ${results.length} 条结果。',
+        SearchPhase.emptyLibrary => '索引库为空，请先添加目录建立索引。',
+        SearchPhase.noMatches => '当前条件下没有检索结果，可修改查询或筛选后重试。',
+        SearchPhase.invalid || SearchPhase.failed => searchError ?? '搜索失败，请重试。',
+        SearchPhase.cancelled => '搜索已取消。',
+        _ => phase == StartupPhase.blocked ? '运行依赖尚未就绪，请在设置中处理。' : '本地运行依赖可用。',
+      };
+    }
+    if (libraryError != null) return libraryError!;
+    if (libraryNotice != null) return libraryNotice!;
+    return phase == StartupPhase.blocked
+        ? startupError ?? '运行依赖尚未就绪，请在设置中处理。'
+        : '本地运行依赖可用。';
+  }
+
   SearchPhase searchPhase = SearchPhase.idle;
   SearchRequest? submittedSearch;
   FileTypeChoice fileType = FileTypeChoice.all;
@@ -229,6 +333,7 @@ final class AppController extends ChangeNotifier {
   }
 
   Future<void> initialize() async {
+    unawaited(loadDisplaySettings());
     if (libraryBusy ||
         choosingDirectory ||
         libraryLoading ||
@@ -395,5 +500,6 @@ final class AppController extends ChangeNotifier {
     if (!_disposed) notifyListeners();
     library?.cancel();
     await library?.close();
+    await _settingsWrite;
   }
 }

@@ -47,10 +47,14 @@ void main() {
     await tester.tap(find.text('结果').last);
     await tester.pumpAndSettle();
     expect(find.text('查询草稿：离线资料'), findsOneWidget);
-    await tester.tap(find.text('设置').last);
+    await tester.ensureVisible(find.byKey(const ValueKey('nav-settings')));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const ValueKey('nav-settings')));
     await tester.pumpAndSettle();
     expect(find.textContaining('索引位置：'), findsOneWidget);
-    await tester.tap(find.text('搜索').last);
+    await tester.ensureVisible(find.byKey(const ValueKey('nav-search')));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const ValueKey('nav-search')));
     await tester.pumpAndSettle();
     expect(
       tester
@@ -72,6 +76,8 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.text('缺少 Python'), findsOneWidget);
       service.next = () async => ready;
+      await tester.ensureVisible(find.text('重新检查依赖'));
+      await tester.pump();
       await tester.tap(find.text('重新检查依赖'));
       await tester.pumpAndSettle();
       expect(find.text('通过 · SQLite'), findsOneWidget);
@@ -79,7 +85,9 @@ void main() {
     },
   );
 
-  testWidgets('wide layout uses rail and permits navigation', (tester) async {
+  testWidgets('wide layout uses labelled navigation and permits navigation', (
+    tester,
+  ) async {
     tester.view.physicalSize = const Size(1280, 720);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
@@ -88,7 +96,8 @@ void main() {
       RetrievalApp(controller: AppController(StubService())),
     );
     await tester.pumpAndSettle();
-    expect(find.byType(NavigationRail), findsOneWidget);
+    expect(find.byKey(const Key('app-navigation')), findsOneWidget);
+    expect(find.byKey(const ValueKey('nav-settings')), findsOneWidget);
     await tester.tap(find.text('设置'));
     await tester.pumpAndSettle();
     expect(find.textContaining('索引位置：'), findsOneWidget);
