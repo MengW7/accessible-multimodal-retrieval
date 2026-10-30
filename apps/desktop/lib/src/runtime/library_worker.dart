@@ -10,12 +10,13 @@ import 'package:path/path.dart' as p;
 
 import '../application/library_models.dart';
 import '../application/library_service.dart';
+import '../application/search_models.dart';
 import 'runtime_config.dart';
 import 'runtime_session.dart';
 
 /// Only immutable DTOs and ports cross the isolate boundary. SQLite, tokenizers
 /// and the Python host stay in the worker for its entire lifetime.
-final class WorkerLibraryService implements LibraryService {
+final class WorkerLibraryService implements LibraryService, SearchService {
   WorkerLibraryService(this.config);
   final RuntimeConfig config;
   final _progress = StreamController<LibraryProgress>.broadcast(sync: true);
@@ -29,6 +30,7 @@ final class WorkerLibraryService implements LibraryService {
   Future<void>? _starting;
   Future<void>? _closing;
   int _next = 0;
+  int _searchVersion = 0;
   bool _closed = false;
   bool _cancelRequested = false;
   Object? _failure;
@@ -48,7 +50,9 @@ final class WorkerLibraryService implements LibraryService {
           if (!_closed) _progress.add(m['value'] as LibraryProgress);
         case 'reply':
           final pending = _pending.remove(m['id']);
-          if (m['error'] != null) {
+          if (m['cancelled'] == true) {
+            pending?.completeError(const SearchCancelledException());
+          } else if (m['error'] != null) {
             pending?.completeError(StateError(m['error'] as String));
           } else {
             pending?.complete(m['value']);
@@ -86,6 +90,7 @@ final class WorkerLibraryService implements LibraryService {
     String operation, {
     String? path,
     bool force = false,
+    SearchRequest? search,
   }) async {
     if (_closed || (_closing != null && operation != 'close')) {
       throw StateError('文件库服务已关闭。');
@@ -100,6 +105,7 @@ final class WorkerLibraryService implements LibraryService {
       'operation': operation,
       'path': path,
       'force': force,
+      'search': search,
     });
     if (operation == 'index' && _cancelRequested) {
       _commands!.send({'operation': 'cancel'});
@@ -118,6 +124,21 @@ final class WorkerLibraryService implements LibraryService {
   @override
   Future<LibrarySnapshot> clear() => _request('clear');
   @override
+  Future<SearchPage> search(SearchRequest request) async {
+    if (_closed || _closing != null) throw StateError('文件库服务已关闭。');
+    final version = ++_searchVersion;
+    await _start();
+    if (version != _searchVersion) throw const SearchCancelledException();
+    return _request('search', search: request);
+  }
+
+  @override
+  void cancelSearch() {
+    _searchVersion++;
+    _commands?.send({'operation': 'cancelSearch'});
+  }
+
+  @override
   void cancel() {
     _cancelRequested = true;
     _commands?.send({'operation': 'cancel'});
@@ -131,6 +152,7 @@ final class WorkerLibraryService implements LibraryService {
         // Cooperative cancellation completes the file boundary and releases the
         // embedding process before the worker is stopped.
         cancel();
+        cancelSearch();
         await _request<Object?>('close');
       }
     } finally {
@@ -161,35 +183,28 @@ void _libraryWorkerMain(_WorkerBoot boot) {
     (progress) => boot.replies.send({'kind': 'progress', 'value': progress}),
   );
   Future<void>? active;
+  String? activeOperation;
+  Map? queuedSearch;
   bool closing = false;
-  void reply(Map m, {Object? value, Object? error}) => boot.replies.send({
-    'kind': 'reply',
-    'id': m['id'],
-    'value': value,
-    'error': error?.toString(),
-  });
-  commands.listen((message) async {
-    final m = message as Map;
+  void reply(Map m, {Object? value, Object? error, bool cancelled = false}) =>
+      boot.replies.send({
+        'kind': 'reply',
+        'id': m['id'],
+        'value': value,
+        'error': error?.toString(),
+        'cancelled': cancelled,
+      });
+  void discardQueuedSearch() {
+    final queued = queuedSearch;
+    queuedSearch = null;
+    if (queued != null) reply(queued, cancelled: true);
+  }
+
+  Future<void> run(Map m) async {
     final operation = m['operation'];
-    if (operation == 'cancel') {
-      worker.cancel?.cancel();
-      return;
-    }
-    if (operation == 'close') {
-      closing = true;
-      worker.cancel?.cancel();
-      await active;
-      await worker.close();
-      reply(m);
-      commands.close();
-      return;
-    }
-    if (active != null || closing) {
-      reply(m, error: '已有文件库任务正在执行，请等待完成。');
-      return;
-    }
     final done = Completer<void>();
     active = done.future;
+    activeOperation = operation as String;
     try {
       final Object value = switch (operation) {
         'load' => await worker.snapshot(),
@@ -198,15 +213,58 @@ void _libraryWorkerMain(_WorkerBoot boot) {
           force: m['force'] == true,
         ),
         'clear' => await worker.clear(),
+        'search' => await worker.search(m['search'] as SearchRequest),
         _ => throw UnsupportedError('未知文件库操作：$operation'),
       };
       reply(m, value: value);
+    } on CancelledException {
+      reply(m, cancelled: true);
     } catch (error) {
       reply(m, error: error);
     } finally {
       active = null;
+      activeOperation = null;
       done.complete();
+      final next = queuedSearch;
+      queuedSearch = null;
+      if (next != null && !closing) unawaited(run(next));
     }
+  }
+
+  commands.listen((message) async {
+    final m = message as Map;
+    final operation = m['operation'];
+    if (operation == 'cancel') {
+      worker.cancel?.cancel();
+      return;
+    }
+    if (operation == 'cancelSearch') {
+      worker.searchCancel?.cancel();
+      discardQueuedSearch();
+      return;
+    }
+    if (operation == 'close') {
+      closing = true;
+      worker.cancel?.cancel();
+      worker.searchCancel?.cancel();
+      discardQueuedSearch();
+      await active;
+      await worker.close();
+      reply(m);
+      commands.close();
+      return;
+    }
+    if (operation == 'search' && activeOperation == 'search' && !closing) {
+      worker.searchCancel?.cancel();
+      discardQueuedSearch();
+      queuedSearch = m;
+      return;
+    }
+    if (active != null || closing) {
+      reply(m, error: '已有后台任务正在执行，请等待完成。');
+      return;
+    }
+    unawaited(run(m));
   });
   boot.replies.send({'kind': 'ready', 'port': commands.sendPort});
 }
@@ -217,6 +275,7 @@ final class _LibraryWorker {
   final void Function(LibraryProgress) emit;
   RuntimeSession? session;
   CancellationTokenSource? cancel;
+  CancellationTokenSource? searchCancel;
   final files = <String, LibraryFile>{};
 
   File get rootsFile =>
@@ -286,6 +345,74 @@ final class _LibraryWorker {
     return LibrarySnapshot(roots: List.unmodifiable(roots), stats: stats);
   }
 
+  Future<SearchPage> search(SearchRequest request) async {
+    _validateConfig();
+    searchCancel = CancellationTokenSource();
+    try {
+      final stats = await _withStore((store) => store.stats());
+      searchCancel!.token.throwIfCancelled();
+      if (stats.documents == 0) {
+        return SearchPage(
+          request: request,
+          hits: const [],
+          indexedDocuments: 0,
+        );
+      }
+      final live = _ensureSession();
+      final hits = await live.search.search(
+        request.query,
+        filters: request.filters,
+        topK: request.topK,
+        cancel: searchCancel!.token,
+      );
+      searchCancel!.token.throwIfCancelled();
+      return SearchPage(
+        request: request,
+        hits: List.unmodifiable(hits),
+        indexedDocuments: stats.documents,
+      );
+    } finally {
+      searchCancel = null;
+    }
+  }
+
+  RuntimeSession _ensureSession() => session ??= RuntimeSession.open(
+    config,
+    onIngestProgress: (progress) => emit(
+      LibraryProgress(
+        stage: LibraryStage.parsing,
+        processed: progress.processed,
+        total: progress.total,
+        currentPath: progress.currentPath,
+      ),
+    ),
+    onIngested: (ingest) {
+      files.clear();
+      for (final record in ingest.records) {
+        final failed =
+            record.outcome == ParseOutcome.failed ||
+            record.failure?.kind == ParseFailureKind.permissionDenied;
+        files[record.metadata.path] = LibraryFile(
+          path: record.metadata.path,
+          status: failed
+              ? LibraryFileStatus.failed
+              : record.metadata.isIndexable
+              ? LibraryFileStatus.queued
+              : LibraryFileStatus.skipped,
+          detail: record.failure?.message ?? record.metadata.errorMessage,
+          warning: record.outcome == ParseOutcome.partial,
+        );
+      }
+      emit(
+        LibraryProgress(
+          stage: LibraryStage.indexing,
+          total: ingest.indexable.length,
+          files: List.unmodifiable(files.values),
+        ),
+      );
+    },
+  );
+
   Future<LibraryResult> index(String input, {required bool force}) async {
     _validateConfig();
     if (!p.isAbsolute(input)) throw ArgumentError('请输入目录的绝对路径。');
@@ -297,42 +424,7 @@ final class _LibraryWorker {
     emit(const LibraryProgress(stage: LibraryStage.preparing));
     try {
       if (!cancel!.isCancelled) {
-        session ??= RuntimeSession.open(
-          config,
-          onIngestProgress: (progress) => emit(
-            LibraryProgress(
-              stage: LibraryStage.parsing,
-              processed: progress.processed,
-              total: progress.total,
-              currentPath: progress.currentPath,
-            ),
-          ),
-          onIngested: (ingest) {
-            files.clear();
-            for (final record in ingest.records) {
-              final failed =
-                  record.outcome == ParseOutcome.failed ||
-                  record.failure?.kind == ParseFailureKind.permissionDenied;
-              files[record.metadata.path] = LibraryFile(
-                path: record.metadata.path,
-                status: failed
-                    ? LibraryFileStatus.failed
-                    : record.metadata.isIndexable
-                    ? LibraryFileStatus.queued
-                    : LibraryFileStatus.skipped,
-                detail: record.failure?.message ?? record.metadata.errorMessage,
-                warning: record.outcome == ParseOutcome.partial,
-              );
-            }
-            emit(
-              LibraryProgress(
-                stage: LibraryStage.indexing,
-                total: ingest.indexable.length,
-                files: List.unmodifiable(files.values),
-              ),
-            );
-          },
-        );
+        _ensureSession();
       }
       final indexed = cancel!.isCancelled
           ? const IndexReport(

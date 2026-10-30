@@ -1,0 +1,35 @@
+00:00 +0: loading E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart
+00:00 +0: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart: directory selection is retained and picker cancellation changes nothing
+00:00 +1: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart: directory selection is retained and picker cancellation changes nothing
+00:00 +2: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart: directory selection is retained and picker cancellation changes nothing
+00:00 +3: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart: directory selection is retained and picker cancellation changes nothing
+00:00 +4: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart: directory selection is retained and picker cancellation changes nothing
+00:00 +5: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart: directory selection is retained and picker cancellation changes nothing
+00:00 +6: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart: directory selection is retained and picker cancellation changes nothing
+00:00 +7: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart: directory selection is retained and picker cancellation changes nothing
+00:00 +8: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart: directory selection is retained and picker cancellation changes nothing
+00:00 +9: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart: directory selection is retained and picker cancellation changes nothing
+00:00 +10: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart: directory selection is retained and picker cancellation changes nothing
+00:00 +11: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart: directory selection is retained and picker cancellation changes nothing
+00:00 +12: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart: directory selection is retained and picker cancellation changes nothing
+00:00 +13: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart: directory selection is retained and picker cancellation changes nothing
+00:00 +14: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart: directory selection is retained and picker cancellation changes nothing
+00:01 +15: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/search_test.dart: Enter submits text and filters; results preserve source anchors and image metadata
+00:01 +16: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/search_test.dart: Enter submits text and filters; results preserve source anchors and image metadata
+00:01 +17: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/widget_test.dart: four areas retain a query draft across navigation
+00:01 +18: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart: clear requires confirmation and states that source files remain
+00:02 +19: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/search_test.dart: clear filters resets the visible fields and type choice
+00:02 +20: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/search_test.dart: clear filters resets the visible fields and type choice
+00:02 +21: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/search_test.dart: clear filters resets the visible fields and type choice
+00:02 +22: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/search_test.dart: clear filters resets the visible fields and type choice
+00:02 +23: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/widget_test.dart: wide layout uses rail and permits navigation
+00:02 +24: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/widget_test.dart: wide layout uses rail and permits navigation
+00:02 +25: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/widget_test.dart: wide layout uses rail and permits navigation
+00:02 +26: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart: worker reads and clears its isolated index without loading any model
+00:02 +27: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart: worker reads and clears its isolated index without loading any model
+00:02 +28: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart: worker reads and clears its isolated index without loading any model
+00:02 +29: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart: worker reads and clears its isolated index without loading any model
+00:02 +30: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart: disposing while library load is pending does not notify after disposal
+00:02 +31: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart: shutdown closes the library and prevents new submissions
+00:02 +32: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart: cancel before worker startup is not lost and needs no models
+00:02 +33: All tests passed!
