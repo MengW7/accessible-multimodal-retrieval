@@ -177,7 +177,7 @@ flutter build windows
 
 ## 9. 依据文件
 
-- [项目任务 PDF](../../docs/tasks/Software%20Engineering%20Project%20Offline%20Accessible%20Multimodal%20Local%20Content%20Retrieval%20System.pdf)：第 3 页 Week 5 任务与四项交付，第 4 页后续周分工。
+- [项目任务 PDF](<../../docs/tasks/Software Engineering Project Offline Accessible Multimodal Local Content Retrieval System.pdf>)：第 3 页 Week 5 任务与四项交付，第 4 页后续周分工。
 - [W4 任务计划](../week4/W04_task_plan.md)：调整后的周次窗口及每周发布风险预留。
 - [W4 报告](../week4/W04_report.md)：核心链路验证和已知限制。
 - [W5 证据集说明](证据集说明_w5.md)：现有评测资产、冻结约定与当前报告口径。
