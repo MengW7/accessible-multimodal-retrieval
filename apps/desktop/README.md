@@ -197,5 +197,24 @@ C 复用同一个 worker 的真实搜索会话，后台只保留一个待执行�
 示例模型文件仍保留。本机首次构建因该插件要求 Windows 符号链接支持而失败；
 移除未使用插件后构建通过，没有修改 Windows 开发者模式。
 
-当前只有 Windows 宿主工程且已验证构建与运行。macOS/Linux 的宿主工程、各平台
-本地运行时、构建机器与读屏环境均需补齐；共享 Dart UI 不代表这些平台已经通过验证。
+当前包含 Windows、macOS、Linux 宿主工程。macOS/Linux 为 Flutter 3.47.5 生成的
+基础工程，目录选择、系统打开和正常退出收尾的原生适配仍需补齐；共享 Dart UI 和
+工程生成不代表这些平台已经通过构建、操作或读屏验证。
+
+## 三平台 CI
+
+仓库的 `.github/workflows/ci.yml` 在推送到 main/master、提交 PR 或手动触发时，
+分别使用 Windows、macOS、Ubuntu 22.04 运行器检查桌面应用。Flutter 固定为 3.47.5，
+依次安装依赖、执行静态分析、常规 Widget/单元测试并构建对应平台的 release 应用。
+Linux 编译依赖在工作流中安装。Bash 步骤启用 GitHub 默认的失败及管道错误传播，
+保存日志不会掩盖测试或构建的非零退出码。
+
+此工作流没有准备模型、Python/ONNX、Java/Tika，不启用 AMR_E_REAL_RUNTIME；
+真实模型集成测试保持跳过。构建产物不是独立可用的发布包，CI 也不执行原生窗口、
+系统查看器、断网或 NVDA/VoiceOver 人工验收。
+
+提交并推送相关文件后，在 GitHub 的 Actions → CI 查看三平台结果。
+工作流进入默认分支后，可以使用 Run workflow 手动启动。
+每个平台在运行详情的 Artifacts 中提供 `desktop-<平台>-logs`，保留 14 天，
+包括提交编号、Flutter 版本以及已执行阶段的分析、测试和构建日志。
+失败后未执行的阶段不会有日志，不能据此认定这些阶段通过；应用二进制不作为附件上传。
