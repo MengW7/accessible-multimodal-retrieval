@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "startedAt": "2026-10-30T08:38:39.783578Z",
+  "startedAt": "2026-11-03T01:07:47.071203Z",
   "os": "windows",
   "osVersion": "\"Windows 11 Pro\" 10.0 (Build 26300)",
   "dart": "3.13.4 (stable) (Tue Sep 15 01:01:15 2026 -0700) on \"windows_x64\"",
@@ -12,38 +12,38 @@
     "runtimeAndEmptyLibrary": 0,
     "emptyLibraryUI": true,
     "mixedImportAndNavigation": {
-      "root": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-16148a05\\fixtures",
-      "finishedAt": "2026-10-30T16:38:53.898673",
+      "root": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-1ca1c8c4\\fixtures",
+      "finishedAt": "2026-11-03T09:08:04.465563",
       "written": 4,
       "reused": 0,
       "cancelled": false,
       "files": [
         {
-          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-16148a05\\fixtures\\archive\\old.txt",
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-1ca1c8c4\\fixtures\\archive\\old.txt",
           "status": "indexed",
           "detail": null,
           "warning": false
         },
         {
-          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-16148a05\\fixtures\\bad.docx",
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-1ca1c8c4\\fixtures\\bad.docx",
           "status": "failed",
           "detail": "DOCX is not a valid zip container.",
           "warning": false
         },
         {
-          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-16148a05\\fixtures\\notes\\guide.txt",
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-1ca1c8c4\\fixtures\\notes\\guide.txt",
           "status": "indexed",
           "detail": null,
           "warning": false
         },
         {
-          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-16148a05\\fixtures\\notes\\sample.pdf",
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-1ca1c8c4\\fixtures\\notes\\sample.pdf",
           "status": "indexed",
           "detail": null,
           "warning": false
         },
         {
-          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-16148a05\\fixtures\\sample.png",
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-1ca1c8c4\\fixtures\\sample.png",
           "status": "indexed",
           "detail": null,
           "warning": false
@@ -66,38 +66,38 @@
     "sourceOpenMockMissingAndRecovery": true,
     "controllerRestartWithRealStores": true,
     "incrementalReuseAfterRestart": {
-      "root": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-16148a05\\fixtures",
-      "finishedAt": "2026-10-30T16:39:05.495439",
+      "root": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-1ca1c8c4\\fixtures",
+      "finishedAt": "2026-11-03T09:08:15.049769",
       "written": 0,
       "reused": 4,
       "cancelled": false,
       "files": [
         {
-          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-16148a05\\fixtures\\archive\\old.txt",
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-1ca1c8c4\\fixtures\\archive\\old.txt",
           "status": "reused",
           "detail": null,
           "warning": false
         },
         {
-          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-16148a05\\fixtures\\bad.docx",
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-1ca1c8c4\\fixtures\\bad.docx",
           "status": "failed",
           "detail": "DOCX is not a valid zip container.",
           "warning": false
         },
         {
-          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-16148a05\\fixtures\\notes\\guide.txt",
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-1ca1c8c4\\fixtures\\notes\\guide.txt",
           "status": "reused",
           "detail": null,
           "warning": false
         },
         {
-          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-16148a05\\fixtures\\notes\\sample.pdf",
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-1ca1c8c4\\fixtures\\notes\\sample.pdf",
           "status": "reused",
           "detail": null,
           "warning": false
         },
         {
-          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-16148a05\\fixtures\\sample.png",
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-1ca1c8c4\\fixtures\\sample.png",
           "status": "reused",
           "detail": null,
           "warning": false
@@ -106,14 +106,14 @@
     },
     "clearConfirmationPreservesSourcesAndSettings": true
   },
-  "fixtureRoot": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-16148a05\\fixtures",
-  "dataDirectory": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-16148a05\\index",
+  "fixtureRoot": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-1ca1c8c4\\fixtures",
+  "dataDirectory": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-1ca1c8c4\\index",
   "stage": "incremental reuse and clear confirmation",
   "runtime": {
     "ready": true,
     "mode": "development",
     "resourceRoot": "E:\\Project\\accessible-multimodal-retrieval",
-    "databasePath": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-16148a05\\index\\library.sqlite",
+    "databasePath": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-1ca1c8c4\\index\\library.sqlite",
     "documents": 0,
     "chunks": 0,
     "checks": [
@@ -180,10 +180,10 @@
       {
         "name": "SQLite / 数据目录",
         "status": "passed",
-        "detail": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-16148a05\\index\\library.sqlite；文档 0，块 0"
+        "detail": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-1ca1c8c4\\index\\library.sqlite；文档 0，块 0"
       }
     ]
   },
-  "elapsedMs": 26120,
-  "finishedAt": "2026-10-30T08:39:06.228643Z"
+  "elapsedMs": 28234,
+  "finishedAt": "2026-11-03T01:08:15.705423Z"
 }

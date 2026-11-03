@@ -1,0 +1,206 @@
+[
+  {
+    "path": "reports/week5/logs/A_build_manifest.json",
+    "sha256": "DFB6B4468A7B42DC66F4C7D9646BC7D5160F1BBBA33E35D59990A4E0165CC9A6"
+  },
+  {
+    "path": "reports/week5/logs/A_build_smoke.json",
+    "sha256": "018252E6AC404F8B8F770B74E73FEB77BD0E7F7436E42AB18092A1F460C1622D"
+  },
+  {
+    "path": "reports/week5/logs/A_flutter_analyze.txt",
+    "sha256": "2EEB7539CCB8447FE392C250AD350DACEBEEABA777C4128D7E3097F4F08D1F93"
+  },
+  {
+    "path": "reports/week5/logs/A_flutter_test.txt",
+    "sha256": "3C0DD2685DAF12F689E53367B0F581681D6E28669D2520A615F39C41D15C2FB2"
+  },
+  {
+    "path": "reports/week5/logs/A_protected_assets.json",
+    "sha256": "440DD260C2608EEE2E87AE7F91A6466D00A2D2AC4919F104EAF8F68E3E150FC9"
+  },
+  {
+    "path": "reports/week5/logs/A_pub_get.txt",
+    "sha256": "A2244A5EEA9A3CC78FC36303140204FD97EDD76D3343E3A425E2073AADACD25A"
+  },
+  {
+    "path": "reports/week5/logs/A_runtime_development.json",
+    "sha256": "E9066FD758F53ED8C3F7645CD35F8E7BB6EBDEDA318FE42C587AFC49111469E5"
+  },
+  {
+    "path": "reports/week5/logs/A_runtime_missing_java.json",
+    "sha256": "7A3E439DB7BEF9EB72193A971F44E3B79CA5DD60AD03B3F2DE1634A8FF3900F5"
+  },
+  {
+    "path": "reports/week5/logs/A_runtime_missing_resources.json",
+    "sha256": "DFFC787712ACFC0926B00A92B0837F63E8526988DF5A19FB432A82FCC8B932BB"
+  },
+  {
+    "path": "reports/week5/logs/A_runtime_release_gap.json",
+    "sha256": "9138B3F25052EC0AC93F9D342A73564235B63B72D2BF788F4EBB8A4948D326D5"
+  },
+  {
+    "path": "reports/week5/logs/A_windows_build.txt",
+    "sha256": "A6E7A36DB4FF0BB6D929322AB3F7500B858737741B5B26BEBB2C3DBB377831CD"
+  },
+  {
+    "path": "reports/week5/logs/B_build_manifest.json",
+    "sha256": "BA1BFD78E87060FC05B3BC721E94C2D4A85B190EFA82C0B775C535FEC2A6A572"
+  },
+  {
+    "path": "reports/week5/logs/B_flutter_analyze.txt",
+    "sha256": "90519F13C57F7ADCA2D3B4FF156328260BF5714B8E0E218C8E04087BBA695F47"
+  },
+  {
+    "path": "reports/week5/logs/B_flutter_test.txt",
+    "sha256": "F961389A414BCA15AB72C7D633CE4BAC04ECD7C56B5FBA051DE033345A78189B"
+  },
+  {
+    "path": "reports/week5/logs/B_library_smoke.json",
+    "sha256": "1A3100D387CB54DE0D8E6533B62A5E29A28DC837F6C230D26DF9997FAD64A2C0"
+  },
+  {
+    "path": "reports/week5/logs/B_native_console.txt",
+    "sha256": "6DD0FED99905B70BA8DC8AAAEA6E9D558974DE072A9DFD24B6B3663C971872A2"
+  },
+  {
+    "path": "reports/week5/logs/B_native_session.json",
+    "sha256": "61B7A6BAD69BEA50CF397FD0C1B4A55FF60A1796E43B15EB65E665B8476FBA4E"
+  },
+  {
+    "path": "reports/week5/logs/B_pipeline_analyze.txt",
+    "sha256": "3946A774DEE79C40F58E22D61BD2C08E352058ACEDB3AF848D7FCCA377AE6031"
+  },
+  {
+    "path": "reports/week5/logs/B_pipeline_test.txt",
+    "sha256": "0AA02E76B61E317B700BC10D77C2C00C6CFDA09E1F553AEB8F0DA8877D5142A8"
+  },
+  {
+    "path": "reports/week5/logs/B_protected_assets.json",
+    "sha256": "527BEB098C9669A467963689CD3A63C2710112E6ABE117399F51CD041207467C"
+  },
+  {
+    "path": "reports/week5/logs/B_windows_build.txt",
+    "sha256": "0C61DBE906CCCE1AC1F347FF902F6D2E77B36B640E4D208B3BEA8A979EECF3B3"
+  },
+  {
+    "path": "reports/week5/logs/bench_w5_dev.txt",
+    "sha256": "E851D67CDD6364870A46CB4FEE0F813043DB2BEBE48A6B59066455D3BE075133"
+  },
+  {
+    "path": "reports/week5/logs/bench_w5_holdout.txt",
+    "sha256": "8810D7B6BE702D2A727C175C062ADA86507FC3A3B8CD0BBE5AEC12C681057313"
+  },
+  {
+    "path": "reports/week5/logs/bench_w5n_dev.txt",
+    "sha256": "D170BAAF03F44291AEFD65A73672045E3496F535F5B46C8CE03DADB56A7E6F69"
+  },
+  {
+    "path": "reports/week5/logs/build_bench_nofile.txt",
+    "sha256": "A36C217981880D474B5160B09A7500B6E49C8A22078468EF3397E46A636035E9"
+  },
+  {
+    "path": "reports/week5/logs/C_build_manifest.json",
+    "sha256": "04335980F64761A98045EDCF436E2263E6396284779660B78EC83F68A1A43A51"
+  },
+  {
+    "path": "reports/week5/logs/C_flutter_analyze.txt",
+    "sha256": "2DF50AEB96DAB113AA0F45216E545706A553AB22B81592DFAFA0F25B07CEE8C1"
+  },
+  {
+    "path": "reports/week5/logs/C_flutter_test.txt",
+    "sha256": "6664B64E170FE0A860A8439A0E620C4AB2A8A615AB55E022DC1E7A341DC99049"
+  },
+  {
+    "path": "reports/week5/logs/C_protected_assets.json",
+    "sha256": "527BEB098C9669A467963689CD3A63C2710112E6ABE117399F51CD041207467C"
+  },
+  {
+    "path": "reports/week5/logs/C_search_smoke.json",
+    "sha256": "ED407F9A790AE0BF86F334EAD3F50738D6A8545A924726ECCB6A18E58DFC8700"
+  },
+  {
+    "path": "reports/week5/logs/C_search_smoke.txt",
+    "sha256": "45B69506019FDB395FE51D1B41963E8E03C311C27F561141AE029CE5E8AAA996"
+  },
+  {
+    "path": "reports/week5/logs/C_windows_build.txt",
+    "sha256": "36F4E1E9FD59B94CD2E7C82847128B6E72BC679D4B3C8AA178D9321D470B00BB"
+  },
+  {
+    "path": "reports/week5/logs/D_build_manifest.json",
+    "sha256": "3E4F1E091503AEAF73811B42FBAD04B3E3B848F257BC674ED2E26184546621C1"
+  },
+  {
+    "path": "reports/week5/logs/D_contrast.json",
+    "sha256": "FF9BDC593C9E4B933E3AFB5A7A536E705020D122116EEEB95554F8C4F97DF488"
+  },
+  {
+    "path": "reports/week5/logs/D_flutter_analyze.txt",
+    "sha256": "839DF9E7C68BBD8AA516FAA52EC0D334B9B8AFBD1BE3D1B076FEEFAEB40F10D2"
+  },
+  {
+    "path": "reports/week5/logs/D_flutter_test.txt",
+    "sha256": "10D67515CF85C0B49ED8516210A8F32716E94D500DEFBE78F430E34D1E23AC71"
+  },
+  {
+    "path": "reports/week5/logs/D_protected_assets.json",
+    "sha256": "527BEB098C9669A467963689CD3A63C2710112E6ABE117399F51CD041207467C"
+  },
+  {
+    "path": "reports/week5/logs/D_windows_build.txt",
+    "sha256": "F8389B40DD98157FE9687124864101CB657146298585B00470D5C2866402468D"
+  },
+  {
+    "path": "reports/week5/logs/E_build_manifest.json",
+    "sha256": "C69FD04CA6289F567B9AC408CA47083CEE466CC06068681B76FA61B7B827CBB0"
+  },
+  {
+    "path": "reports/week5/logs/E_environment.json",
+    "sha256": "5097C8C3785ADD3008323FC2F3B31C8ADD1FE01504495F14C55D5B53005D6789"
+  },
+  {
+    "path": "reports/week5/logs/E_flutter_analyze.txt",
+    "sha256": "46C640361C08C21FD1E8F2018347C8BF12E7A752A333581DFC65BE4951BB6A3F"
+  },
+  {
+    "path": "reports/week5/logs/E_flutter_test.txt",
+    "sha256": "46C6D1B984A54E84CDD81B6CF7F1253FFD01AEA96D78E1114C8CB5E3AEBCB574"
+  },
+  {
+    "path": "reports/week5/logs/E_headless_acceptance.json",
+    "sha256": "D69029B4D863AB7536779C272B0136CC83BC270599CF8C8BCF3D36D7AE835E2A"
+  },
+  {
+    "path": "reports/week5/logs/E_headless_acceptance.txt",
+    "sha256": "46C6D1B984A54E84CDD81B6CF7F1253FFD01AEA96D78E1114C8CB5E3AEBCB574"
+  },
+  {
+    "path": "reports/week5/logs/E_protected_assets.json",
+    "sha256": "527BEB098C9669A467963689CD3A63C2710112E6ABE117399F51CD041207467C"
+  },
+  {
+    "path": "reports/week5/logs/fusion_attribution_w5.txt",
+    "sha256": "D0617EEA4D3CED865DF43E3D923886228D7816CD1865743F77AF917FAD5C3F92"
+  },
+  {
+    "path": "reports/week5/logs/section_scope_w5_nofile.txt",
+    "sha256": "01BFE021DA1AA70A9D8AF7249AC75D4C0C83AB6FD819A850CBF48D86634B7956"
+  },
+  {
+    "path": "reports/week5/logs/section_scope_w5.txt",
+    "sha256": "638A05523734BB626287017573319F5109062440C1D1E22A957823101B70371B"
+  },
+  {
+    "path": "reports/week5/logs/w5_dev.jsonl",
+    "sha256": "0379D5B31823D3F10D7A2C6210CD5A2D42DA03BB6A3CDA981F863CAB33C84F6C"
+  },
+  {
+    "path": "reports/week5/logs/w5_holdout.jsonl",
+    "sha256": "B37120BA5BDD59F0C3DD09BB91B0D1D157F9A06832A400A9D6B2ECA7A15CFC34"
+  },
+  {
+    "path": "reports/week5/logs/w5n_dev.jsonl",
+    "sha256": "7520D33E42CD122E0D095B3D947E70D942ED0D40BBF09EC1281E580993969DD9"
+  }
+]

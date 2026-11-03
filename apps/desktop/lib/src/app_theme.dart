@@ -1,5 +1,25 @@
 import 'package:flutter/material.dart';
 
+// Keep Material's sizes, weights and line heights, but avoid Latin tracking
+// between Chinese characters. Apply this to every theme, including contrast.
+const _chineseTextTheme = TextTheme(
+  displayLarge: TextStyle(letterSpacing: 0),
+  displayMedium: TextStyle(letterSpacing: 0),
+  displaySmall: TextStyle(letterSpacing: 0),
+  headlineLarge: TextStyle(letterSpacing: 0),
+  headlineMedium: TextStyle(letterSpacing: 0),
+  headlineSmall: TextStyle(letterSpacing: 0),
+  titleLarge: TextStyle(letterSpacing: 0),
+  titleMedium: TextStyle(letterSpacing: 0),
+  titleSmall: TextStyle(letterSpacing: 0),
+  bodyLarge: TextStyle(letterSpacing: 0),
+  bodyMedium: TextStyle(letterSpacing: 0),
+  bodySmall: TextStyle(letterSpacing: 0),
+  labelLarge: TextStyle(letterSpacing: 0),
+  labelMedium: TextStyle(letterSpacing: 0),
+  labelSmall: TextStyle(letterSpacing: 0),
+);
+
 ThemeData retrievalTheme(Brightness brightness, {bool highContrast = false}) {
   final dark = brightness == Brightness.dark;
   final scheme = highContrast
@@ -33,6 +53,15 @@ ThemeData retrievalTheme(Brightness brightness, {bool highContrast = false}) {
   final disabled = dark ? const Color(0xffb3b3b3) : const Color(0xff595959);
   final base = ThemeData(
     useMaterial3: true,
+    fontFamily: 'Microsoft YaHei',
+    fontFamilyFallback: const [
+      'Microsoft YaHei UI',
+      'PingFang SC',
+      'Noto Sans CJK SC',
+      'Segoe UI',
+    ],
+    textTheme: _chineseTextTheme,
+    primaryTextTheme: _chineseTextTheme,
     colorScheme: scheme,
     brightness: brightness,
     scaffoldBackgroundColor: scheme.surface,

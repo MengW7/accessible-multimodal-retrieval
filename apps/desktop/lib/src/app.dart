@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/semantics.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'accessibility_widgets.dart';
 import 'app_theme.dart';
@@ -101,6 +102,9 @@ class _RetrievalAppState extends State<RetrievalApp> {
       return MaterialApp(
         navigatorKey: _navigator,
         title: '本地内容检索',
+        locale: const Locale('zh', 'CN'),
+        supportedLocales: const [Locale('zh', 'CN')],
+        localizationsDelegates: GlobalMaterialLocalizations.delegates,
         themeMode: switch (settings.theme) {
           DisplayTheme.system => ThemeMode.system,
           DisplayTheme.light => ThemeMode.light,
