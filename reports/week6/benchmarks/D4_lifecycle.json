@@ -1,0 +1,24 @@
+{
+  "ok": true,
+  "mode": "lifecycle",
+  "cwd": "C:\\WINDOWS",
+  "dart": "3.13.4 (stable) (Tue Sep 15 01:01:15 2026 -0700) on \"windows_x64\"",
+  "os": "\"Windows 11 Pro\" 10.0 (Build 26300)",
+  "query": "离线检索",
+  "warmRuns": 30,
+  "cancel": {
+    "written": 1,
+    "reused": 0,
+    "requestToReturnMs": 0.073
+  },
+  "resume": {
+    "reused": 9906,
+    "ms": 11132.907
+  },
+  "restored": {
+    "written": 1,
+    "ms": 11190.735
+  },
+  "cleared": true,
+  "peakRssBytes": 1059160064
+}

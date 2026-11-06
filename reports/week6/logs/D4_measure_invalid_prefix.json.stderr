@@ -1,0 +1,7 @@
+Unhandled exception:
+Bad state: unstable pipeline
+#0      check (file:///e:/project/accessible-multimodal-retrieval/apps/desktop/tool/week6_pressure.dart:303)
+#1      hot (file:///e:/project/accessible-multimodal-retrieval/apps/desktop/tool/week6_pressure.dart:394)
+<asynchronous suspension>
+#2      main (file:///e:/project/accessible-multimodal-retrieval/apps/desktop/tool/week6_pressure.dart:186)
+<asynchronous suspension>

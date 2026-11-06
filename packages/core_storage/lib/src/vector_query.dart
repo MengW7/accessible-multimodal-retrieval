@@ -102,90 +102,85 @@ List<ScoredId> cosineTopK(
   }
   final SqlClause extra = filterClause(filter);
 
-  // 阶段一：只取 `id` 与 `vec` 打分。tie-break 需要的文本列在阶段二按
-  // 候选回表，避免为 10k 行各分配一次 `relative_path`。
-  //
-  // 为了不把 10k 个候选都留在内存里，这里只保留「分数不低于当前第 topK 名」的
-  // 候选。分数严格低于阈值的不可能进 Top-K（同分时靠 tie-break 决定，
-  // 所以用 `>=` 而不是 `>`）。
-  final ResultSet rows = database.select(
-    vectorScanSql(filter),
-    <Object?>[space, query.dim, ...extra.args],
-  );
+  // Stream vector rows so a query does not retain all BLOBs at once.
+  final PreparedStatement statement = database.prepare(vectorScanSql(filter));
   final Float32List queryValues = Float32List.fromList(query.values);
   final List<(int, double)> scored = <(int, double)>[];
   var threshold = double.negativeInfinity;
-  for (final Row row in rows) {
-    final Uint8List blob = blobOf(row, 'vec');
-    final Float32List values = float32View(blob, query.dim);
-    final double score = dotFloat32(values, queryValues);
-    // 只有「严格低于阈值」才安全丢弃：同分的行要靠 tie-break 定名次，
-    // 提前扔掉同分行会让结果与全量排序不一致。收缩时同样保留同分边界。
-    if (scored.length >= topK && score < threshold) {
-      continue;
-    }
-    scored.add((row.columnAt(0) as int, score));
-    if (scored.length > topK * 4) {
-      // 收缩前的分数阈值：先按分数降序，找出第 topK 名的分数，把**所有**
-      // 同分候选都留下来（它们的先后要由 tie-break 决定，不能在这里判断）。
-      scored.sort(((int, double) a, (int, double) b) => b.$2.compareTo(a.$2));
-      threshold = scored[topK - 1].$2;
-      final int keep = scored.indexWhere(
-        ((int, double) item) => item.$2 < threshold,
-      );
-      if (keep > 0) {
-        scored.removeRange(keep, scored.length);
+  var improved = 0;
+  try {
+    final cursor = statement.selectCursor(
+      <Object?>[space, query.dim, ...extra.args],
+    );
+    while (cursor.moveNext()) {
+      final Row row = cursor.current;
+      final Uint8List blob = blobOf(row, 'vec');
+      final double score = dotFloat32(float32View(blob, query.dim), queryValues);
+      if (score < threshold) {
+        continue;
+      }
+      scored.add((row.columnAt(0) as int, score));
+      // Equal scores cannot raise the cutoff. Re-sorting the growing list
+      // on each of them makes an otherwise linear scan quadratic.
+      if (score > threshold && ++improved > topK * 4) {
+        scored.sort(((int, double) a, (int, double) b) => b.$2.compareTo(a.$2));
+        threshold = scored[topK - 1].$2;
+        final int keep = scored.indexWhere(
+          ((int, double) item) => item.$2 < threshold,
+        );
+        if (keep > 0) {
+          scored.removeRange(keep, scored.length);
+        }
+        improved = 0;
       }
     }
+  } finally {
+    statement.dispose();
   }
 
-  // 阶段二：候选回表补 tie-break 列，按 [_compare] 排序后取前 topK。
-  final List<ScoredCandidate> candidates = _candidates(database, scored);
-  // `_candidates` 在空输入上返回 `const []`。只有非空时才需要排序。
-  if (candidates.length > 1) {
+  // The retained candidates include every cutoff tie. Fetch metadata in
+  // batches and retain the best K so a large tie does not hit SQLite's
+  // parameter limit or materialize all candidate metadata at once.
+  final List<ScoredCandidate> candidates = <ScoredCandidate>[];
+  for (var start = 0; start < scored.length; start += _lookupBatch) {
+    final int end = _batchEnd(start, scored.length);
+    candidates.addAll(_candidates(database, scored.getRange(start, end)));
     candidates.sort(ScoredCandidate.compareTie);
+    if (candidates.length > topK) {
+      candidates.removeRange(topK, candidates.length);
+    }
   }
-  final List<ScoredCandidate> selected = candidates.length <= topK
-      ? candidates
-      : candidates.sublist(0, topK);
 
-  // 阶段三：只为选中的行回表取展示列，输出顺序沿用阶段二的名次。
-  return _display(database, selected);
+  // Only the final hits need display columns.
+  return _display(database, candidates);
 }
 
-/// 为 [(rowId, score)] 回表补齐 tie-break 列。`IN (...)` 不保证顺序。
-List<ScoredCandidate> _candidates(
+const int _lookupBatch = 512;
+
+int _batchEnd(int start, int length) =>
+    start + _lookupBatch < length ? start + _lookupBatch : length;
+
+Iterable<ScoredCandidate> _candidates(
   Database database,
-  List<(int, double)> scored,
-) {
-  if (scored.isEmpty) {
-    return const <ScoredCandidate>[];
-  }
+  Iterable<(int, double)> scored,
+) sync* {
   final Map<int, double> scoreById = <int, double>{
     for (final (int rowId, double score) in scored) rowId: score,
   };
   final ResultSet rows = database.select(
-    vectorCandidateSql(scored.length),
-    <Object?>[for (final (int rowId, double _) in scored) rowId],
+    vectorCandidateSql(scoreById.length),
+    scoreById.keys.toList(growable: false),
   );
-  final List<ScoredCandidate> candidates = <ScoredCandidate>[];
   for (final Row row in rows) {
     final int rowId = row.columnAt(0) as int;
-    final double? score = scoreById[rowId];
-    if (score == null) {
-      continue;
-    }
-    candidates.add(
-      ScoredCandidate(
-        rowId: rowId,
-        relativePath: row.columnAt(1) as String,
-        pageNumber: row.columnAt(2) as int?,
-        startOffset: row.columnAt(3) as int,
-        score: score,
-      ),
+    yield ScoredCandidate(
+      rowId: rowId,
+      relativePath: row.columnAt(1) as String,
+      pageNumber: row.columnAt(2) as int?,
+      startOffset: row.columnAt(3) as int,
+      score: scoreById[rowId]!,
     );
   }
-  return candidates;
 }
 
 /// 按 [selected] 给的名次回填展示列。`IN (...)` 不保证顺序，因此这里
@@ -194,22 +189,21 @@ List<ScoredId> _display(Database database, List<ScoredCandidate> selected) {
   if (selected.isEmpty) {
     return const <ScoredId>[];
   }
-  final Map<int, double> scoreById = <int, double>{
-    for (final ScoredCandidate candidate in selected)
-      candidate.rowId: candidate.score,
-  };
-  final ResultSet rows = database.select(
-    vectorDisplaySql(selected.length),
-    <Object?>[for (final ScoredCandidate candidate in selected) candidate.rowId],
-  );
   final Map<int, ScoredId> byId = <int, ScoredId>{};
-  for (final Row row in rows) {
-    final int rowId = rowIdOf(row);
-    final double? score = scoreById[rowId];
-    if (score == null) {
-      continue;
+  for (var start = 0; start < selected.length; start += _lookupBatch) {
+    final int end = _batchEnd(start, selected.length);
+    final Map<int, double> scoreById = <int, double>{
+      for (final ScoredCandidate candidate in selected.getRange(start, end))
+        candidate.rowId: candidate.score,
+    };
+    final ResultSet rows = database.select(
+      vectorDisplaySql(scoreById.length),
+      scoreById.keys.toList(growable: false),
+    );
+    for (final Row row in rows) {
+      final int rowId = rowIdOf(row);
+      byId[rowId] = scoredFromRow(row, scoreById[rowId]!);
     }
-    byId[rowId] = scoredFromRow(row, score);
   }
   return <ScoredId>[
     for (final ScoredCandidate candidate in selected)

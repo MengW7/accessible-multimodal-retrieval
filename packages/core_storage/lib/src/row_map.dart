@@ -52,7 +52,7 @@ final class ScoredCandidate {
 
   final double score;
 
-  /// 与 [ScoredId.compareTie] 同序。
+  /// 比较 [ScoredId.compareTie] 的展示字段；全相同再按行 ID 排序。
   static int compareTie(ScoredCandidate left, ScoredCandidate right) {
     final int score = right.score.compareTo(left.score);
     if (score != 0) {
@@ -66,7 +66,10 @@ final class ScoredCandidate {
     if (page != 0) {
       return page;
     }
-    return left.startOffset.compareTo(right.startOffset);
+    final int offset = left.startOffset.compareTo(right.startOffset);
+    // Fully equal provenance may occur when importing different roots.
+    // Keep batch boundaries from deciding which of these rows wins.
+    return offset != 0 ? offset : left.rowId.compareTo(right.rowId);
   }
 
   static int _page(int? left, int? right) {

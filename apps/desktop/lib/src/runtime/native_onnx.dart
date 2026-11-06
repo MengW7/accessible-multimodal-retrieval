@@ -88,6 +88,7 @@ final class NativeOnnx {
   final String version;
   final _sessions = <String, Pointer<Void>>{};
   int completed = 0;
+  void Function(String path, int? loadUs, int forwardUs)? onTiming;
 
   Float32List forward(
     String path,
@@ -125,7 +126,10 @@ final class NativeOnnx {
         ..rank = tensor.shape.length
         ..elementType = type;
     }
+    final observe = onTiming;
+    int? loadUs;
     final session = _sessions.putIfAbsent(path, () {
+      final loading = observe == null ? null : (Stopwatch()..start());
       final handle = _open(
         path.toNativeUtf16(allocator: arena),
         message,
@@ -136,23 +140,28 @@ final class NativeOnnx {
           '无法加载模型 $path：${message.toDartString()}',
         );
       }
+      loadUs = loading?.elapsedMicroseconds;
       return handle;
     });
     final output = arena<Float>(outputCount);
+    final outputKey = outputName.toNativeUtf8(allocator: arena);
+    final running = observe == null ? null : (Stopwatch()..start());
     final result = _run(
       session,
       nativeInputs,
       inputs.length,
-      outputName.toNativeUtf8(allocator: arena),
+      outputKey,
       output,
       outputCount,
       message,
       _messageSize,
     );
+    final forwardUs = running?.elapsedMicroseconds;
     if (result != 0) {
       throw EmbeddingRuntimeException('ONNX 推理失败：${message.toDartString()}');
     }
     completed++;
+    if (forwardUs != null) observe!(path, loadUs, forwardUs);
     return Float32List.fromList(output.asTypedList(outputCount));
   });
 

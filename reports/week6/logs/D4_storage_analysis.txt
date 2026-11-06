@@ -1,0 +1,3 @@
+Analyzing core_storage...
+No issues found!
+exit=0

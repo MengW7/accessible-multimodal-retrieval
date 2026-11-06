@@ -683,6 +683,29 @@ void main() {
     );
   });
 
+  test('ties spanning SQL batches match a full sort and preserve offsets', () async {
+    final store = _memory();
+    final chunks = [
+      for (var i = 699; i >= 0; i--)
+        _chunk('tie-$i', relativePath: 'same.pdf', pageNumber: 1, startOffset: i),
+      _chunk('best', relativePath: 'z.pdf', pageNumber: 2, startOffset: 23),
+    ];
+    await store.write(chunks, [
+      for (var i = 0; i < 700; i++) _vector([0, 1]),
+      _vector([1, 0]),
+    ]);
+    final query = _vector([1, 0]);
+    for (final k in [3, 550]) {
+      final hits = await store.search(query, topK: k);
+      expect(hits.map((hit) => hit.chunkId), [
+        'best', for (var i = 0; i < k - 1; i++) 'tie-$i',
+      ]);
+      expect(hits.skip(1).map((hit) => (hit.pageNumber, hit.startOffset)), [
+        for (var i = 0; i < k - 1; i++) (1, i),
+      ]);
+    }
+  });
+
   test('candidate and result tie-break stay in the same order', () {
     // 两阶段查询用 ScoredCandidate 选候选，最终展示用 ScoredId。
     // 两条排序必须同序，否则「先选候选再回表」会悄悄改变名次。
