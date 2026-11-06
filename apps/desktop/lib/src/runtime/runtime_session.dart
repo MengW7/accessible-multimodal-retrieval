@@ -38,6 +38,7 @@ final class RuntimeSession {
     RuntimeConfig config, {
     String? databasePath,
     EmbedServerHost? embedServerHost,
+    void Function(String path, int? loadUs, int forwardUs)? onNativeTiming,
     void Function(IngestProgress)? onIngestProgress,
     void Function(IngestionReport)? onIngested,
   }) {
@@ -66,6 +67,7 @@ final class RuntimeSession {
       native = config.development
           ? null
           : NativeOnnx.load(config.onnxLibrary, config.onnxBridge);
+      native?.onTiming = onNativeTiming;
       final backend = native;
       EmbeddingRuntime model(String path, String output, int count) =>
           backend == null

@@ -1,0 +1,3 @@
+Analyzing desktop...                                            
+No issues found! (ran in 9.2s)
+exit=0

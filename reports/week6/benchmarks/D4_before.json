@@ -1,0 +1,5340 @@
+{
+  "ok": true,
+  "mode": "measure",
+  "cwd": "C:\\WINDOWS",
+  "dart": "3.13.4 (stable) (Tue Sep 15 01:01:15 2026 -0700) on \"windows_x64\"",
+  "os": "\"Windows 11 Pro\" 10.0 (Build 26300)",
+  "query": "离线检索",
+  "warmRuns": 30,
+  "cold": [
+    {
+      "openMs": 9903.063,
+      "indexMs": 6986.692,
+      "firstSearchMs": 233.969,
+      "loadMs": {
+        "onnx/model.onnx": 487.479,
+        "onnx/vision_model.onnx": 115.931,
+        "onnx/text_model.onnx": 200.664
+      },
+      "sources": [
+        [
+          "sample.pdf",
+          1,
+          1318,
+          1328,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i21",
+          [
+            "documentText"
+          ],
+          0.00819672131147541,
+          "• Security — the trust model, and what to lock down before exposing tika-server or\ntika-grpc.\n• Migrating to 4.x — what changed since 3.x and what you have to update."
+        ],
+        [
+          "sample.pdf",
+          2,
+          1339,
+          1349,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i21",
+          [
+            "documentText"
+          ],
+          0.008064516129032258,
+          "• Security — the trust model, and what to lock down before exposing tika-server or\ntika-grpc.\n• Migrating to 4.x — what changed since 3.x and what you have to update."
+        ],
+        [
+          "sample.png",
+          null,
+          0,
+          0,
+          "fca8cd1a7f56fb49a538651c5e4bcd0a4d48ffd553adeb9b49a792391692393b:image",
+          [
+            "clipShared"
+          ],
+          0.008032786885245901,
+          ""
+        ],
+        [
+          "sample.pdf",
+          1,
+          970,
+          1033,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i16",
+          [
+            "documentText"
+          ],
+          0.007936507936507936,
+          "gRPC.\n• Pipes — process-isolated, fault-tolerant extraction at scale.\n• Configuration — the JSON config file: parsers, detectors, metadata filters."
+        ],
+        [
+          "sample.pdf",
+          2,
+          986,
+          1049,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i16",
+          [
+            "documentText"
+          ],
+          0.0078125,
+          "gRPC.\n• Pipes — process-isolated, fault-tolerant extraction at scale.\n• Configuration — the JSON config file: parsers, detectors, metadata filters."
+        ]
+      ]
+    },
+    {
+      "openMs": 376.252,
+      "indexMs": 7535.078,
+      "firstSearchMs": 258.577,
+      "loadMs": {
+        "onnx/model.onnx": 496.901,
+        "onnx/vision_model.onnx": 140.115,
+        "onnx/text_model.onnx": 221.577
+      },
+      "sources": [
+        [
+          "sample.pdf",
+          1,
+          1318,
+          1328,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i21",
+          [
+            "documentText"
+          ],
+          0.00819672131147541,
+          "• Security — the trust model, and what to lock down before exposing tika-server or\ntika-grpc.\n• Migrating to 4.x — what changed since 3.x and what you have to update."
+        ],
+        [
+          "sample.pdf",
+          2,
+          1339,
+          1349,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i21",
+          [
+            "documentText"
+          ],
+          0.008064516129032258,
+          "• Security — the trust model, and what to lock down before exposing tika-server or\ntika-grpc.\n• Migrating to 4.x — what changed since 3.x and what you have to update."
+        ],
+        [
+          "sample.png",
+          null,
+          0,
+          0,
+          "fca8cd1a7f56fb49a538651c5e4bcd0a4d48ffd553adeb9b49a792391692393b:image",
+          [
+            "clipShared"
+          ],
+          0.008032786885245901,
+          ""
+        ],
+        [
+          "sample.pdf",
+          1,
+          970,
+          1033,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i16",
+          [
+            "documentText"
+          ],
+          0.007936507936507936,
+          "gRPC.\n• Pipes — process-isolated, fault-tolerant extraction at scale.\n• Configuration — the JSON config file: parsers, detectors, metadata filters."
+        ],
+        [
+          "sample.pdf",
+          2,
+          986,
+          1049,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i16",
+          [
+            "documentText"
+          ],
+          0.0078125,
+          "gRPC.\n• Pipes — process-isolated, fault-tolerant extraction at scale.\n• Configuration — the JSON config file: parsers, detectors, metadata filters."
+        ]
+      ]
+    },
+    {
+      "openMs": 435.379,
+      "indexMs": 7756.867,
+      "firstSearchMs": 225.938,
+      "loadMs": {
+        "onnx/model.onnx": 555.849,
+        "onnx/vision_model.onnx": 137.887,
+        "onnx/text_model.onnx": 197.516
+      },
+      "sources": [
+        [
+          "sample.pdf",
+          1,
+          1318,
+          1328,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i21",
+          [
+            "documentText"
+          ],
+          0.00819672131147541,
+          "• Security — the trust model, and what to lock down before exposing tika-server or\ntika-grpc.\n• Migrating to 4.x — what changed since 3.x and what you have to update."
+        ],
+        [
+          "sample.pdf",
+          2,
+          1339,
+          1349,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i21",
+          [
+            "documentText"
+          ],
+          0.008064516129032258,
+          "• Security — the trust model, and what to lock down before exposing tika-server or\ntika-grpc.\n• Migrating to 4.x — what changed since 3.x and what you have to update."
+        ],
+        [
+          "sample.png",
+          null,
+          0,
+          0,
+          "fca8cd1a7f56fb49a538651c5e4bcd0a4d48ffd553adeb9b49a792391692393b:image",
+          [
+            "clipShared"
+          ],
+          0.008032786885245901,
+          ""
+        ],
+        [
+          "sample.pdf",
+          1,
+          970,
+          1033,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i16",
+          [
+            "documentText"
+          ],
+          0.007936507936507936,
+          "gRPC.\n• Pipes — process-isolated, fault-tolerant extraction at scale.\n• Configuration — the JSON config file: parsers, detectors, metadata filters."
+        ],
+        [
+          "sample.pdf",
+          2,
+          986,
+          1049,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i16",
+          [
+            "documentText"
+          ],
+          0.0078125,
+          "gRPC.\n• Pipes — process-isolated, fault-tolerant extraction at scale.\n• Configuration — the JSON config file: parsers, detectors, metadata filters."
+        ]
+      ]
+    },
+    {
+      "openMs": 365.908,
+      "indexMs": 7070.753,
+      "firstSearchMs": 214.941,
+      "loadMs": {
+        "onnx/model.onnx": 487.49,
+        "onnx/vision_model.onnx": 117.59,
+        "onnx/text_model.onnx": 187.905
+      },
+      "sources": [
+        [
+          "sample.pdf",
+          1,
+          1318,
+          1328,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i21",
+          [
+            "documentText"
+          ],
+          0.00819672131147541,
+          "• Security — the trust model, and what to lock down before exposing tika-server or\ntika-grpc.\n• Migrating to 4.x — what changed since 3.x and what you have to update."
+        ],
+        [
+          "sample.pdf",
+          2,
+          1339,
+          1349,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i21",
+          [
+            "documentText"
+          ],
+          0.008064516129032258,
+          "• Security — the trust model, and what to lock down before exposing tika-server or\ntika-grpc.\n• Migrating to 4.x — what changed since 3.x and what you have to update."
+        ],
+        [
+          "sample.png",
+          null,
+          0,
+          0,
+          "fca8cd1a7f56fb49a538651c5e4bcd0a4d48ffd553adeb9b49a792391692393b:image",
+          [
+            "clipShared"
+          ],
+          0.008032786885245901,
+          ""
+        ],
+        [
+          "sample.pdf",
+          1,
+          970,
+          1033,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i16",
+          [
+            "documentText"
+          ],
+          0.007936507936507936,
+          "gRPC.\n• Pipes — process-isolated, fault-tolerant extraction at scale.\n• Configuration — the JSON config file: parsers, detectors, metadata filters."
+        ],
+        [
+          "sample.pdf",
+          2,
+          986,
+          1049,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i16",
+          [
+            "documentText"
+          ],
+          0.0078125,
+          "gRPC.\n• Pipes — process-isolated, fault-tolerant extraction at scale.\n• Configuration — the JSON config file: parsers, detectors, metadata filters."
+        ]
+      ]
+    },
+    {
+      "openMs": 360.158,
+      "indexMs": 7045.654,
+      "firstSearchMs": 213.014,
+      "loadMs": {
+        "onnx/model.onnx": 484.348,
+        "onnx/vision_model.onnx": 116.884,
+        "onnx/text_model.onnx": 188.411
+      },
+      "sources": [
+        [
+          "sample.pdf",
+          1,
+          1318,
+          1328,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i21",
+          [
+            "documentText"
+          ],
+          0.00819672131147541,
+          "• Security — the trust model, and what to lock down before exposing tika-server or\ntika-grpc.\n• Migrating to 4.x — what changed since 3.x and what you have to update."
+        ],
+        [
+          "sample.pdf",
+          2,
+          1339,
+          1349,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i21",
+          [
+            "documentText"
+          ],
+          0.008064516129032258,
+          "• Security — the trust model, and what to lock down before exposing tika-server or\ntika-grpc.\n• Migrating to 4.x — what changed since 3.x and what you have to update."
+        ],
+        [
+          "sample.png",
+          null,
+          0,
+          0,
+          "fca8cd1a7f56fb49a538651c5e4bcd0a4d48ffd553adeb9b49a792391692393b:image",
+          [
+            "clipShared"
+          ],
+          0.008032786885245901,
+          ""
+        ],
+        [
+          "sample.pdf",
+          1,
+          970,
+          1033,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i16",
+          [
+            "documentText"
+          ],
+          0.007936507936507936,
+          "gRPC.\n• Pipes — process-isolated, fault-tolerant extraction at scale.\n• Configuration — the JSON config file: parsers, detectors, metadata filters."
+        ],
+        [
+          "sample.pdf",
+          2,
+          986,
+          1049,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i16",
+          [
+            "documentText"
+          ],
+          0.0078125,
+          "gRPC.\n• Pipes — process-isolated, fault-tolerant extraction at scale.\n• Configuration — the JSON config file: parsers, detectors, metadata filters."
+        ]
+      ],
+      "hot": {
+        "all": {
+          "samples": [
+            {
+              "totalMs": 33.854,
+              "encodeMs": 32,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 36.413,
+              "encodeMs": 34,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 40.275,
+              "encodeMs": 38,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 34.252,
+              "encodeMs": 32,
+              "storeMs": 0,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 35.668,
+              "encodeMs": 33,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 36.211,
+              "encodeMs": 34,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 33.104,
+              "encodeMs": 31,
+              "storeMs": 0,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 31.658,
+              "encodeMs": 29,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 34.639,
+              "encodeMs": 32,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 33.967,
+              "encodeMs": 32,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 33.925,
+              "encodeMs": 32,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 35.088,
+              "encodeMs": 32,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 34.098,
+              "encodeMs": 31,
+              "storeMs": 2,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 44.038,
+              "encodeMs": 42,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 34.218,
+              "encodeMs": 32,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 33.272,
+              "encodeMs": 31,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 33.465,
+              "encodeMs": 31,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 33.341,
+              "encodeMs": 31,
+              "storeMs": 2,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 32.535,
+              "encodeMs": 30,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 33.197,
+              "encodeMs": 31,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 34.909,
+              "encodeMs": 33,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 31.006,
+              "encodeMs": 29,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 32.459,
+              "encodeMs": 30,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 31.007,
+              "encodeMs": 29,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 32.961,
+              "encodeMs": 31,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 29.137,
+              "encodeMs": 27,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 32.043,
+              "encodeMs": 30,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 31.118,
+              "encodeMs": 29,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 43.674,
+              "encodeMs": 41,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 32.842,
+              "encodeMs": 30,
+              "storeMs": 1,
+              "fuseMs": 0
+            }
+          ],
+          "sources": [
+            [
+              "sample.pdf",
+              1,
+              1318,
+              1328,
+              "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i21",
+              [
+                "documentText"
+              ],
+              0.00819672131147541,
+              "• Security — the trust model, and what to lock down before exposing tika-server or\ntika-grpc.\n• Migrating to 4.x — what changed since 3.x and what you have to update."
+            ],
+            [
+              "sample.pdf",
+              2,
+              1339,
+              1349,
+              "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i21",
+              [
+                "documentText"
+              ],
+              0.008064516129032258,
+              "• Security — the trust model, and what to lock down before exposing tika-server or\ntika-grpc.\n• Migrating to 4.x — what changed since 3.x and what you have to update."
+            ],
+            [
+              "sample.png",
+              null,
+              0,
+              0,
+              "fca8cd1a7f56fb49a538651c5e4bcd0a4d48ffd553adeb9b49a792391692393b:image",
+              [
+                "clipShared"
+              ],
+              0.008032786885245901,
+              ""
+            ],
+            [
+              "sample.pdf",
+              1,
+              970,
+              1033,
+              "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i16",
+              [
+                "documentText"
+              ],
+              0.007936507936507936,
+              "gRPC.\n• Pipes — process-isolated, fault-tolerant extraction at scale.\n• Configuration — the JSON config file: parsers, detectors, metadata filters."
+            ],
+            [
+              "sample.pdf",
+              2,
+              986,
+              1049,
+              "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i16",
+              [
+                "documentText"
+              ],
+              0.0078125,
+              "gRPC.\n• Pipes — process-isolated, fault-tolerant extraction at scale.\n• Configuration — the JSON config file: parsers, detectors, metadata filters."
+            ]
+          ],
+          "vector": {
+            "ms": [
+              0.309,
+              0.299,
+              0.321,
+              0.298,
+              0.292,
+              0.294,
+              0.291,
+              0.295,
+              0.304,
+              0.299,
+              0.289,
+              0.296,
+              0.291,
+              0.296,
+              0.289,
+              0.304,
+              0.292,
+              0.287,
+              0.292,
+              0.302,
+              0.354,
+              0.416,
+              0.31,
+              0.294,
+              0.299,
+              0.299,
+              0.3,
+              0.313,
+              0.293,
+              0.293
+            ],
+            "sources": [
+              [
+                "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i19",
+                "sample.pdf",
+                1,
+                1201,
+                1228,
+                0.06662259250879288
+              ],
+              [
+                "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i19",
+                "sample.pdf",
+                2,
+                1220,
+                1247,
+                0.06662259250879288
+              ],
+              [
+                "0ae2c86a937bbe7c735ecf1400fb9114cba4e57837acf472043c8765f37088ca-w3-cascade-1-unigram-c120-t128-o0-pna-i2",
+                "sample.docx",
+                null,
+                44,
+                58,
+                0.06592991948127747
+              ],
+              [
+                "0ae2c86a937bbe7c735ecf1400fb9114cba4e57837acf472043c8765f37088ca-w3-cascade-1-unigram-c120-t128-o0-pna-i11",
+                "sample.docx",
+                null,
+                710,
+                724,
+                0.06592991948127747
+              ],
+              [
+                "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i11",
+                "sample.pdf",
+                1,
+                745,
+                759,
+                0.06592991948127747
+              ]
+            ]
+          },
+          "rssBytes": 851013632
+        }
+      },
+      "forwardMs": {
+        "onnx/model.onnx": [
+          21.728,
+          23.14,
+          27.077,
+          22.324,
+          23.144,
+          23.533,
+          22.048,
+          21.74,
+          21.836,
+          22.07,
+          22.175,
+          22.064,
+          20.832,
+          29.571,
+          21.974,
+          21.561,
+          20.785,
+          20.498,
+          20.463,
+          21.407,
+          23.437,
+          21.177,
+          21.108,
+          19.73,
+          21.167,
+          17.758,
+          20.476,
+          19.774,
+          27.902,
+          20.628
+        ],
+        "onnx/text_model.onnx": [
+          10.138,
+          10.722,
+          10.97,
+          10.171,
+          10.293,
+          10.236,
+          9.365,
+          7.746,
+          10.51,
+          9.676,
+          9.522,
+          10.024,
+          10.332,
+          12.028,
+          9.877,
+          9.402,
+          10.3,
+          10.206,
+          9.687,
+          9.55,
+          9.244,
+          7.554,
+          9.091,
+          9.011,
+          9.521,
+          9.08,
+          9.319,
+          8.951,
+          13.421,
+          9.937
+        ],
+        "onnx/vision_model.onnx": [
+          13.671,
+          16.502,
+          13.345,
+          12.951,
+          17.247,
+          14.169,
+          13.817,
+          13.846,
+          13.83,
+          15.962,
+          14.291,
+          17.893,
+          18.968,
+          14.483,
+          19.06,
+          13.044,
+          14.131,
+          17.862,
+          18.8,
+          16.248,
+          13.323,
+          14.471,
+          20.194,
+          14.085,
+          15.677,
+          12.693,
+          16.011,
+          19.354,
+          16.227,
+          14.6
+        ]
+      }
+    }
+  ],
+  "scales": {
+    "1000": {
+      "all": {
+        "samples": [
+          {
+            "totalMs": 59.083,
+            "encodeMs": 27,
+            "storeMs": 31,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 55.89,
+            "encodeMs": 24,
+            "storeMs": 30,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 62.655,
+            "encodeMs": 29,
+            "storeMs": 32,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 56.527,
+            "encodeMs": 23,
+            "storeMs": 32,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 57.462,
+            "encodeMs": 25,
+            "storeMs": 31,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 56.387,
+            "encodeMs": 23,
+            "storeMs": 32,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 63.308,
+            "encodeMs": 26,
+            "storeMs": 36,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 65.524,
+            "encodeMs": 29,
+            "storeMs": 35,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 55.174,
+            "encodeMs": 24,
+            "storeMs": 30,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 56.299,
+            "encodeMs": 24,
+            "storeMs": 31,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 56.164,
+            "encodeMs": 23,
+            "storeMs": 32,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 59.936,
+            "encodeMs": 28,
+            "storeMs": 30,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 55.069,
+            "encodeMs": 23,
+            "storeMs": 31,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 57.29,
+            "encodeMs": 27,
+            "storeMs": 29,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 58.083,
+            "encodeMs": 26,
+            "storeMs": 31,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 65.147,
+            "encodeMs": 32,
+            "storeMs": 32,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 53.907,
+            "encodeMs": 23,
+            "storeMs": 30,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 56.103,
+            "encodeMs": 24,
+            "storeMs": 31,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 59.095,
+            "encodeMs": 26,
+            "storeMs": 32,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 57.192,
+            "encodeMs": 26,
+            "storeMs": 30,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 60.582,
+            "encodeMs": 28,
+            "storeMs": 31,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 54.978,
+            "encodeMs": 23,
+            "storeMs": 31,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 57.912,
+            "encodeMs": 26,
+            "storeMs": 30,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 56.27,
+            "encodeMs": 25,
+            "storeMs": 30,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 56.577,
+            "encodeMs": 24,
+            "storeMs": 31,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 55.266,
+            "encodeMs": 24,
+            "storeMs": 30,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 57.021,
+            "encodeMs": 25,
+            "storeMs": 31,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 56.602,
+            "encodeMs": 24,
+            "storeMs": 31,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 55.155,
+            "encodeMs": 24,
+            "storeMs": 30,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 57.156,
+            "encodeMs": 27,
+            "storeMs": 29,
+            "fuseMs": 0
+          }
+        ],
+        "sources": [
+          [
+            "a/00054.txt",
+            null,
+            0,
+            29,
+            "3e05804764976ff9ccf902305101eed4cc9f6f53aad04ca47128b52eab43226b-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+            [
+              "documentText",
+              "keyword"
+            ],
+            0.008785434995112414,
+            "离线检索 样本 00054。项目 3，本地资料类别 17。"
+          ],
+          [
+            "sample.pdf",
+            1,
+            1318,
+            1328,
+            "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i21",
+            [
+              "documentText"
+            ],
+            0.00819672131147541,
+            "• Security — the trust model, and what to lock down before exposing tika-server or\ntika-grpc.\n• Migrating to 4.x — what changed since 3.x and what you have to update."
+          ],
+          [
+            "sample.pdf",
+            2,
+            1339,
+            1349,
+            "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i21",
+            [
+              "documentText"
+            ],
+            0.008064516129032258,
+            "• Security — the trust model, and what to lock down before exposing tika-server or\ntika-grpc.\n• Migrating to 4.x — what changed since 3.x and what you have to update."
+          ],
+          [
+            "sample.png",
+            null,
+            0,
+            0,
+            "fca8cd1a7f56fb49a538651c5e4bcd0a4d48ffd553adeb9b49a792391692393b:image",
+            [
+              "clipShared"
+            ],
+            0.008032786885245901,
+            ""
+          ],
+          [
+            "a/00334.txt",
+            null,
+            0,
+            29,
+            "4ba1316d042903446afa19b1433facc57cd7ab89f1cbe8d573779de5d556a180-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+            [
+              "documentText"
+            ],
+            0.007936507936507936,
+            "离线检索 样本 00334。项目 11，本地资料类别 1。"
+          ]
+        ],
+        "vector": {
+          "ms": [
+            6.535,
+            6.531,
+            6.489,
+            6.71,
+            6.754,
+            6.622,
+            7.15,
+            7.023,
+            7.242,
+            6.816,
+            6.919,
+            6.775,
+            6.82,
+            7.631,
+            6.88,
+            7.124,
+            6.922,
+            7.291,
+            6.779,
+            6.74,
+            6.981,
+            6.78,
+            7.102,
+            6.763,
+            6.793,
+            6.951,
+            6.933,
+            6.846,
+            6.966,
+            6.506
+          ],
+          "sources": [
+            [
+              "92e51230919541adcd6385886cfda7c35ed850997237e5710f56fa006faf9236-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00480.txt",
+              null,
+              0,
+              29,
+              0.07066715508699417
+            ],
+            [
+              "4dc02b7971ac59305ed71eca25ae57271ff8aa087c5d34f38763c953bf00df07-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00400.txt",
+              null,
+              0,
+              29,
+              0.06904545426368713
+            ],
+            [
+              "2ac29e0935fa75b1dc49d337feb68962499a1bff6245c3ccabfe14044b6b6a6d-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/00397.txt",
+              null,
+              0,
+              29,
+              0.06749600172042847
+            ],
+            [
+              "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i19",
+              "sample.pdf",
+              1,
+              1201,
+              1228,
+              0.06662259250879288
+            ],
+            [
+              "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i19",
+              "sample.pdf",
+              2,
+              1220,
+              1247,
+              0.06662259250879288
+            ],
+            [
+              "0ae2c86a937bbe7c735ecf1400fb9114cba4e57837acf472043c8765f37088ca-w3-cascade-1-unigram-c120-t128-o0-pna-i2",
+              "sample.docx",
+              null,
+              44,
+              58,
+              0.06592991948127747
+            ],
+            [
+              "0ae2c86a937bbe7c735ecf1400fb9114cba4e57837acf472043c8765f37088ca-w3-cascade-1-unigram-c120-t128-o0-pna-i11",
+              "sample.docx",
+              null,
+              710,
+              724,
+              0.06592991948127747
+            ],
+            [
+              "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i11",
+              "sample.pdf",
+              1,
+              745,
+              759,
+              0.06592991948127747
+            ],
+            [
+              "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i11",
+              "sample.pdf",
+              2,
+              756,
+              770,
+              0.06592991948127747
+            ],
+            [
+              "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i2",
+              "sample.pdf",
+              1,
+              50,
+              66,
+              0.06447692215442657
+            ],
+            [
+              "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i2",
+              "sample.pdf",
+              2,
+              52,
+              68,
+              0.06447692215442657
+            ],
+            [
+              "e678e4f872101e7488fc0b025afad204636d97188a5685ac401299ff206a0d31-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00582.txt",
+              null,
+              0,
+              29,
+              0.06232836842536926
+            ],
+            [
+              "3993714856906ba3d653a7a0185a96f0802fb1136a03d0bbc170673b56f6a666-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00548.txt",
+              null,
+              0,
+              29,
+              0.06135197728872299
+            ],
+            [
+              "e4f4562dc41c880fc0bcba87f140e0757cb0de4a65a188e1691e6b770b7e5d83-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/00027.txt",
+              null,
+              0,
+              30,
+              0.060514964163303375
+            ],
+            [
+              "3498c999c124e220c53171a57f28043d1b35e4b1b9f4be2f56d0efca08557fcd-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/00363.txt",
+              null,
+              0,
+              29,
+              0.05954336002469063
+            ],
+            [
+              "cfde03344d55e4d4a2352a9a420b2c22121dfa552adf8596baefdbed29bc3feb-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00650.txt",
+              null,
+              0,
+              29,
+              0.05920686945319176
+            ],
+            [
+              "a6ed1b6592f37b13a751766a80749ddf59aceee3a0f219dea643ea807e71fdf6-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00584.txt",
+              null,
+              0,
+              29,
+              0.058072593063116074
+            ],
+            [
+              "cd0c632cd25b3722be76dd6f1019845ad17709b5e70025f461c65a4f035b2772-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/00585.txt",
+              null,
+              0,
+              29,
+              0.05806698650121689
+            ],
+            [
+              "73843f6d22b2572258a435aba5914a741e3642b23c5df57961ad25382145f067-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/00021.txt",
+              null,
+              0,
+              29,
+              0.05774139240384102
+            ],
+            [
+              "51a13ee42bb4e8e1ae157122000b0b606ccb3f3f33b40f9c5db77e3c68849a97-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/00361.txt",
+              null,
+              0,
+              29,
+              0.057598989456892014
+            ],
+            [
+              "d5ea24285f0b861c648775db20bb32826ff8d90d83e1829faa6cbde206fb85a0-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/00737.txt",
+              null,
+              0,
+              29,
+              0.057542700320482254
+            ],
+            [
+              "43a73cd298a066aecd6f593af64f7e4c4dd28b56847172f57dbfcaeec0b98eca-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/00395.txt",
+              null,
+              0,
+              29,
+              0.05752916634082794
+            ],
+            [
+              "018d2cb0700afae630f28a644c6508dc138a0cc61ec4870e1dc12c46fe3517c1-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00448.txt",
+              null,
+              0,
+              28,
+              0.05711575970053673
+            ],
+            [
+              "41ed2a37ce5554291ca827f145baf03bbecdc47071c7de3a6c5d267646b260a4-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/00429.txt",
+              null,
+              0,
+              29,
+              0.056819695979356766
+            ],
+            [
+              "f9d32481e037ced66b13324980f4d35c991bf939f9d7c8b37f0a2c7a3d935345-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/00747.txt",
+              null,
+              0,
+              29,
+              0.05681396648287773
+            ],
+            [
+              "9a5a3c6dddf3be9002022b1ed7606e55b4d9d5214e64194b25451623864994a1-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00180.txt",
+              null,
+              0,
+              30,
+              0.055539872497320175
+            ],
+            [
+              "19cf98563b92140bc792b4f3d7d906331ad0f5281d0adebe94fa19afe02a5d6b-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/00465.txt",
+              null,
+              0,
+              29,
+              0.05504405498504639
+            ],
+            [
+              "8b0aa03d9f8b02c6c28a2f52711549ea601790b7aa93bcf7f4c78ad11c96132a-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00380.txt",
+              null,
+              0,
+              29,
+              0.054912224411964417
+            ],
+            [
+              "2cd7f2e45138854159e77f12215ae70e387f4f6615ff349bd582964535281595-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00176.txt",
+              null,
+              0,
+              29,
+              0.05484672263264656
+            ],
+            [
+              "b9f0d3a85ae1ad12ea8e8b891a5341de1f1abea7d85d0a6af785cb994b3d0967-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00106.txt",
+              null,
+              0,
+              29,
+              0.05480584874749184
+            ],
+            [
+              "ab125c0c12bb467a8831f1a7ed75285d46fbe8b741bd8fb9f386dddc818b2993-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00174.txt",
+              null,
+              0,
+              29,
+              0.053852636367082596
+            ],
+            [
+              "21718e0e962fd9b9f6f0d2b163bffe054b544c62041b790263b7b9d4e189bc1d-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00058.txt",
+              null,
+              0,
+              29,
+              0.05382208153605461
+            ],
+            [
+              "ab07569717c5aa1085af33c3429d2e83fe9ab69701f7eeb3c3a34e97689037cc-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/00583.txt",
+              null,
+              0,
+              29,
+              0.053730983287096024
+            ],
+            [
+              "a10fc0fdbb8f746305cdd7775e8aa1712df21ec480a6e03a3e665e3c3a716303-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/00067.txt",
+              null,
+              0,
+              30,
+              0.05323842167854309
+            ],
+            [
+              "36668dad23b30eb34980fed0bb4fabc83c1ced7091207d7af3d4e0bc8856f367-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00360.txt",
+              null,
+              0,
+              29,
+              0.05205228179693222
+            ],
+            [
+              "cfc5eeba2659502d2c54d3e5280c8ab8bb56a56df590803447c31cad90bb5246-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00432.txt",
+              null,
+              0,
+              29,
+              0.051925670355558395
+            ],
+            [
+              "529b783fc4ffe08bc5602a54ae0b7312cfd8918b6b7d8672bed03af4b313204b-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/00599.txt",
+              null,
+              0,
+              28,
+              0.05166645720601082
+            ],
+            [
+              "52a91e0be5c93f4aeae8ed97b227a36067a75a7d3390e3a520e01338310e851c-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/00367.txt",
+              null,
+              0,
+              30,
+              0.05108705535531044
+            ],
+            [
+              "ae17971576eb1f087b0c1f09fef43a8bf7581a51b076b2d250c97f3a4cf13cf4-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00036.txt",
+              null,
+              0,
+              29,
+              0.05048622563481331
+            ],
+            [
+              "fec7e08c087313aad3f28e5c4080d9b3c755487a62840dae7ed7db63b3656094-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00030.txt",
+              null,
+              0,
+              30,
+              0.05011846125125885
+            ],
+            [
+              "9aee5523a198204899e03cdbb7e79eb0da63c0fdcc794e8cb8f7d993af088584-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/00735.txt",
+              null,
+              0,
+              29,
+              0.049696534872055054
+            ],
+            [
+              "f1d733c0187cbcecd9c0a2802075de59e3f48abd4b95e3c1dbf25f1d83fb22f3-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00210.txt",
+              null,
+              0,
+              29,
+              0.04947763681411743
+            ],
+            [
+              "0276af58160ed63d979160d1706ea84b0da9253d5cb8bfc08d1c064de2e62da9-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/00687.txt",
+              null,
+              0,
+              29,
+              0.04942552372813225
+            ],
+            [
+              "759964a2dfc69649ebc77652cd64dd827a006864e4cbd44232f8407e579046d3-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00428.txt",
+              null,
+              0,
+              29,
+              0.04916542023420334
+            ],
+            [
+              "8445b8e0783c5e6df9c4a3c546cfad397ad593119be37d2ef7920bcb9a400fe1-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00730.txt",
+              null,
+              0,
+              30,
+              0.04911545291543007
+            ],
+            [
+              "b0ba18a7fa08b2167ab0bca74f872d17d3a0a1f77577c895f87ff06fa0b0387a-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00026.txt",
+              null,
+              0,
+              29,
+              0.04898618161678314
+            ],
+            [
+              "457e0eeb618b8de7d280bfe0b532431e662ec279d6b63a78b562d0c876e03185-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/00173.txt",
+              null,
+              0,
+              29,
+              0.048186980187892914
+            ],
+            [
+              "966491a9e860286b9efdc1165c5e53e486185fd4229d64431d252995500c3caf-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00072.txt",
+              null,
+              0,
+              29,
+              0.04815880209207535
+            ],
+            [
+              "d5f997df55cceb78529f0f33a19310f215dd3143916164601fbe3061be7d33d6-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00554.txt",
+              null,
+              0,
+              30,
+              0.048012156039476395
+            ],
+            [
+              "10bed6dd75c6dd33295f3e16012306f2159d1969ed242d7eba94b94db0f2449b-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00398.txt",
+              null,
+              0,
+              29,
+              0.0477178692817688
+            ]
+          ]
+        },
+        "rssBytes": 796479488
+      },
+      "a/": {
+        "samples": [
+          {
+            "totalMs": 51.131,
+            "encodeMs": 22,
+            "storeMs": 27,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 56.552,
+            "encodeMs": 26,
+            "storeMs": 29,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 53.571,
+            "encodeMs": 25,
+            "storeMs": 27,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 56.812,
+            "encodeMs": 28,
+            "storeMs": 27,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 52.109,
+            "encodeMs": 24,
+            "storeMs": 27,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 52.564,
+            "encodeMs": 22,
+            "storeMs": 29,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 58.875,
+            "encodeMs": 26,
+            "storeMs": 31,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 63.18,
+            "encodeMs": 33,
+            "storeMs": 29,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 53.498,
+            "encodeMs": 25,
+            "storeMs": 27,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 54.591,
+            "encodeMs": 25,
+            "storeMs": 28,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 57.401,
+            "encodeMs": 29,
+            "storeMs": 27,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 50.935,
+            "encodeMs": 23,
+            "storeMs": 27,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 54.722,
+            "encodeMs": 26,
+            "storeMs": 27,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 52.623,
+            "encodeMs": 24,
+            "storeMs": 27,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 54.328,
+            "encodeMs": 25,
+            "storeMs": 27,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 54.854,
+            "encodeMs": 25,
+            "storeMs": 28,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 53.245,
+            "encodeMs": 24,
+            "storeMs": 28,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 57.961,
+            "encodeMs": 29,
+            "storeMs": 27,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 51.851,
+            "encodeMs": 24,
+            "storeMs": 26,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 54.348,
+            "encodeMs": 24,
+            "storeMs": 28,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 51.916,
+            "encodeMs": 22,
+            "storeMs": 28,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 63.446,
+            "encodeMs": 30,
+            "storeMs": 32,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 61.515,
+            "encodeMs": 31,
+            "storeMs": 29,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 59.26,
+            "encodeMs": 29,
+            "storeMs": 29,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 56.524,
+            "encodeMs": 27,
+            "storeMs": 28,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 61.208,
+            "encodeMs": 29,
+            "storeMs": 31,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 61.426,
+            "encodeMs": 30,
+            "storeMs": 30,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 59.161,
+            "encodeMs": 30,
+            "storeMs": 28,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 59.744,
+            "encodeMs": 29,
+            "storeMs": 29,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 57.319,
+            "encodeMs": 26,
+            "storeMs": 30,
+            "fuseMs": 0
+          }
+        ],
+        "sources": [
+          [
+            "a/00054.txt",
+            null,
+            0,
+            29,
+            "3e05804764976ff9ccf902305101eed4cc9f6f53aad04ca47128b52eab43226b-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+            [
+              "documentText",
+              "keyword"
+            ],
+            0.010165847665847666,
+            "离线检索 样本 00054。项目 3，本地资料类别 17。"
+          ],
+          [
+            "a/00040.txt",
+            null,
+            0,
+            28,
+            "88334b8a809bbead2dc97f09a4c4c79a410a47ae1ea52b0beaa9ce90278b82ed-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+            [
+              "documentText",
+              "keyword"
+            ],
+            0.008511396011396012,
+            "离线检索 样本 00040。项目 6，本地资料类别 3。"
+          ],
+          [
+            "a/00334.txt",
+            null,
+            0,
+            29,
+            "4ba1316d042903446afa19b1433facc57cd7ab89f1cbe8d573779de5d556a180-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+            [
+              "documentText"
+            ],
+            0.00819672131147541,
+            "离线检索 样本 00334。项目 11，本地资料类别 1。"
+          ],
+          [
+            "a/00336.txt",
+            null,
+            0,
+            29,
+            "0f710e13e3ae6f8b62dd0a6c393b0336080bf49a3000d5667c87994f7bd12b35-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+            [
+              "documentText"
+            ],
+            0.008064516129032258,
+            "离线检索 样本 00336。项目 13，本地资料类别 3。"
+          ],
+          [
+            "a/00188.txt",
+            null,
+            0,
+            28,
+            "36f3657f1a389af1744d496e315adeee6cfebf989c59aa60d442729ceb5af265-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+            [
+              "documentText"
+            ],
+            0.007936507936507936,
+            "离线检索 样本 00188。项目 1，本地资料类别 3。"
+          ]
+        ],
+        "vector": {
+          "ms": [
+            6.049,
+            5.843,
+            5.787,
+            5.809,
+            5.78,
+            6.294,
+            6.154,
+            5.824,
+            5.986,
+            5.845,
+            6.172,
+            5.999,
+            5.745,
+            5.978,
+            5.894,
+            5.915,
+            5.797,
+            5.786,
+            5.711,
+            6.339,
+            6.117,
+            6.198,
+            6.194,
+            5.788,
+            6.32,
+            5.957,
+            5.736,
+            6.024,
+            5.662,
+            6.015
+          ],
+          "sources": [
+            [
+              "92e51230919541adcd6385886cfda7c35ed850997237e5710f56fa006faf9236-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00480.txt",
+              null,
+              0,
+              29,
+              0.07066715508699417
+            ],
+            [
+              "4dc02b7971ac59305ed71eca25ae57271ff8aa087c5d34f38763c953bf00df07-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00400.txt",
+              null,
+              0,
+              29,
+              0.06904545426368713
+            ],
+            [
+              "e678e4f872101e7488fc0b025afad204636d97188a5685ac401299ff206a0d31-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00582.txt",
+              null,
+              0,
+              29,
+              0.06232836842536926
+            ],
+            [
+              "3993714856906ba3d653a7a0185a96f0802fb1136a03d0bbc170673b56f6a666-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00548.txt",
+              null,
+              0,
+              29,
+              0.06135197728872299
+            ],
+            [
+              "cfde03344d55e4d4a2352a9a420b2c22121dfa552adf8596baefdbed29bc3feb-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00650.txt",
+              null,
+              0,
+              29,
+              0.05920686945319176
+            ],
+            [
+              "a6ed1b6592f37b13a751766a80749ddf59aceee3a0f219dea643ea807e71fdf6-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00584.txt",
+              null,
+              0,
+              29,
+              0.058072593063116074
+            ],
+            [
+              "018d2cb0700afae630f28a644c6508dc138a0cc61ec4870e1dc12c46fe3517c1-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00448.txt",
+              null,
+              0,
+              28,
+              0.05711575970053673
+            ],
+            [
+              "9a5a3c6dddf3be9002022b1ed7606e55b4d9d5214e64194b25451623864994a1-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00180.txt",
+              null,
+              0,
+              30,
+              0.055539872497320175
+            ],
+            [
+              "8b0aa03d9f8b02c6c28a2f52711549ea601790b7aa93bcf7f4c78ad11c96132a-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00380.txt",
+              null,
+              0,
+              29,
+              0.054912224411964417
+            ],
+            [
+              "2cd7f2e45138854159e77f12215ae70e387f4f6615ff349bd582964535281595-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00176.txt",
+              null,
+              0,
+              29,
+              0.05484672263264656
+            ],
+            [
+              "b9f0d3a85ae1ad12ea8e8b891a5341de1f1abea7d85d0a6af785cb994b3d0967-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00106.txt",
+              null,
+              0,
+              29,
+              0.05480584874749184
+            ],
+            [
+              "ab125c0c12bb467a8831f1a7ed75285d46fbe8b741bd8fb9f386dddc818b2993-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00174.txt",
+              null,
+              0,
+              29,
+              0.053852636367082596
+            ],
+            [
+              "21718e0e962fd9b9f6f0d2b163bffe054b544c62041b790263b7b9d4e189bc1d-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00058.txt",
+              null,
+              0,
+              29,
+              0.05382208153605461
+            ],
+            [
+              "36668dad23b30eb34980fed0bb4fabc83c1ced7091207d7af3d4e0bc8856f367-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00360.txt",
+              null,
+              0,
+              29,
+              0.05205228179693222
+            ],
+            [
+              "cfc5eeba2659502d2c54d3e5280c8ab8bb56a56df590803447c31cad90bb5246-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00432.txt",
+              null,
+              0,
+              29,
+              0.051925670355558395
+            ],
+            [
+              "ae17971576eb1f087b0c1f09fef43a8bf7581a51b076b2d250c97f3a4cf13cf4-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00036.txt",
+              null,
+              0,
+              29,
+              0.05048622563481331
+            ],
+            [
+              "fec7e08c087313aad3f28e5c4080d9b3c755487a62840dae7ed7db63b3656094-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00030.txt",
+              null,
+              0,
+              30,
+              0.05011846125125885
+            ],
+            [
+              "f1d733c0187cbcecd9c0a2802075de59e3f48abd4b95e3c1dbf25f1d83fb22f3-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00210.txt",
+              null,
+              0,
+              29,
+              0.04947763681411743
+            ],
+            [
+              "759964a2dfc69649ebc77652cd64dd827a006864e4cbd44232f8407e579046d3-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00428.txt",
+              null,
+              0,
+              29,
+              0.04916542023420334
+            ],
+            [
+              "8445b8e0783c5e6df9c4a3c546cfad397ad593119be37d2ef7920bcb9a400fe1-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00730.txt",
+              null,
+              0,
+              30,
+              0.04911545291543007
+            ],
+            [
+              "b0ba18a7fa08b2167ab0bca74f872d17d3a0a1f77577c895f87ff06fa0b0387a-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00026.txt",
+              null,
+              0,
+              29,
+              0.04898618161678314
+            ],
+            [
+              "966491a9e860286b9efdc1165c5e53e486185fd4229d64431d252995500c3caf-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00072.txt",
+              null,
+              0,
+              29,
+              0.04815880209207535
+            ],
+            [
+              "d5f997df55cceb78529f0f33a19310f215dd3143916164601fbe3061be7d33d6-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00554.txt",
+              null,
+              0,
+              30,
+              0.048012156039476395
+            ],
+            [
+              "10bed6dd75c6dd33295f3e16012306f2159d1969ed242d7eba94b94db0f2449b-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00398.txt",
+              null,
+              0,
+              29,
+              0.0477178692817688
+            ],
+            [
+              "1a60fbf55371615309e533b552620ae261025d5a114789d70df785941e71fe3f-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00514.txt",
+              null,
+              0,
+              29,
+              0.04766445979475975
+            ],
+            [
+              "3cc0f86b1e40442e7e271c8c413b9243cbe5404ececa3c350975efeba3e91151-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00300.txt",
+              null,
+              0,
+              29,
+              0.04752001166343689
+            ],
+            [
+              "9867db015a563d756de7cb2d6848969710210f093c7e34c951df190095f1b4db-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00332.txt",
+              null,
+              0,
+              29,
+              0.04700026288628578
+            ],
+            [
+              "dd29fc65aa5126792b2ed3f1ae581e1e6c0aabc507b6d5f5c0e4902e7dc953ce-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00516.txt",
+              null,
+              0,
+              29,
+              0.04643906652927399
+            ],
+            [
+              "ae8df181c53772c08f989f56ea7a5cfb5f383d5247ed3ad46b4c709708b8e083-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00770.txt",
+              null,
+              0,
+              29,
+              0.0462823249399662
+            ],
+            [
+              "c4dd60d5a07d248c0407937bbffa900542ca2757fef2049a3df9ab37f1a70e34-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00248.txt",
+              null,
+              0,
+              30,
+              0.04601934924721718
+            ],
+            [
+              "ec2a5fb524b576caa6eb065132718587ef1e93fcb979fdf8d749217ec08e6407-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00280.txt",
+              null,
+              0,
+              29,
+              0.04585646465420723
+            ],
+            [
+              "33fb192915fdee674e26200401ba274ed50d0b749b1ca45452ae6be556c23763-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00724.txt",
+              null,
+              0,
+              30,
+              0.0455889031291008
+            ],
+            [
+              "ff33bb28784f7a96ef1f34010ad74a9245c9357880540e8ad6fcf7ffa5c58425-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00430.txt",
+              null,
+              0,
+              29,
+              0.04528447240591049
+            ],
+            [
+              "5be10019a4ace78b1389eb9aafd0bed5826278f9c97bbc4b37afdda9eb0be3c2-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00374.txt",
+              null,
+              0,
+              28,
+              0.045190710574388504
+            ],
+            [
+              "f1677bc425dd77dfa92ec077b62a9950ce40d1b89ecc2963744f7ab5ca91ce09-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00844.txt",
+              null,
+              0,
+              30,
+              0.04504336789250374
+            ],
+            [
+              "a23574a040d150f2b43de043dbfacbaf5305f3c960c58cde22ebb6b996779fea-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00024.txt",
+              null,
+              0,
+              29,
+              0.044987257570028305
+            ],
+            [
+              "88334b8a809bbead2dc97f09a4c4c79a410a47ae1ea52b0beaa9ce90278b82ed-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00040.txt",
+              null,
+              0,
+              28,
+              0.04497133940458298
+            ],
+            [
+              "497e050d673213972769ba63474b16395d77a6bef37944c8024bb026834c4295-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00344.txt",
+              null,
+              0,
+              29,
+              0.04478933662176132
+            ],
+            [
+              "f3b55f567f6db1ec101c5c058c07f1e977791d094832f19a994e987668406586-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00588.txt",
+              null,
+              0,
+              30,
+              0.04468831419944763
+            ],
+            [
+              "866440daed83ada6872d0608b6275537bec72466984a2c66d45948a411c31c5a-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00696.txt",
+              null,
+              0,
+              30,
+              0.044315170496702194
+            ],
+            [
+              "6074525f5435c7ecd86a473a6f40732ed786c5a8f812f3aefe8bf407f9895962-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00140.txt",
+              null,
+              0,
+              29,
+              0.044227905571460724
+            ],
+            [
+              "fe7137da1021d12d7152981691062524db6d035ffebb19ec7bb9947c760a3bd9-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00550.txt",
+              null,
+              0,
+              29,
+              0.04421734809875488
+            ],
+            [
+              "787468ec59dafd7ca1fc024b8d7a5bc6c52d26a9040542228fbd4bf1a045694c-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00378.txt",
+              null,
+              0,
+              28,
+              0.04400697350502014
+            ],
+            [
+              "d3bf238ce19e31f12184c876b2d2b9439716ec59b84c13c36e40f8423ccf53d8-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00434.txt",
+              null,
+              0,
+              29,
+              0.04391297325491905
+            ],
+            [
+              "63c873d47407e3e35ed9b21a80115b88141fe5acccb9a4f8d508444dea754713-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00616.txt",
+              null,
+              0,
+              29,
+              0.043472252786159515
+            ],
+            [
+              "560e5cfa63a8857f01fe28d767afc9ab37219b58232c9f484b21f7fb8cbe049d-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00366.txt",
+              null,
+              0,
+              29,
+              0.043271444737911224
+            ],
+            [
+              "3e1f584aef4809440a42e69cfce2a8341fae2ed804da752e4349076240a238cd-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00580.txt",
+              null,
+              0,
+              29,
+              0.04285015910863876
+            ],
+            [
+              "fc9dcc7e51744dee31d598ecfce6dabbf9fb56b5c20e847a7da0538e0e1bea58-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00394.txt",
+              null,
+              0,
+              29,
+              0.042805250734090805
+            ],
+            [
+              "00670ad81296cf5f6b49f51fde2e91fa6be03975bef13856f020dcbe7c50536e-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00368.txt",
+              null,
+              0,
+              30,
+              0.04247887805104256
+            ],
+            [
+              "7564119d9bf319e6a5cafe5abe77cbc45efcaacd4cfe3c949a8e9c0327038da4-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00104.txt",
+              null,
+              0,
+              29,
+              0.04243343323469162
+            ]
+          ]
+        },
+        "rssBytes": 796463104
+      }
+    },
+    "5000": {
+      "all": {
+        "samples": [
+          {
+            "totalMs": 193.327,
+            "encodeMs": 25,
+            "storeMs": 167,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 190.515,
+            "encodeMs": 25,
+            "storeMs": 164,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 195.987,
+            "encodeMs": 29,
+            "storeMs": 166,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 190.031,
+            "encodeMs": 26,
+            "storeMs": 163,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 190.222,
+            "encodeMs": 26,
+            "storeMs": 163,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 205.16,
+            "encodeMs": 31,
+            "storeMs": 173,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 209.989,
+            "encodeMs": 36,
+            "storeMs": 172,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 199.618,
+            "encodeMs": 30,
+            "storeMs": 168,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 199.294,
+            "encodeMs": 31,
+            "storeMs": 167,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 201.255,
+            "encodeMs": 30,
+            "storeMs": 170,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 202.299,
+            "encodeMs": 30,
+            "storeMs": 171,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 201.306,
+            "encodeMs": 29,
+            "storeMs": 171,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 209.393,
+            "encodeMs": 36,
+            "storeMs": 172,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 205.887,
+            "encodeMs": 29,
+            "storeMs": 175,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 197.393,
+            "encodeMs": 28,
+            "storeMs": 168,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 198.628,
+            "encodeMs": 26,
+            "storeMs": 171,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 195.976,
+            "encodeMs": 29,
+            "storeMs": 165,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 209.348,
+            "encodeMs": 31,
+            "storeMs": 177,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 204.053,
+            "encodeMs": 34,
+            "storeMs": 169,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 203.081,
+            "encodeMs": 32,
+            "storeMs": 170,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 195.939,
+            "encodeMs": 27,
+            "storeMs": 168,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 198.787,
+            "encodeMs": 27,
+            "storeMs": 170,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 212.241,
+            "encodeMs": 33,
+            "storeMs": 178,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 207.818,
+            "encodeMs": 33,
+            "storeMs": 173,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 199.192,
+            "encodeMs": 30,
+            "storeMs": 167,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 200.214,
+            "encodeMs": 30,
+            "storeMs": 168,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 199.866,
+            "encodeMs": 29,
+            "storeMs": 169,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 214.372,
+            "encodeMs": 40,
+            "storeMs": 173,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 202.072,
+            "encodeMs": 28,
+            "storeMs": 173,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 213.289,
+            "encodeMs": 36,
+            "storeMs": 176,
+            "fuseMs": 0
+          }
+        ],
+        "sources": [
+          [
+            "sample.pdf",
+            1,
+            1318,
+            1328,
+            "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i21",
+            [
+              "documentText"
+            ],
+            0.00819672131147541,
+            "• Security — the trust model, and what to lock down before exposing tika-server or\ntika-grpc.\n• Migrating to 4.x — what changed since 3.x and what you have to update."
+          ],
+          [
+            "sample.pdf",
+            2,
+            1339,
+            1349,
+            "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i21",
+            [
+              "documentText"
+            ],
+            0.008064516129032258,
+            "• Security — the trust model, and what to lock down before exposing tika-server or\ntika-grpc.\n• Migrating to 4.x — what changed since 3.x and what you have to update."
+          ],
+          [
+            "sample.png",
+            null,
+            0,
+            0,
+            "fca8cd1a7f56fb49a538651c5e4bcd0a4d48ffd553adeb9b49a792391692393b:image",
+            [
+              "clipShared"
+            ],
+            0.008032786885245901,
+            ""
+          ],
+          [
+            "a/03146.txt",
+            null,
+            0,
+            28,
+            "509b5bfcb947879ec2e227b36ed4194216ef449d31cfc38922650ecbb961d7f5-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+            [
+              "documentText"
+            ],
+            0.007936507936507936,
+            "离线检索 样本 03146。项目 1，本地资料类别 1。"
+          ],
+          [
+            "a/03666.txt",
+            null,
+            0,
+            29,
+            "513397ad2914660ec71081d811eca1523b982ebd7d566a20f17f49c0b043c7ef-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+            [
+              "documentText"
+            ],
+            0.0078125,
+            "离线检索 样本 03666。项目 11，本地资料类别 3。"
+          ]
+        ],
+        "vector": {
+          "ms": [
+            32.65,
+            32.822,
+            32.08,
+            32.594,
+            32.873,
+            32.665,
+            33.46,
+            34.062,
+            32.395,
+            32.24,
+            33.655,
+            31.029,
+            31.212,
+            32.413,
+            32.407,
+            30.98,
+            31.749,
+            31.619,
+            31.243,
+            32.235,
+            31.88,
+            31.114,
+            32.365,
+            31.398,
+            32.424,
+            32.512,
+            31.101,
+            31.574,
+            32.41,
+            31.069
+          ],
+          "sources": [
+            [
+              "92e51230919541adcd6385886cfda7c35ed850997237e5710f56fa006faf9236-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00480.txt",
+              null,
+              0,
+              29,
+              0.07066715508699417
+            ],
+            [
+              "4dc02b7971ac59305ed71eca25ae57271ff8aa087c5d34f38763c953bf00df07-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00400.txt",
+              null,
+              0,
+              29,
+              0.06904545426368713
+            ],
+            [
+              "2ac29e0935fa75b1dc49d337feb68962499a1bff6245c3ccabfe14044b6b6a6d-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/00397.txt",
+              null,
+              0,
+              29,
+              0.06749600172042847
+            ],
+            [
+              "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i19",
+              "sample.pdf",
+              1,
+              1201,
+              1228,
+              0.06662259250879288
+            ],
+            [
+              "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i19",
+              "sample.pdf",
+              2,
+              1220,
+              1247,
+              0.06662259250879288
+            ],
+            [
+              "0ae2c86a937bbe7c735ecf1400fb9114cba4e57837acf472043c8765f37088ca-w3-cascade-1-unigram-c120-t128-o0-pna-i2",
+              "sample.docx",
+              null,
+              44,
+              58,
+              0.06592991948127747
+            ],
+            [
+              "0ae2c86a937bbe7c735ecf1400fb9114cba4e57837acf472043c8765f37088ca-w3-cascade-1-unigram-c120-t128-o0-pna-i11",
+              "sample.docx",
+              null,
+              710,
+              724,
+              0.06592991948127747
+            ],
+            [
+              "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i11",
+              "sample.pdf",
+              1,
+              745,
+              759,
+              0.06592991948127747
+            ],
+            [
+              "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i11",
+              "sample.pdf",
+              2,
+              756,
+              770,
+              0.06592991948127747
+            ],
+            [
+              "42c00a69121bd3c34f1db160ce1d714248cf9b9e4c5d45a56f9d4c193c562aa3-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/04356.txt",
+              null,
+              0,
+              29,
+              0.06450602412223816
+            ],
+            [
+              "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i2",
+              "sample.pdf",
+              1,
+              50,
+              66,
+              0.06447692215442657
+            ],
+            [
+              "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i2",
+              "sample.pdf",
+              2,
+              52,
+              68,
+              0.06447692215442657
+            ],
+            [
+              "47f01d63403fdaed39839f9eb806f06d12c175afb79a2a1e2f274fb7bfcd5785-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/04424.txt",
+              null,
+              0,
+              29,
+              0.06362046301364899
+            ],
+            [
+              "e678e4f872101e7488fc0b025afad204636d97188a5685ac401299ff206a0d31-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00582.txt",
+              null,
+              0,
+              29,
+              0.06232836842536926
+            ],
+            [
+              "3993714856906ba3d653a7a0185a96f0802fb1136a03d0bbc170673b56f6a666-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00548.txt",
+              null,
+              0,
+              29,
+              0.06135197728872299
+            ],
+            [
+              "a419a06e97cf6b8058c294e3f09eaddcdfba0043df9282a7ffa00b260c101564-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/04747.txt",
+              null,
+              0,
+              29,
+              0.06128712743520737
+            ],
+            [
+              "e4f4562dc41c880fc0bcba87f140e0757cb0de4a65a188e1691e6b770b7e5d83-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/00027.txt",
+              null,
+              0,
+              30,
+              0.060514964163303375
+            ],
+            [
+              "71a7a07bcdc77205b308b5d6bea9ffff78211802b4429300dd9827282b96f233-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/04698.txt",
+              null,
+              0,
+              29,
+              0.06029687076807022
+            ],
+            [
+              "3d605dfa706c2fdf27cfbdcf7a3ec547476c72c4b7d36de878f323a57d37576e-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/04430.txt",
+              null,
+              0,
+              30,
+              0.06029634177684784
+            ],
+            [
+              "2505f47cba0d2ca17b39cdad6f80b49bb901924eb67138c3204a18153350ab56-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/02367.txt",
+              null,
+              0,
+              29,
+              0.06003091111779213
+            ],
+            [
+              "249073ef07eb3ad155aab230809bcb0ff4cad45674faf8e636493baa2ec88cdf-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/02400.txt",
+              null,
+              0,
+              29,
+              0.05957364663481712
+            ],
+            [
+              "3498c999c124e220c53171a57f28043d1b35e4b1b9f4be2f56d0efca08557fcd-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/00363.txt",
+              null,
+              0,
+              29,
+              0.05954336002469063
+            ],
+            [
+              "4df58265b7a4103cb1e52aa2aba9b291acc00711e3f6a3c08df32ec21d4026bf-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/04339.txt",
+              null,
+              0,
+              29,
+              0.059297576546669006
+            ],
+            [
+              "cfde03344d55e4d4a2352a9a420b2c22121dfa552adf8596baefdbed29bc3feb-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00650.txt",
+              null,
+              0,
+              29,
+              0.05920686945319176
+            ],
+            [
+              "d8a4a154eee9a90826374adf0761551dc16c7e0101b00d62c2fa8f99d5162883-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/04444.txt",
+              null,
+              0,
+              28,
+              0.058899860829114914
+            ],
+            [
+              "a6ed1b6592f37b13a751766a80749ddf59aceee3a0f219dea643ea807e71fdf6-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00584.txt",
+              null,
+              0,
+              29,
+              0.058072593063116074
+            ],
+            [
+              "cd0c632cd25b3722be76dd6f1019845ad17709b5e70025f461c65a4f035b2772-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/00585.txt",
+              null,
+              0,
+              29,
+              0.05806698650121689
+            ],
+            [
+              "73843f6d22b2572258a435aba5914a741e3642b23c5df57961ad25382145f067-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/00021.txt",
+              null,
+              0,
+              29,
+              0.05774139240384102
+            ],
+            [
+              "51a13ee42bb4e8e1ae157122000b0b606ccb3f3f33b40f9c5db77e3c68849a97-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/00361.txt",
+              null,
+              0,
+              29,
+              0.057598989456892014
+            ],
+            [
+              "d5ea24285f0b861c648775db20bb32826ff8d90d83e1829faa6cbde206fb85a0-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/00737.txt",
+              null,
+              0,
+              29,
+              0.057542700320482254
+            ],
+            [
+              "431f3ac1778ae62ccba6070760d786fa1c9fb092cd3acc0cec982efebfcad728-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/04697.txt",
+              null,
+              0,
+              29,
+              0.0575377382338047
+            ],
+            [
+              "43a73cd298a066aecd6f593af64f7e4c4dd28b56847172f57dbfcaeec0b98eca-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/00395.txt",
+              null,
+              0,
+              29,
+              0.05752916634082794
+            ],
+            [
+              "c9092a852ace45c83e51cee9c402a23d339b050c820965c402506c2a8b2194a1-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/03880.txt",
+              null,
+              0,
+              29,
+              0.057310398668050766
+            ],
+            [
+              "018d2cb0700afae630f28a644c6508dc138a0cc61ec4870e1dc12c46fe3517c1-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00448.txt",
+              null,
+              0,
+              28,
+              0.05711575970053673
+            ],
+            [
+              "41ed2a37ce5554291ca827f145baf03bbecdc47071c7de3a6c5d267646b260a4-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/00429.txt",
+              null,
+              0,
+              29,
+              0.056819695979356766
+            ],
+            [
+              "f9d32481e037ced66b13324980f4d35c991bf939f9d7c8b37f0a2c7a3d935345-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/00747.txt",
+              null,
+              0,
+              29,
+              0.05681396648287773
+            ],
+            [
+              "8778b29a3c059e3d4869d9c32340c46fd9015bbb40f56e49a4d8e1c7d594c573-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/04544.txt",
+              null,
+              0,
+              29,
+              0.05662992224097252
+            ],
+            [
+              "cd3bebdaf624b11afa48f68c140da443914739c9b5409b31a6eaa4a5b54764c2-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/01364.txt",
+              null,
+              0,
+              29,
+              0.05637532100081444
+            ],
+            [
+              "af8f50f470b883b033ba5d96ba1427a1689e4bb4313f02e2020a429549680ef5-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/04427.txt",
+              null,
+              0,
+              29,
+              0.05557378754019737
+            ],
+            [
+              "9a5a3c6dddf3be9002022b1ed7606e55b4d9d5214e64194b25451623864994a1-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00180.txt",
+              null,
+              0,
+              30,
+              0.055539872497320175
+            ],
+            [
+              "3e810810970b1600a5e0bbddfca68df9fbf1860eaf19030f5b94a8c939874fc4-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/01880.txt",
+              null,
+              0,
+              30,
+              0.05547969043254852
+            ],
+            [
+              "53ea31d4a3de4363de5ad66246e7799cbe76bdd7da12ce61f00000834266dc37-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/02298.txt",
+              null,
+              0,
+              28,
+              0.055231209844350815
+            ],
+            [
+              "19cf98563b92140bc792b4f3d7d906331ad0f5281d0adebe94fa19afe02a5d6b-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/00465.txt",
+              null,
+              0,
+              29,
+              0.05504405498504639
+            ],
+            [
+              "f70979d00234d46ecfe9d56af5fb78917ceb7b084071a155185bd894cc3c8b4b-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/02469.txt",
+              null,
+              0,
+              29,
+              0.055029451847076416
+            ],
+            [
+              "8b0aa03d9f8b02c6c28a2f52711549ea601790b7aa93bcf7f4c78ad11c96132a-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00380.txt",
+              null,
+              0,
+              29,
+              0.054912224411964417
+            ],
+            [
+              "2cd7f2e45138854159e77f12215ae70e387f4f6615ff349bd582964535281595-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00176.txt",
+              null,
+              0,
+              29,
+              0.05484672263264656
+            ],
+            [
+              "b9f0d3a85ae1ad12ea8e8b891a5341de1f1abea7d85d0a6af785cb994b3d0967-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00106.txt",
+              null,
+              0,
+              29,
+              0.05480584874749184
+            ],
+            [
+              "c22fa591c9f48de053309f9a047e700906a2caf4101500631e3bcd772f60478a-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/01400.txt",
+              null,
+              0,
+              29,
+              0.05388810485601425
+            ],
+            [
+              "ab125c0c12bb467a8831f1a7ed75285d46fbe8b741bd8fb9f386dddc818b2993-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00174.txt",
+              null,
+              0,
+              29,
+              0.053852636367082596
+            ],
+            [
+              "21718e0e962fd9b9f6f0d2b163bffe054b544c62041b790263b7b9d4e189bc1d-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00058.txt",
+              null,
+              0,
+              29,
+              0.05382208153605461
+            ]
+          ]
+        },
+        "rssBytes": 810864640
+      },
+      "a/": {
+        "samples": [
+          {
+            "totalMs": 162.969,
+            "encodeMs": 26,
+            "storeMs": 135,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 162.41,
+            "encodeMs": 24,
+            "storeMs": 136,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 162.619,
+            "encodeMs": 25,
+            "storeMs": 136,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 165.68,
+            "encodeMs": 27,
+            "storeMs": 137,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 171.356,
+            "encodeMs": 29,
+            "storeMs": 141,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 173.484,
+            "encodeMs": 26,
+            "storeMs": 146,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 176.533,
+            "encodeMs": 35,
+            "storeMs": 140,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 171.904,
+            "encodeMs": 30,
+            "storeMs": 140,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 171.621,
+            "encodeMs": 29,
+            "storeMs": 141,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 165.496,
+            "encodeMs": 26,
+            "storeMs": 138,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 160.972,
+            "encodeMs": 23,
+            "storeMs": 136,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 163.469,
+            "encodeMs": 25,
+            "storeMs": 136,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 162.722,
+            "encodeMs": 26,
+            "storeMs": 135,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 165.351,
+            "encodeMs": 28,
+            "storeMs": 136,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 162.592,
+            "encodeMs": 26,
+            "storeMs": 135,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 163.497,
+            "encodeMs": 25,
+            "storeMs": 137,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 164.823,
+            "encodeMs": 25,
+            "storeMs": 138,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 164.817,
+            "encodeMs": 25,
+            "storeMs": 139,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 171.065,
+            "encodeMs": 32,
+            "storeMs": 137,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 165.886,
+            "encodeMs": 28,
+            "storeMs": 136,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 163.262,
+            "encodeMs": 24,
+            "storeMs": 138,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 164.749,
+            "encodeMs": 26,
+            "storeMs": 137,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 166.284,
+            "encodeMs": 25,
+            "storeMs": 140,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 169.086,
+            "encodeMs": 28,
+            "storeMs": 139,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 165.505,
+            "encodeMs": 26,
+            "storeMs": 138,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 164.365,
+            "encodeMs": 24,
+            "storeMs": 138,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 169.821,
+            "encodeMs": 29,
+            "storeMs": 139,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 163.56,
+            "encodeMs": 25,
+            "storeMs": 137,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 165.445,
+            "encodeMs": 25,
+            "storeMs": 139,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 166.541,
+            "encodeMs": 24,
+            "storeMs": 141,
+            "fuseMs": 0
+          }
+        ],
+        "sources": [
+          [
+            "a/03146.txt",
+            null,
+            0,
+            28,
+            "509b5bfcb947879ec2e227b36ed4194216ef449d31cfc38922650ecbb961d7f5-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+            [
+              "documentText"
+            ],
+            0.00819672131147541,
+            "离线检索 样本 03146。项目 1，本地资料类别 1。"
+          ],
+          [
+            "a/03666.txt",
+            null,
+            0,
+            29,
+            "513397ad2914660ec71081d811eca1523b982ebd7d566a20f17f49c0b043c7ef-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+            [
+              "documentText"
+            ],
+            0.008064516129032258,
+            "离线检索 样本 03666。项目 11，本地资料类别 3。"
+          ],
+          [
+            "a/03664.txt",
+            null,
+            0,
+            28,
+            "c242fe09f311bdeb40f36dc2804c3c71fce7d1dcdd4c966c8b862df363aba48c-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+            [
+              "documentText"
+            ],
+            0.007936507936507936,
+            "离线检索 样本 03664。项目 9，本地资料类别 1。"
+          ],
+          [
+            "a/02334.txt",
+            null,
+            0,
+            28,
+            "a3f5fa9619156528ba150f31b490e13916a27b661f1a606ae392233e25d05dfa-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+            [
+              "documentText"
+            ],
+            0.0078125,
+            "离线检索 样本 02334。项目 5，本地资料类别 3。"
+          ],
+          [
+            "a/01226.txt",
+            null,
+            0,
+            28,
+            "a8169515456b532194e00ee52b5833707df1698caa3f1afc91b1befbd711f056-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+            [
+              "documentText"
+            ],
+            0.007692307692307693,
+            "离线检索 样本 01226。项目 2，本地资料类别 5。"
+          ]
+        ],
+        "vector": {
+          "ms": [
+            29.722,
+            28.598,
+            29.512,
+            29.395,
+            29.955,
+            29.096,
+            28.455,
+            29.662,
+            29.054,
+            28.904,
+            29.354,
+            29.703,
+            29.681,
+            29.588,
+            28.959,
+            29.831,
+            30.228,
+            28.61,
+            28.975,
+            28.887,
+            28.815,
+            28.825,
+            29.915,
+            28.774,
+            29.576,
+            29.086,
+            29.281,
+            28.732,
+            29.806,
+            29.084
+          ],
+          "sources": [
+            [
+              "92e51230919541adcd6385886cfda7c35ed850997237e5710f56fa006faf9236-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00480.txt",
+              null,
+              0,
+              29,
+              0.07066715508699417
+            ],
+            [
+              "4dc02b7971ac59305ed71eca25ae57271ff8aa087c5d34f38763c953bf00df07-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00400.txt",
+              null,
+              0,
+              29,
+              0.06904545426368713
+            ],
+            [
+              "42c00a69121bd3c34f1db160ce1d714248cf9b9e4c5d45a56f9d4c193c562aa3-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/04356.txt",
+              null,
+              0,
+              29,
+              0.06450602412223816
+            ],
+            [
+              "47f01d63403fdaed39839f9eb806f06d12c175afb79a2a1e2f274fb7bfcd5785-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/04424.txt",
+              null,
+              0,
+              29,
+              0.06362046301364899
+            ],
+            [
+              "e678e4f872101e7488fc0b025afad204636d97188a5685ac401299ff206a0d31-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00582.txt",
+              null,
+              0,
+              29,
+              0.06232836842536926
+            ],
+            [
+              "3993714856906ba3d653a7a0185a96f0802fb1136a03d0bbc170673b56f6a666-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00548.txt",
+              null,
+              0,
+              29,
+              0.06135197728872299
+            ],
+            [
+              "71a7a07bcdc77205b308b5d6bea9ffff78211802b4429300dd9827282b96f233-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/04698.txt",
+              null,
+              0,
+              29,
+              0.06029687076807022
+            ],
+            [
+              "3d605dfa706c2fdf27cfbdcf7a3ec547476c72c4b7d36de878f323a57d37576e-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/04430.txt",
+              null,
+              0,
+              30,
+              0.06029634177684784
+            ],
+            [
+              "249073ef07eb3ad155aab230809bcb0ff4cad45674faf8e636493baa2ec88cdf-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/02400.txt",
+              null,
+              0,
+              29,
+              0.05957364663481712
+            ],
+            [
+              "cfde03344d55e4d4a2352a9a420b2c22121dfa552adf8596baefdbed29bc3feb-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00650.txt",
+              null,
+              0,
+              29,
+              0.05920686945319176
+            ],
+            [
+              "d8a4a154eee9a90826374adf0761551dc16c7e0101b00d62c2fa8f99d5162883-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/04444.txt",
+              null,
+              0,
+              28,
+              0.058899860829114914
+            ],
+            [
+              "a6ed1b6592f37b13a751766a80749ddf59aceee3a0f219dea643ea807e71fdf6-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00584.txt",
+              null,
+              0,
+              29,
+              0.058072593063116074
+            ],
+            [
+              "c9092a852ace45c83e51cee9c402a23d339b050c820965c402506c2a8b2194a1-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/03880.txt",
+              null,
+              0,
+              29,
+              0.057310398668050766
+            ],
+            [
+              "018d2cb0700afae630f28a644c6508dc138a0cc61ec4870e1dc12c46fe3517c1-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00448.txt",
+              null,
+              0,
+              28,
+              0.05711575970053673
+            ],
+            [
+              "8778b29a3c059e3d4869d9c32340c46fd9015bbb40f56e49a4d8e1c7d594c573-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/04544.txt",
+              null,
+              0,
+              29,
+              0.05662992224097252
+            ],
+            [
+              "cd3bebdaf624b11afa48f68c140da443914739c9b5409b31a6eaa4a5b54764c2-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/01364.txt",
+              null,
+              0,
+              29,
+              0.05637532100081444
+            ],
+            [
+              "9a5a3c6dddf3be9002022b1ed7606e55b4d9d5214e64194b25451623864994a1-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00180.txt",
+              null,
+              0,
+              30,
+              0.055539872497320175
+            ],
+            [
+              "3e810810970b1600a5e0bbddfca68df9fbf1860eaf19030f5b94a8c939874fc4-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/01880.txt",
+              null,
+              0,
+              30,
+              0.05547969043254852
+            ],
+            [
+              "53ea31d4a3de4363de5ad66246e7799cbe76bdd7da12ce61f00000834266dc37-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/02298.txt",
+              null,
+              0,
+              28,
+              0.055231209844350815
+            ],
+            [
+              "8b0aa03d9f8b02c6c28a2f52711549ea601790b7aa93bcf7f4c78ad11c96132a-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00380.txt",
+              null,
+              0,
+              29,
+              0.054912224411964417
+            ],
+            [
+              "2cd7f2e45138854159e77f12215ae70e387f4f6615ff349bd582964535281595-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00176.txt",
+              null,
+              0,
+              29,
+              0.05484672263264656
+            ],
+            [
+              "b9f0d3a85ae1ad12ea8e8b891a5341de1f1abea7d85d0a6af785cb994b3d0967-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00106.txt",
+              null,
+              0,
+              29,
+              0.05480584874749184
+            ],
+            [
+              "c22fa591c9f48de053309f9a047e700906a2caf4101500631e3bcd772f60478a-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/01400.txt",
+              null,
+              0,
+              29,
+              0.05388810485601425
+            ],
+            [
+              "ab125c0c12bb467a8831f1a7ed75285d46fbe8b741bd8fb9f386dddc818b2993-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00174.txt",
+              null,
+              0,
+              29,
+              0.053852636367082596
+            ],
+            [
+              "21718e0e962fd9b9f6f0d2b163bffe054b544c62041b790263b7b9d4e189bc1d-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00058.txt",
+              null,
+              0,
+              29,
+              0.05382208153605461
+            ],
+            [
+              "6815c2a0052c8c805bce6d6a38bfabceb38cf249d125a9703e39717a80d6a15d-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/04766.txt",
+              null,
+              0,
+              29,
+              0.0534212663769722
+            ],
+            [
+              "36668dad23b30eb34980fed0bb4fabc83c1ced7091207d7af3d4e0bc8856f367-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00360.txt",
+              null,
+              0,
+              29,
+              0.05205228179693222
+            ],
+            [
+              "b2b13ac263cd8650c43af238b64e1d9c3de0ff6397bbdfdf7f1d18535ee98caf-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/03166.txt",
+              null,
+              0,
+              29,
+              0.051934439688920975
+            ],
+            [
+              "cfc5eeba2659502d2c54d3e5280c8ab8bb56a56df590803447c31cad90bb5246-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00432.txt",
+              null,
+              0,
+              29,
+              0.051925670355558395
+            ],
+            [
+              "93d0c9ca93e7231e7c1ce355507e2de652fd2439292795c49efb6614632835b6-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/04800.txt",
+              null,
+              0,
+              29,
+              0.05182409659028053
+            ],
+            [
+              "877e0a7c7aaba7149eaf15da8783bf808ae78257bfb5536e32cf8f4955d57240-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/04324.txt",
+              null,
+              0,
+              29,
+              0.051363907754421234
+            ],
+            [
+              "e13768a7cee0973c991834d947e44970d84f76a7b17fef57d748ebeb7b8d2342-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/04546.txt",
+              null,
+              0,
+              29,
+              0.051112692803144455
+            ],
+            [
+              "c9494a985c6008c281eaf958acfc806f34b110856faee0e06694ddfc5af300c4-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/01214.txt",
+              null,
+              0,
+              29,
+              0.051032908260822296
+            ],
+            [
+              "c1425d184b7ab0a67ce00569e53a866103cbe878220bbdc673abac1c50f405fe-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/03540.txt",
+              null,
+              0,
+              29,
+              0.05078614875674248
+            ],
+            [
+              "11a2ea84c175cb531c3aaba725a77a2543353392c257770ba138915598eac7d5-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/04390.txt",
+              null,
+              0,
+              29,
+              0.050537724047899246
+            ],
+            [
+              "ae17971576eb1f087b0c1f09fef43a8bf7581a51b076b2d250c97f3a4cf13cf4-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00036.txt",
+              null,
+              0,
+              29,
+              0.05048622563481331
+            ],
+            [
+              "8aeaebbc67384b7c6a7caf877a3f5383168857836940fc2fe2a7ac6848bb310c-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/02690.txt",
+              null,
+              0,
+              29,
+              0.05042374134063721
+            ],
+            [
+              "3a7f02ab5918ed33149ddbd899077aef9481ae69b11791e887dd5b23cca47b01-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/04764.txt",
+              null,
+              0,
+              29,
+              0.05042333900928497
+            ],
+            [
+              "fec7e08c087313aad3f28e5c4080d9b3c755487a62840dae7ed7db63b3656094-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00030.txt",
+              null,
+              0,
+              30,
+              0.05011846125125885
+            ],
+            [
+              "17cc38a2027c020456e4192f18f21efa2d0be31497cc69b26a648d2afc7a4753-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/04900.txt",
+              null,
+              0,
+              29,
+              0.050012897700071335
+            ],
+            [
+              "c2755de3c2b39c666f0c9ac4351460abfc5b4a2a78489e4ee5e7de8c76cbb1e0-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/04646.txt",
+              null,
+              0,
+              29,
+              0.04972227290272713
+            ],
+            [
+              "f1d733c0187cbcecd9c0a2802075de59e3f48abd4b95e3c1dbf25f1d83fb22f3-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00210.txt",
+              null,
+              0,
+              29,
+              0.04947763681411743
+            ],
+            [
+              "b2d60d9c86e7c05c0d223d933372dc278d63cba844e6f9d373364aca15bdde43-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/02284.txt",
+              null,
+              0,
+              29,
+              0.04935842752456665
+            ],
+            [
+              "759964a2dfc69649ebc77652cd64dd827a006864e4cbd44232f8407e579046d3-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00428.txt",
+              null,
+              0,
+              29,
+              0.04916542023420334
+            ],
+            [
+              "06ec2e9c33f1623a8c8b8ef0437053e1b2eba6576fa5d14c0a0cfae4d16a3464-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/04322.txt",
+              null,
+              0,
+              29,
+              0.049124330282211304
+            ],
+            [
+              "8445b8e0783c5e6df9c4a3c546cfad397ad593119be37d2ef7920bcb9a400fe1-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00730.txt",
+              null,
+              0,
+              30,
+              0.04911545291543007
+            ],
+            [
+              "82ec6e20be9c64ac0fa665b3198f62467850ca25702772e5434c7d739f349857-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/02574.txt",
+              null,
+              0,
+              29,
+              0.049110785126686096
+            ],
+            [
+              "b0ba18a7fa08b2167ab0bca74f872d17d3a0a1f77577c895f87ff06fa0b0387a-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00026.txt",
+              null,
+              0,
+              29,
+              0.04898618161678314
+            ],
+            [
+              "9389ecbbb804135f0dde2433e722de4fac297283194dd6aef233a07948b5e9dd-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/02588.txt",
+              null,
+              0,
+              29,
+              0.048486821353435516
+            ],
+            [
+              "966491a9e860286b9efdc1165c5e53e486185fd4229d64431d252995500c3caf-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00072.txt",
+              null,
+              0,
+              29,
+              0.04815880209207535
+            ]
+          ]
+        },
+        "rssBytes": 810340352
+      }
+    },
+    "10000": {
+      "all": {
+        "samples": [
+          {
+            "totalMs": 352.908,
+            "encodeMs": 25,
+            "storeMs": 327,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 358.118,
+            "encodeMs": 27,
+            "storeMs": 330,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 354.224,
+            "encodeMs": 26,
+            "storeMs": 327,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 352.258,
+            "encodeMs": 27,
+            "storeMs": 324,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 353.724,
+            "encodeMs": 26,
+            "storeMs": 326,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 358.127,
+            "encodeMs": 27,
+            "storeMs": 329,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 367.797,
+            "encodeMs": 35,
+            "storeMs": 331,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 368.394,
+            "encodeMs": 33,
+            "storeMs": 334,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 365.574,
+            "encodeMs": 38,
+            "storeMs": 326,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 352.211,
+            "encodeMs": 25,
+            "storeMs": 326,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 351.654,
+            "encodeMs": 26,
+            "storeMs": 324,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 360.468,
+            "encodeMs": 30,
+            "storeMs": 329,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 353.527,
+            "encodeMs": 25,
+            "storeMs": 327,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 354.589,
+            "encodeMs": 25,
+            "storeMs": 328,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 352.685,
+            "encodeMs": 25,
+            "storeMs": 326,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 350.925,
+            "encodeMs": 25,
+            "storeMs": 325,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 357.353,
+            "encodeMs": 30,
+            "storeMs": 326,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 351.662,
+            "encodeMs": 25,
+            "storeMs": 325,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 353.026,
+            "encodeMs": 26,
+            "storeMs": 326,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 359.823,
+            "encodeMs": 29,
+            "storeMs": 330,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 357.582,
+            "encodeMs": 29,
+            "storeMs": 327,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 362.081,
+            "encodeMs": 31,
+            "storeMs": 330,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 354.767,
+            "encodeMs": 27,
+            "storeMs": 327,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 352.105,
+            "encodeMs": 25,
+            "storeMs": 326,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 361.761,
+            "encodeMs": 29,
+            "storeMs": 331,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 359.859,
+            "encodeMs": 30,
+            "storeMs": 328,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 373.179,
+            "encodeMs": 38,
+            "storeMs": 334,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 357.087,
+            "encodeMs": 29,
+            "storeMs": 327,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 353.055,
+            "encodeMs": 28,
+            "storeMs": 324,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 352.522,
+            "encodeMs": 26,
+            "storeMs": 325,
+            "fuseMs": 0
+          }
+        ],
+        "sources": [
+          [
+            "sample.pdf",
+            1,
+            1318,
+            1328,
+            "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i21",
+            [
+              "documentText"
+            ],
+            0.00819672131147541,
+            "• Security — the trust model, and what to lock down before exposing tika-server or\ntika-grpc.\n• Migrating to 4.x — what changed since 3.x and what you have to update."
+          ],
+          [
+            "sample.pdf",
+            2,
+            1339,
+            1349,
+            "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i21",
+            [
+              "documentText"
+            ],
+            0.008064516129032258,
+            "• Security — the trust model, and what to lock down before exposing tika-server or\ntika-grpc.\n• Migrating to 4.x — what changed since 3.x and what you have to update."
+          ],
+          [
+            "sample.png",
+            null,
+            0,
+            0,
+            "fca8cd1a7f56fb49a538651c5e4bcd0a4d48ffd553adeb9b49a792391692393b:image",
+            [
+              "clipShared"
+            ],
+            0.008032786885245901,
+            ""
+          ],
+          [
+            "a/03146.txt",
+            null,
+            0,
+            28,
+            "509b5bfcb947879ec2e227b36ed4194216ef449d31cfc38922650ecbb961d7f5-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+            [
+              "documentText"
+            ],
+            0.007936507936507936,
+            "离线检索 样本 03146。项目 1，本地资料类别 1。"
+          ],
+          [
+            "a/03666.txt",
+            null,
+            0,
+            29,
+            "513397ad2914660ec71081d811eca1523b982ebd7d566a20f17f49c0b043c7ef-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+            [
+              "documentText"
+            ],
+            0.0078125,
+            "离线检索 样本 03666。项目 11，本地资料类别 3。"
+          ]
+        ],
+        "vector": {
+          "ms": [
+            65.207,
+            64.948,
+            64.475,
+            64.474,
+            65.011,
+            64.617,
+            64.228,
+            64.361,
+            64.635,
+            64.335,
+            64.347,
+            65.712,
+            64.811,
+            64.011,
+            65.568,
+            63.946,
+            63.601,
+            65.871,
+            64.221,
+            64.696,
+            65.154,
+            66.223,
+            63.96,
+            64.543,
+            65.15,
+            65.347,
+            64.532,
+            64.072,
+            64.88,
+            65.101
+          ],
+          "sources": [
+            [
+              "47d1b7438ea1313f9f7d7047a81e3a32d6ac644b082929c8a2e1b8d0573cb090-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/09900.txt",
+              null,
+              0,
+              29,
+              0.07549529522657394
+            ],
+            [
+              "92e51230919541adcd6385886cfda7c35ed850997237e5710f56fa006faf9236-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00480.txt",
+              null,
+              0,
+              29,
+              0.07066715508699417
+            ],
+            [
+              "4dc02b7971ac59305ed71eca25ae57271ff8aa087c5d34f38763c953bf00df07-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00400.txt",
+              null,
+              0,
+              29,
+              0.06904545426368713
+            ],
+            [
+              "2ac29e0935fa75b1dc49d337feb68962499a1bff6245c3ccabfe14044b6b6a6d-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/00397.txt",
+              null,
+              0,
+              29,
+              0.06749600172042847
+            ],
+            [
+              "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i19",
+              "sample.pdf",
+              1,
+              1201,
+              1228,
+              0.06662259250879288
+            ],
+            [
+              "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i19",
+              "sample.pdf",
+              2,
+              1220,
+              1247,
+              0.06662259250879288
+            ],
+            [
+              "88aba81173dbc62bf1c71af9aa13ae306aba5e1e6a6e5fe0bd4fcc8d525e4624-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/06400.txt",
+              null,
+              0,
+              29,
+              0.0661170706152916
+            ],
+            [
+              "e3e4476082dfb873a1a231485e635ef6712bc93d4fbd2732702429403c943df9-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/07467.txt",
+              null,
+              0,
+              29,
+              0.0660417377948761
+            ],
+            [
+              "0ae2c86a937bbe7c735ecf1400fb9114cba4e57837acf472043c8765f37088ca-w3-cascade-1-unigram-c120-t128-o0-pna-i2",
+              "sample.docx",
+              null,
+              44,
+              58,
+              0.06592991948127747
+            ],
+            [
+              "0ae2c86a937bbe7c735ecf1400fb9114cba4e57837acf472043c8765f37088ca-w3-cascade-1-unigram-c120-t128-o0-pna-i11",
+              "sample.docx",
+              null,
+              710,
+              724,
+              0.06592991948127747
+            ],
+            [
+              "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i11",
+              "sample.pdf",
+              1,
+              745,
+              759,
+              0.06592991948127747
+            ],
+            [
+              "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i11",
+              "sample.pdf",
+              2,
+              756,
+              770,
+              0.06592991948127747
+            ],
+            [
+              "42c00a69121bd3c34f1db160ce1d714248cf9b9e4c5d45a56f9d4c193c562aa3-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/04356.txt",
+              null,
+              0,
+              29,
+              0.06450602412223816
+            ],
+            [
+              "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i2",
+              "sample.pdf",
+              1,
+              50,
+              66,
+              0.06447692215442657
+            ],
+            [
+              "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i2",
+              "sample.pdf",
+              2,
+              52,
+              68,
+              0.06447692215442657
+            ],
+            [
+              "47f01d63403fdaed39839f9eb806f06d12c175afb79a2a1e2f274fb7bfcd5785-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/04424.txt",
+              null,
+              0,
+              29,
+              0.06362046301364899
+            ],
+            [
+              "a2d21ce273ea3d36ce8a94553efbd0501f97ff35acd53094e37b762f4ab6e082-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/08725.txt",
+              null,
+              0,
+              29,
+              0.06310255080461502
+            ],
+            [
+              "574b5614c6fd84cecbc17675f2c9e189f1038477253fe945c27fde8362b7b664-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/07569.txt",
+              null,
+              0,
+              29,
+              0.06279407441616058
+            ],
+            [
+              "220cbd553de25e2e5fc6c18eefa0ab05f78f4d278d1318ecfc3af1d35e584329-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/08540.txt",
+              null,
+              0,
+              29,
+              0.06271441280841827
+            ],
+            [
+              "a5b13c79bc93c9cb8293d0109a2f5455b3fdfc5b9b44289710787e5a2da7e860-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/09388.txt",
+              null,
+              0,
+              29,
+              0.06257908791303635
+            ],
+            [
+              "e678e4f872101e7488fc0b025afad204636d97188a5685ac401299ff206a0d31-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00582.txt",
+              null,
+              0,
+              29,
+              0.06232836842536926
+            ],
+            [
+              "56be578ce944b9c245a9062a6ecc14b653f4f926e0e8a5d829ba44b6b1c45b89-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/09354.txt",
+              null,
+              0,
+              29,
+              0.061835579574108124
+            ],
+            [
+              "6dbba4034ae56390ca85492a9dc7321c142da8ae1cb118ff3dece0c5d4fe4a19-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/09286.txt",
+              null,
+              0,
+              29,
+              0.06175648048520088
+            ],
+            [
+              "ce62055d5e4e9fc91c7a7de5e8aaf360d4917c9cd9b852c19c3fb4e1fd95b72e-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/09544.txt",
+              null,
+              0,
+              29,
+              0.06170192360877991
+            ],
+            [
+              "19e115eb6ae889f2528944e8797da331ffad42882dadbf586dcc88108cdfceeb-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/08420.txt",
+              null,
+              0,
+              29,
+              0.0614163838326931
+            ],
+            [
+              "3993714856906ba3d653a7a0185a96f0802fb1136a03d0bbc170673b56f6a666-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00548.txt",
+              null,
+              0,
+              29,
+              0.06135197728872299
+            ],
+            [
+              "a419a06e97cf6b8058c294e3f09eaddcdfba0043df9282a7ffa00b260c101564-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/04747.txt",
+              null,
+              0,
+              29,
+              0.06128712743520737
+            ],
+            [
+              "e2776222f906be169861d71d29b1ca72540cfc2bdd7223cc890adc153f38045b-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/09747.txt",
+              null,
+              0,
+              29,
+              0.061220601201057434
+            ],
+            [
+              "157b7449933caa570364871d1c05b17e7a0640e5613844e2034361e727d092be-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/06464.txt",
+              null,
+              0,
+              29,
+              0.06064699962735176
+            ],
+            [
+              "05ac7b79c2175f6f34363bb19a3b2347b092b2c750f805ac6256edf0c26d1d78-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/09439.txt",
+              null,
+              0,
+              28,
+              0.060563649982213974
+            ],
+            [
+              "e4f4562dc41c880fc0bcba87f140e0757cb0de4a65a188e1691e6b770b7e5d83-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/00027.txt",
+              null,
+              0,
+              30,
+              0.060514964163303375
+            ],
+            [
+              "5ef635450cb7167de27aaf2a7b1aa2c49d86d090007b912854c910c84ecfbb1e-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/06940.txt",
+              null,
+              0,
+              29,
+              0.060376960784196854
+            ],
+            [
+              "71a7a07bcdc77205b308b5d6bea9ffff78211802b4429300dd9827282b96f233-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/04698.txt",
+              null,
+              0,
+              29,
+              0.06029687076807022
+            ],
+            [
+              "3d605dfa706c2fdf27cfbdcf7a3ec547476c72c4b7d36de878f323a57d37576e-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/04430.txt",
+              null,
+              0,
+              30,
+              0.06029634177684784
+            ],
+            [
+              "2505f47cba0d2ca17b39cdad6f80b49bb901924eb67138c3204a18153350ab56-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/02367.txt",
+              null,
+              0,
+              29,
+              0.06003091111779213
+            ],
+            [
+              "608bb93dabc7a1c5ae99076646e484596a4f9978036c6c761e49bd41f1255e33-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/08096.txt",
+              null,
+              0,
+              29,
+              0.05976574495434761
+            ],
+            [
+              "898fe16357a51f06a4d67068c28bdb324f9198e338334a00649773042444a57b-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/08980.txt",
+              null,
+              0,
+              29,
+              0.05970510467886925
+            ],
+            [
+              "ec2a15ddddeca1af8abd3478fbf3a40713513ff84e78b94b49e888687feb3d0c-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/08574.txt",
+              null,
+              0,
+              29,
+              0.05966988950967789
+            ],
+            [
+              "249073ef07eb3ad155aab230809bcb0ff4cad45674faf8e636493baa2ec88cdf-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/02400.txt",
+              null,
+              0,
+              29,
+              0.05957364663481712
+            ],
+            [
+              "3498c999c124e220c53171a57f28043d1b35e4b1b9f4be2f56d0efca08557fcd-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/00363.txt",
+              null,
+              0,
+              29,
+              0.05954336002469063
+            ],
+            [
+              "9f794ba2e63255ff6971fe66a781aebc3f19556f5088a133d31269d795abcf12-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/07280.txt",
+              null,
+              0,
+              29,
+              0.05935651808977127
+            ],
+            [
+              "a6a492b5f35afa27b4dc9242394524872262af5acdb35cc5da3dbc3f852c8738-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/07399.txt",
+              null,
+              0,
+              29,
+              0.05932212993502617
+            ],
+            [
+              "4df58265b7a4103cb1e52aa2aba9b291acc00711e3f6a3c08df32ec21d4026bf-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/04339.txt",
+              null,
+              0,
+              29,
+              0.059297576546669006
+            ],
+            [
+              "cfde03344d55e4d4a2352a9a420b2c22121dfa552adf8596baefdbed29bc3feb-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00650.txt",
+              null,
+              0,
+              29,
+              0.05920686945319176
+            ],
+            [
+              "d8a4a154eee9a90826374adf0761551dc16c7e0101b00d62c2fa8f99d5162883-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/04444.txt",
+              null,
+              0,
+              28,
+              0.058899860829114914
+            ],
+            [
+              "a87397a5a82bd72b435839da3a5fd7cc5b580f092a404e4781e7602adfd8512b-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/08657.txt",
+              null,
+              0,
+              29,
+              0.05882171168923378
+            ],
+            [
+              "f55080edbc653abffdfb9575b760b45c9743f3140d0cfa09dd04a416bb8de072-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/08130.txt",
+              null,
+              0,
+              29,
+              0.058497268706560135
+            ],
+            [
+              "acda080e3ef60496d69801b16a1667524af9b73c8b0f10f012bf5a042d476e7e-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/06260.txt",
+              null,
+              0,
+              28,
+              0.05842428654432297
+            ],
+            [
+              "a6ed1b6592f37b13a751766a80749ddf59aceee3a0f219dea643ea807e71fdf6-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00584.txt",
+              null,
+              0,
+              29,
+              0.058072593063116074
+            ],
+            [
+              "cd0c632cd25b3722be76dd6f1019845ad17709b5e70025f461c65a4f035b2772-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "b/00585.txt",
+              null,
+              0,
+              29,
+              0.05806698650121689
+            ]
+          ]
+        },
+        "rssBytes": 810242048
+      },
+      "a/": {
+        "samples": [
+          {
+            "totalMs": 293.653,
+            "encodeMs": 25,
+            "storeMs": 267,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 299.916,
+            "encodeMs": 31,
+            "storeMs": 267,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 296.075,
+            "encodeMs": 24,
+            "storeMs": 270,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 294.542,
+            "encodeMs": 26,
+            "storeMs": 267,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 292.509,
+            "encodeMs": 25,
+            "storeMs": 266,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 294.171,
+            "encodeMs": 25,
+            "storeMs": 268,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 308.914,
+            "encodeMs": 37,
+            "storeMs": 270,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 293.788,
+            "encodeMs": 26,
+            "storeMs": 267,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 300.257,
+            "encodeMs": 27,
+            "storeMs": 272,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 298.6,
+            "encodeMs": 28,
+            "storeMs": 269,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 308.314,
+            "encodeMs": 34,
+            "storeMs": 273,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 302.349,
+            "encodeMs": 31,
+            "storeMs": 269,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 291.496,
+            "encodeMs": 25,
+            "storeMs": 265,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 300.823,
+            "encodeMs": 30,
+            "storeMs": 269,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 293.784,
+            "encodeMs": 26,
+            "storeMs": 266,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 290.608,
+            "encodeMs": 25,
+            "storeMs": 264,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 305.137,
+            "encodeMs": 25,
+            "storeMs": 278,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 292.373,
+            "encodeMs": 24,
+            "storeMs": 267,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 293.62,
+            "encodeMs": 25,
+            "storeMs": 267,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 291.99,
+            "encodeMs": 22,
+            "storeMs": 268,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 324.514,
+            "encodeMs": 46,
+            "storeMs": 277,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 302.641,
+            "encodeMs": 27,
+            "storeMs": 273,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 298.389,
+            "encodeMs": 28,
+            "storeMs": 269,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 299.389,
+            "encodeMs": 25,
+            "storeMs": 273,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 318.468,
+            "encodeMs": 34,
+            "storeMs": 282,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 305.715,
+            "encodeMs": 29,
+            "storeMs": 275,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 321.297,
+            "encodeMs": 31,
+            "storeMs": 289,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 309.19,
+            "encodeMs": 30,
+            "storeMs": 277,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 300.148,
+            "encodeMs": 30,
+            "storeMs": 268,
+            "fuseMs": 0
+          },
+          {
+            "totalMs": 295.688,
+            "encodeMs": 28,
+            "storeMs": 266,
+            "fuseMs": 0
+          }
+        ],
+        "sources": [
+          [
+            "a/03146.txt",
+            null,
+            0,
+            28,
+            "509b5bfcb947879ec2e227b36ed4194216ef449d31cfc38922650ecbb961d7f5-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+            [
+              "documentText"
+            ],
+            0.00819672131147541,
+            "离线检索 样本 03146。项目 1，本地资料类别 1。"
+          ],
+          [
+            "a/03666.txt",
+            null,
+            0,
+            29,
+            "513397ad2914660ec71081d811eca1523b982ebd7d566a20f17f49c0b043c7ef-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+            [
+              "documentText"
+            ],
+            0.008064516129032258,
+            "离线检索 样本 03666。项目 11，本地资料类别 3。"
+          ],
+          [
+            "a/05146.txt",
+            null,
+            0,
+            29,
+            "8a63dabb1f1f8dbc9549a258e32cbd06f25fbf59d2e09dc5156d851bc9f54e96-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+            [
+              "documentText"
+            ],
+            0.007936507936507936,
+            "离线检索 样本 05146。项目 12，本地资料类别 3。"
+          ],
+          [
+            "a/03664.txt",
+            null,
+            0,
+            28,
+            "c242fe09f311bdeb40f36dc2804c3c71fce7d1dcdd4c966c8b862df363aba48c-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+            [
+              "documentText"
+            ],
+            0.0078125,
+            "离线检索 样本 03664。项目 9，本地资料类别 1。"
+          ],
+          [
+            "a/06182.txt",
+            null,
+            0,
+            29,
+            "401c3783fe6c60d8ee2cc050f43cceb2f6867149af35acfab076afea37b83bf4-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+            [
+              "documentText"
+            ],
+            0.007692307692307693,
+            "离线检索 样本 06182。项目 11，本地资料类别 3。"
+          ]
+        ],
+        "vector": {
+          "ms": [
+            59.127,
+            58.341,
+            57.001,
+            59.769,
+            57.811,
+            58.143,
+            58.086,
+            57.487,
+            57.995,
+            59.412,
+            57.942,
+            57.871,
+            58.72,
+            58.891,
+            57.214,
+            58.953,
+            58.058,
+            57.516,
+            60.536,
+            58.386,
+            57.425,
+            58.716,
+            58.25,
+            57.643,
+            65.366,
+            57.179,
+            58.168,
+            58.109,
+            57.711,
+            58.031
+          ],
+          "sources": [
+            [
+              "47d1b7438ea1313f9f7d7047a81e3a32d6ac644b082929c8a2e1b8d0573cb090-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/09900.txt",
+              null,
+              0,
+              29,
+              0.07549529522657394
+            ],
+            [
+              "92e51230919541adcd6385886cfda7c35ed850997237e5710f56fa006faf9236-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00480.txt",
+              null,
+              0,
+              29,
+              0.07066715508699417
+            ],
+            [
+              "4dc02b7971ac59305ed71eca25ae57271ff8aa087c5d34f38763c953bf00df07-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00400.txt",
+              null,
+              0,
+              29,
+              0.06904545426368713
+            ],
+            [
+              "88aba81173dbc62bf1c71af9aa13ae306aba5e1e6a6e5fe0bd4fcc8d525e4624-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/06400.txt",
+              null,
+              0,
+              29,
+              0.0661170706152916
+            ],
+            [
+              "42c00a69121bd3c34f1db160ce1d714248cf9b9e4c5d45a56f9d4c193c562aa3-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/04356.txt",
+              null,
+              0,
+              29,
+              0.06450602412223816
+            ],
+            [
+              "47f01d63403fdaed39839f9eb806f06d12c175afb79a2a1e2f274fb7bfcd5785-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/04424.txt",
+              null,
+              0,
+              29,
+              0.06362046301364899
+            ],
+            [
+              "220cbd553de25e2e5fc6c18eefa0ab05f78f4d278d1318ecfc3af1d35e584329-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/08540.txt",
+              null,
+              0,
+              29,
+              0.06271441280841827
+            ],
+            [
+              "a5b13c79bc93c9cb8293d0109a2f5455b3fdfc5b9b44289710787e5a2da7e860-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/09388.txt",
+              null,
+              0,
+              29,
+              0.06257908791303635
+            ],
+            [
+              "e678e4f872101e7488fc0b025afad204636d97188a5685ac401299ff206a0d31-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00582.txt",
+              null,
+              0,
+              29,
+              0.06232836842536926
+            ],
+            [
+              "56be578ce944b9c245a9062a6ecc14b653f4f926e0e8a5d829ba44b6b1c45b89-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/09354.txt",
+              null,
+              0,
+              29,
+              0.061835579574108124
+            ],
+            [
+              "6dbba4034ae56390ca85492a9dc7321c142da8ae1cb118ff3dece0c5d4fe4a19-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/09286.txt",
+              null,
+              0,
+              29,
+              0.06175648048520088
+            ],
+            [
+              "ce62055d5e4e9fc91c7a7de5e8aaf360d4917c9cd9b852c19c3fb4e1fd95b72e-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/09544.txt",
+              null,
+              0,
+              29,
+              0.06170192360877991
+            ],
+            [
+              "19e115eb6ae889f2528944e8797da331ffad42882dadbf586dcc88108cdfceeb-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/08420.txt",
+              null,
+              0,
+              29,
+              0.0614163838326931
+            ],
+            [
+              "3993714856906ba3d653a7a0185a96f0802fb1136a03d0bbc170673b56f6a666-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00548.txt",
+              null,
+              0,
+              29,
+              0.06135197728872299
+            ],
+            [
+              "157b7449933caa570364871d1c05b17e7a0640e5613844e2034361e727d092be-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/06464.txt",
+              null,
+              0,
+              29,
+              0.06064699962735176
+            ],
+            [
+              "5ef635450cb7167de27aaf2a7b1aa2c49d86d090007b912854c910c84ecfbb1e-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/06940.txt",
+              null,
+              0,
+              29,
+              0.060376960784196854
+            ],
+            [
+              "71a7a07bcdc77205b308b5d6bea9ffff78211802b4429300dd9827282b96f233-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/04698.txt",
+              null,
+              0,
+              29,
+              0.06029687076807022
+            ],
+            [
+              "3d605dfa706c2fdf27cfbdcf7a3ec547476c72c4b7d36de878f323a57d37576e-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/04430.txt",
+              null,
+              0,
+              30,
+              0.06029634177684784
+            ],
+            [
+              "608bb93dabc7a1c5ae99076646e484596a4f9978036c6c761e49bd41f1255e33-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/08096.txt",
+              null,
+              0,
+              29,
+              0.05976574495434761
+            ],
+            [
+              "898fe16357a51f06a4d67068c28bdb324f9198e338334a00649773042444a57b-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/08980.txt",
+              null,
+              0,
+              29,
+              0.05970510467886925
+            ],
+            [
+              "ec2a15ddddeca1af8abd3478fbf3a40713513ff84e78b94b49e888687feb3d0c-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/08574.txt",
+              null,
+              0,
+              29,
+              0.05966988950967789
+            ],
+            [
+              "249073ef07eb3ad155aab230809bcb0ff4cad45674faf8e636493baa2ec88cdf-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/02400.txt",
+              null,
+              0,
+              29,
+              0.05957364663481712
+            ],
+            [
+              "9f794ba2e63255ff6971fe66a781aebc3f19556f5088a133d31269d795abcf12-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/07280.txt",
+              null,
+              0,
+              29,
+              0.05935651808977127
+            ],
+            [
+              "cfde03344d55e4d4a2352a9a420b2c22121dfa552adf8596baefdbed29bc3feb-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00650.txt",
+              null,
+              0,
+              29,
+              0.05920686945319176
+            ],
+            [
+              "d8a4a154eee9a90826374adf0761551dc16c7e0101b00d62c2fa8f99d5162883-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/04444.txt",
+              null,
+              0,
+              28,
+              0.058899860829114914
+            ],
+            [
+              "f55080edbc653abffdfb9575b760b45c9743f3140d0cfa09dd04a416bb8de072-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/08130.txt",
+              null,
+              0,
+              29,
+              0.058497268706560135
+            ],
+            [
+              "acda080e3ef60496d69801b16a1667524af9b73c8b0f10f012bf5a042d476e7e-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/06260.txt",
+              null,
+              0,
+              28,
+              0.05842428654432297
+            ],
+            [
+              "a6ed1b6592f37b13a751766a80749ddf59aceee3a0f219dea643ea807e71fdf6-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00584.txt",
+              null,
+              0,
+              29,
+              0.058072593063116074
+            ],
+            [
+              "bc47e0155c64a2b2696c9d3eb9b26d486f6445b28e46df21ce0f312b879e3fcb-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/06000.txt",
+              null,
+              0,
+              29,
+              0.05798196792602539
+            ],
+            [
+              "05265c5cdc8d0ac4b26aa174801d4c8b111edf2456a28beb4ab77b5737263ae3-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/09424.txt",
+              null,
+              0,
+              29,
+              0.05797901749610901
+            ],
+            [
+              "d7d7f77dba883af9e32067c22d9e8a08f49937b7bd2ea3c20c2ce64a142cf3f8-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/08470.txt",
+              null,
+              0,
+              29,
+              0.05796405300498009
+            ],
+            [
+              "c5a2b3885d7ccaf399b3507b53000c56b5d206a188e1bd11d05783c437c872df-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/06500.txt",
+              null,
+              0,
+              29,
+              0.05778319016098976
+            ],
+            [
+              "ffd88131df3395a225a0934eddd089817a8cb841bbd44dcb767cffc8015b3aa7-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/05480.txt",
+              null,
+              0,
+              28,
+              0.0574459545314312
+            ],
+            [
+              "c9092a852ace45c83e51cee9c402a23d339b050c820965c402506c2a8b2194a1-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/03880.txt",
+              null,
+              0,
+              29,
+              0.057310398668050766
+            ],
+            [
+              "018d2cb0700afae630f28a644c6508dc138a0cc61ec4870e1dc12c46fe3517c1-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00448.txt",
+              null,
+              0,
+              28,
+              0.05711575970053673
+            ],
+            [
+              "15a113820eb86064e735993b26b680483f52903c7d3d5a8f89f83267dd2d4f25-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/09240.txt",
+              null,
+              0,
+              29,
+              0.05691104009747505
+            ],
+            [
+              "efbba44bd195911b651aa0b557c81b2e7316b84bd9ffdc137035f31021fd6e30-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/07384.txt",
+              null,
+              0,
+              29,
+              0.05682773515582085
+            ],
+            [
+              "8778b29a3c059e3d4869d9c32340c46fd9015bbb40f56e49a4d8e1c7d594c573-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/04544.txt",
+              null,
+              0,
+              29,
+              0.05662992224097252
+            ],
+            [
+              "549d0fa1053f19c1417f26e2c15a61d831cebf9bc939d649626f1fb4cc52ca40-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/09356.txt",
+              null,
+              0,
+              29,
+              0.05649552866816521
+            ],
+            [
+              "cd3bebdaf624b11afa48f68c140da443914739c9b5409b31a6eaa4a5b54764c2-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/01364.txt",
+              null,
+              0,
+              29,
+              0.05637532100081444
+            ],
+            [
+              "ea93a47b64c788825ba3d2acad8ef1669914cb35eb0615a95c9022533690c967-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/06396.txt",
+              null,
+              0,
+              29,
+              0.05633815750479698
+            ],
+            [
+              "067147a6f7192e0dae717583b943a15b2f5f88e3217a41f5a78bca68b2917eb4-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/06294.txt",
+              null,
+              0,
+              28,
+              0.05631042644381523
+            ],
+            [
+              "a3973a2a33d25ff4c70197088e33e6dd21b905ad2f3bd04208d04258e6bebb0e-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/07314.txt",
+              null,
+              0,
+              29,
+              0.05627918988466263
+            ],
+            [
+              "cb8cd2bab3a2a16cf3a00a268ba46f94b765be8939c7aaaec31ec9a726f11333-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/08200.txt",
+              null,
+              0,
+              29,
+              0.05610666424036026
+            ],
+            [
+              "43065d055a298b7e5885634e1ad25b57462a4ffe5591c25c105d3cc931eb1906-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/06770.txt",
+              null,
+              0,
+              29,
+              0.05610230192542076
+            ],
+            [
+              "1c3857c8a40e7e30cb85d1bd8073aabd62c1137357336597285fc16f30619fa4-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/05682.txt",
+              null,
+              0,
+              29,
+              0.055959660559892654
+            ],
+            [
+              "764460d17f6fa0f5fa3fa4596b980f633eddc50facbba1132e04a76bc1bda94d-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/09796.txt",
+              null,
+              0,
+              29,
+              0.0557248592376709
+            ],
+            [
+              "dc3cc47620c4aa925788f4a846834bf9972b34f89d7dca947197c43133bcbb10-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/06844.txt",
+              null,
+              0,
+              30,
+              0.055599551647901535
+            ],
+            [
+              "bfac977dd10db321d5cf1439e2ac8decd254b50618161ba926c5ff608ae85235-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/09456.txt",
+              null,
+              0,
+              29,
+              0.055563997477293015
+            ],
+            [
+              "9a5a3c6dddf3be9002022b1ed7606e55b4d9d5214e64194b25451623864994a1-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+              "a/00180.txt",
+              null,
+              0,
+              30,
+              0.055539872497320175
+            ]
+          ]
+        },
+        "rssBytes": 800804864
+      }
+    }
+  },
+  "ties": {
+    "ms": [
+      553.87,
+      555.675,
+      561.821,
+      560.306,
+      557.019,
+      558.523,
+      561.831,
+      559.903,
+      557.711,
+      564.229,
+      566.353,
+      563.311,
+      563.608,
+      566.534,
+      573.454,
+      569.054,
+      569.18,
+      565.14,
+      562.125,
+      561.186,
+      560.051,
+      559.702,
+      590.449,
+      649.483,
+      570.492,
+      560.7,
+      557.595,
+      568.277,
+      562.72,
+      562.019
+    ],
+    "sources": [
+      [
+        "fc9fbbab84d24197795946e94559e19cc5e97a2d09639d0de5ad80eb5d731f9b-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00000.txt",
+        null,
+        0,
+        28,
+        1.0
+      ],
+      [
+        "e3c8ea78e2c1657323e2eb53cfe0d95333feaa69aa92e01e4e45f403bcef89b8-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00002.txt",
+        null,
+        0,
+        28,
+        1.0
+      ],
+      [
+        "b5e2ebf80a7b34a73dcd25f810da85339dce98fa7e2d210cec613e244981fd45-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00004.txt",
+        null,
+        0,
+        28,
+        1.0
+      ],
+      [
+        "af565d5ca679b45357175771a2e42f3365f11a64269ebb1bcd1136b13e71f67c-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00006.txt",
+        null,
+        0,
+        28,
+        1.0
+      ],
+      [
+        "47145c6b307f89d6e892c26dc875b75b34c5a1650e1d5fbf7775e65c3f7fda1d-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00008.txt",
+        null,
+        0,
+        28,
+        1.0
+      ],
+      [
+        "f4bb591fe36711c7bcf2bb50a17cd7e7e7cd8390d513f72322ca902a4603fb4f-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00010.txt",
+        null,
+        0,
+        30,
+        1.0
+      ],
+      [
+        "a163293b0936d9d16ee034746d6eb159d436d14de8914ac5c3a8fb8b872e2250-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00012.txt",
+        null,
+        0,
+        30,
+        1.0
+      ],
+      [
+        "07db3bd5bbb07f3d5dfae1591f3017dd53d7449a35c7dc4948ec9d196c6f0b79-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00014.txt",
+        null,
+        0,
+        30,
+        1.0
+      ],
+      [
+        "2d0892887b83177cc4e7f50418d14a2c86071ef61af9351ef6d6b66cc6c47d5d-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00016.txt",
+        null,
+        0,
+        30,
+        1.0
+      ],
+      [
+        "e26a1edbcd434aaf3319d62aa529bddde41de2137d61c50302eb6d6dca154c8f-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00018.txt",
+        null,
+        0,
+        29,
+        1.0
+      ],
+      [
+        "4e4cbaddf0daa362e55f0e86a6cc9be5010c3b5aeaa3c9bfc4b3e9c3ca49a2fd-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00020.txt",
+        null,
+        0,
+        29,
+        1.0
+      ],
+      [
+        "b6086f19970defa43530bd80f3b21f3feca06906f314764164d8dbc5c131a786-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00022.txt",
+        null,
+        0,
+        29,
+        1.0
+      ],
+      [
+        "a23574a040d150f2b43de043dbfacbaf5305f3c960c58cde22ebb6b996779fea-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00024.txt",
+        null,
+        0,
+        29,
+        1.0
+      ],
+      [
+        "b0ba18a7fa08b2167ab0bca74f872d17d3a0a1f77577c895f87ff06fa0b0387a-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00026.txt",
+        null,
+        0,
+        29,
+        1.0
+      ],
+      [
+        "28325feed8538e874dfb6b1a7a221f2512bf1266a715e00bcc7cb9a68b2715c0-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00028.txt",
+        null,
+        0,
+        30,
+        1.0
+      ],
+      [
+        "fec7e08c087313aad3f28e5c4080d9b3c755487a62840dae7ed7db63b3656094-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00030.txt",
+        null,
+        0,
+        30,
+        1.0
+      ],
+      [
+        "e9ce56339fac1a56840f61d25e7daaa6cca57f392bd230199788d682ccf79ae8-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00032.txt",
+        null,
+        0,
+        30,
+        1.0
+      ],
+      [
+        "3f5c37d2256cff3ce009d2db9a03209571573ea8bb78b7531d349e24e40734aa-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00034.txt",
+        null,
+        0,
+        29,
+        1.0
+      ],
+      [
+        "ae17971576eb1f087b0c1f09fef43a8bf7581a51b076b2d250c97f3a4cf13cf4-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00036.txt",
+        null,
+        0,
+        29,
+        1.0
+      ],
+      [
+        "ccc1ba37a1b1bcc103294da1e17fd7d4513dc2a9d75dde322aedc454d30b12bf-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00038.txt",
+        null,
+        0,
+        28,
+        1.0
+      ],
+      [
+        "88334b8a809bbead2dc97f09a4c4c79a410a47ae1ea52b0beaa9ce90278b82ed-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00040.txt",
+        null,
+        0,
+        28,
+        1.0
+      ],
+      [
+        "ca18c7d32e6957a0fe2511983ed0982ced4d710140eec7c9a814c2094081800f-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00042.txt",
+        null,
+        0,
+        28,
+        1.0
+      ],
+      [
+        "7eecec758ef3585c91728d20e11108ab77c864035f6934eeb80e5cbf0c62cb89-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00044.txt",
+        null,
+        0,
+        29,
+        1.0
+      ],
+      [
+        "b86e388080703dc826d0f4cd8680efce7f495449f5dba7d61b3d43455656d112-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00046.txt",
+        null,
+        0,
+        29,
+        1.0
+      ],
+      [
+        "bd94e90b562aafaf4ea34538051ecd98b887061d28e6180564668759d96ca529-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00048.txt",
+        null,
+        0,
+        30,
+        1.0
+      ],
+      [
+        "5312775f587d41ed2340fcaf21fc93f81d14fab5286bbe5692923ff1d84a8437-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00050.txt",
+        null,
+        0,
+        30,
+        1.0
+      ],
+      [
+        "1b0d2029a5644bdea0edc300ae7fea455a1f1f1eeb871367ee5748aa705dd2b9-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00052.txt",
+        null,
+        0,
+        29,
+        1.0
+      ],
+      [
+        "3e05804764976ff9ccf902305101eed4cc9f6f53aad04ca47128b52eab43226b-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00054.txt",
+        null,
+        0,
+        29,
+        1.0
+      ],
+      [
+        "23ded5335a263c305aa50b37f50e1a8bcbcffa584ca08a4e2142f8cbe35ec236-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00056.txt",
+        null,
+        0,
+        29,
+        1.0
+      ],
+      [
+        "21718e0e962fd9b9f6f0d2b163bffe054b544c62041b790263b7b9d4e189bc1d-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00058.txt",
+        null,
+        0,
+        29,
+        1.0
+      ],
+      [
+        "9bac716d33fb39945648f429eb5343373a37eb39934ec21bfe73ea2bf7bcbd7c-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00060.txt",
+        null,
+        0,
+        29,
+        1.0
+      ],
+      [
+        "dc39f8974f161237f44413c43ed762cb9966aef01b7d6433373db5a8a0400d65-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00062.txt",
+        null,
+        0,
+        30,
+        1.0
+      ],
+      [
+        "4f8a7f4d0e1a034830aae105e7de5ef3786de970eb8e13e5f9e1128294c0eb10-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00064.txt",
+        null,
+        0,
+        30,
+        1.0
+      ],
+      [
+        "2e76a4a71ee78762be71edb9bedddf65ed1bad93058e55d9f855e0888f4d9f92-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00066.txt",
+        null,
+        0,
+        30,
+        1.0
+      ],
+      [
+        "e55b2c0346371a7ef919762103368125e8441bdc3ea96cc0ca1581a813f9acac-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00068.txt",
+        null,
+        0,
+        29,
+        1.0
+      ],
+      [
+        "491e91bb27bd3829ae60d51316ad37f1507099fc45801c1c39ce6294d24a08e1-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00070.txt",
+        null,
+        0,
+        29,
+        1.0
+      ],
+      [
+        "966491a9e860286b9efdc1165c5e53e486185fd4229d64431d252995500c3caf-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00072.txt",
+        null,
+        0,
+        29,
+        1.0
+      ],
+      [
+        "f7d58494b223092aebd0f4e4b8c6cecebeae37b99c68216ca66e1b1c8bc9e07e-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00074.txt",
+        null,
+        0,
+        28,
+        1.0
+      ],
+      [
+        "7e1e5728ac4ddf4531a0eed3b4f20c1c55880b882b3dd4ec4199868949ff4bb7-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00076.txt",
+        null,
+        0,
+        28,
+        1.0
+      ],
+      [
+        "0abb3d7c069f6de409e409ff63044a4a0888ef0248fb78ad40b1afe922c251fc-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00078.txt",
+        null,
+        0,
+        29,
+        1.0
+      ],
+      [
+        "0affaf6b9564fc5126bfbc44643d174551c6fde7fce0ecdf9d2c6d1bcfd0e032-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00080.txt",
+        null,
+        0,
+        29,
+        1.0
+      ],
+      [
+        "d275ca0dfb930be80a91638df7fb5719b8182245faeace682150770b9e3a1bac-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00082.txt",
+        null,
+        0,
+        29,
+        1.0
+      ],
+      [
+        "c13747d2378c7240185be7ac0e6a034f19a09ca62d95fe18debdda5f1e31bc63-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00084.txt",
+        null,
+        0,
+        30,
+        1.0
+      ],
+      [
+        "5eac2450962eb00a326330f829dbcc09f25847ccd573f5e65e714751daeaeccc-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00086.txt",
+        null,
+        0,
+        29,
+        1.0
+      ],
+      [
+        "1f8c23e03385de08f998b7a7aa6a8a17c56b3c3896856524b00599eb535872e8-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00088.txt",
+        null,
+        0,
+        29,
+        1.0
+      ],
+      [
+        "bd76c3dc3069692442306d974b690cbc1d7109cdeda18cc1ad8898408ad241b8-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00090.txt",
+        null,
+        0,
+        29,
+        1.0
+      ],
+      [
+        "b0a6d5c06757938dec2bbb5aa289a08cfa2229e749f4c0de4059f1e1cd57d5a0-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00092.txt",
+        null,
+        0,
+        29,
+        1.0
+      ],
+      [
+        "6f8f6ea0ad16eeb84f02286950f947f8d2b5a887a25e6ea3502779720ce51fde-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00094.txt",
+        null,
+        0,
+        29,
+        1.0
+      ],
+      [
+        "f71f63b6b81073bb83535b33e14c20e825ef06126f95f74f89eae9384b3d5710-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00096.txt",
+        null,
+        0,
+        30,
+        1.0
+      ],
+      [
+        "c7d0914cd0437c9e46a4d40acf29f06c84dd617cd4de4f1db2f8ec9abcfa3eac-w3-cascade-1-unigram-c120-t128-o0-pna-i0",
+        "a/00098.txt",
+        null,
+        0,
+        30,
+        1.0
+      ]
+    ]
+  },
+  "peakRssBytes": 1072705536
+}

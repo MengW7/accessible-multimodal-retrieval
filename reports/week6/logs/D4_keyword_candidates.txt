@@ -1,0 +1,11 @@
+10k SQLite snapshot: read-only inspection of Chinese bigram candidate count
+query=离线检索
+terms=离线/线检/检索
+python_sqlite=3.45.3
+sql=SELECT count(*), SUM(LENGTH(body)) FROM (SELECT c.id,c.body,COUNT(*) AS hits FROM keyword_term t JOIN chunk c ON c.id=t.chunk_rowid WHERE t.term IN (?,?,?) GROUP BY c.id)
+keyword_candidates=9903; candidate_body_characters=288580
+(2, 0, 0, 'CO-ROUTINE (subquery-1)')
+(9, 2, 0, 'SEARCH t USING COVERING INDEX sqlite_autoindex_keyword_term_1 (term=?)')
+(30, 2, 0, 'SEARCH c USING INTEGER PRIMARY KEY (rowid=?)')
+(33, 2, 0, 'USE TEMP B-TREE FOR GROUP BY')
+(71, 0, 0, 'SCAN (subquery-1)')

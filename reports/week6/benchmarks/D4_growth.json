@@ -1,0 +1,45 @@
+{
+  "ok": true,
+  "mode": "build",
+  "cwd": "C:\\WINDOWS",
+  "dart": "3.13.4 (stable) (Tue Sep 15 01:01:15 2026 -0700) on \"windows_x64\"",
+  "os": "\"Windows 11 Pro\" 10.0 (Build 26300)",
+  "query": "离线检索",
+  "warmRuns": 30,
+  "growth": [
+    {
+      "size": 1000,
+      "files": 907,
+      "documents": 906,
+      "textChunks": 999,
+      "imageChunks": 1,
+      "written": 906,
+      "reused": 0,
+      "parseFailures": 1,
+      "indexMs": 39611.281
+    },
+    {
+      "size": 5000,
+      "files": 4907,
+      "documents": 4906,
+      "textChunks": 4999,
+      "imageChunks": 1,
+      "written": 4000,
+      "reused": 906,
+      "parseFailures": 1,
+      "indexMs": 213432.182
+    },
+    {
+      "size": 10000,
+      "files": 9907,
+      "documents": 9906,
+      "textChunks": 9999,
+      "imageChunks": 1,
+      "written": 5000,
+      "reused": 4906,
+      "parseFailures": 1,
+      "indexMs": 422392.915
+    }
+  ],
+  "peakRssBytes": 1004224512
+}

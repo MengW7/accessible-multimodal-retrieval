@@ -1,0 +1,18 @@
+{
+  "98": {
+    "files": 4,
+    "sha256": "be5d149d8af4a0721bf0fb90f735f2c536b80f0ba859b1e7f29fd90be92e456a"
+  },
+  "1000": {
+    "files": 907,
+    "sha256": "25e4ada3d17be1293be40381679bb0e338d8d2626b57a2def61edfc690d1ef01"
+  },
+  "5000": {
+    "files": 4907,
+    "sha256": "982e95d500a9ebdcd78f33bdcabee8148e9f55ef56b75d7a95ff8cc4aacd66e9"
+  },
+  "10000": {
+    "files": 9907,
+    "sha256": "910d3427ae7153159efb0b84d97e8a3b6be3fa35cb07830424de1be256e08860"
+  }
+}

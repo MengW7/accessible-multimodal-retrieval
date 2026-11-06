@@ -1,0 +1,796 @@
+{
+  "ok": false,
+  "mode": "measure",
+  "cwd": "C:\\WINDOWS",
+  "dart": "3.13.4 (stable) (Tue Sep 15 01:01:15 2026 -0700) on \"windows_x64\"",
+  "os": "\"Windows 11 Pro\" 10.0 (Build 26300)",
+  "query": "离线检索",
+  "warmRuns": 30,
+  "cold": [
+    {
+      "openMs": 9987.334,
+      "indexMs": 7297.547,
+      "firstSearchMs": 271.764,
+      "loadMs": {
+        "onnx/model.onnx": 508.574,
+        "onnx/vision_model.onnx": 132.179,
+        "onnx/text_model.onnx": 235.998
+      },
+      "sources": [
+        [
+          "sample.pdf",
+          1,
+          1318,
+          1328,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i21",
+          [
+            "documentText"
+          ],
+          0.00819672131147541,
+          "• Security — the trust model, and what to lock down before exposing tika-server or\ntika-grpc.\n• Migrating to 4.x — what changed since 3.x and what you have to update."
+        ],
+        [
+          "sample.pdf",
+          2,
+          1339,
+          1349,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i21",
+          [
+            "documentText"
+          ],
+          0.008064516129032258,
+          "• Security — the trust model, and what to lock down before exposing tika-server or\ntika-grpc.\n• Migrating to 4.x — what changed since 3.x and what you have to update."
+        ],
+        [
+          "sample.png",
+          null,
+          0,
+          0,
+          "fca8cd1a7f56fb49a538651c5e4bcd0a4d48ffd553adeb9b49a792391692393b:image",
+          [
+            "clipShared"
+          ],
+          0.008032786885245901,
+          ""
+        ],
+        [
+          "sample.pdf",
+          1,
+          970,
+          1033,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i16",
+          [
+            "documentText"
+          ],
+          0.007936507936507936,
+          "gRPC.\n• Pipes — process-isolated, fault-tolerant extraction at scale.\n• Configuration — the JSON config file: parsers, detectors, metadata filters."
+        ],
+        [
+          "sample.pdf",
+          2,
+          986,
+          1049,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i16",
+          [
+            "documentText"
+          ],
+          0.0078125,
+          "gRPC.\n• Pipes — process-isolated, fault-tolerant extraction at scale.\n• Configuration — the JSON config file: parsers, detectors, metadata filters."
+        ]
+      ]
+    },
+    {
+      "openMs": 375.877,
+      "indexMs": 8128.243,
+      "firstSearchMs": 209.278,
+      "loadMs": {
+        "onnx/model.onnx": 607.38,
+        "onnx/vision_model.onnx": 114.482,
+        "onnx/text_model.onnx": 183.918
+      },
+      "sources": [
+        [
+          "sample.pdf",
+          1,
+          1318,
+          1328,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i21",
+          [
+            "documentText"
+          ],
+          0.00819672131147541,
+          "• Security — the trust model, and what to lock down before exposing tika-server or\ntika-grpc.\n• Migrating to 4.x — what changed since 3.x and what you have to update."
+        ],
+        [
+          "sample.pdf",
+          2,
+          1339,
+          1349,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i21",
+          [
+            "documentText"
+          ],
+          0.008064516129032258,
+          "• Security — the trust model, and what to lock down before exposing tika-server or\ntika-grpc.\n• Migrating to 4.x — what changed since 3.x and what you have to update."
+        ],
+        [
+          "sample.png",
+          null,
+          0,
+          0,
+          "fca8cd1a7f56fb49a538651c5e4bcd0a4d48ffd553adeb9b49a792391692393b:image",
+          [
+            "clipShared"
+          ],
+          0.008032786885245901,
+          ""
+        ],
+        [
+          "sample.pdf",
+          1,
+          970,
+          1033,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i16",
+          [
+            "documentText"
+          ],
+          0.007936507936507936,
+          "gRPC.\n• Pipes — process-isolated, fault-tolerant extraction at scale.\n• Configuration — the JSON config file: parsers, detectors, metadata filters."
+        ],
+        [
+          "sample.pdf",
+          2,
+          986,
+          1049,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i16",
+          [
+            "documentText"
+          ],
+          0.0078125,
+          "gRPC.\n• Pipes — process-isolated, fault-tolerant extraction at scale.\n• Configuration — the JSON config file: parsers, detectors, metadata filters."
+        ]
+      ]
+    },
+    {
+      "openMs": 357.733,
+      "indexMs": 7895.496,
+      "firstSearchMs": 220.586,
+      "loadMs": {
+        "onnx/model.onnx": 578.504,
+        "onnx/vision_model.onnx": 124.932,
+        "onnx/text_model.onnx": 190.712
+      },
+      "sources": [
+        [
+          "sample.pdf",
+          1,
+          1318,
+          1328,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i21",
+          [
+            "documentText"
+          ],
+          0.00819672131147541,
+          "• Security — the trust model, and what to lock down before exposing tika-server or\ntika-grpc.\n• Migrating to 4.x — what changed since 3.x and what you have to update."
+        ],
+        [
+          "sample.pdf",
+          2,
+          1339,
+          1349,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i21",
+          [
+            "documentText"
+          ],
+          0.008064516129032258,
+          "• Security — the trust model, and what to lock down before exposing tika-server or\ntika-grpc.\n• Migrating to 4.x — what changed since 3.x and what you have to update."
+        ],
+        [
+          "sample.png",
+          null,
+          0,
+          0,
+          "fca8cd1a7f56fb49a538651c5e4bcd0a4d48ffd553adeb9b49a792391692393b:image",
+          [
+            "clipShared"
+          ],
+          0.008032786885245901,
+          ""
+        ],
+        [
+          "sample.pdf",
+          1,
+          970,
+          1033,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i16",
+          [
+            "documentText"
+          ],
+          0.007936507936507936,
+          "gRPC.\n• Pipes — process-isolated, fault-tolerant extraction at scale.\n• Configuration — the JSON config file: parsers, detectors, metadata filters."
+        ],
+        [
+          "sample.pdf",
+          2,
+          986,
+          1049,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i16",
+          [
+            "documentText"
+          ],
+          0.0078125,
+          "gRPC.\n• Pipes — process-isolated, fault-tolerant extraction at scale.\n• Configuration — the JSON config file: parsers, detectors, metadata filters."
+        ]
+      ]
+    },
+    {
+      "openMs": 382.708,
+      "indexMs": 7616.441,
+      "firstSearchMs": 222.841,
+      "loadMs": {
+        "onnx/model.onnx": 511.465,
+        "onnx/vision_model.onnx": 125.524,
+        "onnx/text_model.onnx": 190.455
+      },
+      "sources": [
+        [
+          "sample.pdf",
+          1,
+          1318,
+          1328,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i21",
+          [
+            "documentText"
+          ],
+          0.00819672131147541,
+          "• Security — the trust model, and what to lock down before exposing tika-server or\ntika-grpc.\n• Migrating to 4.x — what changed since 3.x and what you have to update."
+        ],
+        [
+          "sample.pdf",
+          2,
+          1339,
+          1349,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i21",
+          [
+            "documentText"
+          ],
+          0.008064516129032258,
+          "• Security — the trust model, and what to lock down before exposing tika-server or\ntika-grpc.\n• Migrating to 4.x — what changed since 3.x and what you have to update."
+        ],
+        [
+          "sample.png",
+          null,
+          0,
+          0,
+          "fca8cd1a7f56fb49a538651c5e4bcd0a4d48ffd553adeb9b49a792391692393b:image",
+          [
+            "clipShared"
+          ],
+          0.008032786885245901,
+          ""
+        ],
+        [
+          "sample.pdf",
+          1,
+          970,
+          1033,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i16",
+          [
+            "documentText"
+          ],
+          0.007936507936507936,
+          "gRPC.\n• Pipes — process-isolated, fault-tolerant extraction at scale.\n• Configuration — the JSON config file: parsers, detectors, metadata filters."
+        ],
+        [
+          "sample.pdf",
+          2,
+          986,
+          1049,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i16",
+          [
+            "documentText"
+          ],
+          0.0078125,
+          "gRPC.\n• Pipes — process-isolated, fault-tolerant extraction at scale.\n• Configuration — the JSON config file: parsers, detectors, metadata filters."
+        ]
+      ]
+    },
+    {
+      "openMs": 356.247,
+      "indexMs": 7301.145,
+      "firstSearchMs": 227.519,
+      "loadMs": {
+        "onnx/model.onnx": 581.808,
+        "onnx/vision_model.onnx": 117.522,
+        "onnx/text_model.onnx": 194.857
+      },
+      "sources": [
+        [
+          "sample.pdf",
+          1,
+          1318,
+          1328,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i21",
+          [
+            "documentText"
+          ],
+          0.00819672131147541,
+          "• Security — the trust model, and what to lock down before exposing tika-server or\ntika-grpc.\n• Migrating to 4.x — what changed since 3.x and what you have to update."
+        ],
+        [
+          "sample.pdf",
+          2,
+          1339,
+          1349,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i21",
+          [
+            "documentText"
+          ],
+          0.008064516129032258,
+          "• Security — the trust model, and what to lock down before exposing tika-server or\ntika-grpc.\n• Migrating to 4.x — what changed since 3.x and what you have to update."
+        ],
+        [
+          "sample.png",
+          null,
+          0,
+          0,
+          "fca8cd1a7f56fb49a538651c5e4bcd0a4d48ffd553adeb9b49a792391692393b:image",
+          [
+            "clipShared"
+          ],
+          0.008032786885245901,
+          ""
+        ],
+        [
+          "sample.pdf",
+          1,
+          970,
+          1033,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i16",
+          [
+            "documentText"
+          ],
+          0.007936507936507936,
+          "gRPC.\n• Pipes — process-isolated, fault-tolerant extraction at scale.\n• Configuration — the JSON config file: parsers, detectors, metadata filters."
+        ],
+        [
+          "sample.pdf",
+          2,
+          986,
+          1049,
+          "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i16",
+          [
+            "documentText"
+          ],
+          0.0078125,
+          "gRPC.\n• Pipes — process-isolated, fault-tolerant extraction at scale.\n• Configuration — the JSON config file: parsers, detectors, metadata filters."
+        ]
+      ],
+      "hot": {
+        "all": {
+          "samples": [
+            {
+              "totalMs": 40.066,
+              "encodeMs": 38,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 33.964,
+              "encodeMs": 31,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 33.237,
+              "encodeMs": 31,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 37.449,
+              "encodeMs": 35,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 35.886,
+              "encodeMs": 34,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 44.44,
+              "encodeMs": 42,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 40.77,
+              "encodeMs": 38,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 51.561,
+              "encodeMs": 48,
+              "storeMs": 2,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 37.907,
+              "encodeMs": 36,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 36.794,
+              "encodeMs": 35,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 35.562,
+              "encodeMs": 33,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 35.623,
+              "encodeMs": 33,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 33.646,
+              "encodeMs": 31,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 35.445,
+              "encodeMs": 33,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 48.801,
+              "encodeMs": 46,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 38.677,
+              "encodeMs": 36,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 38.05,
+              "encodeMs": 35,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 42.658,
+              "encodeMs": 40,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 45.46,
+              "encodeMs": 43,
+              "storeMs": 2,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 36.832,
+              "encodeMs": 34,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 37.072,
+              "encodeMs": 35,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 34.778,
+              "encodeMs": 32,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 33.417,
+              "encodeMs": 31,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 34.137,
+              "encodeMs": 32,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 34.734,
+              "encodeMs": 32,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 33.585,
+              "encodeMs": 31,
+              "storeMs": 1,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 34.592,
+              "encodeMs": 32,
+              "storeMs": 0,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 34.87,
+              "encodeMs": 33,
+              "storeMs": 0,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 36.24,
+              "encodeMs": 34,
+              "storeMs": 2,
+              "fuseMs": 0
+            },
+            {
+              "totalMs": 36.375,
+              "encodeMs": 34,
+              "storeMs": 1,
+              "fuseMs": 0
+            }
+          ],
+          "sources": [
+            [
+              "sample.pdf",
+              1,
+              1318,
+              1328,
+              "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i21",
+              [
+                "documentText"
+              ],
+              0.00819672131147541,
+              "• Security — the trust model, and what to lock down before exposing tika-server or\ntika-grpc.\n• Migrating to 4.x — what changed since 3.x and what you have to update."
+            ],
+            [
+              "sample.pdf",
+              2,
+              1339,
+              1349,
+              "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i21",
+              [
+                "documentText"
+              ],
+              0.008064516129032258,
+              "• Security — the trust model, and what to lock down before exposing tika-server or\ntika-grpc.\n• Migrating to 4.x — what changed since 3.x and what you have to update."
+            ],
+            [
+              "sample.png",
+              null,
+              0,
+              0,
+              "fca8cd1a7f56fb49a538651c5e4bcd0a4d48ffd553adeb9b49a792391692393b:image",
+              [
+                "clipShared"
+              ],
+              0.008032786885245901,
+              ""
+            ],
+            [
+              "sample.pdf",
+              1,
+              970,
+              1033,
+              "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i16",
+              [
+                "documentText"
+              ],
+              0.007936507936507936,
+              "gRPC.\n• Pipes — process-isolated, fault-tolerant extraction at scale.\n• Configuration — the JSON config file: parsers, detectors, metadata filters."
+            ],
+            [
+              "sample.pdf",
+              2,
+              986,
+              1049,
+              "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i16",
+              [
+                "documentText"
+              ],
+              0.0078125,
+              "gRPC.\n• Pipes — process-isolated, fault-tolerant extraction at scale.\n• Configuration — the JSON config file: parsers, detectors, metadata filters."
+            ]
+          ],
+          "vector": {
+            "ms": [
+              0.292,
+              0.312,
+              0.298,
+              0.3,
+              0.406,
+              0.311,
+              0.648,
+              0.344,
+              0.297,
+              0.287,
+              0.285,
+              0.284,
+              0.298,
+              0.282,
+              0.29,
+              0.283,
+              0.281,
+              0.297,
+              0.281,
+              0.298,
+              0.282,
+              0.285,
+              0.279,
+              0.285,
+              0.286,
+              0.506,
+              0.314,
+              0.294,
+              0.283,
+              0.282
+            ],
+            "sources": [
+              [
+                "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i19",
+                "sample.pdf",
+                1,
+                1201,
+                1228,
+                0.06662259250879288
+              ],
+              [
+                "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i19",
+                "sample.pdf",
+                2,
+                1220,
+                1247,
+                0.06662259250879288
+              ],
+              [
+                "0ae2c86a937bbe7c735ecf1400fb9114cba4e57837acf472043c8765f37088ca-w3-cascade-1-unigram-c120-t128-o0-pna-i2",
+                "sample.docx",
+                null,
+                44,
+                58,
+                0.06592991948127747
+              ],
+              [
+                "0ae2c86a937bbe7c735ecf1400fb9114cba4e57837acf472043c8765f37088ca-w3-cascade-1-unigram-c120-t128-o0-pna-i11",
+                "sample.docx",
+                null,
+                710,
+                724,
+                0.06592991948127747
+              ],
+              [
+                "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i11",
+                "sample.pdf",
+                1,
+                745,
+                759,
+                0.06592991948127747
+              ]
+            ]
+          },
+          "rssBytes": 876646400
+        }
+      },
+      "forwardMs": {
+        "onnx/model.onnx": [
+          24.562,
+          21.546,
+          20.724,
+          24.695,
+          24.011,
+          29.045,
+          25.352,
+          36.45,
+          22.469,
+          24.323,
+          23.075,
+          23.519,
+          21.172,
+          20.743,
+          32.276,
+          24.358,
+          24.716,
+          28.505,
+          31.321,
+          23.985,
+          21.993,
+          22.394,
+          21.396,
+          21.855,
+          22.746,
+          21.645,
+          22.037,
+          22.492,
+          21.939,
+          24.323
+        ],
+        "onnx/text_model.onnx": [
+          13.263,
+          9.835,
+          10.279,
+          10.525,
+          9.531,
+          13.093,
+          12.933,
+          11.45,
+          13.026,
+          10.217,
+          9.876,
+          9.81,
+          10.154,
+          11.999,
+          14.042,
+          12.061,
+          10.77,
+          11.821,
+          11.306,
+          9.472,
+          12.44,
+          10.06,
+          9.629,
+          9.968,
+          9.56,
+          9.687,
+          10.295,
+          10.521,
+          11.717,
+          9.687
+        ],
+        "onnx/vision_model.onnx": [
+          17.756,
+          18.474,
+          14.048,
+          15.991,
+          18.615,
+          13.073,
+          16.189,
+          15.014,
+          18.984,
+          14.459,
+          13.586,
+          13.3,
+          18.225,
+          17.339,
+          19.948,
+          15.136,
+          19.638,
+          15.906,
+          12.711,
+          14.754,
+          20.966,
+          14.401,
+          13.553,
+          20.696,
+          16.765,
+          20.672,
+          14.087,
+          17.628,
+          18.17,
+          22.91
+        ]
+      }
+    }
+  ],
+  "scales": {},
+  "peakRssBytes": 1072607232
+}

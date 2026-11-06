@@ -1,0 +1,9 @@
+client_date=2026-11-06
+baseline_code=8c69dff80c5684b60676f16f99b0cedb1fec30d1
+power_scheme=Power Scheme GUID: 52521609-efc9-4268-b9ba-67dea73f18b2  (野兽模式)
+dart=Dart SDK version: 3.13.4 (stable) (Tue Sep 15 01:01:15 2026 -0700) on "windows_x64"
+java=C:\Program Files\Eclipse Adoptium\jdk-21.0.12.101-hotspot\bin\java.exe
+probe_working_directory=C:\WINDOWS
+onnxruntime=1.23.2 CPU (D2 staged production resources)
+tika=4.0.0 (D2 staged production resources)
+cold_samples=5 warm_samples=30

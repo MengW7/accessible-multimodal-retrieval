@@ -1,0 +1,3 @@
+Building Windows application...                                    39.8s
+√ Built build\windows\x64\runner\Release\desktop.exe
+exit=0
