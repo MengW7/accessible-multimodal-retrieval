@@ -1,0 +1,4 @@
+flutter test --no-pub --dart-define=AMR_E_REAL_RUNTIME=true --dart-define=AMR_E_REPORT_PATH=reports/week6/logs/D1_headless_acceptance.json --reporter expanded
+Flutter failed to write to a file at "D:\flutter\bin\cache\libimobiledevice.stamp". The flutter tool cannot access the file or directory.
+Please ensure that the SDK and/or project is installed in a location that has read/write permissions for the current user.
+test_exit=-1073741816

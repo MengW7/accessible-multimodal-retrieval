@@ -1,0 +1,30 @@
+Collection date: 2026-11-05 (Asia/Shanghai)
+Dart: 3.13.4 (stable) (Tue Sep 15 01:01:15 2026 -0700) on "windows_x64"
+Scope: controlled reproduction. Separate from original Week 5 sessions.
+
+[E-INPUT-01] Application date validator, modifiedAfter=2026-02-30
+FormatException: 修改日期不存在，请检查年月日。
+#0      new SearchRequest.fromDraft (file:///E:/Project/accessible-multimodal-retrieval/apps/desktop/lib/src/application/search_models.dart:84:9)
+#1      main (file:///E:/Project/accessible-multimodal-retrieval/tmp/w05-failure-trace-z9s8vd35/failure_trace_probe.dart:11:19)
+#2      _delayEntrypointInvocation.<anonymous closure> (dart:isolate-patch/isolate_patch.dart:311:33)
+#3      _RawReceivePort._handleMessage (dart:isolate-patch/isolate_patch.dart:192:12)
+
+
+[E-IMPORT-01] Underlying ZipDecoder on the intentionally malformed DOCX fixture
+FormatException: Could not find End of Central Directory Record
+#0      ZipDirectory._findEocdrSignature (package:archive/src/zip/zip_directory.dart:159:5)
+#1      new ZipDirectory.read (package:archive/src/zip/zip_directory.dart:28:20)
+#2      ZipDecoder.decodeBuffer (package:archive/src/zip_decoder.dart:24:30)
+#3      ZipDecoder.decodeBytes (package:archive/src/zip_decoder.dart:16:12)
+#4      main (file:///E:/Project/accessible-multimodal-retrieval/tmp/w05-failure-trace-z9s8vd35/failure_trace_probe.dart:20:18)
+<asynchronous suspension>
+
+
+[E-DEP-01] Process.start with an intentionally absent Java executable
+ProcessException: The system cannot find the file specified (at ../../runtime/bin/process_win.cc:579)
+  Command: E:\Project\accessible-multimodal-retrieval\tmp\w05-failure-trace-z9s8vd35\no-java.exe -version
+#0      _ProcessImpl._start (dart:io-patch/process_patch.dart:411:33)
+#1      Process.start (dart:io-patch/process_patch.dart:42:20)
+#2      main (file:///E:/Project/accessible-multimodal-retrieval/tmp/w05-failure-trace-z9s8vd35/failure_trace_probe.dart:33:19)
+<asynchronous suspension>
+

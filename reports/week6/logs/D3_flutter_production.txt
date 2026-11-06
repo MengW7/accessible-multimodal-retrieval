@@ -1,0 +1,87 @@
+flutter test --no-pub --concurrency=1 --dart-define=AMR_E_REAL_RUNTIME=true --dart-define=AMR_E_RUNTIME_ROOT=E:\Project\accessible-multimodal-retrieval\.dart_tool\w06-d2-ort\local-runtime --dart-define=AMR_E_REPORT_PATH=reports/week6/logs/D3_headless_production.json --reporter expanded
+00:00 +0: loading E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart
+00:00 +0: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+Shell: E acceptance: prepare dedicated sources
+Shell: E acceptance: inspect runtime and load library
+Shell: E acceptance: empty library search
+Shell: E acceptance: mixed import and navigation
+Shell: E acceptance: PDF and image search
+Shell: E acceptance: no matches and invalid date recovery
+Shell: E acceptance: mock open, missing source and recovery
+Shell: E acceptance: save settings and restart controller
+Shell: E acceptance: incremental reuse and clear confirmation
+00:27 +1: loading E:/Project/accessible-multimodal-retrieval/apps/desktop/test/accessibility_test.dart
+00:28 +1: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/accessibility_test.dart: display settings persist, bad records are preserved until explicit reset
+00:28 +2: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/accessibility_test.dart: late settings load cannot overwrite user changes; writes keep the latest value
+00:28 +3: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/accessibility_test.dart: settings errors remain actionable and reset recovers
+00:28 +4: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/accessibility_test.dart: normal shutdown waits for a pending settings write
+00:28 +5: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/accessibility_test.dart: Ctrl+L focuses query, Tab and Shift+Tab follow the input order
+00:30 +6: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/accessibility_test.dart: dialog traps focus, ignores search shortcut, Esc restores the clear button
+00:31 +7: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/accessibility_test.dart: offscreen navigation remains in the keyboard order with a visible focus outline
+00:31 +8: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/accessibility_test.dart: system brightness and high contrast are respected without persisting an override
+00:32 +9: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/accessibility_test.dart: settings controls apply and save keyboard changes, dropdown choices and reset
+00:33 +10: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/accessibility_test.dart: semantic names isolate fields and identify each result open action
+00:33 +11: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/accessibility_test.dart: live status stays inside the viewport when the page is scrolled
+00:33 +12: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/accessibility_test.dart: progress live status changes by stage or ten percent bands
+00:33 +13: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/accessibility_test.dart: system text scale and device pixel ratio are not multiplied into app font size
+00:33 +14: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/accessibility_test.dart: all pages and clear dialog remain reachable at 100%, dark=false, narrow high contrast
+00:34 +15: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/accessibility_test.dart: all pages and clear dialog remain reachable at 150%, dark=false, narrow high contrast
+00:34 +16: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/accessibility_test.dart: all pages and clear dialog remain reachable at 200%, dark=false, narrow high contrast
+00:35 +17: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/accessibility_test.dart: all pages and clear dialog remain reachable at 100%, dark=true, narrow high contrast
+00:35 +18: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/accessibility_test.dart: all pages and clear dialog remain reachable at 150%, dark=true, narrow high contrast
+00:35 +19: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/accessibility_test.dart: all pages and clear dialog remain reachable at 200%, dark=true, narrow high contrast
+00:36 +20: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/accessibility_test.dart: configured theme text and focus pairs meet contrast targets
+00:36 +21: loading E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart
+00:36 +21: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart: directory selection is retained and picker cancellation changes nothing
+00:38 +22: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart: busy indexing blocks duplicate submission and shows per-file failure and cancel
+00:39 +23: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart: clear requires confirmation and states that source files remain
+00:39 +24: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart: permission error remains readable and indexing unlocks for retry
+00:39 +25: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart: native folder channel accepts Unicode paths, cancel and errors
+00:39 +26: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart: worker reads and clears its isolated index without loading any model
+00:39 +27: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart: disposing while library load is pending does not notify after disposal
+00:39 +28: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart: shutdown closes the library and prevents new submissions
+00:39 +29: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/library_test.dart: cancel before worker startup is not lost and needs no models
+00:40 +30: loading E:/Project/accessible-multimodal-retrieval/apps/desktop/test/recovery_integration_test.dart
+00:40 +30: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/recovery_integration_test.dart: real Windows production recovery a second worker cannot clear or index during a write
+00:56 +31: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/recovery_integration_test.dart: real Windows production recovery a locked SQLite index preserves old text and is retryable
+00:58 +32: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/recovery_integration_test.dart: real Windows production recovery an unusable database path and a corrupt DOCX can be repaired
+01:00 +33: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/recovery_integration_test.dart: real Windows production recovery close while indexing keeps completed files and releases the writer
+01:14 +34: loading E:/Project/accessible-multimodal-retrieval/apps/desktop/test/runtime_config_test.dart
+01:15 +34: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/runtime_config_test.dart: default resources follow executable and data follows user profile
+01:15 +35: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/runtime_config_test.dart: development resources and data can be configured independently
+01:15 +36: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/runtime_config_test.dart: absolute native resource override stays in production mode
+01:15 +37: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/runtime_config_test.dart: native resource override rejects relative paths and mixed modes
+01:15 +38: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/runtime_config_test.dart: linux default paths follow the target platform on any host
+01:15 +39: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/runtime_config_test.dart: linux development paths follow the target platform on any host
+01:15 +40: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/runtime_config_test.dart: linux rejects relative overrides using target path rules
+01:15 +41: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/runtime_config_test.dart: macos default paths follow the target platform on any host
+01:15 +42: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/runtime_config_test.dart: macos development paths follow the target platform on any host
+01:15 +43: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/runtime_config_test.dart: macos rejects relative overrides using target path rules
+01:15 +44: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/runtime_config_test.dart: Windows falls back to USERPROFILE when LOCALAPPDATA is absent
+01:15 +45: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/runtime_config_test.dart: Linux prefers XDG_DATA_HOME over HOME
+01:15 +46: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/runtime_config_test.dart: relative overrides are blocked instead of following current directory
+01:15 +47: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/runtime_config_test.dart: missing resources and Java produce actionable blocked checks
+01:15 +48: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/runtime_config_test.dart: missing production resources are reported without repository Python
+01:16 +49: loading E:/Project/accessible-multimodal-retrieval/apps/desktop/test/search_test.dart
+01:16 +49: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/search_test.dart: late source-open feedback does not reappear after a new query
+01:17 +50: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/search_test.dart: clearing a populated library invalidates results and submitted-query state
+01:17 +51: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/search_test.dart: draft normalizes relative directories, file types and local dates
+01:17 +52: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/search_test.dart: invalid dates, empty queries and absolute path filters are rejected
+01:17 +53: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/search_test.dart: latest result wins even if older success and failure complete later
+01:17 +54: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/search_test.dart: invalid submission supersedes the pending query without calling service again
+01:17 +55: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/search_test.dart: empty library, actual no hits, errors and retry are separate states
+01:17 +56: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/search_test.dart: cancelled query cannot publish late results or overlap an index mutation
+01:17 +57: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/search_test.dart: source-open feedback uses the exact indexed path and stale callbacks are ignored
+01:17 +58: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/search_test.dart: Enter submits text and filters; results preserve source anchors and image metadata
+01:19 +59: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/search_test.dart: clear filters resets the visible fields and type choice
+01:19 +60: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/search_test.dart: file opener distinguishes missing paths from a system launch failure without launching apps
+01:19 +61: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/search_test.dart: Windows opener sends a path as a structured channel argument and handles native errors
+01:19 +62: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/search_test.dart: an empty worker index returns an empty-library response without any model
+01:19 +63: loading E:/Project/accessible-multimodal-retrieval/apps/desktop/test/widget_test.dart
+01:20 +63: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/widget_test.dart: four areas retain a query draft across navigation
+01:23 +64: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/widget_test.dart: dependency failure keeps navigation available and retry recovers
+01:24 +65: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/widget_test.dart: wide layout uses labelled navigation and permits navigation
+01:24 +66: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/widget_test.dart: late startup check cannot overwrite a newer retry
+01:24 +67: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/widget_test.dart: disposing during startup ignores the completion
+01:24 +68: All tests passed!
+exit=0

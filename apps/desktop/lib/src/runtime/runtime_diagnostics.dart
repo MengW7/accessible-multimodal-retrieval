@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:core_storage/core_storage.dart';
 
 import '../application/desktop_service.dart';
+import 'native_onnx.dart';
 import 'runtime_config.dart';
 
 Future<RuntimeReport> inspectRuntime(RuntimeConfig config) async {
@@ -11,16 +12,7 @@ Future<RuntimeReport> inspectRuntime(RuntimeConfig config) async {
     for (final error in config.configurationErrors)
       RuntimeCheck('路径配置', CheckStatus.blocked, error),
   ];
-  if (!config.development) {
-    checks.add(
-      const RuntimeCheck(
-        '生产嵌入运行时',
-        CheckStatus.blocked,
-        '生产推理适配器尚未接通。开发验证需显式设置 AMR_DEV_ROOT；'
-            'engine/Python 不属于正式发布包。',
-      ),
-    );
-  } else {
+  if (config.development) {
     checks.add(
       const RuntimeCheck(
         '开发运行时',
@@ -28,8 +20,12 @@ Future<RuntimeReport> inspectRuntime(RuntimeConfig config) async {
         '当前使用外部 Python/ONNX 开发环境，不能作为独立发布包验收。',
       ),
     );
+  }
+  if (config.configurationErrors.isEmpty) {
+    final missing = <String>{};
     for (final entry in config.requiredFiles.entries) {
       final exists = await File(entry.value).exists();
+      if (!exists) missing.add(entry.value);
       checks.add(
         RuntimeCheck(
           entry.key,
@@ -38,7 +34,7 @@ Future<RuntimeReport> inspectRuntime(RuntimeConfig config) async {
         ),
       );
     }
-    if (await File(config.python).exists()) {
+    if (config.development && !missing.contains(config.python)) {
       checks.add(
         await checkProcess('Python 模块', config.python, [
           '-c',
@@ -46,6 +42,43 @@ Future<RuntimeReport> inspectRuntime(RuntimeConfig config) async {
               'print("onnxruntime=" + onnxruntime.__version__)',
         ]),
       );
+    }
+    if (!config.development) {
+      const name = '生产嵌入运行时';
+      if (!config.supportsNativeRuntime) {
+        checks.add(
+          const RuntimeCheck(
+            name,
+            CheckStatus.blocked,
+            '生产推理适配当前支持 Windows x64。',
+          ),
+        );
+      } else if (missing.contains(config.onnxLibrary) ||
+          missing.contains(config.onnxBridge)) {
+        checks.add(
+          RuntimeCheck(
+            name,
+            CheckStatus.blocked,
+            '请在 ${config.resourceRoot} 放置生产资源，或设置绝对路径 AMR_RUNTIME_ROOT。',
+          ),
+        );
+      } else {
+        try {
+          final runtime = NativeOnnx.load(
+            config.onnxLibrary,
+            config.onnxBridge,
+          );
+          checks.add(
+            RuntimeCheck(
+              name,
+              CheckStatus.passed,
+              'ONNX Runtime CPU ${runtime.version}（${config.onnxLibrary}）',
+            ),
+          );
+        } catch (error) {
+          checks.add(RuntimeCheck(name, CheckStatus.blocked, error.toString()));
+        }
+      }
     }
     checks.add(await checkProcess('Java', config.javaExecutable, ['-version']));
   }

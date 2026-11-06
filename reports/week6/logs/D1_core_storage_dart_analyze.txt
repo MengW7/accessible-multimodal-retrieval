@@ -1,0 +1,4 @@
+dart --suppress-analytics analyze
+Analyzing core_storage...
+No issues found!
+exit=0

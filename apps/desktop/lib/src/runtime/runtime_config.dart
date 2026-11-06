@@ -24,6 +24,8 @@ final class RuntimeConfig {
     final paths = os == 'windows' ? p.windows : p.posix;
     final exe = executable ?? Platform.resolvedExecutable;
     final devRoot = env['AMR_DEV_ROOT'];
+    final releaseRoot = env['AMR_RUNTIME_ROOT'];
+    final development = devRoot != null && devRoot.isNotEmpty;
     final errors = <String>[];
     String absolute(String? value, String fallback, String name) {
       if (value == null || value.isEmpty) return fallback;
@@ -34,10 +36,13 @@ final class RuntimeConfig {
       return paths.normalize(value);
     }
 
+    if (development && releaseRoot != null && releaseRoot.isNotEmpty) {
+      errors.add('AMR_DEV_ROOT 和 AMR_RUNTIME_ROOT 只能配置一项。');
+    }
     final resources = absolute(
-      devRoot,
+      development ? devRoot : releaseRoot,
       paths.join(paths.dirname(exe), 'runtime'),
-      'AMR_DEV_ROOT',
+      development ? 'AMR_DEV_ROOT' : 'AMR_RUNTIME_ROOT',
     );
     final home = env[os == 'windows' ? 'USERPROFILE' : 'HOME'];
     final String? base = switch (os) {
@@ -72,7 +77,7 @@ final class RuntimeConfig {
     return RuntimeConfig(
       resourceRoot: resources,
       dataDirectory: data,
-      development: devRoot != null && devRoot.isNotEmpty,
+      development: development,
       javaExecutable: java,
       configurationErrors: List.unmodifiable(errors),
       operatingSystem: os,
@@ -90,6 +95,7 @@ final class RuntimeConfig {
 
   bool get _isWindows =>
       (operatingSystem ?? Platform.operatingSystem) == 'windows';
+  bool get supportsNativeRuntime => _isWindows;
   p.Context get _paths => _isWindows ? p.windows : p.posix;
 
   String get databasePath => _paths.join(dataDirectory, 'library.sqlite');
@@ -122,15 +128,28 @@ final class RuntimeConfig {
   String get clipTokenizer => _paths.join(imageDirectory, 'tokenizer.json');
   String get tikaHome => _paths.join(resourceRoot, 'tools', 'tika-app');
   String get tikaJar => _paths.join(tikaHome, 'tika-app-4.0.0.jar');
+  String get onnxLibrary => _paths.join(resourceRoot, 'bin', 'onnxruntime.dll');
+  String get onnxBridge => _paths.join(resourceRoot, 'bin', 'amr_onnx.dll');
   Map<String, String> get requiredFiles => {
-    'Python': python,
-    '嵌入服务': serverScript,
-    '嵌入服务辅助模块': serverHelper,
+    if (development) ...{
+      'Python': python,
+      '嵌入服务': serverScript,
+      '嵌入服务辅助模块': serverHelper,
+    } else if (supportsNativeRuntime) ...{
+      'ONNX Runtime CPU': onnxLibrary,
+      '原生推理桥接库': onnxBridge,
+    },
     '文本分词器': textTokenizer,
     '文本模型': textModel,
     '图像模型': imageModel,
     '图文文本模型': clipTextModel,
     '图文分词器': clipTokenizer,
     'PDF 解析器': tikaJar,
+    if (!development)
+      'Tika PDF 解析模块': _paths.join(
+        tikaHome,
+        'lib',
+        'tika-parser-pdf-module-4.0.0.jar',
+      ),
   };
 }

@@ -1,0 +1,23 @@
+dart analyze
+Analyzing core_retrieval...
+No issues found!
+analysis_exit=0
+dart test --exclude-tags integration --coverage=E:\Project\accessible-multimodal-retrieval\.dart_tool\w06-d3-lcov\2b8d914573204702867f1e69c50f2b0e --reporter expanded
+00:00 +0: loading test\retrieval_test.dart
+00:00 +0: test\retrieval_test.dart: rrf ranks the shared hit first and drops an empty channel
+00:00 +1: test\retrieval_test.dart: image weight keeps an image-only rank 2 inside the top 5
+00:00 +2: test\retrieval_test.dart: neighborhood keeps the hit span and stays on the same page
+00:00 +3: test\retrieval_test.dart: neighborhood at the page tail only extends backwards
+00:00 +4: test\retrieval_test.dart: a query encodes both spaces and degrades when the image tower is missing
+00:00 +5: test\retrieval_test.dart: clip text uses offline glosses and document text stays the query
+00:00 +6: test\retrieval_test.dart: cancellation is not treated as a missing image tower
+00:00 +7: test\retrieval_test.dart: search fuses the three lists and passes filters into the store
+00:00 +8: test\retrieval_test.dart: a missing image vector skips that channel
+00:00 +9: test\retrieval_test.dart: a query over the clip budget degrades instead of throwing
+00:00 +10: test\retrieval_test.dart: a query over the text budget is a typed error, not a crash
+00:00 +11: test\retrieval_test.dart: a keyword-only arm skips encoding and neighborhood
+00:00 +12: test\retrieval_test.dart: an empty query or a non-positive limit is rejected
+00:05 +13: All tests passed!
+test_exit=0
+dart run coverage:format_coverage --lcov --in=E:\Project\accessible-multimodal-retrieval\.dart_tool\w06-d3-lcov\2b8d914573204702867f1e69c50f2b0e --out=E:\Project\accessible-multimodal-retrieval\reports\week6\coverage\D3\core_retrieval.lcov.info --report-on=lib --package=.
+coverage_exit=0

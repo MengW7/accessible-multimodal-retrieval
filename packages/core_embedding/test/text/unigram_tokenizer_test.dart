@@ -6,6 +6,57 @@ import 'toy_tokenizer.dart';
 void main() {
   final UnigramTokenizer tokenizer = toyTokenizer();
 
+  test('invalid resource fields fail before inference', () {
+    const model = {
+      'type': 'Unigram',
+      'unk_id': 0,
+      'vocab': [
+        ['<unk>', 0], ['<s>', 0], ['<pad>', 0], ['</s>', 0],
+      ],
+    };
+    const tokens = [
+      {'id': 1, 'content': '<s>'},
+      {'id': 2, 'content': '<pad>'},
+      {'id': 3, 'content': '</s>'},
+    ];
+    final valid = {'model': model, 'added_tokens': tokens};
+    expect(() => UnigramTokenizer.fromJsonString('[]'), throwsFormatException);
+    for (final (input, reason) in [
+      ({...valid, 'model': {...model, 'unk_id': null}}, 'vocab or unk_id'),
+      ({...valid, 'model': {...model, 'vocab': [['only token']]}}, 'token, score'),
+      ({...valid, 'model': {...model, 'vocab': [['word', 'bad']]}}, 'not a number'),
+      ({...valid, 'added_tokens': [42]}, 'must be an object'),
+      ({...valid, 'added_tokens': [{'content': '<s>'}]}, 'content and id'),
+      ({...valid, 'normalizer': {'type': 'NFC'}}, 'must be Precompiled'),
+      ({...valid, 'normalizer': {'type': 'Precompiled'}}, 'charsmap is missing'),
+    ]) {
+      expect(
+        () => UnigramTokenizer.fromJson(input),
+        throwsA(isA<FormatException>().having((e) => e.message, 'reason', contains(reason))),
+      );
+    }
+  });
+
+  test('added markers consume Unicode whitespace and retain supplementary text', () {
+    final configured = UnigramTokenizer(
+      pieces: const [('<unk>', 0), ('<s>', 0), ('<pad>', 0), ('</s>', 0), ('a', 0)],
+      unkId: 0,
+      addedTokens: [
+        AddedToken(content: '<s>', id: 1, special: true),
+        AddedToken(content: '<pad>', id: 2, special: true),
+        AddedToken(content: '</s>', id: 3, special: true),
+        AddedToken(content: '#', id: 5),
+        AddedToken(content: '##', id: 6, rstrip: true),
+      ],
+      addPrefixSpace: false,
+    );
+    final encoded = configured.encode('a##\u00a0\u3000😀');
+    expect(encoded.ids, [1, 4, 6, 0, 3]);
+    expect(encoded.tokens, ['<s>', 'a', '##\u00a0\u3000', '😀', '</s>']);
+    expect(configured.encode('a', truncateTo: 8), configured.encode('a'));
+    expect(configured.encode('a'), isNot(configured.encode('😀')));
+  });
+
   test('a word becomes one metaspace piece between the boundary tokens', () {
     final TokenEncoding encoding = tokenizer.encode('a');
     expect(encoding.ids, <int>[0, 5, 2]);

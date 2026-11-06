@@ -47,6 +47,7 @@ flutter run -d windows
 
 任务期间禁用重复导入和清除，页面导航仍可使用。正常关闭 Windows 窗口会先取消并结束
 后台 worker、关闭 SQLite 与嵌入进程，等待显示设置保存后再退出窗口。
+使用同一数据目录的多个实例共享写入锁。另一个实例正在建库或清库时，等待任务完成后再重试。
 
 相同内容哈希共用一份文档，结果路径沿用最初写入的来源；目录统计与文档统计可能不同。
 增量更新不会自动删除已从磁盘移除或改名的旧文件记录，需要时可清除应用索引后重新导入。
@@ -186,20 +187,40 @@ C 复用同一个 worker 的真实搜索会话，后台只保留一个待执行�
 筛选仍针对它。页码为空时不编造页码，偏移继续按 UTF-16 code unit 解释。
 多目录相同内容仍沿用核心库按内容标识文档的语义，未引入多副本索引或调整检索打分。
 
-## 发布缺口
+## Windows x64 生产运行时
 
-没有 `AMR_DEV_ROOT` 时进入发布模式，资源根定位到可执行文件旁的 `runtime/`，
-但生产推理适配器尚未实现，应用明确显示阻塞，不悄悄回退到仓库 Python。
-这符合 TDD 中 `engine/` 不进入发布包的决定。模型/分词器如何随包安装、
-原生 ONNX/TFLite 推理方案、Java/Tika 的分发及 SQLite 动态库策略仍需后续解决。
+W06 D2 将 ONNX Runtime CPU 通过本地 DLL 接入现有后台 worker。清空 `AMR_DEV_ROOT` 后，
+应用从可执行文件旁的 `runtime/` 读取资源，也可用绝对路径 `AMR_RUNTIME_ROOT` 覆盖。
+两个根配置互斥。缺少桥接库、模型、分词器、Tika 或 Java 时，启动检查会显示具体项目。
+生产推理由原生会话完成，运行目录无需 `engine/` 或 Python。
+
+从仓库根目录构建桥接库和准备本机研究验证资源。先将微软的 Windows x64 CPU SDK
+解压到本地，将 `$sdk` 设为解压后的 SDK 根目录。本轮验证版本为 1.23.2。
+[微软 ONNX Runtime 1.23.2 发布页](https://github.com/microsoft/onnxruntime/releases/tag/v1.23.2)
+
+```powershell
+$bridgeBuild = Join-Path $PWD '.dart_tool/onnx-bridge'
+$runtime = Join-Path $PWD '.dart_tool/onnx-local-runtime'
+cmake -S native/onnx -B $bridgeBuild -G 'Visual Studio 17 2022' -A x64 "-DORT_ROOT=$sdk"
+cmake --build $bridgeBuild --config Release
+./apps/desktop/tool/stage_native_runtime.ps1 -SdkRoot $sdk `
+  -Bridge "$bridgeBuild/Release/amr_onnx.dll" -RuntimeRoot $runtime
+```
+
+资源根需是新目录。脚本从本机已有资源复制三份 fp32 模型、两个分词器、Tika 及原生库。
+启动时清空 `AMR_DEV_ROOT`，将 `AMR_RUNTIME_ROOT` 指向该目录，`AMR_JAVA` 使用 PATH 的
+`java` 或 Java 可执行文件的绝对路径。验证用 `AMR_DATA_DIR` 应指向独立的新目录。
+可复跑的无界面验证和原生步骤见 [D2 阶段记录](../../reports/week6/W06_D2_checkpoint.md)。
+
+此资源布局用于本机验证。按 ADR 0003，MobileCLIP 权重由研究使用者自行准备。
+公开包的资源获取方式、Java 与 SQLite 分发、干净目标机验证和安装器由 W7/W8 确认。
 
 移除了模板中未使用的 `tflite_flutter` 依赖与 MobileNet 示例模型的打包声明，
 示例模型文件仍保留。本机首次构建因该插件要求 Windows 符号链接支持而失败；
 移除未使用插件后构建通过，没有修改 Windows 开发者模式。
 
-当前包含 Windows、macOS、Linux 宿主工程。macOS/Linux 为 Flutter 3.47.5 生成的
-基础工程，目录选择、系统打开和正常退出收尾的原生适配仍需补齐；共享 Dart UI 和
-工程生成不代表这些平台已经通过构建、操作或读屏验证。
+当前包含 Windows、macOS、Linux 宿主工程。macOS/Linux 的生产推理、目录选择、
+系统打开和正常退出收尾适配仍需补齐，按平台单独验收构建、操作和读屏。
 
 ## 三平台 CI
 

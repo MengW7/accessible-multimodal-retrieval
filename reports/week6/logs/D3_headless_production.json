@@ -1,0 +1,184 @@
+{
+  "ok": true,
+  "startedAt": "2026-11-06T07:11:49.555960Z",
+  "os": "windows",
+  "osVersion": "\"Windows 11 Pro\" 10.0 (Build 26300)",
+  "dart": "3.13.4 (stable) (Tue Sep 15 01:01:15 2026 -0700) on \"windows_x64\"",
+  "desktopInteractions": false,
+  "nativeOpenMocked": true,
+  "screenReaderTested": false,
+  "networkIsolated": false,
+  "checks": {
+    "runtimeAndEmptyLibrary": 0,
+    "emptyLibraryUI": true,
+    "mixedImportAndNavigation": {
+      "root": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-88aaaeb5\\fixtures",
+      "finishedAt": "2026-11-06T15:12:05.504064",
+      "written": 4,
+      "reused": 0,
+      "cancelled": false,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-88aaaeb5\\fixtures\\archive\\old.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-88aaaeb5\\fixtures\\bad.docx",
+          "status": "failed",
+          "detail": "DOCX is not a valid zip container.",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-88aaaeb5\\fixtures\\notes\\guide.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-88aaaeb5\\fixtures\\notes\\sample.pdf",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-88aaaeb5\\fixtures\\sample.png",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    "pdfFilterAndAnchors": 20,
+    "imageMetadata": true,
+    "noMatchesDistinctFromEmpty": true,
+    "invalidDateRecoveryAndCombinedFilter": {
+      "query": "离线检索",
+      "topK": 20,
+      "extensions": [
+        ".txt"
+      ],
+      "pathPrefix": "notes",
+      "modifiedAfter": "2026-10-25T00:00:00.000",
+      "modality": null
+    },
+    "sourceOpenMockMissingAndRecovery": true,
+    "controllerRestartWithRealStores": true,
+    "incrementalReuseAfterRestart": {
+      "root": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-88aaaeb5\\fixtures",
+      "finishedAt": "2026-11-06T15:12:16.383256",
+      "written": 0,
+      "reused": 4,
+      "cancelled": false,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-88aaaeb5\\fixtures\\archive\\old.txt",
+          "status": "reused",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-88aaaeb5\\fixtures\\bad.docx",
+          "status": "failed",
+          "detail": "DOCX is not a valid zip container.",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-88aaaeb5\\fixtures\\notes\\guide.txt",
+          "status": "reused",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-88aaaeb5\\fixtures\\notes\\sample.pdf",
+          "status": "reused",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-88aaaeb5\\fixtures\\sample.png",
+          "status": "reused",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    "clearConfirmationPreservesSourcesAndSettings": true
+  },
+  "fixtureRoot": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-88aaaeb5\\fixtures",
+  "dataDirectory": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-88aaaeb5\\index",
+  "stage": "incremental reuse and clear confirmation",
+  "runtime": {
+    "ready": true,
+    "mode": "release",
+    "resourceRoot": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\local-runtime",
+    "databasePath": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-88aaaeb5\\index\\library.sqlite",
+    "documents": 0,
+    "chunks": 0,
+    "checks": [
+      {
+        "name": "ONNX Runtime CPU",
+        "status": "passed",
+        "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\local-runtime\\bin\\onnxruntime.dll"
+      },
+      {
+        "name": "原生推理桥接库",
+        "status": "passed",
+        "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\local-runtime\\bin\\amr_onnx.dll"
+      },
+      {
+        "name": "文本分词器",
+        "status": "passed",
+        "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\local-runtime\\models\\raw\\text\\paraphrase-multilingual-MiniLM-L12-v2\\tokenizer.json"
+      },
+      {
+        "name": "文本模型",
+        "status": "passed",
+        "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\local-runtime\\models\\raw\\text\\paraphrase-multilingual-MiniLM-L12-v2\\onnx\\model.onnx"
+      },
+      {
+        "name": "图像模型",
+        "status": "passed",
+        "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\local-runtime\\models\\raw\\image\\mobileclip-s0\\onnx\\vision_model.onnx"
+      },
+      {
+        "name": "图文文本模型",
+        "status": "passed",
+        "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\local-runtime\\models\\raw\\image\\mobileclip-s0\\onnx\\text_model.onnx"
+      },
+      {
+        "name": "图文分词器",
+        "status": "passed",
+        "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\local-runtime\\models\\raw\\image\\mobileclip-s0\\tokenizer.json"
+      },
+      {
+        "name": "PDF 解析器",
+        "status": "passed",
+        "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\local-runtime\\tools\\tika-app\\tika-app-4.0.0.jar"
+      },
+      {
+        "name": "Tika PDF 解析模块",
+        "status": "passed",
+        "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\local-runtime\\tools\\tika-app\\lib\\tika-parser-pdf-module-4.0.0.jar"
+      },
+      {
+        "name": "生产嵌入运行时",
+        "status": "passed",
+        "detail": "ONNX Runtime CPU 1.23.2（E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\local-runtime\\bin\\onnxruntime.dll）"
+      },
+      {
+        "name": "Java",
+        "status": "passed",
+        "detail": "java；exit=0；openjdk version \"21.0.12.1\" 2026-08-18 LTS\r\nOpenJDK Runtime Environment Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS)\r\nOpenJDK 64-Bit Server VM Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS, mixed mode, sharing)"
+      },
+      {
+        "name": "SQLite / 数据目录",
+        "status": "passed",
+        "detail": "E:\\Project\\accessible-multimodal-retrieval\\tmp\\w05-acceptance-88aaaeb5\\index\\library.sqlite；文档 0，块 0"
+      }
+    ]
+  },
+  "elapsedMs": 27059,
+  "finishedAt": "2026-11-06T07:12:17.075530Z"
+}

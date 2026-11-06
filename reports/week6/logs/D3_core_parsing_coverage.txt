@@ -1,0 +1,110 @@
+dart analyze
+Analyzing core_parsing...
+No issues found!
+analysis_exit=0
+dart test --exclude-tags integration --coverage=E:\Project\accessible-multimodal-retrieval\.dart_tool\w06-d3-lcov\f1e962ede9324ff4a9da8fec4158267f --reporter expanded
+00:00 +0: loading test\coverage_gaps_test.dart
+00:00 +0: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +1: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +2: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +3: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +4: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +5: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +6: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +7: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +8: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +9: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +10: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +11: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +12: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +13: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +14: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +15: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +16: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +17: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +18: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +19: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +20: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +21: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +22: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +23: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +24: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +25: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +26: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +27: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +28: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +29: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +30: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +31: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +32: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +33: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +34: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +35: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +36: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +37: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +38: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +39: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +40: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +41: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +42: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +43: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +44: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +45: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +46: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +47: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +48: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +49: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +50: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +51: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +52: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +53: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +54: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +55: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +56: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +57: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +58: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +59: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +60: test\io_process_runner_test.dart: captures stdout from a short command
+00:01 +61: test\io_process_runner_test.dart: captures stdout from a short command
+00:01 +62: test\io_process_runner_test.dart: captures stdout from a short command
+00:01 +63: test\io_process_runner_test.dart: captures stdout from a short command
+00:01 +64: test\io_process_runner_test.dart: captures stdout from a short command
+00:01 +65: test\io_process_runner_test.dart: captures stdout from a short command
+00:01 +66: test\io_process_runner_test.dart: a missing executable throws ProcessStartException
+00:01 +67: test\io_process_runner_test.dart: timeout kills a long command
+00:02 +68: test\io_process_runner_test.dart: an already cancelled token does not start the process
+00:02 +69: test\io_process_runner_test.dart: cancel during a run stops the process
+00:07 +70: loading test\parser_registry_test.dart
+00:11 +70: test\parser_registry_test.dart: extensions match regardless of case or a leading dot
+00:11 +71: test\parser_registry_test.dart: an unknown extension is skipped and does not throw
+00:11 +72: test\parser_registry_test.dart: a matching parser is invoked
+00:12 +73: test\tika_cli_text_extractor_test.dart: xhtml pages are split and entities are decoded
+00:12 +74: test\txt_parser_test.dart: utf-8 fixture keeps Chinese and normalizes CRLF
+00:12 +75: test\txt_parser_test.dart: utf-8 fixture keeps Chinese and normalizes CRLF
+00:12 +76: test\txt_parser_test.dart: utf-8 fixture keeps Chinese and normalizes CRLF
+00:12 +77: test\tika_cli_text_extractor_test.dart: xhtml without page divs falls back to plain text
+00:12 +78: test\txt_parser_test.dart: utf-8 BOM fixture strips the mark
+00:12 +79: test\tika_cli_text_extractor_test.dart: both modes failing throws and keeps stderr off the message
+00:12 +80: test\tika_cli_text_extractor_test.dart: both modes failing throws and keeps stderr off the message
+00:12 +81: test\txt_parser_test.dart: gbk fixture falls back and records the warning
+00:12 +82: test\txt_parser_test.dart: gbk fixture falls back and records the warning
+00:12 +83: test\txt_parser_test.dart: gbk fixture falls back and records the warning
+00:12 +84: test\txt_parser_test.dart: empty file is ok with an empty body
+00:12 +85: test\txt_parser_test.dart: utf-16 BE is detected from its BOM
+00:12 +86: test\txt_parser_test.dart: a newline-free line under the ceiling stays ok
+00:12 +87: test\txt_parser_test.dart: bytes past the ceiling are partial and truncated
+00:12 +88: test\txt_parser_test.dart: a cut inside a UTF-8 character does not switch to GBK
+00:12 +89: test\txt_parser_test.dart: a missing file is a failure, not an exception
+00:12 +90: test\txt_parser_test.dart: cancellation before reading throws
+00:12 +91: test\pdf_parser_test.dart: pages from the extractor become an ok document
+00:13 +92: test\pdf_parser_test.dart: an empty pdf fails before the extractor runs
+00:13 +93: test\pdf_parser_test.dart: retains the PDF title and only integer extractor timings
+00:13 +94: test\pdf_parser_test.dart: an encrypted pdf keeps the extractor reason
+00:13 +95: test\pdf_parser_test.dart: a missing java runtime is dependencyUnavailable
+00:13 +96: test\pdf_parser_test.dart: a timed out extractor is timeout and failed
+00:13 +97: test\pdf_parser_test.dart: a missing path is a failure, not an exception
+00:13 +98: test\pdf_parser_test.dart: cancellation still throws
+00:19 +99: All tests passed!
+test_exit=0
+dart run coverage:format_coverage --lcov --in=E:\Project\accessible-multimodal-retrieval\.dart_tool\w06-d3-lcov\f1e962ede9324ff4a9da8fec4158267f --out=E:\Project\accessible-multimodal-retrieval\reports\week6\coverage\D3\core_parsing.lcov.info --report-on=lib --package=.
+coverage_exit=0

@@ -1,0 +1,4 @@
+flutter build windows --release --no-pub
+Building Windows application...                                    49.5s
+√ Built build\windows\x64\runner\Release\desktop.exe
+exit=0

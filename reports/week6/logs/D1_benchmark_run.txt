@@ -1,0 +1,7 @@
+PowerShell ./apps/desktop/tool/week6_baseline.ps1
+
+  ok workingDirectory query    dartPeakRssBytes
+  -- ---------------- -----    ----------------
+True C:\WINDOWS       离线检索        595206144
+
+exit=

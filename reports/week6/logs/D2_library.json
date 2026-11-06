@@ -1,0 +1,1919 @@
+{
+  "pid": 16968,
+  "workingDirectory": "C:\\Windows",
+  "dataDirectory": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\worker-data",
+  "mode": "release",
+  "ok": true,
+  "databasePath": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\worker-data\\library.sqlite",
+  "initial": {
+    "run": {
+      "root": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\library-fixtures",
+      "finishedAt": "2026-11-06T14:52:05.128874",
+      "written": 1,
+      "reused": 0,
+      "cancelled": false,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\library-fixtures\\bad.docx",
+          "status": "failed",
+          "detail": "DOCX is not a valid zip container.",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\library-fixtures\\good.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    "snapshot": {
+      "roots": [
+        {
+          "root": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\library-fixtures",
+          "finishedAt": "2026-11-06T14:52:05.128874",
+          "written": 1,
+          "reused": 0,
+          "cancelled": false,
+          "files": [
+            {
+              "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\library-fixtures\\bad.docx",
+              "status": "failed",
+              "detail": "DOCX is not a valid zip container.",
+              "warning": false
+            },
+            {
+              "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\library-fixtures\\good.txt",
+              "status": "indexed",
+              "detail": null,
+              "warning": false
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "documents": 1,
+        "chunks": 1,
+        "documentText": 1,
+        "clipShared": 0,
+        "keywordTerms": 10
+      }
+    }
+  },
+  "incremental": {
+    "written": 0,
+    "reused": 1,
+    "documents": 1,
+    "chunks": 1
+  },
+  "modified": {
+    "written": 1,
+    "documents": 1
+  },
+  "restart": {
+    "roots": [
+      {
+        "root": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\library-fixtures",
+        "finishedAt": "2026-11-06T14:52:05.213940",
+        "written": 1,
+        "reused": 0,
+        "cancelled": false,
+        "files": [
+          {
+            "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\library-fixtures\\bad.docx",
+            "status": "failed",
+            "detail": "DOCX is not a valid zip container.",
+            "warning": false
+          },
+          {
+            "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\library-fixtures\\good.txt",
+            "status": "indexed",
+            "detail": null,
+            "warning": false
+          }
+        ]
+      }
+    ],
+    "stats": {
+      "documents": 1,
+      "chunks": 1,
+      "documentText": 1,
+      "clipShared": 0,
+      "keywordTerms": 25
+    }
+  },
+  "immediateCancellation": {
+    "root": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\library-fixtures",
+    "finishedAt": "2026-11-06T14:52:05.293673",
+    "written": 0,
+    "reused": 0,
+    "cancelled": true,
+    "files": []
+  },
+  "cancellation": {
+    "run": {
+      "root": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files",
+      "finishedAt": "2026-11-06T14:52:07.476961",
+      "written": 2,
+      "reused": 0,
+      "cancelled": true,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-0.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-1.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-10.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-11.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-12.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-13.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-14.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-15.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-16.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-17.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-18.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-19.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-2.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-3.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-4.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-5.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-6.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-7.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-8.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-9.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        }
+      ]
+    },
+    "documentsRetained": 3
+  },
+  "resume": {
+    "written": 18,
+    "reused": 2,
+    "documents": 21
+  },
+  "missingDirectory": {
+    "root": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\absent-directory",
+    "finishedAt": "2026-11-06T14:52:16.100078",
+    "written": 0,
+    "reused": 0,
+    "cancelled": false,
+    "files": [
+      {
+        "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\absent-directory",
+        "status": "failed",
+        "detail": "Directory not found",
+        "warning": false
+      }
+    ]
+  },
+  "clear": {
+    "roots": [],
+    "stats": {
+      "documents": 0,
+      "chunks": 0,
+      "documentText": 0,
+      "clipShared": 0,
+      "keywordTerms": 0
+    }
+  },
+  "sourceFilesPreserved": 22,
+  "mainIsolateHeartbeats": 623,
+  "elapsedMs": 12512,
+  "progressEvents": [
+    {
+      "stage": "preparing",
+      "processed": 0,
+      "total": null,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 0,
+      "total": 2,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 0,
+      "total": 2,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 0,
+      "total": 2,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 1,
+      "total": 2,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 2,
+      "total": 2,
+      "files": []
+    },
+    {
+      "stage": "indexing",
+      "processed": 0,
+      "total": 1,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\library-fixtures\\bad.docx",
+          "status": "failed",
+          "detail": "DOCX is not a valid zip container.",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\library-fixtures\\good.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "indexing",
+      "processed": 0,
+      "total": 1,
+      "files": []
+    },
+    {
+      "stage": "indexing",
+      "processed": 1,
+      "total": 1,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\library-fixtures\\good.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "saving",
+      "processed": 0,
+      "total": null,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\library-fixtures\\bad.docx",
+          "status": "failed",
+          "detail": "DOCX is not a valid zip container.",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\library-fixtures\\good.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "preparing",
+      "processed": 0,
+      "total": null,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 0,
+      "total": 2,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 0,
+      "total": 2,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 0,
+      "total": 2,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 1,
+      "total": 2,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 2,
+      "total": 2,
+      "files": []
+    },
+    {
+      "stage": "indexing",
+      "processed": 0,
+      "total": 1,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\library-fixtures\\bad.docx",
+          "status": "failed",
+          "detail": "DOCX is not a valid zip container.",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\library-fixtures\\good.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "indexing",
+      "processed": 0,
+      "total": 1,
+      "files": []
+    },
+    {
+      "stage": "indexing",
+      "processed": 1,
+      "total": 1,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\library-fixtures\\good.txt",
+          "status": "reused",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "saving",
+      "processed": 0,
+      "total": null,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\library-fixtures\\bad.docx",
+          "status": "failed",
+          "detail": "DOCX is not a valid zip container.",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\library-fixtures\\good.txt",
+          "status": "reused",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "preparing",
+      "processed": 0,
+      "total": null,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 0,
+      "total": 2,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 0,
+      "total": 2,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 0,
+      "total": 2,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 1,
+      "total": 2,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 2,
+      "total": 2,
+      "files": []
+    },
+    {
+      "stage": "indexing",
+      "processed": 0,
+      "total": 1,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\library-fixtures\\bad.docx",
+          "status": "failed",
+          "detail": "DOCX is not a valid zip container.",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\library-fixtures\\good.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "indexing",
+      "processed": 0,
+      "total": 1,
+      "files": []
+    },
+    {
+      "stage": "indexing",
+      "processed": 1,
+      "total": 1,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\library-fixtures\\good.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "saving",
+      "processed": 0,
+      "total": null,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\library-fixtures\\bad.docx",
+          "status": "failed",
+          "detail": "DOCX is not a valid zip container.",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\library-fixtures\\good.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "preparing",
+      "processed": 0,
+      "total": null,
+      "files": []
+    },
+    {
+      "stage": "saving",
+      "processed": 0,
+      "total": null,
+      "files": []
+    },
+    {
+      "stage": "preparing",
+      "processed": 0,
+      "total": null,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 0,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 0,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 0,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 1,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 1,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 2,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 2,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 3,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 3,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 4,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 4,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 5,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 5,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 6,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 6,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 7,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 7,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 8,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 8,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 9,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 9,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 10,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 10,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 11,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 11,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 12,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 12,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 13,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 13,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 14,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 14,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 15,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 15,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 16,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 16,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 17,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 17,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 18,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 18,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 19,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 20,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "indexing",
+      "processed": 0,
+      "total": 20,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-0.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-1.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-10.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-11.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-12.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-13.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-14.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-15.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-16.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-17.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-18.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-19.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-2.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-3.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-4.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-5.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-6.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-7.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-8.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-9.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "indexing",
+      "processed": 0,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "indexing",
+      "processed": 1,
+      "total": 20,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-0.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "indexing",
+      "processed": 2,
+      "total": 20,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-1.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "saving",
+      "processed": 0,
+      "total": null,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-0.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-1.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-10.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-11.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-12.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-13.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-14.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-15.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-16.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-17.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-18.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-19.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-2.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-3.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-4.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-5.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-6.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-7.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-8.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-9.txt",
+          "status": "cancelled",
+          "detail": "取消后未处理，已提交的索引保留。",
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "preparing",
+      "processed": 0,
+      "total": null,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 0,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 0,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 0,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 1,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 1,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 2,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 2,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 3,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 3,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 4,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 4,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 5,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 5,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 6,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 6,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 7,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 7,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 8,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 8,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 9,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 9,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 10,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 10,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 11,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 11,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 12,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 12,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 13,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 13,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 14,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 14,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 15,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 15,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 16,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 16,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 17,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 17,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 18,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 18,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 19,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "parsing",
+      "processed": 20,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "indexing",
+      "processed": 0,
+      "total": 20,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-0.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-1.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-10.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-11.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-12.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-13.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-14.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-15.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-16.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-17.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-18.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-19.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-2.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-3.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-4.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-5.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-6.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-7.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-8.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-9.txt",
+          "status": "queued",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "indexing",
+      "processed": 0,
+      "total": 20,
+      "files": []
+    },
+    {
+      "stage": "indexing",
+      "processed": 1,
+      "total": 20,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-0.txt",
+          "status": "reused",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "indexing",
+      "processed": 2,
+      "total": 20,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-1.txt",
+          "status": "reused",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "indexing",
+      "processed": 3,
+      "total": 20,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-10.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "indexing",
+      "processed": 4,
+      "total": 20,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-11.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "indexing",
+      "processed": 5,
+      "total": 20,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-12.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "indexing",
+      "processed": 6,
+      "total": 20,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-13.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "indexing",
+      "processed": 7,
+      "total": 20,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-14.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "indexing",
+      "processed": 8,
+      "total": 20,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-15.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "indexing",
+      "processed": 9,
+      "total": 20,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-16.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "indexing",
+      "processed": 10,
+      "total": 20,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-17.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "indexing",
+      "processed": 11,
+      "total": 20,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-18.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "indexing",
+      "processed": 12,
+      "total": 20,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-19.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "indexing",
+      "processed": 13,
+      "total": 20,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-2.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "indexing",
+      "processed": 14,
+      "total": 20,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-3.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "indexing",
+      "processed": 15,
+      "total": 20,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-4.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "indexing",
+      "processed": 16,
+      "total": 20,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-5.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "indexing",
+      "processed": 17,
+      "total": 20,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-6.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "indexing",
+      "processed": 18,
+      "total": 20,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-7.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "indexing",
+      "processed": 19,
+      "total": 20,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-8.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "indexing",
+      "processed": 20,
+      "total": 20,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-9.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "saving",
+      "processed": 0,
+      "total": null,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-0.txt",
+          "status": "reused",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-1.txt",
+          "status": "reused",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-10.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-11.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-12.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-13.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-14.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-15.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-16.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-17.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-18.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-19.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-2.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-3.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-4.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-5.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-6.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-7.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-8.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        },
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\cancellation-files\\file-9.txt",
+          "status": "indexed",
+          "detail": null,
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "preparing",
+      "processed": 0,
+      "total": null,
+      "files": []
+    },
+    {
+      "stage": "indexing",
+      "processed": 0,
+      "total": 0,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\absent-directory",
+          "status": "failed",
+          "detail": "Directory not found",
+          "warning": false
+        }
+      ]
+    },
+    {
+      "stage": "indexing",
+      "processed": 0,
+      "total": 0,
+      "files": []
+    },
+    {
+      "stage": "saving",
+      "processed": 0,
+      "total": null,
+      "files": [
+        {
+          "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\absent-directory",
+          "status": "failed",
+          "detail": "Directory not found",
+          "warning": false
+        }
+      ]
+    }
+  ]
+}

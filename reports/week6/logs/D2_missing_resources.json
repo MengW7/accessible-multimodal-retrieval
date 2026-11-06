@@ -1,0 +1,77 @@
+{
+  "pid": 5144,
+  "workingDirectory": "C:\\Windows",
+  "dataDirectory": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\missing-resource-data",
+  "mode": "release",
+  "ok": false,
+  "startup": {
+    "ready": false,
+    "mode": "release",
+    "resourceRoot": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\missing-runtime",
+    "databasePath": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\missing-resource-data\\library.sqlite",
+    "documents": 0,
+    "chunks": 0,
+    "checks": [
+      {
+        "name": "ONNX Runtime CPU",
+        "status": "blocked",
+        "detail": "缺少文件：E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\missing-runtime\\bin\\onnxruntime.dll"
+      },
+      {
+        "name": "原生推理桥接库",
+        "status": "blocked",
+        "detail": "缺少文件：E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\missing-runtime\\bin\\amr_onnx.dll"
+      },
+      {
+        "name": "文本分词器",
+        "status": "blocked",
+        "detail": "缺少文件：E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\missing-runtime\\models\\raw\\text\\paraphrase-multilingual-MiniLM-L12-v2\\tokenizer.json"
+      },
+      {
+        "name": "文本模型",
+        "status": "blocked",
+        "detail": "缺少文件：E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\missing-runtime\\models\\raw\\text\\paraphrase-multilingual-MiniLM-L12-v2\\onnx\\model.onnx"
+      },
+      {
+        "name": "图像模型",
+        "status": "blocked",
+        "detail": "缺少文件：E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\missing-runtime\\models\\raw\\image\\mobileclip-s0\\onnx\\vision_model.onnx"
+      },
+      {
+        "name": "图文文本模型",
+        "status": "blocked",
+        "detail": "缺少文件：E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\missing-runtime\\models\\raw\\image\\mobileclip-s0\\onnx\\text_model.onnx"
+      },
+      {
+        "name": "图文分词器",
+        "status": "blocked",
+        "detail": "缺少文件：E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\missing-runtime\\models\\raw\\image\\mobileclip-s0\\tokenizer.json"
+      },
+      {
+        "name": "PDF 解析器",
+        "status": "blocked",
+        "detail": "缺少文件：E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\missing-runtime\\tools\\tika-app\\tika-app-4.0.0.jar"
+      },
+      {
+        "name": "Tika PDF 解析模块",
+        "status": "blocked",
+        "detail": "缺少文件：E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\missing-runtime\\tools\\tika-app\\lib\\tika-parser-pdf-module-4.0.0.jar"
+      },
+      {
+        "name": "生产嵌入运行时",
+        "status": "blocked",
+        "detail": "请在 E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\missing-runtime 放置生产资源，或设置绝对路径 AMR_RUNTIME_ROOT。"
+      },
+      {
+        "name": "Java",
+        "status": "passed",
+        "detail": "java；exit=0；openjdk version \"21.0.12.1\" 2026-08-18 LTS\r\nOpenJDK Runtime Environment Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS)\r\nOpenJDK 64-Bit Server VM Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS, mixed mode, sharing)"
+      },
+      {
+        "name": "SQLite / 数据目录",
+        "status": "passed",
+        "detail": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\missing-resource-data\\library.sqlite；文档 0，块 0"
+      }
+    ]
+  }
+}

@@ -7,23 +7,28 @@ import 'package:core_retrieval/core_retrieval.dart';
 import 'package:core_storage/core_storage.dart';
 import 'package:path/path.dart' as p;
 
+import 'native_onnx.dart';
 import 'runtime_config.dart';
 import 'runtime_diagnostics.dart';
 
-/// Owns SQLite and the persistent embedding process together. Construct and use
+/// Owns SQLite and the embedding backend together. Construct and use
 /// this only in a worker isolate. No bin/probe imports or stdout parsing.
 /// B/C can expose these typed pipelines through a persistent worker protocol
 /// with progress and cancellation; the A smoke uses an isolated short session.
 final class RuntimeSession {
   RuntimeSession._(
     this.store,
-    this.server,
+    this._server,
+    this._native,
     this.indexing,
     this.search,
     this._source,
   );
   final SqliteVectorStore store;
-  final ProcessEmbedServer server;
+  final ProcessEmbedServer? _server;
+  final NativeOnnx? _native;
+  ProcessEmbedServer get server =>
+      _server ?? (throw StateError('Only development uses an embed server.'));
   final IndexingPipeline indexing;
   final SearchPipeline search;
   final _ReportingSource _source;
@@ -32,11 +37,12 @@ final class RuntimeSession {
   static RuntimeSession open(
     RuntimeConfig config, {
     String? databasePath,
+    EmbedServerHost? embedServerHost,
     void Function(IngestProgress)? onIngestProgress,
     void Function(IngestionReport)? onIngested,
   }) {
-    if (!config.development || config.configurationErrors.isNotEmpty) {
-      throw StateError('可用的开发运行时尚未配置；生产推理适配器待接通。');
+    if (config.configurationErrors.isNotEmpty) {
+      throw StateError(config.configurationErrors.join('\n'));
     }
     final opened = openStore(
       const SystemSqliteLibraryLocator(),
@@ -46,13 +52,29 @@ final class RuntimeSession {
     if (store == null) {
       throw StateError('${opened.failure?.message} ${opened.failure?.detail}');
     }
-    final server = ProcessEmbedServer(
-      PythonEmbedServerHost(
-        pythonExecutable: config.python,
-        scriptPath: config.serverScript,
-      ),
-    );
+    NativeOnnx? native;
     try {
+      final server = config.development
+          ? ProcessEmbedServer(
+              embedServerHost ??
+                  PythonEmbedServerHost(
+                    pythonExecutable: config.python,
+                    scriptPath: config.serverScript,
+                  ),
+            )
+          : null;
+      native = config.development
+          ? null
+          : NativeOnnx.load(config.onnxLibrary, config.onnxBridge);
+      final backend = native;
+      EmbeddingRuntime model(String path, String output, int count) =>
+          backend == null
+          ? PersistentOnnxRuntime(
+              modelPath: path,
+              outputName: output,
+              server: server!,
+            )
+          : NativeOnnxModel(backend, path, output, count);
       final tokenizer = UnigramTokenizer.fromFile(config.textTokenizer);
       final clipTokenizer = ClipBpeTokenizer.fromJsonString(
         File(config.clipTokenizer).readAsStringSync(),
@@ -61,27 +83,27 @@ final class RuntimeSession {
         text: TextEmbedder(
           model: documentTextModel,
           tokenizer: tokenizer,
-          runtime: PersistentOnnxRuntime(
-            modelPath: config.textModel,
-            outputName: 'last_hidden_state',
-            server: server,
+          runtime: model(
+            config.textModel,
+            'last_hidden_state',
+            documentTextModel.dim * documentTextModel.maxInputLength!,
           ),
         ),
         image: ImageEmbedder(
           model: clipVisionModel,
-          runtime: PersistentOnnxRuntime(
-            modelPath: config.imageModel,
-            outputName: 'image_embeds',
-            server: server,
+          runtime: model(
+            config.imageModel,
+            'image_embeds',
+            clipVisionModel.dim,
           ),
         ),
         clipText: ClipTextEmbedder(
           model: clipTextModel,
           tokenizer: clipTokenizer,
-          runtime: PersistentOnnxRuntime(
-            modelPath: config.clipTextModel,
-            outputName: 'text_embeds',
-            server: server,
+          runtime: model(
+            config.clipTextModel,
+            'text_embeds',
+            clipTextModel.dim,
           ),
         ),
       );
@@ -111,6 +133,7 @@ final class RuntimeSession {
       return RuntimeSession._(
         store,
         server,
+        native,
         DefaultIndexingPipeline(
           source: source,
           engine: engine,
@@ -128,7 +151,8 @@ final class RuntimeSession {
         source,
       );
     } catch (_) {
-      // The process is lazy and has not started during construction.
+      // The development process is lazy and has not started during construction.
+      native?.close();
       store.close();
       rethrow;
     }
@@ -136,7 +160,8 @@ final class RuntimeSession {
 
   Future<void> close() async {
     try {
-      await server.close();
+      await _server?.close();
+      _native?.close();
     } finally {
       store.close();
     }
@@ -203,7 +228,8 @@ Future<Map<String, Object?>> verifyRuntime(
             },
         ],
       },
-      'inferenceRequests': session.server.completed,
+      'inferenceRequests':
+          session._native?.completed ?? session.server.completed,
       'ok':
           ingest.failed == 0 &&
           indexed.failed == 0 &&

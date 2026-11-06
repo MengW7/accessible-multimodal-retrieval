@@ -1,6 +1,6 @@
 # E 问题、环境缺口与复测记录
 
-初始记录：2026-10-30；用户反馈补充归档：2026-11-03。区分已知限制、尚未执行的验证与已复现的软件缺陷。
+初始记录：2026-10-30；用户反馈补充归档：2026-11-03。失败案例及堆栈补充：2026-11-05。区分已知限制、尚未执行的验证与已复现的软件缺陷。
 未测不是通过，也不是已证明有缺陷；没有参与者结果时，不能宣称“独立测试未发现问题”。
 
 ## 1. 已知缺口
@@ -39,7 +39,10 @@ PDF 打开事件的初次失败及后续用户恢复确认见第 4 节 E-OPEN-01
 实际（含逐字提示/朗读和焦点位置）：
 发生频率 / 对主流程的影响 / 是否可绕过：
 证据路径：
-原因与修复文件/提交：
+直接原因、判断依据及仍未知的内部原因：
+可恢复性 / 恢复动作 / 已有数据影响 / 实际复测结果：
+Stack trace / 采集时间和入口 / 原始日志路径：
+修复文件或提交（如适用）：
 修复后的自动检查：
 原平台同条件人工复测：日期 / 构建 / 步骤 / 实际 / 判定 / 证据
 状态：新建 / 已复现 / 修复中 / 待复测 / 已关闭 / 暂缓及原因
@@ -48,7 +51,7 @@ PDF 打开事件的初次失败及后续用户恢复确认见第 4 节 E-OPEN-01
 阻断指主流程无法继续、无法退出的键盘陷阱或辅助技术无法使用关键操作；优先修复并重测。
 “已关闭”必须有对应证据。尚无实测或只能在其他平台通过的，保持待复测并说明条件缺口。
 
-## 4. 用户实测问题与待定位记录
+## 4. 用户实测问题与恢复记录
 
 ### E-OPEN-01：PDF 原文件未能打开
 
@@ -57,9 +60,48 @@ PDF 打开事件的初次失败及后续用户恢复确认见第 4 节 E-OPEN-01
 - 初次表现：TXT 打开成功，PDF 未成功打开；原文记录了 sample.pdf、PDF 页码和打开按钮，未保存失败时的错误文案。该失败经过保留。
 - 排查事实：NVDA 测试索引保存的 PDF 来源正确且存在；样本与仓库原件 SHA256 一致；只读解析成功，1 页、未加密、无需密码。Windows PDF 关联指向现有 Adobe Acrobat DC 程序。使用与应用相同的 ShellExecuteW 接口复现返回 42（系统接受请求），之后可见 Acrobat 进程；这本身不等于已确认 PDF 画面显示。
 - 用户后续原话：“之前是acrobat卡住了，现在pdf能正常打开了”。
-- 原因归类：按用户确认，属于外部 PDF 查看器 Acrobat 当时卡住的环境事件；现有证据不支持登记为检索应用或 NVDA 的代码缺陷。Acrobat 卡住的内部原因未进一步定位。
-- 当前结果：用户确认 PDF 已能正常打开；PDF 打开子项按用户恢复确认通过。没有修改应用代码、注册表、默认关联或安全配置；用户采取的具体恢复操作未提供，不代填。
+- **失败类型。** 外部查看器无响应。
+- **原因与依据。** 用户确认 Acrobat 当时卡住。系统打开请求被接受，查看器仍可能无法显示文件。Acrobat 卡住的内部原因未定位。
+- **可恢复性。** 已恢复。用户确认后续 PDF 正常打开，具体恢复动作和数据影响未记录。
+- **Stack trace。** 原会话未采集检索应用异常堆栈或 Acrobat 线程转储。ShellExecuteW 返回值 42 是排查时的系统返回值。
+- 当前结果。PDF 打开子项按用户恢复确认通过。
 - 状态：已关闭（用户确认恢复的查看器环境事件）。关闭依据是用户实际打开结果，不是模拟通道或 ShellExecuteW 成功码。
 - 历史影响：初次 PDF 打开任务受阻，TXT 可打开；原暂定重要级别保留为历史影响。当前不再将此事件列为未解决的 PDF 打开阻塞。
 - 仍独立待补：返回后的精确焦点、图片查看器、受测构建与起止条件。它们保留在相应验收项中，不因本事件关闭自动通过。
 - 证据：[NVDA 会话记录](logs/screen_reader_nvda_session.md)及用户在当前会话中的恢复确认。未新增独立用户样本，未改写原始朗读。
+
+## 5. 受控失败案例及恢复证据
+
+原始异常信息和 2026-11-05 补采堆栈分别注明来源。补采在 Windows 上使用 Dart 3.13.4 直接调用日期校验、ZIP 解码和进程启动入口，三个用例各自隔离。完整输出见 [受控复现堆栈](logs/E_failure_reproduction_stack_traces.txt)。其中临时脚本路径是采集时的真实调用帧。
+
+### E-IMPORT-01　损坏 DOCX 导入（UI-02、UI-05）
+
+- **失败类型。** 输入文件损坏。测试故意提供内容并非有效 ZIP 容器的 `bad.docx`。
+- **原因与表现。** 原集成日志记录 `DOCX is not a valid zip container.`。本次对故意损坏的样本直接调用 ZIP 解码器，定位到缺少中央目录结束记录。
+- **可恢复性。** 同批好文件继续建库。E 集成记录写入 4、失败 1，重新索引时复用 4，损坏文件再次失败。坏文件需要替换为有效 DOCX 后再导入，替换后的恢复尚未单独验证。
+- **Stack trace。** 原应用日志仅保存解析失败结果。补采为底层解码器的 `FormatException`，首帧为 `ZipDirectory._findEocdrSignature`。这份堆栈对应本次受控调用。
+- **证据。** [E 集成日志](logs/E_headless_acceptance.json)中的混合导入与增量复用、[E-IMPORT-01 补采堆栈](logs/E_failure_reproduction_stack_traces.txt)。
+
+### E-INPUT-01　无效修改日期（UI-05、A11Y-02）
+
+- **失败类型。** 预期输入校验拒绝。
+- **原因与表现。** `2026-02-30` 不是有效日历日期。`SearchRequest.fromDraft` 抛出 `FormatException`，控制器将状态置为 `invalid` 并显示“修改日期不存在，请检查年月日”。
+- **可恢复性。** 修改为有效日期或清空后可重新提交，无需重启或重建索引。集成测试验证了修正后检索到 `notes/guide.txt`，NVDA 操作者也确认可重新搜索。
+- **Stack trace。** 原日志记录校验和恢复结果。补采的首帧为 `SearchRequest.fromDraft`，位于 `search_models.dart:84:9`。
+- **证据。** [E 集成日志](logs/E_headless_acceptance.json)、[NVDA 会话阶段 7](logs/screen_reader_nvda_session.md)、[E-INPUT-01 补采堆栈](logs/E_failure_reproduction_stack_traces.txt)。
+
+### E-SOURCE-01　索引中的源文件暂时缺失（UI-04、UI-05）
+
+- **失败类型。** 来源文件缺失。
+- **原因与表现。** 测试暂时改名 `guide.txt`，索引仍指向原路径。存在性检查返回 `FileOpenStatus.missing`，测试确认未新增系统打开调用。
+- **可恢复性。** 测试把文件恢复到原路径，再次打开时返回 `requested`。该路径无需重建索引。查看器调用由测试替身记录，恢复证据覆盖到打开请求。
+- **Stack trace。** 不适用。该场景命中存在性检查的状态返回分支。
+- **证据。** [E 集成日志](logs/E_headless_acceptance.json)中的 `sourceOpenMockMissingAndRecovery` 和[集成测试步骤](../../apps/desktop/test/acceptance_integration_test.dart)。
+
+### E-DEP-01　Java 可执行文件缺失（BUILD-01）
+
+- **失败类型。** 启动依赖缺失。
+- **原因与表现。** 历史冒烟故意把 `AMR_JAVA` 指向不存在的 `no-java.exe`。启动 `-version` 子进程时抛出 `ProcessException`，诊断将 Java 标为 `blocked`。
+- **可恢复性。** 配置可执行的 Java 后重新检查。若更改进程环境变量，需重启应用。历史正常开发环境的独立对照运行中 `java -version` 返回 0，未在同一失败会话中记录恢复。
+- **Stack trace。** 历史日志保留异常和 `process_win.cc:579`。本次同类缺失路径使用 `Process.start` 补采实际堆栈，包含 `_ProcessImpl._start` 和 `Process.start`。
+- **证据。** [缺 Java 冒烟结果](logs/A_runtime_missing_java.json)、[正常对照](logs/A_runtime_development.json)、[E-DEP-01 补采堆栈](logs/E_failure_reproduction_stack_traces.txt)。

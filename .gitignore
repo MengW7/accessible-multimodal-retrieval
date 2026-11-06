@@ -114,6 +114,8 @@ coverage/
 !week4/coverage/**
 !reports/week4/coverage/
 !reports/week4/coverage/**
+!reports/week6/coverage/
+!reports/week6/coverage/**
 
 # Week 4 local indexes. Logs, vectors, and reports stay tracked.
 week4/.index/

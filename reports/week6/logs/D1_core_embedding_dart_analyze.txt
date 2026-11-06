@@ -1,0 +1,4 @@
+dart --suppress-analytics analyze
+Analyzing core_embedding...
+No issues found!
+exit=0

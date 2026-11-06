@@ -7,6 +7,7 @@ import 'package:core_parsing/core_parsing.dart';
 import 'package:core_pipeline/core_pipeline.dart';
 import 'package:core_storage/core_storage.dart';
 import 'package:path/path.dart' as p;
+import 'package:sqlite3/sqlite3.dart' show Database, SqlError, SqliteException;
 
 import '../application/library_models.dart';
 import '../application/library_service.dart';
@@ -280,6 +281,31 @@ final class _LibraryWorker {
 
   File get rootsFile =>
       File(p.join(config.dataDirectory, 'library-roots.json'));
+
+  Future<Database> _acquireWriteLock() async {
+    await Directory(config.dataDirectory).create(recursive: true);
+    // The index commits one file at a time. A separate database holds the
+    // writer reservation across those commits and the directory record update.
+    final opened = const SystemSqliteLibraryLocator().open(
+      p.join(config.dataDirectory, 'library-write-lock.sqlite'),
+    );
+    final lock = opened.database;
+    if (lock == null) {
+      throw StateError('无法打开文件库写入锁：${opened.failure?.detail}');
+    }
+    try {
+      lock.execute('BEGIN IMMEDIATE');
+      return lock;
+    } catch (error) {
+      lock.dispose();
+      if (error is SqliteException &&
+          (error.resultCode == SqlError.SQLITE_BUSY ||
+              error.resultCode == SqlError.SQLITE_LOCKED)) {
+        throw StateError('另一个实例正在修改此文件库，请等待其完成后重试。');
+      }
+      rethrow;
+    }
+  }
   void _validateConfig() {
     if (config.configurationErrors.isNotEmpty) {
       throw StateError(config.configurationErrors.join('\n'));
@@ -418,11 +444,12 @@ final class _LibraryWorker {
     if (!p.isAbsolute(input)) throw ArgumentError('请输入目录的绝对路径。');
     final root = p.normalize(input);
     cancel = CancellationTokenSource();
-    final roots = await _readRoots();
-    await Directory(config.dataDirectory).create(recursive: true);
-    files.clear();
-    emit(const LibraryProgress(stage: LibraryStage.preparing));
+    Database? lock;
     try {
+      lock = await _acquireWriteLock();
+      final roots = await _readRoots();
+      files.clear();
+      emit(const LibraryProgress(stage: LibraryStage.preparing));
       if (!cancel!.isCancelled) {
         _ensureSession();
       }
@@ -499,17 +526,24 @@ final class _LibraryWorker {
       return LibraryResult(run: run, snapshot: await snapshot());
     } finally {
       cancel = null;
+      lock?.dispose();
     }
   }
 
   Future<LibrarySnapshot> clear() async {
-    await _withStore((store) => store.clear());
+    _validateConfig();
+    final lock = await _acquireWriteLock();
     try {
-      await _saveRoots([]);
-    } catch (error) {
-      throw StateError('索引已清除，但目录记录重置失败：$error。请修复数据目录权限后重试。');
+      await _withStore((store) => store.clear());
+      try {
+        await _saveRoots([]);
+      } catch (error) {
+        throw StateError('索引已清除，但目录记录重置失败：$error。请修复数据目录权限后重试。');
+      }
+      return await snapshot();
+    } finally {
+      lock.dispose();
     }
-    return snapshot();
   }
 
   Future<void> close() async {

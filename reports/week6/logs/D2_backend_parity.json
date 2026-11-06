@@ -1,0 +1,24 @@
+{
+  "productionPid": 19828,
+  "developmentPid": 39120,
+  "cosineThreshold": 0.999,
+  "spaces": {
+    "documentText": {
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "dimensions": 384,
+      "vectors": 97,
+      "minCosine": 0.9999999999997904,
+      "maxAbsoluteDelta": 1.1920928955078125e-07
+    },
+    "clipShared": {
+      "model": "mobileclip-s0-vision",
+      "dimensions": 512,
+      "vectors": 1,
+      "minCosine": 0.9999999999940943,
+      "maxAbsoluteDelta": 5.513429641723633e-07
+    }
+  },
+  "query": "离线检索",
+  "top5SourcesAndChannelsEqual": true,
+  "ok": true
+}

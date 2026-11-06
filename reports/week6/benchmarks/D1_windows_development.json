@@ -1,0 +1,5097 @@
+{
+  "ok": true,
+  "workingDirectory": "C:\\WINDOWS",
+  "fixtureDirectory": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\week6-baseline\\run-cf819d73\\fixtures",
+  "dart": "3.13.4 (stable) (Tue Sep 15 01:01:15 2026 -0700) on \"windows_x64\"",
+  "os": "\"Windows 11 Pro\" 10.0 (Build 26300)",
+  "runtimeChecks": {
+    "developmentDefaultDataDirectory": {
+      "ready": true,
+      "mode": "development",
+      "resourceRoot": "E:\\Project\\accessible-multimodal-retrieval",
+      "databasePath": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\week6-baseline\\run-cf819d73\\local-app-data\\AccessibleMultimodalRetrieval\\library.sqlite",
+      "documents": 0,
+      "chunks": 0,
+      "checks": [
+        {
+          "name": "开发运行时",
+          "status": "warning",
+          "detail": "当前使用外部 Python/ONNX 开发环境，不能作为独立发布包验收。"
+        },
+        {
+          "name": "Python",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\engine\\.venv\\Scripts\\python.exe"
+        },
+        {
+          "name": "嵌入服务",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\engine\\embed_server.py"
+        },
+        {
+          "name": "嵌入服务辅助模块",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\engine\\w3_embed_lib.py"
+        },
+        {
+          "name": "文本分词器",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\text\\paraphrase-multilingual-MiniLM-L12-v2\\tokenizer.json"
+        },
+        {
+          "name": "文本模型",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\text\\paraphrase-multilingual-MiniLM-L12-v2\\onnx\\model.onnx"
+        },
+        {
+          "name": "图像模型",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\image\\mobileclip-s0\\onnx\\vision_model.onnx"
+        },
+        {
+          "name": "图文文本模型",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\image\\mobileclip-s0\\onnx\\text_model.onnx"
+        },
+        {
+          "name": "图文分词器",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\image\\mobileclip-s0\\tokenizer.json"
+        },
+        {
+          "name": "PDF 解析器",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\tools\\tika-app\\tika-app-4.0.0.jar"
+        },
+        {
+          "name": "Python 模块",
+          "status": "passed",
+          "detail": "E:\\Project\\accessible-multimodal-retrieval\\engine\\.venv\\Scripts\\python.exe；exit=0；onnxruntime=1.30.0"
+        },
+        {
+          "name": "Java",
+          "status": "passed",
+          "detail": "java；exit=0；openjdk version \"21.0.12.1\" 2026-08-18 LTS\r\nOpenJDK Runtime Environment Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS)\r\nOpenJDK 64-Bit Server VM Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS, mixed mode, sharing)"
+        },
+        {
+          "name": "SQLite / 数据目录",
+          "status": "passed",
+          "detail": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\week6-baseline\\run-cf819d73\\local-app-data\\AccessibleMultimodalRetrieval\\library.sqlite；文档 0，块 0"
+        }
+      ]
+    },
+    "production": {
+      "ready": false,
+      "mode": "release",
+      "resourceRoot": "D:\\flutter\\bin\\cache\\dart-sdk\\bin\\runtime",
+      "databasePath": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\week6-baseline\\run-cf819d73\\production\\library.sqlite",
+      "documents": 0,
+      "chunks": 0,
+      "checks": [
+        {
+          "name": "生产嵌入运行时",
+          "status": "blocked",
+          "detail": "生产推理适配器尚未接通。开发验证需显式设置 AMR_DEV_ROOT；engine/Python 不属于正式发布包。"
+        },
+        {
+          "name": "SQLite / 数据目录",
+          "status": "passed",
+          "detail": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\week6-baseline\\run-cf819d73\\production\\library.sqlite；文档 0，块 0"
+        }
+      ]
+    },
+    "missingResources": {
+      "ready": false,
+      "mode": "development",
+      "resourceRoot": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\week6-baseline\\run-cf819d73\\missing",
+      "databasePath": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\week6-baseline\\run-cf819d73\\missing-resources-data\\library.sqlite",
+      "documents": 0,
+      "chunks": 0,
+      "checks": [
+        {
+          "name": "开发运行时",
+          "status": "warning",
+          "detail": "当前使用外部 Python/ONNX 开发环境，不能作为独立发布包验收。"
+        },
+        {
+          "name": "Python",
+          "status": "blocked",
+          "detail": "缺少文件：E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\week6-baseline\\run-cf819d73\\missing\\engine\\.venv\\Scripts\\python.exe"
+        },
+        {
+          "name": "嵌入服务",
+          "status": "blocked",
+          "detail": "缺少文件：E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\week6-baseline\\run-cf819d73\\missing\\engine\\embed_server.py"
+        },
+        {
+          "name": "嵌入服务辅助模块",
+          "status": "blocked",
+          "detail": "缺少文件：E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\week6-baseline\\run-cf819d73\\missing\\engine\\w3_embed_lib.py"
+        },
+        {
+          "name": "文本分词器",
+          "status": "blocked",
+          "detail": "缺少文件：E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\week6-baseline\\run-cf819d73\\missing\\models\\raw\\text\\paraphrase-multilingual-MiniLM-L12-v2\\tokenizer.json"
+        },
+        {
+          "name": "文本模型",
+          "status": "blocked",
+          "detail": "缺少文件：E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\week6-baseline\\run-cf819d73\\missing\\models\\raw\\text\\paraphrase-multilingual-MiniLM-L12-v2\\onnx\\model.onnx"
+        },
+        {
+          "name": "图像模型",
+          "status": "blocked",
+          "detail": "缺少文件：E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\week6-baseline\\run-cf819d73\\missing\\models\\raw\\image\\mobileclip-s0\\onnx\\vision_model.onnx"
+        },
+        {
+          "name": "图文文本模型",
+          "status": "blocked",
+          "detail": "缺少文件：E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\week6-baseline\\run-cf819d73\\missing\\models\\raw\\image\\mobileclip-s0\\onnx\\text_model.onnx"
+        },
+        {
+          "name": "图文分词器",
+          "status": "blocked",
+          "detail": "缺少文件：E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\week6-baseline\\run-cf819d73\\missing\\models\\raw\\image\\mobileclip-s0\\tokenizer.json"
+        },
+        {
+          "name": "PDF 解析器",
+          "status": "blocked",
+          "detail": "缺少文件：E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\week6-baseline\\run-cf819d73\\missing\\tools\\tika-app\\tika-app-4.0.0.jar"
+        },
+        {
+          "name": "Java",
+          "status": "passed",
+          "detail": "java；exit=0；openjdk version \"21.0.12.1\" 2026-08-18 LTS\r\nOpenJDK Runtime Environment Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS)\r\nOpenJDK 64-Bit Server VM Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS, mixed mode, sharing)"
+        },
+        {
+          "name": "SQLite / 数据目录",
+          "status": "passed",
+          "detail": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\week6-baseline\\run-cf819d73\\missing-resources-data\\library.sqlite；文档 0，块 0"
+        }
+      ]
+    },
+    "missingJava": {
+      "ready": false,
+      "mode": "development",
+      "resourceRoot": "E:\\Project\\accessible-multimodal-retrieval",
+      "databasePath": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\week6-baseline\\run-cf819d73\\missing-java-data\\library.sqlite",
+      "documents": 0,
+      "chunks": 0,
+      "checks": [
+        {
+          "name": "开发运行时",
+          "status": "warning",
+          "detail": "当前使用外部 Python/ONNX 开发环境，不能作为独立发布包验收。"
+        },
+        {
+          "name": "Python",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\engine\\.venv\\Scripts\\python.exe"
+        },
+        {
+          "name": "嵌入服务",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\engine\\embed_server.py"
+        },
+        {
+          "name": "嵌入服务辅助模块",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\engine\\w3_embed_lib.py"
+        },
+        {
+          "name": "文本分词器",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\text\\paraphrase-multilingual-MiniLM-L12-v2\\tokenizer.json"
+        },
+        {
+          "name": "文本模型",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\text\\paraphrase-multilingual-MiniLM-L12-v2\\onnx\\model.onnx"
+        },
+        {
+          "name": "图像模型",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\image\\mobileclip-s0\\onnx\\vision_model.onnx"
+        },
+        {
+          "name": "图文文本模型",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\image\\mobileclip-s0\\onnx\\text_model.onnx"
+        },
+        {
+          "name": "图文分词器",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\image\\mobileclip-s0\\tokenizer.json"
+        },
+        {
+          "name": "PDF 解析器",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\tools\\tika-app\\tika-app-4.0.0.jar"
+        },
+        {
+          "name": "Python 模块",
+          "status": "passed",
+          "detail": "E:\\Project\\accessible-multimodal-retrieval\\engine\\.venv\\Scripts\\python.exe；exit=0；onnxruntime=1.30.0"
+        },
+        {
+          "name": "Java",
+          "status": "blocked",
+          "detail": "无法运行 E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\week6-baseline\\run-cf819d73\\missing-java.exe：ProcessException: The system cannot find the file specified (at ../../runtime/bin/process_win.cc:579)\n  Command: E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\week6-baseline\\run-cf819d73\\missing-java.exe -version"
+        },
+        {
+          "name": "SQLite / 数据目录",
+          "status": "passed",
+          "detail": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\week6-baseline\\run-cf819d73\\missing-java-data\\library.sqlite；文档 0，块 0"
+        }
+      ]
+    },
+    "invalidDataDirectory": {
+      "ready": false,
+      "mode": "development",
+      "resourceRoot": "E:\\Project\\accessible-multimodal-retrieval",
+      "databasePath": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\week6-baseline\\run-cf819d73\\not-a-directory\\library.sqlite",
+      "documents": null,
+      "chunks": null,
+      "checks": [
+        {
+          "name": "开发运行时",
+          "status": "warning",
+          "detail": "当前使用外部 Python/ONNX 开发环境，不能作为独立发布包验收。"
+        },
+        {
+          "name": "Python",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\engine\\.venv\\Scripts\\python.exe"
+        },
+        {
+          "name": "嵌入服务",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\engine\\embed_server.py"
+        },
+        {
+          "name": "嵌入服务辅助模块",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\engine\\w3_embed_lib.py"
+        },
+        {
+          "name": "文本分词器",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\text\\paraphrase-multilingual-MiniLM-L12-v2\\tokenizer.json"
+        },
+        {
+          "name": "文本模型",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\text\\paraphrase-multilingual-MiniLM-L12-v2\\onnx\\model.onnx"
+        },
+        {
+          "name": "图像模型",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\image\\mobileclip-s0\\onnx\\vision_model.onnx"
+        },
+        {
+          "name": "图文文本模型",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\image\\mobileclip-s0\\onnx\\text_model.onnx"
+        },
+        {
+          "name": "图文分词器",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\image\\mobileclip-s0\\tokenizer.json"
+        },
+        {
+          "name": "PDF 解析器",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\tools\\tika-app\\tika-app-4.0.0.jar"
+        },
+        {
+          "name": "Python 模块",
+          "status": "passed",
+          "detail": "E:\\Project\\accessible-multimodal-retrieval\\engine\\.venv\\Scripts\\python.exe；exit=0；onnxruntime=1.30.0"
+        },
+        {
+          "name": "Java",
+          "status": "passed",
+          "detail": "java；exit=0；openjdk version \"21.0.12.1\" 2026-08-18 LTS\r\nOpenJDK Runtime Environment Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS)\r\nOpenJDK 64-Bit Server VM Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS, mixed mode, sharing)"
+        },
+        {
+          "name": "SQLite / 数据目录",
+          "status": "blocked",
+          "detail": "无法打开索引，请检查目录权限和 SQLite 动态库：PathExistsException: Creation failed, path = 'E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\week6-baseline\\run-cf819d73\\not-a-directory' (OS Error: Cannot create a file when that file already exists, errno = 183)"
+        }
+      ]
+    },
+    "relativeDataOverride": {
+      "ready": false,
+      "mode": "development",
+      "resourceRoot": "E:\\Project\\accessible-multimodal-retrieval",
+      "databasePath": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\week6-baseline\\run-cf819d73\\local-app-data\\AccessibleMultimodalRetrieval\\library.sqlite",
+      "documents": null,
+      "chunks": null,
+      "checks": [
+        {
+          "name": "路径配置",
+          "status": "blocked",
+          "detail": "AMR_DATA_DIR 必须是绝对路径：relative-index"
+        },
+        {
+          "name": "开发运行时",
+          "status": "warning",
+          "detail": "当前使用外部 Python/ONNX 开发环境，不能作为独立发布包验收。"
+        },
+        {
+          "name": "Python",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\engine\\.venv\\Scripts\\python.exe"
+        },
+        {
+          "name": "嵌入服务",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\engine\\embed_server.py"
+        },
+        {
+          "name": "嵌入服务辅助模块",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\engine\\w3_embed_lib.py"
+        },
+        {
+          "name": "文本分词器",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\text\\paraphrase-multilingual-MiniLM-L12-v2\\tokenizer.json"
+        },
+        {
+          "name": "文本模型",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\text\\paraphrase-multilingual-MiniLM-L12-v2\\onnx\\model.onnx"
+        },
+        {
+          "name": "图像模型",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\image\\mobileclip-s0\\onnx\\vision_model.onnx"
+        },
+        {
+          "name": "图文文本模型",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\image\\mobileclip-s0\\onnx\\text_model.onnx"
+        },
+        {
+          "name": "图文分词器",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\image\\mobileclip-s0\\tokenizer.json"
+        },
+        {
+          "name": "PDF 解析器",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\tools\\tika-app\\tika-app-4.0.0.jar"
+        },
+        {
+          "name": "Python 模块",
+          "status": "passed",
+          "detail": "E:\\Project\\accessible-multimodal-retrieval\\engine\\.venv\\Scripts\\python.exe；exit=0；onnxruntime=1.30.0"
+        },
+        {
+          "name": "Java",
+          "status": "passed",
+          "detail": "java；exit=0；openjdk version \"21.0.12.1\" 2026-08-18 LTS\r\nOpenJDK Runtime Environment Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS)\r\nOpenJDK 64-Bit Server VM Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS, mixed mode, sharing)"
+        }
+      ]
+    }
+  },
+  "runtimeSmoke": {
+    "ok": true,
+    "startup": {
+      "ready": true,
+      "mode": "development",
+      "resourceRoot": "E:\\Project\\accessible-multimodal-retrieval",
+      "databasePath": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\week6-baseline\\run-cf819d73\\runtime-smoke\\library.sqlite",
+      "documents": 0,
+      "chunks": 0,
+      "checks": [
+        {
+          "name": "开发运行时",
+          "status": "warning",
+          "detail": "当前使用外部 Python/ONNX 开发环境，不能作为独立发布包验收。"
+        },
+        {
+          "name": "Python",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\engine\\.venv\\Scripts\\python.exe"
+        },
+        {
+          "name": "嵌入服务",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\engine\\embed_server.py"
+        },
+        {
+          "name": "嵌入服务辅助模块",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\engine\\w3_embed_lib.py"
+        },
+        {
+          "name": "文本分词器",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\text\\paraphrase-multilingual-MiniLM-L12-v2\\tokenizer.json"
+        },
+        {
+          "name": "文本模型",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\text\\paraphrase-multilingual-MiniLM-L12-v2\\onnx\\model.onnx"
+        },
+        {
+          "name": "图像模型",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\image\\mobileclip-s0\\onnx\\vision_model.onnx"
+        },
+        {
+          "name": "图文文本模型",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\image\\mobileclip-s0\\onnx\\text_model.onnx"
+        },
+        {
+          "name": "图文分词器",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\models\\raw\\image\\mobileclip-s0\\tokenizer.json"
+        },
+        {
+          "name": "PDF 解析器",
+          "status": "passed",
+          "detail": "已找到：E:\\Project\\accessible-multimodal-retrieval\\tools\\tika-app\\tika-app-4.0.0.jar"
+        },
+        {
+          "name": "Python 模块",
+          "status": "passed",
+          "detail": "E:\\Project\\accessible-multimodal-retrieval\\engine\\.venv\\Scripts\\python.exe；exit=0；onnxruntime=1.30.0"
+        },
+        {
+          "name": "Java",
+          "status": "passed",
+          "detail": "java；exit=0；openjdk version \"21.0.12.1\" 2026-08-18 LTS\r\nOpenJDK Runtime Environment Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS)\r\nOpenJDK 64-Bit Server VM Temurin-21.0.12.1+1 (build 21.0.12.1+1-LTS, mixed mode, sharing)"
+        },
+        {
+          "name": "SQLite / 数据目录",
+          "status": "passed",
+          "detail": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\week6-baseline\\run-cf819d73\\runtime-smoke\\library.sqlite；文档 0，块 0"
+        }
+      ]
+    },
+    "smokeDatabase": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\week6-baseline\\run-cf819d73\\runtime-smoke\\runtime-smoke-8e654f49\\smoke.sqlite",
+    "ingestion": {
+      "rootPath": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\week6-baseline\\run-cf819d73\\fixtures",
+      "startedAt": "2026-11-06T04:04:29.635810Z",
+      "finishedAt": "2026-11-06T04:04:34.370560Z",
+      "durationMs": 4734,
+      "cancelled": false,
+      "isClean": true,
+      "counts": {
+        "total": 4,
+        "ok": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0
+      },
+      "records": [
+        {
+          "metadata": {
+            "id": "0ae2c86a937bbe7c735ecf1400fb9114cba4e57837acf472043c8765f37088ca",
+            "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\week6-baseline\\run-cf819d73\\fixtures\\sample.docx",
+            "relativePath": "sample.docx",
+            "fileName": "sample.docx",
+            "extension": ".docx",
+            "sizeBytes": 16526,
+            "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "createdAt": "2026-11-06T12:04:24.232414",
+            "modifiedAt": "2020-01-01T08:00:00.000",
+            "accessedAt": "2026-11-06T12:04:24.232414",
+            "contentHash": "0ae2c86a937bbe7c735ecf1400fb9114cba4e57837acf472043c8765f37088ca",
+            "indexedAt": "2026-11-06T04:04:29.649976Z",
+            "parserName": "docx",
+            "parserVersion": "1",
+            "parseDurationMs": 94,
+            "status": "ok",
+            "errorMessage": null,
+            "imageAsset": null
+          },
+          "outcome": "ok",
+          "failure": null,
+          "pageCount": 1,
+          "charCount": 1499,
+          "text": null
+        },
+        {
+          "metadata": {
+            "id": "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010",
+            "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\week6-baseline\\run-cf819d73\\fixtures\\sample.pdf",
+            "relativePath": "sample.pdf",
+            "fileName": "sample.pdf",
+            "extension": ".pdf",
+            "sizeBytes": 71250,
+            "mimeType": "application/pdf",
+            "createdAt": "2026-11-06T12:04:24.230850",
+            "modifiedAt": "2020-01-01T08:00:00.000",
+            "accessedAt": "2026-11-06T12:04:24.232414",
+            "contentHash": "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010",
+            "indexedAt": "2026-11-06T04:04:29.649976Z",
+            "parserName": "pdf",
+            "parserVersion": "1",
+            "parseDurationMs": 4701,
+            "status": "ok",
+            "errorMessage": null,
+            "imageAsset": null
+          },
+          "outcome": "ok",
+          "failure": null,
+          "pageCount": 2,
+          "charCount": 4358,
+          "text": null
+        },
+        {
+          "metadata": {
+            "id": "fca8cd1a7f56fb49a538651c5e4bcd0a4d48ffd553adeb9b49a792391692393b",
+            "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\week6-baseline\\run-cf819d73\\fixtures\\sample.png",
+            "relativePath": "sample.png",
+            "fileName": "sample.png",
+            "extension": ".png",
+            "sizeBytes": 193566,
+            "mimeType": "image/png",
+            "createdAt": "2026-11-06T12:04:24.237729",
+            "modifiedAt": "2020-01-01T08:00:00.000",
+            "accessedAt": "2026-11-06T12:04:24.237729",
+            "contentHash": "fca8cd1a7f56fb49a538651c5e4bcd0a4d48ffd553adeb9b49a792391692393b",
+            "indexedAt": "2026-11-06T04:04:29.760862Z",
+            "parserName": "image",
+            "parserVersion": "1",
+            "parseDurationMs": 78,
+            "status": "ok",
+            "errorMessage": null,
+            "imageAsset": {
+              "format": "png",
+              "width": 1186,
+              "height": 1137,
+              "colorMode": "rgb",
+              "orientation": null
+            }
+          },
+          "outcome": "ok",
+          "failure": null,
+          "pageCount": 0,
+          "charCount": 0,
+          "text": null
+        },
+        {
+          "metadata": {
+            "id": "f7ed9b09f872a1de9076470c7dd821aa91848bc7005f3fefaf0c95b3f0fa0fa7",
+            "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\week6-baseline\\run-cf819d73\\fixtures\\smoke.txt",
+            "relativePath": "smoke.txt",
+            "fileName": "smoke.txt",
+            "extension": ".txt",
+            "sizeBytes": 85,
+            "mimeType": "text/plain",
+            "createdAt": "2026-11-06T12:04:24.220735",
+            "modifiedAt": "2020-01-01T08:00:00.000",
+            "accessedAt": "2026-11-06T12:04:24.225297",
+            "contentHash": "f7ed9b09f872a1de9076470c7dd821aa91848bc7005f3fefaf0c95b3f0fa0fa7",
+            "indexedAt": "2026-11-06T04:04:29.846222Z",
+            "parserName": "txt",
+            "parserVersion": "1",
+            "parseDurationMs": 1,
+            "status": "ok",
+            "errorMessage": null,
+            "imageAsset": null
+          },
+          "outcome": "ok",
+          "failure": null,
+          "pageCount": 1,
+          "charCount": 29,
+          "text": null
+        }
+      ]
+    },
+    "index": {
+      "written": 4,
+      "reused": 0,
+      "failed": 0,
+      "cancelled": false
+    },
+    "stats": {
+      "documents": 4,
+      "chunks": 98,
+      "documentText": 97,
+      "clipShared": 1
+    },
+    "search": {
+      "query": "离线检索",
+      "count": 5,
+      "files": [
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/.dart_tool/week6-baseline/run-cf819d73/fixtures/sample.pdf",
+          "pageNumber": 1,
+          "startOffset": 1318,
+          "endOffset": 1328,
+          "channels": [
+            "documentText"
+          ]
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/.dart_tool/week6-baseline/run-cf819d73/fixtures/sample.pdf",
+          "pageNumber": 2,
+          "startOffset": 1339,
+          "endOffset": 1349,
+          "channels": [
+            "documentText"
+          ]
+        },
+        {
+          "fileName": "sample.png",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/.dart_tool/week6-baseline/run-cf819d73/fixtures/sample.png",
+          "pageNumber": null,
+          "startOffset": 0,
+          "endOffset": 0,
+          "channels": [
+            "clipShared"
+          ]
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/.dart_tool/week6-baseline/run-cf819d73/fixtures/sample.pdf",
+          "pageNumber": 1,
+          "startOffset": 970,
+          "endOffset": 1033,
+          "channels": [
+            "documentText"
+          ]
+        },
+        {
+          "fileName": "sample.pdf",
+          "sourcePath": "E:/Project/accessible-multimodal-retrieval/.dart_tool/week6-baseline/run-cf819d73/fixtures/sample.pdf",
+          "pageNumber": 2,
+          "startOffset": 986,
+          "endOffset": 1049,
+          "channels": [
+            "documentText"
+          ]
+        }
+      ]
+    },
+    "inferenceRequests": 100,
+    "elapsedMs": 10866
+  },
+  "coldSamples": [
+    {
+      "openMs": 464.179,
+      "indexMs": 9030.289,
+      "firstSearchMs": 226.47,
+      "documents": 4,
+      "chunks": 98,
+      "textChunks": 97,
+      "imageChunks": 1,
+      "sources": [
+        [
+          "sample.pdf",
+          1,
+          1318,
+          1328
+        ],
+        [
+          "sample.pdf",
+          2,
+          1339,
+          1349
+        ],
+        [
+          "sample.png",
+          null,
+          0,
+          0
+        ],
+        [
+          "sample.pdf",
+          1,
+          970,
+          1033
+        ],
+        [
+          "sample.pdf",
+          2,
+          986,
+          1049
+        ]
+      ],
+      "sqlite": "3.53.4"
+    },
+    {
+      "openMs": 425.45,
+      "indexMs": 9736.374,
+      "firstSearchMs": 292.598,
+      "documents": 4,
+      "chunks": 98,
+      "textChunks": 97,
+      "imageChunks": 1,
+      "sources": [
+        [
+          "sample.pdf",
+          1,
+          1318,
+          1328
+        ],
+        [
+          "sample.pdf",
+          2,
+          1339,
+          1349
+        ],
+        [
+          "sample.png",
+          null,
+          0,
+          0
+        ],
+        [
+          "sample.pdf",
+          1,
+          970,
+          1033
+        ],
+        [
+          "sample.pdf",
+          2,
+          986,
+          1049
+        ]
+      ],
+      "sqlite": "3.53.4"
+    },
+    {
+      "openMs": 440.714,
+      "indexMs": 9514.651,
+      "firstSearchMs": 244.045,
+      "documents": 4,
+      "chunks": 98,
+      "textChunks": 97,
+      "imageChunks": 1,
+      "sources": [
+        [
+          "sample.pdf",
+          1,
+          1318,
+          1328
+        ],
+        [
+          "sample.pdf",
+          2,
+          1339,
+          1349
+        ],
+        [
+          "sample.png",
+          null,
+          0,
+          0
+        ],
+        [
+          "sample.pdf",
+          1,
+          970,
+          1033
+        ],
+        [
+          "sample.pdf",
+          2,
+          986,
+          1049
+        ]
+      ],
+      "sqlite": "3.53.4"
+    },
+    {
+      "openMs": 399.334,
+      "indexMs": 9258.762,
+      "firstSearchMs": 239.608,
+      "documents": 4,
+      "chunks": 98,
+      "textChunks": 97,
+      "imageChunks": 1,
+      "sources": [
+        [
+          "sample.pdf",
+          1,
+          1318,
+          1328
+        ],
+        [
+          "sample.pdf",
+          2,
+          1339,
+          1349
+        ],
+        [
+          "sample.png",
+          null,
+          0,
+          0
+        ],
+        [
+          "sample.pdf",
+          1,
+          970,
+          1033
+        ],
+        [
+          "sample.pdf",
+          2,
+          986,
+          1049
+        ]
+      ],
+      "sqlite": "3.53.4"
+    },
+    {
+      "openMs": 437.505,
+      "indexMs": 9216.386,
+      "firstSearchMs": 257.367,
+      "documents": 4,
+      "chunks": 98,
+      "textChunks": 97,
+      "imageChunks": 1,
+      "sources": [
+        [
+          "sample.pdf",
+          1,
+          1318,
+          1328
+        ],
+        [
+          "sample.pdf",
+          2,
+          1339,
+          1349
+        ],
+        [
+          "sample.png",
+          null,
+          0,
+          0
+        ],
+        [
+          "sample.pdf",
+          1,
+          970,
+          1033
+        ],
+        [
+          "sample.pdf",
+          2,
+          986,
+          1049
+        ]
+      ],
+      "sqlite": "3.53.4"
+    }
+  ],
+  "warmSearchMs": [
+    60.635,
+    68.721,
+    58.786,
+    60.101,
+    60.173,
+    71.843,
+    64.005,
+    78.436,
+    58.261,
+    64.635,
+    51.728,
+    60.686,
+    82.2,
+    55.484,
+    58.625,
+    51.382,
+    54.056,
+    70.439,
+    83.602,
+    69.405,
+    62.446,
+    53.433,
+    55.048,
+    50.9,
+    51.986,
+    53.091,
+    66.099,
+    70.088,
+    71.849,
+    75.339
+  ],
+  "warmVectorScanMs": [
+    3.151,
+    0.901,
+    0.901,
+    1.02,
+    0.736,
+    0.923,
+    0.723,
+    0.805,
+    0.941,
+    0.614,
+    0.525,
+    0.597,
+    0.606,
+    0.548,
+    0.492,
+    0.434,
+    0.482,
+    0.627,
+    0.669,
+    0.459,
+    0.393,
+    0.42,
+    0.406,
+    0.482,
+    0.541,
+    0.633,
+    0.59,
+    0.414,
+    0.58,
+    0.664
+  ],
+  "workerResponses": [
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.17240000795573,
+      "sessionLoadMs": 490.80350005533546
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.82159999292344,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.394300020299852,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.541699978522956,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.673999985679984,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.379299932159483,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.722699938341975,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.604699971154332,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.70559999346733,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.872299960814416,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.216400110162795,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.079299997538328,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 22.436800063587725,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.187399958260357,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.43579998705536,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.149500066414475,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 22.604000056162477,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.634100031107664,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.953699972480536,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.520200095139444,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.758299998007715,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.093500036746264,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.289000033400953,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.080699891783297,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.2199000203982,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.021000019274652,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 22.699099965393543,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.90280002914369,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.344899971969426,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.46879998408258,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.651500047184527,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.661899988539517,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.028100004419684,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.895899998024106,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.149699951522052,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.620399926789105,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.089599959552288,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.013700058683753,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.00360000319779,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.6098000574857,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.566200048662722,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.852999951690435,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.18590006325394,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.556800093501806,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.05080008227378,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.606199982576072,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.575900006107986,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.515100008808076,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.700700072571635,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.58849998563528,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 22.294700029306114,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 22.521400009281933,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 22.686599986627698,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.6243000254035,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.97699996456504,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.45069998409599,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.411900085397065,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.168399908579886,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.634199984371662,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.575000025331974,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.177800001576543,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 22.055799956433475,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 22.73969992529601,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.10869998857379,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.39040001668036,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.186299975961447,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.902999914251268,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.60209995135665,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.325900012627244,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.03599999565631,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.273600032553077,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 22.568100015632808,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.059999966993928,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.868300020694733,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.39600003324449,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 22.840699995867908,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.417299941182137,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.143400019966066,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.220200091600418,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.514099932275712,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 22.57520006969571,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.617200018838048,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.539500056765974,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.366799974814057,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.03749998100102,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.80820002872497,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.735100054182112,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.05499999783933,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.020099964924157,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.52479996625334,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.765699985437095,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.72040005866438,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.04189994558692,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.475399986840785,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 21.278299973346293,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.621700005605817,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 30.835599987767637,
+      "sessionLoadMs": 49.46160002145916
+    },
+    {
+      "run": 1,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.439899996854365,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "firstSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 27.91209996212274,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 1,
+      "stage": "firstSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 10.830800049006939,
+      "sessionLoadMs": 177.3266999516636
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.206799920648336,
+      "sessionLoadMs": 517.337299999781
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.82000000216067,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.991400026716292,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.276900036260486,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.807500023394823,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.93390005454421,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.571699974127114,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.637900012545288,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.503200034610927,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.451299988664687,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.788199992850423,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.19650005362928,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.863800033926964,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.053099914453924,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.06850003171712,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.887099931016564,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.426700012758374,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.193599984049797,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.57240000553429,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.357500067912042,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.847200071439147,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.82740008458495,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.599900003522635,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.892000015825033,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.524800061248243,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.592399993911386,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.83139997255057,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 31.052600010298193,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.964099961332977,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.6478000190109,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.511200005188584,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.20789997652173,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 27.31480007059872,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.445499991998076,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.832799961790442,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.29839989822358,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.937800110317767,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 28.680399991571903,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 27.336300001479685,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.62159998342395,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.37690009921789,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.958799989894032,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.654500001110137,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.588300010189414,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.40360000077635,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.012099930085242,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.456500006839633,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 28.40680000372231,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.019600103609264,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 29.054599930532277,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 27.91619999334216,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.765800033695996,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 27.524799923412502,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 27.75639994069934,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 31.99689998291433,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 27.50440000090748,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 28.292300063185394,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 34.18389998842031,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.238699978217483,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 31.52399999089539,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 27.663199929520488,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.88319994881749,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.79760006442666,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.656500016339123,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.26139996573329,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.81400005146861,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 27.52669993788004,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 27.696600067429245,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.10280003864318,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.64809995237738,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.250600021332502,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.026800042018294,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.878600030206144,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.507000042125583,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.15520008839667,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.965299922972918,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 27.094500022940338,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 27.761699981056154,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.58300006017089,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.542700012214482,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.936400004662573,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.587799958884716,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.97700001206249,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 28.41120003722608,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.2555000372231,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.310999994166195,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 22.901699994690716,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 29.0117000695318,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.945400051772594,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.83810004964471,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.38569998089224,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 27.321900008246303,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 28.592400019988418,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.257800007238984,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 28.311499976553023,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 29.25989998038858,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 42.06559993326664,
+      "sessionLoadMs": 70.27739996556193
+    },
+    {
+      "run": 2,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.912099914625287,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "firstSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 45.96200003288686,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 2,
+      "stage": "firstSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 12.69460003823042,
+      "sessionLoadMs": 220.47409997321665
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.802599986083806,
+      "sessionLoadMs": 532.7236000448465
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.855499923229218,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.53560004848987,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.242899915203452,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.790500010363758,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 22.38999994006008,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.183199904859066,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.887800031341612,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.046899983659387,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.95639997161925,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.34859993122518,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.876600014977157,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.00189996883273,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.88919999450445,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.187800008803606,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.21689992863685,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.553299950435758,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.8703000145033,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.011099896393716,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.583599948324263,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.82399996370077,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 22.802099934779108,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 22.56630000192672,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.336599977687,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.738699896261096,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.2743999697268,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.355000001378357,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.707900010980666,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.497600039467216,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.67479999177158,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.404400097206235,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.395200005732477,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.862700004130602,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 29.481899924576283,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.662100011482835,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.007800082676113,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.723300080746412,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.88339995034039,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.95050006452948,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.61240005120635,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.705100058577955,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 28.693799977190793,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.71320000384003,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.209899991750717,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.95289996638894,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.201299995183945,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.709599955007434,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.439199944026768,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.00789998844266,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.948099977336824,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.699199992232025,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.944900069385767,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.87459995225072,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.024399928748608,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 22.685499978251755,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.70000006724149,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.74719996098429,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.017699946649373,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 22.302100085653365,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.318100069649518,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.66140000615269,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.244700023904443,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 22.553099901415408,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.769300081767142,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.930400075390935,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 22.7370000211522,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.922600084915757,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.436899995431304,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 22.746199974790215,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 28.374499990604818,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.5860000140965,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.38739994633943,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.677999899722636,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.167300038039684,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 27.216300019063056,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.522600044496357,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 27.893100050278008,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.08209999743849,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 29.066800023429096,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.65560005698353,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.616399943828583,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.066899998113513,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.70890001859516,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.250099901109934,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.18719995673746,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.646900012157857,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.49809999577701,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.601299897767603,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.85239994712174,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.905500002205372,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.12490004301071,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.57090008445084,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.992199963890016,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.629599996842444,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.488699971698225,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.476599995978177,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 33.04720006417483,
+      "sessionLoadMs": 53.53060003835708
+    },
+    {
+      "run": 3,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.93719998933375,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "firstSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 31.58319997601211,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 3,
+      "stage": "firstSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 11.968099977821112,
+      "sessionLoadMs": 190.5808000592515
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.342400000430644,
+      "sessionLoadMs": 518.6567000346258
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.100699906237423,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.341699995100498,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.574799976311624,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.533500011079013,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.62290001474321,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.66270001605153,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.138999917544425,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 27.632600045762956,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.45079989451915,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 27.39080006722361,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.96649997960776,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.573300012387335,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.05059994291514,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 27.542599942535162,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.92210005968809,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.45249997638166,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.109700043685734,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.271900019608438,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.95629999227822,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 22.54880010150373,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.22579999640584,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.04490003734827,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.06560000963509,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.15160001348704,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.26740010175854,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.730199900455773,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.20649998728186,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.722800008021295,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 22.99309999216348,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.27419992070645,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.897300008684397,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 27.096500038169324,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 22.478600032627583,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.56370002962649,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.609200005419552,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.98450002167374,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.08219999819994,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.67790006287396,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.278499884530902,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.925600107759237,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.87620001193136,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.06999997422099,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.369799997657537,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.340500007383525,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 28.101300005801022,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.200400035828352,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.78279995173216,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.512199986726046,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.277999997138977,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.719199933111668,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.61089997086674,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.70709995739162,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.57410010881722,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.747800013050437,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.042799952439964,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.752599933184683,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 22.453400073572993,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.4761000610888,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.20650003477931,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.209899991750717,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.21659999527037,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.136600063182414,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.254499982111156,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.015000021085143,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.517200072295964,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.19600000232458,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.70870008599013,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.145999970845878,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.48360000178218,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.710699963383377,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.76670004054904,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.38750008493662,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 27.72230003029108,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.218000074848533,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.14139998331666,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.059199960902333,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.22000002115965,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.167099898681045,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.125700001604855,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.795099907554686,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.641700041480362,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.413099978119135,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.355200050398707,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 27.997200028039515,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.315600050613284,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.019300006330013,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.964399916119874,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.24070006236434,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.36660004220903,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.29220005776733,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.026500061154366,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.74879997316748,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.06999999564141,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.235800003632903,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.97370000835508,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 31.927500036545098,
+      "sessionLoadMs": 55.98679999820888
+    },
+    {
+      "run": 4,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.488400016911328,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "firstSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.68049996625632,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 4,
+      "stage": "firstSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 11.70190004631877,
+      "sessionLoadMs": 191.98889995459467
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.532300070859492,
+      "sessionLoadMs": 482.39219991955906
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.9012999702245,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.811100050807,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.780900032259524,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 27.03029999975115,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.6245000269264,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.86439999099821,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.610099917277694,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.601800017990172,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.19480006210506,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.930300074629486,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.78270006738603,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.254700031131506,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.079299928620458,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 22.50560000538826,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.850000045262277,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 21.880900021642447,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 22.99890003632754,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.08189990092069,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.237200035713613,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.9058999363333,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.30719998665154,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 22.589499945752323,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.353899993002415,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.245499982498586,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.083999985828996,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.02460009418428,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.46429997123778,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 21.57929993700236,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.200400035828352,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.298899923451245,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.080000002868474,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.40770000591874,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 22.76189997792244,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 22.68050005659461,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.119699955917895,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.42150008957833,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.211700052954257,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.66729998216033,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.038200012408197,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.543499923311174,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.690299993380904,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.733600042760372,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.742399993352592,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.37499992083758,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.627799983136356,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.635600042529404,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 22.727299947291613,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 29.278400004841387,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.742199991829693,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.743600002489984,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.13850009907037,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.248199934139848,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.066599995829165,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 27.66770008020103,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.686100077815354,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.784799945540726,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.276699918322265,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 28.64829997997731,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 30.34609998576343,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.52639995701611,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.52670000679791,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.808400008827448,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.895899976603687,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 27.82169997226447,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.11739998590201,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.766000035218894,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.359500035643578,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.951299980282784,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.509099894203246,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.301999994553626,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.562699931673706,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 27.297399938106537,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.693599997088313,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.126899989321828,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.16230002604425,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.10999999847263,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.097299996763468,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 29.999999911524355,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 27.50180009752512,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.467200088314712,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.009100045077503,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.882399942725897,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.798500049859285,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.632900000549853,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.08510002028197,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 24.682800052687526,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 28.267199988476932,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 29.870899976231158,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 27.17849996406585,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.97850007098168,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 31.72430000267923,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 25.445499923080206,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 28.53290003258735,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.182700064964592,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 23.94270000513643,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 34.26330001093447,
+      "sessionLoadMs": 60.073800035752356
+    },
+    {
+      "run": 5,
+      "stage": "index",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.012099930085242,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "firstSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 26.28650004044175,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "firstSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 11.96839998010546,
+      "sessionLoadMs": 208.8803999358788
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 28.2644999679178,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 13.574999989941716,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 42.89850010536611,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 14.472200069576502,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 34.129499923437834,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 13.637099997140467,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 34.25060003064573,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 15.668999985791743,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 34.45020003709942,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 15.100999968126416,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 46.11540003679693,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 15.376399969682097,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 30.204700073227286,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 23.809699923731387,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 47.06670006271452,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 21.143599995411932,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 32.08209993317723,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 16.254100017249584,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 33.33010000642389,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 14.886199962347746,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 29.28100002463907,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 12.265399913303554,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 32.78150002006441,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 17.74829998612404,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 52.20139992889017,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 20.340700051747262,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 28.708499972708523,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 17.258299980312586,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 33.05929992347956,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 16.090900055132806,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 30.57139995507896,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 11.748600052669644,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 31.13899996969849,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 13.730900012888014,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 36.36739996727556,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 24.214299977757037,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 52.881999989040196,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 12.684299959801137,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 47.97129996586591,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 12.07230007275939,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 39.359399932436645,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 14.367000083439052,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 30.117099988274276,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 14.363499940373003,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 32.00659994035959,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 13.903399929404259,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 28.391100000590086,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 12.938200030475855,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 28.666900005191565,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 13.98469996638596,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 31.404800014570355,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 12.143700034357607,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 44.198599993251264,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 12.252499931491911,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 48.431399976834655,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 12.024000054225326,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 35.60569998808205,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 23.29349995125085,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "paraphrase-multilingual-MiniLM-L12-v2",
+      "forwardMs": 42.6123000215739,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmSearch",
+      "model": "mobileclip-s0-text",
+      "forwardMs": 23.05530000012368,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmImageForward",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 33.9127000188455,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmImageForward",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 36.00650001317263,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmImageForward",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 32.67350001260638,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmImageForward",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 32.79830003157258,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmImageForward",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 35.70050001144409,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmImageForward",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 33.87519996613264,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmImageForward",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 32.631900045089424,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmImageForward",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 33.85190002154559,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmImageForward",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 34.498700057156384,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmImageForward",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 35.07400001399219,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmImageForward",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 38.97220001090318,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmImageForward",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 33.91050000209361,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmImageForward",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 32.437299960292876,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmImageForward",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 34.08119990490377,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmImageForward",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 30.9074999531731,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmImageForward",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 31.595899956300855,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmImageForward",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 37.095700041390955,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmImageForward",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 33.13889994751662,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmImageForward",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 32.850599964149296,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmImageForward",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 34.77659996133298,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmImageForward",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 31.32450010161847,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmImageForward",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 32.548499992117286,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmImageForward",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 33.01869996357709,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmImageForward",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 32.92869997676462,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmImageForward",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 31.076199957169592,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmImageForward",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 31.484699924476445,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmImageForward",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 30.701400013640523,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmImageForward",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 30.27520002797246,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmImageForward",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 33.73950009699911,
+      "sessionLoadMs": null
+    },
+    {
+      "run": 5,
+      "stage": "warmImageForward",
+      "model": "mobileclip-s0-vision",
+      "forwardMs": 33.71489990968257,
+      "sessionLoadMs": null
+    }
+  ],
+  "query": "离线检索",
+  "topK": 5,
+  "dartPeakRssBytes": 595206144,
+  "vectorChunkIds": [
+    "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i19",
+    "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o1-p2-i19",
+    "0ae2c86a937bbe7c735ecf1400fb9114cba4e57837acf472043c8765f37088ca-w3-cascade-1-unigram-c120-t128-o0-pna-i2",
+    "0ae2c86a937bbe7c735ecf1400fb9114cba4e57837acf472043c8765f37088ca-w3-cascade-1-unigram-c120-t128-o0-pna-i11",
+    "87f85f6dbef6ed3a075861a2e6c03f972c7bac17adb91572654fbaf603235010-w3-cascade-1-unigram-c120-t128-o0-p1-i11"
+  ]
+}

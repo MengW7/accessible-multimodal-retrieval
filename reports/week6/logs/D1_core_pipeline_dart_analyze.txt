@@ -1,0 +1,4 @@
+dart --suppress-analytics analyze
+Analyzing core_pipeline...
+No issues found!
+exit=0

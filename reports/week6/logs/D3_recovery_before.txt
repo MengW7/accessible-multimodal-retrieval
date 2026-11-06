@@ -1,0 +1,22 @@
+00:00 +0: loading E:/Project/accessible-multimodal-retrieval/apps/desktop/test/recovery_integration_test.dart
+00:00 +0: real Windows production recovery a second worker cannot clear or index during a write
+00:16 +0 -1: real Windows production recovery a second worker cannot clear or index during a write [E]
+  Expected: throws <Instance of 'StateError'> with `message`: contains '另一个实例'
+    Actual: <Instance of 'Future<LibrarySnapshot>'>
+     Which: emitted <Instance of 'LibrarySnapshot'>
+  
+  package:matcher                                    expectLater
+  package:flutter_test/src/widget_tester.dart 507:8  expectLater
+  test\recovery_integration_test.dart 59:15          main.<fn>.<fn>
+  ===== asynchronous gap ===========================
+  dart:async                                         _CustomZone.registerUnaryCallback
+  test\recovery_integration_test.dart 46:7           main.<fn>.<fn>
+  
+00:16 +0 -1: real Windows production recovery a locked SQLite index preserves old text and is retryable
+00:18 +1 -1: real Windows production recovery an unusable database path and a corrupt DOCX can be repaired
+00:21 +2 -1: real Windows production recovery close while indexing keeps completed files and releases the writer
+00:41 +3 -1: Some tests failed.
+
+Failing tests:
+  E:/Project/accessible-multimodal-retrieval/apps/desktop/test/recovery_integration_test.dart: real Windows production recovery a second worker cannot clear or index during a write
+exit=1

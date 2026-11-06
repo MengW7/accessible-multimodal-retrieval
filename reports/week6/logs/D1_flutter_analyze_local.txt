@@ -1,0 +1,13 @@
+flutter analyze --no-pub
+
+┌─────────────────────────────────────────────────────────┐
+│ A new version of Flutter is available!                  │
+│                                                         │
+│ To update to the latest version, run "flutter upgrade". │
+└─────────────────────────────────────────────────────────┘
+Analyzing desktop...                                            
+
+   info - Statements in an if should be enclosed in a block. Try wrapping the statement in a block - tool\week6_baseline.dart:245:11 - curly_braces_in_flow_control_structures
+
+1 issue found. (ran in 78.1s)
+exit=1
