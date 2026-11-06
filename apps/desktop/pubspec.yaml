@@ -56,7 +56,9 @@ dependencies:
     path: ../../packages/core_retrieval
   core_storage:
     path: ../../packages/core_storage
+  ffi: ^2.2.0
   path: ^1.9.1
+  sqlite3: ^2.9.4
 
 dev_dependencies:
   flutter_test:

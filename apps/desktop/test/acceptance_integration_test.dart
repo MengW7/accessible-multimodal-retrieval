@@ -41,10 +41,12 @@ void main() {
         return base.createTemp('w05-acceptance-');
       }))!;
       final fixtures = Directory(p.join(scratch.path, 'fixtures'));
+      const nativeRoot = String.fromEnvironment('AMR_E_RUNTIME_ROOT');
       final config = RuntimeConfig.fromEnvironment(
         environment: {
           ...Platform.environment,
-          'AMR_DEV_ROOT': repo,
+          'AMR_DEV_ROOT': nativeRoot.isEmpty ? repo : '',
+          'AMR_RUNTIME_ROOT': nativeRoot,
           'AMR_DATA_DIR': p.join(scratch.path, 'index'),
         },
       );
@@ -347,9 +349,13 @@ void main() {
           messenger.setMockMethodCallHandler(NativeFileOpener.channel, null);
           report['elapsedMs'] = watch.elapsedMilliseconds;
           report['finishedAt'] = DateTime.now().toUtc().toIso8601String();
+          const reportPath = String.fromEnvironment(
+            'AMR_E_REPORT_PATH',
+            defaultValue: 'reports/week5/logs/E_headless_acceptance.json',
+          );
           await tester.runAsync(
             () => File(
-              p.join(repo, 'reports/week5/logs/E_headless_acceptance.json'),
+              p.join(repo, reportPath),
             ).writeAsString(const JsonEncoder.withIndent('  ').convert(report)),
           );
         }

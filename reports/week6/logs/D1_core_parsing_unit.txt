@@ -1,0 +1,275 @@
+dart --packages=.dart_tool/package_config.json C:\Users\11758\AppData\Local\Pub\Cache\hosted\pub.dev\test-1.31.1\bin\test.dart --coverage=<fresh scratch> --exclude-tags integration --reporter expanded
+00:00 +0: loading test\coverage_gaps_test.dart
+Could not start the VM service: DartDevelopmentServiceException: WebSocketChannelException: SocketException: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied (OS Error: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied, errno = 10057), address = 127.0.0.1, port = 18306
+00:00 +0 -1: loading test\coverage_gaps_test.dart [E]
+  Failed to load "test\coverage_gaps_test.dart": A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied (OS Error: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied, errno = 10057), address = 127.0.0.1, port = 18307
+  dart:io-patch/socket_patch.dart 849:35                _NativeSocket.startConnect
+  dart:io-patch/socket_patch.dart 2313:26               _RawSocket.startConnect
+  dart:io-patch/socket_patch.dart 41:23                 RawSocket.startConnect
+  dart:io-patch/socket_patch.dart 2574:22               Socket._startConnect
+  dart:io/socket.dart 918:21                            Socket.startConnect
+  dart:_http/http_impl.dart 2701:20                     _ConnectionTarget.connect
+  dart:_http/http_impl.dart 3200:12                     _HttpClient._getConnection.connect
+  dart:_http/http_impl.dart 3205:12                     _HttpClient._getConnection
+  dart:_http/http_impl.dart 3026:12                     _HttpClient._openUrl
+  dart:_http/http_impl.dart 2868:7                      _HttpClient.openUrl
+  dart:_http/websocket_impl.dart 1346:10                _WebSocketImpl.connect
+  dart:_http/websocket.dart 348:24                      WebSocket.connect
+  package:vm_service/vm_service_io.dart 36:44           vmServiceConnectUriWithFactory
+  package:vm_service/vm_service_io.dart 18:10           vmServiceConnectUri
+  package:test_core/src/runner/vm/platform.dart 144:22  VMPlatform.load
+  ===== asynchronous gap ===========================
+  package:test_core/src/runner/loader.dart 249:27       Loader.loadFile.<fn>
+  ===== asynchronous gap ===========================
+  package:test_core/src/runner/load_suite.dart 95:21    new LoadSuite.<fn>.<fn>
+  
+00:00 +0 -2: loading test\docx_parser_test.dart [E]
+  Failed to load "test\docx_parser_test.dart": A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied (OS Error: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied, errno = 10057), address = 127.0.0.1, port = 18308
+  dart:io-patch/socket_patch.dart 849:35                _NativeSocket.startConnect
+  dart:io-patch/socket_patch.dart 2313:26               _RawSocket.startConnect
+  dart:io-patch/socket_patch.dart 41:23                 RawSocket.startConnect
+  dart:io-patch/socket_patch.dart 2574:22               Socket._startConnect
+  dart:io/socket.dart 918:21                            Socket.startConnect
+  dart:_http/http_impl.dart 2701:20                     _ConnectionTarget.connect
+  dart:_http/http_impl.dart 3200:12                     _HttpClient._getConnection.connect
+  dart:_http/http_impl.dart 3205:12                     _HttpClient._getConnection
+  dart:_http/http_impl.dart 3026:12                     _HttpClient._openUrl
+  dart:_http/http_impl.dart 2868:7                      _HttpClient.openUrl
+  dart:_http/websocket_impl.dart 1346:10                _WebSocketImpl.connect
+  dart:_http/websocket.dart 348:24                      WebSocket.connect
+  package:vm_service/vm_service_io.dart 36:44           vmServiceConnectUriWithFactory
+  package:vm_service/vm_service_io.dart 18:10           vmServiceConnectUri
+  package:test_core/src/runner/vm/platform.dart 144:22  VMPlatform.load
+  ===== asynchronous gap ===========================
+  package:test_core/src/runner/loader.dart 249:27       Loader.loadFile.<fn>
+  ===== asynchronous gap ===========================
+  package:test_core/src/runner/load_suite.dart 95:21    new LoadSuite.<fn>.<fn>
+  
+00:00 +0 -3: loading test\file_scanner_test.dart [E]
+  Failed to load "test\file_scanner_test.dart": A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied (OS Error: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied, errno = 10057), address = 127.0.0.1, port = 18309
+  dart:io-patch/socket_patch.dart 849:35                _NativeSocket.startConnect
+  dart:io-patch/socket_patch.dart 2313:26               _RawSocket.startConnect
+  dart:io-patch/socket_patch.dart 41:23                 RawSocket.startConnect
+  dart:io-patch/socket_patch.dart 2574:22               Socket._startConnect
+  dart:io/socket.dart 918:21                            Socket.startConnect
+  dart:_http/http_impl.dart 2701:20                     _ConnectionTarget.connect
+  dart:_http/http_impl.dart 3200:12                     _HttpClient._getConnection.connect
+  dart:_http/http_impl.dart 3205:12                     _HttpClient._getConnection
+  dart:_http/http_impl.dart 3026:12                     _HttpClient._openUrl
+  dart:_http/http_impl.dart 2868:7                      _HttpClient.openUrl
+  dart:_http/websocket_impl.dart 1346:10                _WebSocketImpl.connect
+  dart:_http/websocket.dart 348:24                      WebSocket.connect
+  package:vm_service/vm_service_io.dart 36:44           vmServiceConnectUriWithFactory
+  package:vm_service/vm_service_io.dart 18:10           vmServiceConnectUri
+  package:test_core/src/runner/vm/platform.dart 144:22  VMPlatform.load
+  ===== asynchronous gap ===========================
+  package:test_core/src/runner/loader.dart 249:27       Loader.loadFile.<fn>
+  ===== asynchronous gap ===========================
+  package:test_core/src/runner/load_suite.dart 95:21    new LoadSuite.<fn>.<fn>
+  
+00:00 +0 -4: loading test\image_parser_test.dart [E]
+  Failed to load "test\image_parser_test.dart": A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied (OS Error: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied, errno = 10057), address = 127.0.0.1, port = 18310
+  dart:io-patch/socket_patch.dart 849:35                _NativeSocket.startConnect
+  dart:io-patch/socket_patch.dart 2313:26               _RawSocket.startConnect
+  dart:io-patch/socket_patch.dart 41:23                 RawSocket.startConnect
+  dart:io-patch/socket_patch.dart 2574:22               Socket._startConnect
+  dart:io/socket.dart 918:21                            Socket.startConnect
+  dart:_http/http_impl.dart 2701:20                     _ConnectionTarget.connect
+  dart:_http/http_impl.dart 3200:12                     _HttpClient._getConnection.connect
+  dart:_http/http_impl.dart 3205:12                     _HttpClient._getConnection
+  dart:_http/http_impl.dart 3026:12                     _HttpClient._openUrl
+  dart:_http/http_impl.dart 2868:7                      _HttpClient.openUrl
+  dart:_http/websocket_impl.dart 1346:10                _WebSocketImpl.connect
+  dart:_http/websocket.dart 348:24                      WebSocket.connect
+  package:vm_service/vm_service_io.dart 36:44           vmServiceConnectUriWithFactory
+  package:vm_service/vm_service_io.dart 18:10           vmServiceConnectUri
+  package:test_core/src/runner/vm/platform.dart 144:22  VMPlatform.load
+  ===== asynchronous gap ===========================
+  package:test_core/src/runner/loader.dart 249:27       Loader.loadFile.<fn>
+  ===== asynchronous gap ===========================
+  package:test_core/src/runner/load_suite.dart 95:21    new LoadSuite.<fn>.<fn>
+  
+00:00 +0 -5: loading test\ingestion_service_test.dart [E]
+  Failed to load "test\ingestion_service_test.dart": A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied (OS Error: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied, errno = 10057), address = 127.0.0.1, port = 18311
+  dart:io-patch/socket_patch.dart 849:35                _NativeSocket.startConnect
+  dart:io-patch/socket_patch.dart 2313:26               _RawSocket.startConnect
+  dart:io-patch/socket_patch.dart 41:23                 RawSocket.startConnect
+  dart:io-patch/socket_patch.dart 2574:22               Socket._startConnect
+  dart:io/socket.dart 918:21                            Socket.startConnect
+  dart:_http/http_impl.dart 2701:20                     _ConnectionTarget.connect
+  dart:_http/http_impl.dart 3200:12                     _HttpClient._getConnection.connect
+  dart:_http/http_impl.dart 3205:12                     _HttpClient._getConnection
+  dart:_http/http_impl.dart 3026:12                     _HttpClient._openUrl
+  dart:_http/http_impl.dart 2868:7                      _HttpClient.openUrl
+  dart:_http/websocket_impl.dart 1346:10                _WebSocketImpl.connect
+  dart:_http/websocket.dart 348:24                      WebSocket.connect
+  package:vm_service/vm_service_io.dart 36:44           vmServiceConnectUriWithFactory
+  package:vm_service/vm_service_io.dart 18:10           vmServiceConnectUri
+  package:test_core/src/runner/vm/platform.dart 144:22  VMPlatform.load
+  ===== asynchronous gap ===========================
+  package:test_core/src/runner/loader.dart 249:27       Loader.loadFile.<fn>
+  ===== asynchronous gap ===========================
+  package:test_core/src/runner/load_suite.dart 95:21    new LoadSuite.<fn>.<fn>
+  
+00:00 +0 -6: loading test\io_process_runner_test.dart [E]
+  Failed to load "test\io_process_runner_test.dart": A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied (OS Error: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied, errno = 10057), address = 127.0.0.1, port = 18312
+  dart:io-patch/socket_patch.dart 849:35                _NativeSocket.startConnect
+  dart:io-patch/socket_patch.dart 2313:26               _RawSocket.startConnect
+  dart:io-patch/socket_patch.dart 41:23                 RawSocket.startConnect
+  dart:io-patch/socket_patch.dart 2574:22               Socket._startConnect
+  dart:io/socket.dart 918:21                            Socket.startConnect
+  dart:_http/http_impl.dart 2701:20                     _ConnectionTarget.connect
+  dart:_http/http_impl.dart 3200:12                     _HttpClient._getConnection.connect
+  dart:_http/http_impl.dart 3205:12                     _HttpClient._getConnection
+  dart:_http/http_impl.dart 3026:12                     _HttpClient._openUrl
+  dart:_http/http_impl.dart 2868:7                      _HttpClient.openUrl
+  dart:_http/websocket_impl.dart 1346:10                _WebSocketImpl.connect
+  dart:_http/websocket.dart 348:24                      WebSocket.connect
+  package:vm_service/vm_service_io.dart 36:44           vmServiceConnectUriWithFactory
+  package:vm_service/vm_service_io.dart 18:10           vmServiceConnectUri
+  package:test_core/src/runner/vm/platform.dart 144:22  VMPlatform.load
+  ===== asynchronous gap ===========================
+  package:test_core/src/runner/loader.dart 249:27       Loader.loadFile.<fn>
+  ===== asynchronous gap ===========================
+  package:test_core/src/runner/load_suite.dart 95:21    new LoadSuite.<fn>.<fn>
+  
+00:00 +0 -7: loading test\metadata_extractor_test.dart [E]
+  Failed to load "test\metadata_extractor_test.dart": A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied (OS Error: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied, errno = 10057), address = 127.0.0.1, port = 18313
+  dart:io-patch/socket_patch.dart 849:35                _NativeSocket.startConnect
+  dart:io-patch/socket_patch.dart 2313:26               _RawSocket.startConnect
+  dart:io-patch/socket_patch.dart 41:23                 RawSocket.startConnect
+  dart:io-patch/socket_patch.dart 2574:22               Socket._startConnect
+  dart:io/socket.dart 918:21                            Socket.startConnect
+  dart:_http/http_impl.dart 2701:20                     _ConnectionTarget.connect
+  dart:_http/http_impl.dart 3200:12                     _HttpClient._getConnection.connect
+  dart:_http/http_impl.dart 3205:12                     _HttpClient._getConnection
+  dart:_http/http_impl.dart 3026:12                     _HttpClient._openUrl
+  dart:_http/http_impl.dart 2868:7                      _HttpClient.openUrl
+  dart:_http/websocket_impl.dart 1346:10                _WebSocketImpl.connect
+  dart:_http/websocket.dart 348:24                      WebSocket.connect
+  package:vm_service/vm_service_io.dart 36:44           vmServiceConnectUriWithFactory
+  package:vm_service/vm_service_io.dart 18:10           vmServiceConnectUri
+  package:test_core/src/runner/vm/platform.dart 144:22  VMPlatform.load
+  ===== asynchronous gap ===========================
+  package:test_core/src/runner/loader.dart 249:27       Loader.loadFile.<fn>
+  ===== asynchronous gap ===========================
+  package:test_core/src/runner/load_suite.dart 95:21    new LoadSuite.<fn>.<fn>
+  
+00:00 +0 -8: loading test\package_smoke_test.dart [E]
+  Failed to load "test\package_smoke_test.dart": A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied (OS Error: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied, errno = 10057), address = 127.0.0.1, port = 18314
+  dart:io-patch/socket_patch.dart 849:35                _NativeSocket.startConnect
+  dart:io-patch/socket_patch.dart 2313:26               _RawSocket.startConnect
+  dart:io-patch/socket_patch.dart 41:23                 RawSocket.startConnect
+  dart:io-patch/socket_patch.dart 2574:22               Socket._startConnect
+  dart:io/socket.dart 918:21                            Socket.startConnect
+  dart:_http/http_impl.dart 2701:20                     _ConnectionTarget.connect
+  dart:_http/http_impl.dart 3200:12                     _HttpClient._getConnection.connect
+  dart:_http/http_impl.dart 3205:12                     _HttpClient._getConnection
+  dart:_http/http_impl.dart 3026:12                     _HttpClient._openUrl
+  dart:_http/http_impl.dart 2868:7                      _HttpClient.openUrl
+  dart:_http/websocket_impl.dart 1346:10                _WebSocketImpl.connect
+  dart:_http/websocket.dart 348:24                      WebSocket.connect
+  package:vm_service/vm_service_io.dart 36:44           vmServiceConnectUriWithFactory
+  package:vm_service/vm_service_io.dart 18:10           vmServiceConnectUri
+  package:test_core/src/runner/vm/platform.dart 144:22  VMPlatform.load
+  ===== asynchronous gap ===========================
+  package:test_core/src/runner/loader.dart 249:27       Loader.loadFile.<fn>
+  ===== asynchronous gap ===========================
+  package:test_core/src/runner/load_suite.dart 95:21    new LoadSuite.<fn>.<fn>
+  
+00:00 +0 -9: loading test\parser_registry_test.dart [E]
+  Failed to load "test\parser_registry_test.dart": A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied (OS Error: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied, errno = 10057), address = 127.0.0.1, port = 18315
+  dart:io-patch/socket_patch.dart 849:35                _NativeSocket.startConnect
+  dart:io-patch/socket_patch.dart 2313:26               _RawSocket.startConnect
+  dart:io-patch/socket_patch.dart 41:23                 RawSocket.startConnect
+  dart:io-patch/socket_patch.dart 2574:22               Socket._startConnect
+  dart:io/socket.dart 918:21                            Socket.startConnect
+  dart:_http/http_impl.dart 2701:20                     _ConnectionTarget.connect
+  dart:_http/http_impl.dart 3200:12                     _HttpClient._getConnection.connect
+  dart:_http/http_impl.dart 3205:12                     _HttpClient._getConnection
+  dart:_http/http_impl.dart 3026:12                     _HttpClient._openUrl
+  dart:_http/http_impl.dart 2868:7                      _HttpClient.openUrl
+  dart:_http/websocket_impl.dart 1346:10                _WebSocketImpl.connect
+  dart:_http/websocket.dart 348:24                      WebSocket.connect
+  package:vm_service/vm_service_io.dart 36:44           vmServiceConnectUriWithFactory
+  package:vm_service/vm_service_io.dart 18:10           vmServiceConnectUri
+  package:test_core/src/runner/vm/platform.dart 144:22  VMPlatform.load
+  ===== asynchronous gap ===========================
+  package:test_core/src/runner/loader.dart 249:27       Loader.loadFile.<fn>
+  ===== asynchronous gap ===========================
+  package:test_core/src/runner/load_suite.dart 95:21    new LoadSuite.<fn>.<fn>
+  
+00:00 +0 -10: loading test\pdf_parser_test.dart [E]
+  Failed to load "test\pdf_parser_test.dart": A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied (OS Error: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied, errno = 10057), address = 127.0.0.1, port = 18316
+  dart:io-patch/socket_patch.dart 849:35                _NativeSocket.startConnect
+  dart:io-patch/socket_patch.dart 2313:26               _RawSocket.startConnect
+  dart:io-patch/socket_patch.dart 41:23                 RawSocket.startConnect
+  dart:io-patch/socket_patch.dart 2574:22               Socket._startConnect
+  dart:io/socket.dart 918:21                            Socket.startConnect
+  dart:_http/http_impl.dart 2701:20                     _ConnectionTarget.connect
+  dart:_http/http_impl.dart 3200:12                     _HttpClient._getConnection.connect
+  dart:_http/http_impl.dart 3205:12                     _HttpClient._getConnection
+  dart:_http/http_impl.dart 3026:12                     _HttpClient._openUrl
+  dart:_http/http_impl.dart 2868:7                      _HttpClient.openUrl
+  dart:_http/websocket_impl.dart 1346:10                _WebSocketImpl.connect
+  dart:_http/websocket.dart 348:24                      WebSocket.connect
+  package:vm_service/vm_service_io.dart 36:44           vmServiceConnectUriWithFactory
+  package:vm_service/vm_service_io.dart 18:10           vmServiceConnectUri
+  package:test_core/src/runner/vm/platform.dart 144:22  VMPlatform.load
+  ===== asynchronous gap ===========================
+  package:test_core/src/runner/loader.dart 249:27       Loader.loadFile.<fn>
+  ===== asynchronous gap ===========================
+  package:test_core/src/runner/load_suite.dart 95:21    new LoadSuite.<fn>.<fn>
+  
+00:00 +0 -11: loading test\tika_cli_text_extractor_test.dart [E]
+  Failed to load "test\tika_cli_text_extractor_test.dart": A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied (OS Error: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied, errno = 10057), address = 127.0.0.1, port = 18317
+  dart:io-patch/socket_patch.dart 849:35                _NativeSocket.startConnect
+  dart:io-patch/socket_patch.dart 2313:26               _RawSocket.startConnect
+  dart:io-patch/socket_patch.dart 41:23                 RawSocket.startConnect
+  dart:io-patch/socket_patch.dart 2574:22               Socket._startConnect
+  dart:io/socket.dart 918:21                            Socket.startConnect
+  dart:_http/http_impl.dart 2701:20                     _ConnectionTarget.connect
+  dart:_http/http_impl.dart 3200:12                     _HttpClient._getConnection.connect
+  dart:_http/http_impl.dart 3205:12                     _HttpClient._getConnection
+  dart:_http/http_impl.dart 3026:12                     _HttpClient._openUrl
+  dart:_http/http_impl.dart 2868:7                      _HttpClient.openUrl
+  dart:_http/websocket_impl.dart 1346:10                _WebSocketImpl.connect
+  dart:_http/websocket.dart 348:24                      WebSocket.connect
+  package:vm_service/vm_service_io.dart 36:44           vmServiceConnectUriWithFactory
+  package:vm_service/vm_service_io.dart 18:10           vmServiceConnectUri
+  package:test_core/src/runner/vm/platform.dart 144:22  VMPlatform.load
+  ===== asynchronous gap ===========================
+  package:test_core/src/runner/loader.dart 249:27       Loader.loadFile.<fn>
+  ===== asynchronous gap ===========================
+  package:test_core/src/runner/load_suite.dart 95:21    new LoadSuite.<fn>.<fn>
+  
+00:00 +0 -12: loading test\txt_parser_test.dart [E]
+  Failed to load "test\txt_parser_test.dart": A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied (OS Error: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied, errno = 10057), address = 127.0.0.1, port = 18318
+  dart:io-patch/socket_patch.dart 849:35                _NativeSocket.startConnect
+  dart:io-patch/socket_patch.dart 2313:26               _RawSocket.startConnect
+  dart:io-patch/socket_patch.dart 41:23                 RawSocket.startConnect
+  dart:io-patch/socket_patch.dart 2574:22               Socket._startConnect
+  dart:io/socket.dart 918:21                            Socket.startConnect
+  dart:_http/http_impl.dart 2701:20                     _ConnectionTarget.connect
+  dart:_http/http_impl.dart 3200:12                     _HttpClient._getConnection.connect
+  dart:_http/http_impl.dart 3205:12                     _HttpClient._getConnection
+  dart:_http/http_impl.dart 3026:12                     _HttpClient._openUrl
+  dart:_http/http_impl.dart 2868:7                      _HttpClient.openUrl
+  dart:_http/websocket_impl.dart 1346:10                _WebSocketImpl.connect
+  dart:_http/websocket.dart 348:24                      WebSocket.connect
+  package:vm_service/vm_service_io.dart 36:44           vmServiceConnectUriWithFactory
+  package:vm_service/vm_service_io.dart 18:10           vmServiceConnectUri
+  package:test_core/src/runner/vm/platform.dart 144:22  VMPlatform.load
+  ===== asynchronous gap ===========================
+  package:test_core/src/runner/loader.dart 249:27       Loader.loadFile.<fn>
+  ===== asynchronous gap ===========================
+  package:test_core/src/runner/load_suite.dart 95:21    new LoadSuite.<fn>.<fn>
+  
+00:00 +0 -12: Some tests failed.
+
+Failing tests:
+  test\coverage_gaps_test.dart: loading test\coverage_gaps_test.dart
+  test\docx_parser_test.dart: loading test\docx_parser_test.dart
+  test\file_scanner_test.dart: loading test\file_scanner_test.dart
+  test\image_parser_test.dart: loading test\image_parser_test.dart
+  ... and 8 more

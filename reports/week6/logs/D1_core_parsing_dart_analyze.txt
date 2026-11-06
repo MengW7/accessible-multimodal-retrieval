@@ -1,0 +1,4 @@
+dart --suppress-analytics analyze
+Analyzing core_parsing...
+No issues found!
+exit=0

@@ -1,0 +1,14 @@
+flutter test --no-pub test/acceptance_integration_test.dart --dart-define=AMR_E_REAL_RUNTIME=true --dart-define=AMR_E_REPORT_PATH=reports/week6/logs/D2_headless_development.json --reporter expanded
+00:00 +0: loading E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart
+00:00 +0: headless UI acceptance with real worker, models, SQLite and settings
+Shell: E acceptance: prepare dedicated sources
+Shell: E acceptance: inspect runtime and load library
+Shell: E acceptance: empty library search
+Shell: E acceptance: mixed import and navigation
+Shell: E acceptance: PDF and image search
+Shell: E acceptance: no matches and invalid date recovery
+Shell: E acceptance: mock open, missing source and recovery
+Shell: E acceptance: save settings and restart controller
+Shell: E acceptance: incremental reuse and clear confirmation
+00:29 +1: All tests passed!
+exit=0

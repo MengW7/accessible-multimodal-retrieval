@@ -1,0 +1,112 @@
+dart analyze
+Analyzing core_embedding...
+No issues found!
+analysis_exit=0
+dart test --exclude-tags integration --coverage=E:\Project\accessible-multimodal-retrieval\.dart_tool\w06-d3-lcov\706da584b7434d13a0002ce3fcb14869 --reporter expanded
+00:00 +0: loading test\engine\embedding_engine_test.dart
+00:00 +0: test\engine\embedding_service_test.dart: five formats produce vectors, and one bad file does not stop the batch
+00:00 +1: test\engine\embedding_service_test.dart: five formats produce vectors, and one bad file does not stop the batch
+00:00 +2: test\engine\embedding_service_test.dart: five formats produce vectors, and one bad file does not stop the batch
+00:00 +3: test\engine\embedding_service_test.dart: five formats produce vectors, and one bad file does not stop the batch
+00:00 +4: test\engine\embedding_service_test.dart: five formats produce vectors, and one bad file does not stop the batch
+00:00 +5: test\engine\embedding_service_test.dart: five formats produce vectors, and one bad file does not stop the batch
+00:00 +6: test\engine\embedding_service_test.dart: five formats produce vectors, and one bad file does not stop the batch
+00:00 +7: test\engine\embedding_service_test.dart: five formats produce vectors, and one bad file does not stop the batch
+00:00 +8: test\engine\embedding_service_test.dart: five formats produce vectors, and one bad file does not stop the batch
+00:00 +9: test\engine\embedding_service_test.dart: five formats produce vectors, and one bad file does not stop the batch
+00:00 +10: test\engine\embedding_service_test.dart: five formats produce vectors, and one bad file does not stop the batch
+00:00 +11: test\engine\embedding_service_test.dart: five formats produce vectors, and one bad file does not stop the batch
+00:00 +12: test\engine\onnx_tensor_runtime_test.dart: decodes a little-endian image vector and records the tensor
+00:00 +13: test\engine\onnx_tensor_runtime_test.dart: decodes a little-endian image vector and records the tensor
+00:00 +14: test\engine\onnx_tensor_runtime_test.dart: decodes a little-endian image vector and records the tensor
+00:00 +15: test\engine\onnx_tensor_runtime_test.dart: decodes a little-endian image vector and records the tensor
+00:00 +16: test\engine\onnx_tensor_runtime_test.dart: decodes a little-endian image vector and records the tensor
+00:00 +17: test\engine\onnx_tensor_runtime_test.dart: decodes a little-endian image vector and records the tensor
+00:00 +18: test\engine\onnx_tensor_runtime_test.dart: decodes a little-endian image vector and records the tensor
+00:00 +19: test\engine\onnx_tensor_runtime_test.dart: decodes a little-endian image vector and records the tensor
+00:00 +20: test\engine\onnx_tensor_runtime_test.dart: decodes a little-endian image vector and records the tensor
+00:00 +21: test\engine\onnx_tensor_runtime_test.dart: decodes a little-endian image vector and records the tensor
+00:00 +22: test\engine\onnx_tensor_runtime_test.dart: decodes a little-endian image vector and records the tensor
+00:00 +23: test\engine\onnx_tensor_runtime_test.dart: decodes a little-endian image vector and records the tensor
+00:00 +24: test\engine\onnx_tensor_runtime_test.dart: decodes a little-endian image vector and records the tensor
+00:00 +25: test\engine\onnx_tensor_runtime_test.dart: decodes a little-endian image vector and records the tensor
+00:00 +26: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +27: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +28: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +29: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +30: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +31: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +32: test\engine\embedding_engine_test.dart: document text, clip text, and an image stay in their own spaces
+00:00 +33: test\engine\embedding_engine_test.dart: clip text without a text tower throws instead of using the document model
+00:00 +34: test\engine\embedding_engine_test.dart: a document request is rejected when the text model is in another space
+00:00 +35: test\engine\embedding_engine_test.dart: image input rejects a document space and a bad byte length
+00:04 +36: loading test\text\clip_bpe_tokenizer_test.dart
+00:06 +36: test\text\clip_bpe_tokenizer_test.dart: lowercase words merge and wrap the clip specials
+00:06 +37: test\text\clip_text_embedder_test.dart: clip text pads with the exclamation id and has no attention mask
+00:06 +38: test\text\clip_text_embedder_test.dart: clip text pads with the exclamation id and has no attention mask
+00:07 +39: test\text\clip_text_embedder_test.dart: clip text pads with the exclamation id and has no attention mask
+00:07 +40: test\text\clip_text_embedder_test.dart: clip text pads with the exclamation id and has no attention mask
+00:07 +41: test\text\clip_text_embedder_test.dart: over-long clip text is not truncated
+00:07 +42: test\text\onnx_process_runtime_test.dart: decodes a little-endian hidden state from the process
+00:07 +43: test\text\onnx_process_runtime_test.dart: decodes a little-endian hidden state from the process
+00:07 +44: test\text\onnx_process_runtime_test.dart: decodes a little-endian hidden state from the process
+00:07 +45: test\text\onnx_process_runtime_test.dart: decodes a little-endian hidden state from the process
+00:07 +46: test\text\onnx_process_runtime_test.dart: decodes a little-endian hidden state from the process
+00:07 +47: test\text\onnx_process_runtime_test.dart: decodes a little-endian hidden state from the process
+00:07 +48: test\text\onnx_process_runtime_test.dart: a failed start becomes runtime unavailable
+00:07 +49: test\text\onnx_process_runtime_test.dart: a process timeout becomes an embedding timeout
+00:07 +50: test\text\onnx_process_runtime_test.dart: a non-zero exit is a runtime failure
+00:07 +51: test\text\onnx_process_runtime_test.dart: stdout that is not base64 is a bad output
+00:07 +52: test\text\onnx_process_runtime_test.dart: a missing input tensor is reported
+00:07 +53: test\text\text_chunker_test.dart: docx single newlines split, and the page number stays null
+00:07 +54: test\text\text_chunker_test.dart: txt keeps a short single newline inside a blank-line paragraph
+00:07 +55: test\text\text_chunker_test.dart: a pdf page without paragraphs splits on sentence punctuation
+00:07 +56: test\text\text_chunker_test.dart: a pdf page with no breaks falls through to the character window
+00:07 +57: test\text\text_chunker_test.dart: pages are not merged
+00:07 +58: test\text\text_chunker_test.dart: the same document and config reproduce the same ids
+00:07 +59: test\text\text_chunker_test.dart: a missing document id uses the body hash
+00:07 +60: test\text\text_chunker_test.dart: a hard window does not split a surrogate pair
+00:07 +61: test\text\text_chunker_test.dart: one code unit over the token budget throws instead of truncating
+00:07 +62: test\text\text_chunker_test.dart: the default window keeps the version string already stored in indexes
+00:07 +63: test\text\text_chunker_test.dart: a different window is named in the version string
+00:07 +64: test\text\text_chunker_test.dart: blank text and bad settings produce no chunks or an argument error
+00:07 +65: test\text\text_embedder_test.dart: mean pool ignores masked rows
+00:07 +66: test\text\text_embedder_test.dart: l2 normalize maps 3,4 to 0.6,0.8
+00:07 +67: test\text\text_embedder_test.dart: embed pools the masked rows and then normalizes
+00:07 +68: test\text\text_input_builder_test.dart: short text is padded to maxLength and does not drop tokens
+00:07 +69: test\text\text_input_builder_test.dart: short text is padded to maxLength and does not drop tokens
+00:07 +70: test\text\text_input_builder_test.dart: short text is padded to maxLength and does not drop tokens
+00:07 +71: test\text\text_input_builder_test.dart: short text is padded to maxLength and does not drop tokens
+00:07 +72: test\text\text_embedder_test.dart: a runtime timeout surfaces
+00:07 +73: test\text\text_input_builder_test.dart: text over the budget returns a rechunk signal and no tensor
+00:07 +74: test\text\text_embedder_test.dart: a hidden state with the wrong length is a dimension mismatch
+00:07 +75: test\text\text_embedder_test.dart: a zero vector cannot be normalized
+00:07 +76: test\text\text_embedder_test.dart: cancellation is checked before the runtime
+00:07 +77: test\text\text_embedder_test.dart: an empty string is a caller error
+00:07 +78: test\text\text_embedder_test.dart: a non-int64 attention mask is a missing tensor
+00:07 +79: test\text\unigram_model_test.dart: the highest score keeps the whole string
+00:07 +80: test\text\unigram_model_test.dart: unknown bytes stay as one fused surface with the unk id
+00:07 +81: test\text\unigram_model_test.dart: an empty piece has no tokens
+00:07 +82: test\text\unigram_model_test.dart: unk id outside the vocab is rejected
+00:11 +83: loading test\text\unigram_tokenizer_test.dart
+00:13 +83: test\text\unigram_tokenizer_test.dart: invalid resource fields fail before inference
+00:13 +84: test\text\unigram_tokenizer_test.dart: added markers consume Unicode whitespace and retain supplementary text
+00:13 +85: test\text\unigram_tokenizer_test.dart: a word becomes one metaspace piece between the boundary tokens
+00:13 +86: test\text\unigram_tokenizer_test.dart: a second character that is not glued to the prefix stays its own piece
+00:13 +87: test\text\unigram_tokenizer_test.dart: whitespace-only text keeps the boundary tokens and drops the spaces
+00:13 +88: test\text\unigram_tokenizer_test.dart: a literal unk marker is the added token, not a metaspace piece
+00:14 +89: test\text\unigram_tokenizer_test.dart: mask lstrip eats the spaces in front of the marker
+00:14 +90: test\text\unigram_tokenizer_test.dart: ## is one ordinary piece, not a WordPiece continuation
+00:14 +91: test\text\unigram_tokenizer_test.dart: explicit truncation keeps the closing special token
+00:14 +92: test\text\unigram_tokenizer_test.dart: an unknown character keeps its surface and uses the unk id
+00:14 +93: test\text\unigram_tokenizer_test.dart: two unknown characters fuse into one unk piece
+00:14 +94: test\text\unigram_tokenizer_test.dart: jsonDecode lists are accepted, including an integer score
+00:14 +95: test\text\unigram_tokenizer_test.dart: a tokenizer that is not Unigram is rejected
+00:14 +96: test\text\unigram_tokenizer_test.dart: an added token that asks to be normalized is rejected
+00:14 +97: test\text\unigram_tokenizer_test.dart: an added token with empty content is rejected
+00:14 +98: test\text\unigram_tokenizer_test.dart: an empty metaspace is rejected
+00:14 +99: test\text\unigram_tokenizer_test.dart: truncation must keep both boundary tokens
+00:17 +100: All tests passed!
+test_exit=0
+dart run coverage:format_coverage --lcov --in=E:\Project\accessible-multimodal-retrieval\.dart_tool\w06-d3-lcov\706da584b7434d13a0002ce3fcb14869 --out=E:\Project\accessible-multimodal-retrieval\reports\week6\coverage\D3\core_embedding.lcov.info --report-on=lib --package=.
+coverage_exit=0

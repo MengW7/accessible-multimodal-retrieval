@@ -53,6 +53,27 @@ void main() {
     expect(extractor.calls, 0);
   });
 
+  test('retains the PDF title and only integer extractor timings', () async {
+    final parser = PdfParser(
+      textExtractor: _FakeExtractor(
+        onExtract: () async => const ExtractedText(
+          pages: [DocumentPage(pageNumber: 1, text: '正文')],
+          extractorName: 'fake',
+          title: '归档标题',
+          attributes: {
+            'stageMs': {'process_wait': 3, 'fractional': 3.5, 'invalid': 'unknown', 5: 6},
+          },
+        ),
+      ),
+    );
+    final result = await parser.parse(fixturePath('truncated.pdf'));
+    expect(result.outcome, ParseOutcome.ok);
+    expect(result.document?.attributes['title'], '归档标题');
+    final stages = result.document!.attributes['stageMs'] as Map;
+    expect(stages['process_wait'], 3);
+    expect(stages.keys, unorderedEquals(['process_wait', 'stat', 'assemble']));
+  });
+
   test('an encrypted pdf keeps the extractor reason', () async {
     final PdfParser parser = PdfParser(
       textExtractor: _FakeExtractor(

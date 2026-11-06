@@ -1,0 +1,19 @@
+-- Selecting Windows SDK version 10.0.26100.0 to target Windows 10.0.26300.
+-- The CXX compiler identification is MSVC 19.44.35229.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: E:/c++/develop/vs2022/BuildTools/VC/Tools/MSVC/14.44.35207/bin/Hostx64/x64/cl.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done (11.2s)
+-- Generating done (0.1s)
+-- Build files have been written to: E:/Project/accessible-multimodal-retrieval/.dart_tool/w06-d2-ort/bridge
+MSBuild version 17.14.60+43b635718 for .NET Framework
+
+  1>Checking Build System
+  Building Custom Rule E:/Project/accessible-multimodal-retrieval/native/onnx/CMakeLists.txt
+  bridge.cpp
+    正在创建库 E:/Project/accessible-multimodal-retrieval/.dart_tool/w06-d2-ort/bridge/Release/amr_onnx.lib 和对象 E:/Project/accessible-multimodal-retrieval/.dart_tool/w06-d2-ort/bridge/Release/amr_onnx.exp
+  amr_onnx.vcxproj -> E:\Project\accessible-multimodal-retrieval\.dart_tool\w06-d2-ort\bridge\Release\amr_onnx.dll
+  Building Custom Rule E:/Project/accessible-multimodal-retrieval/native/onnx/CMakeLists.txt
+exit=0

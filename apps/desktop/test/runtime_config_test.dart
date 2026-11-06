@@ -41,6 +41,33 @@ void main() {
     );
   });
 
+  test('absolute native resource override stays in production mode', () {
+    final config = RuntimeConfig.fromEnvironment(
+      environment: {
+        'AMR_RUNTIME_ROOT': r'E:\offline resources',
+        'AMR_DATA_DIR': r'D:\demo-index',
+      },
+      operatingSystem: 'windows',
+    );
+    expect(config.development, isFalse);
+    expect(config.configurationErrors, isEmpty);
+    expect(config.onnxBridge, r'E:\offline resources\bin\amr_onnx.dll');
+    expect(config.requiredFiles.keys, isNot(contains('Python')));
+  });
+
+  test('native resource override rejects relative paths and mixed modes', () {
+    for (final environment in [
+      {'AMR_RUNTIME_ROOT': 'relative'},
+      {'AMR_RUNTIME_ROOT': r'E:\runtime', 'AMR_DEV_ROOT': r'D:\repo'},
+    ]) {
+      final config = RuntimeConfig.fromEnvironment(
+        environment: {...environment, 'LOCALAPPDATA': r'D:\local'},
+        operatingSystem: 'windows',
+      );
+      expect(config.configurationErrors.single, contains('AMR_RUNTIME_ROOT'));
+    }
+  });
+
   for (final os in ['linux', 'macos']) {
     test('$os default paths follow the target platform on any host', () {
       final home = os == 'macos' ? '/Users/tester' : '/home/tester';
@@ -167,7 +194,7 @@ void main() {
   );
 
   test(
-    'release runtime gap is explicit and never falls back to repository Python',
+    'missing production resources are reported without repository Python',
     () async {
       final dir = await Directory.systemTemp.createTemp('amr-release-');
       addTearDown(() => dir.delete(recursive: true));

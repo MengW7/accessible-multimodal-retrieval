@@ -110,6 +110,102 @@ void main() {
     expect(hits, isEmpty);
   });
 
+  test('invalid vector values leave the last committed generation readable', () async {
+    final store = _memory();
+    await store.write([_chunk('original')], [_vector([1, 0])]);
+    final nonFinite = _vector([double.nan, 0]);
+    final unnormalized = EmbeddingVector(
+      values: const [2, 0],
+      space: EmbeddingSpace.documentText,
+      dim: 2,
+      modelId: nonFinite.modelId,
+      normalized: false,
+    );
+    for (final vector in [nonFinite, unnormalized]) {
+      await expectLater(
+        store.write([_chunk('replacement')], [vector]),
+        throwsA(isA<StorageException>().having(
+          (e) => e.failure.kind, 'kind', StorageFailureKind.notNormalized,
+        )),
+      );
+      expect((await store.search(_vector([1, 0]))).single.chunkId, 'original');
+    }
+    await store.write([_chunk('replacement')], [_vector([0, 1])]);
+    expect((await store.search(_vector([0, 1]))).single.chunkId, 'replacement');
+  });
+
+  test('malformed persisted vector storage produces a typed failure', () async {
+    final store = _memory();
+    await store.write([_chunk('original')], [_vector([1, 0])]);
+    for (final (sql, kind) in [
+      ("UPDATE chunk SET vec = 'wrong type'", StorageFailureKind.unknown),
+      ("UPDATE chunk SET vec = X'00000000'", StorageFailureKind.dimensionMismatch),
+    ]) {
+      store.database.execute(sql);
+      await expectLater(
+        store.search(_vector([1, 0])),
+        throwsA(isA<StorageException>().having((e) => e.failure.kind, 'kind', kind)),
+      );
+    }
+    await store.write([_chunk('original')], [_vector([1, 0])]);
+    expect((await store.search(_vector([1, 0]))).single.chunkId, 'original');
+  });
+
+  test('old image metadata remains readable and typed metadata retains EXIF', () async {
+    final store = _memory();
+    await store.write(
+      [_chunk('pic', modality: Modality.image)],
+      [_vector([1, 0], space: EmbeddingSpace.clipShared)],
+    );
+    final query = _vector([1, 0], space: EmbeddingSpace.clipShared);
+    final images = [
+      ('[]', null),
+      ('{"format":"jpeg","orientation":"old"}', {'format': 'jpeg', 'orientation': 'old'}),
+      ('{"format":"jpeg","width":8,"height":3,"colorMode":"rgb","orientation":"rightTop"}',
+        const ImageAsset(format: 'jpeg', width: 8, height: 3, colorMode: 'rgb', orientation: 'rightTop')),
+    ];
+    for (final (json, expected) in images) {
+      store.database.execute('UPDATE chunk SET image_json = ?', [json]);
+      expect((await store.search(query)).single.imageAsset, expected);
+    }
+  });
+
+  test('an occupied index path reports failure and can be reopened after repair', () {
+    final root = Directory.systemTemp.createTempSync('amr-storage-repair-');
+    addTearDown(() => root.deleteSync(recursive: true));
+    final invalid = Directory('${root.path}/index.sqlite')..createSync();
+    const locator = SystemSqliteLibraryLocator();
+    final failed = openStore(locator, invalid.path);
+    expect(failed.isOk, isFalse);
+    expect(failed.failure?.detail, contains('unable to open database'));
+    invalid.deleteSync();
+    final recovered = openStore(locator, invalid.path);
+    expect(recovered.isOk, isTrue);
+    recovered.store!.close();
+  });
+
+  test('opening a newer schema leaves the database unchanged', () {
+    final root = Directory.systemTemp.createTempSync('amr-storage-schema-');
+    addTearDown(() => root.deleteSync(recursive: true));
+    final path = '${root.path}/index.sqlite';
+    const locator = SystemSqliteLibraryLocator();
+    final original = locator.open(path).database!;
+    original.execute('CREATE TABLE future_index (value TEXT)');
+    original.execute("INSERT INTO future_index VALUES ('keep')");
+    original.execute('PRAGMA user_version = 99');
+    original.dispose();
+
+    final rejected = openStore(locator, path);
+    expect(rejected.failure?.kind, StorageFailureKind.schemaUnsupported);
+    final reopened = locator.open(path).database!;
+    try {
+      expect(reopened.select('PRAGMA user_version').single.columnAt(0), 99);
+      expect(reopened.select('SELECT value FROM future_index').single['value'], 'keep');
+    } finally {
+      reopened.dispose();
+    }
+  });
+
   test('text cannot be stored in the image space', () async {
     final SqliteVectorStore store = _memory();
     expect(

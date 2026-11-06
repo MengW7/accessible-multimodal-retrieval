@@ -1,0 +1,61 @@
+{
+  "pid": 40760,
+  "workingDirectory": "C:\\Windows",
+  "dataDirectory": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\production-data",
+  "mode": "release",
+  "ok": true,
+  "firstPid": 19828,
+  "database": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d2-ort\\run-e5f86e79b9a34dfb8b24299ec2249541\\production-data\\runtime-smoke-bec07138\\smoke.sqlite",
+  "sources": [
+    {
+      "fileName": "sample.pdf",
+      "sourcePath": "E:/Project/accessible-multimodal-retrieval/.dart_tool/w06-d2-ort/run-e5f86e79b9a34dfb8b24299ec2249541/fixtures/sample.pdf",
+      "pageNumber": 1,
+      "startOffset": 1318,
+      "endOffset": 1328,
+      "channels": [
+        "documentText"
+      ]
+    },
+    {
+      "fileName": "sample.pdf",
+      "sourcePath": "E:/Project/accessible-multimodal-retrieval/.dart_tool/w06-d2-ort/run-e5f86e79b9a34dfb8b24299ec2249541/fixtures/sample.pdf",
+      "pageNumber": 2,
+      "startOffset": 1339,
+      "endOffset": 1349,
+      "channels": [
+        "documentText"
+      ]
+    },
+    {
+      "fileName": "sample.png",
+      "sourcePath": "E:/Project/accessible-multimodal-retrieval/.dart_tool/w06-d2-ort/run-e5f86e79b9a34dfb8b24299ec2249541/fixtures/sample.png",
+      "pageNumber": null,
+      "startOffset": 0,
+      "endOffset": 0,
+      "channels": [
+        "clipShared"
+      ]
+    },
+    {
+      "fileName": "sample.pdf",
+      "sourcePath": "E:/Project/accessible-multimodal-retrieval/.dart_tool/w06-d2-ort/run-e5f86e79b9a34dfb8b24299ec2249541/fixtures/sample.pdf",
+      "pageNumber": 1,
+      "startOffset": 970,
+      "endOffset": 1033,
+      "channels": [
+        "documentText"
+      ]
+    },
+    {
+      "fileName": "sample.pdf",
+      "sourcePath": "E:/Project/accessible-multimodal-retrieval/.dart_tool/w06-d2-ort/run-e5f86e79b9a34dfb8b24299ec2249541/fixtures/sample.pdf",
+      "pageNumber": 2,
+      "startOffset": 986,
+      "endOffset": 1049,
+      "channels": [
+        "documentText"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+dart test --exclude-tags integration --coverage=E:\Project\accessible-multimodal-retrieval\.dart_tool\w06-d1-lcov\73b5d721e9964dc0b80abdcb7f64a61d --reporter expanded
+00:00 +0: loading test\coverage_gaps_test.dart
+00:00 +0: test\metadata_extractor_test.dart: content hash is stable and times are present
+00:00 +1: test\metadata_extractor_test.dart: content hash is stable and times are present
+00:00 +2: test\metadata_extractor_test.dart: content hash is stable and times are present
+00:00 +3: test\metadata_extractor_test.dart: content hash is stable and times are present
+00:00 +4: test\metadata_extractor_test.dart: content hash is stable and times are present
+00:00 +5: test\metadata_extractor_test.dart: content hash is stable and times are present
+00:00 +6: test\metadata_extractor_test.dart: content hash is stable and times are present
+00:00 +7: test\metadata_extractor_test.dart: content hash is stable and times are present
+00:00 +8: test\metadata_extractor_test.dart: content hash is stable and times are present
+00:00 +9: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +10: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +11: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +12: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +13: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +14: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +15: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +16: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +17: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +18: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +19: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +20: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +21: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +22: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +23: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +24: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +25: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +26: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +27: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +28: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +29: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +30: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +31: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +32: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +33: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +34: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +35: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +36: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +37: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +38: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +39: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +40: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +41: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +42: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +43: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +44: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +45: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +46: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +47: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +48: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +49: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +50: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +51: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +52: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +53: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +54: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +55: test\docx_parser_test.dart: minimal fixture yields paragraphs and core properties
+00:00 +56: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +57: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +58: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +59: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +60: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +61: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +62: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +63: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +64: test\io_process_runner_test.dart: captures stdout from a short command
+00:00 +65: test\io_process_runner_test.dart: captures stdout from a short command
+00:01 +66: test\io_process_runner_test.dart: a missing executable throws ProcessStartException
+00:01 +67: test\io_process_runner_test.dart: timeout kills a long command
+00:01 +68: test\io_process_runner_test.dart: an already cancelled token does not start the process
+00:01 +69: test\io_process_runner_test.dart: cancel during a run stops the process
+00:03 +70: loading test\parser_registry_test.dart
+00:05 +70: test\parser_registry_test.dart: extensions match regardless of case or a leading dot
+00:05 +71: test\parser_registry_test.dart: an unknown extension is skipped and does not throw
+00:05 +72: test\parser_registry_test.dart: a matching parser is invoked
+00:06 +73: test\tika_cli_text_extractor_test.dart: xhtml pages are split and entities are decoded
+00:06 +74: test\pdf_parser_test.dart: pages from the extractor become an ok document
+00:06 +75: test\pdf_parser_test.dart: pages from the extractor become an ok document
+00:06 +76: test\tika_cli_text_extractor_test.dart: a failed xhtml run falls back to plain text
+00:06 +77: test\pdf_parser_test.dart: an empty pdf fails before the extractor runs
+00:06 +78: test\pdf_parser_test.dart: an empty pdf fails before the extractor runs
+00:06 +79: test\tika_cli_text_extractor_test.dart: both modes failing throws and keeps stderr off the message
+00:06 +80: test\tika_cli_text_extractor_test.dart: both modes failing throws and keeps stderr off the message
+00:06 +81: test\tika_cli_text_extractor_test.dart: both modes failing throws and keeps stderr off the message
+00:06 +82: test\pdf_parser_test.dart: a timed out extractor is timeout and failed
+00:06 +83: test\pdf_parser_test.dart: a timed out extractor is timeout and failed
+00:06 +84: test\tika_cli_text_extractor_test.dart: a timeout is not retried as plain text
+00:06 +85: test\pdf_parser_test.dart: a missing path is a failure, not an exception
+00:06 +86: test\pdf_parser_test.dart: cancellation still throws
+00:06 +87: test\txt_parser_test.dart: utf-8 fixture keeps Chinese and normalizes CRLF
+00:06 +88: test\txt_parser_test.dart: utf-8 BOM fixture strips the mark
+00:06 +89: test\txt_parser_test.dart: utf-16 LE fixture decodes Chinese
+00:06 +90: test\txt_parser_test.dart: gbk fixture falls back and records the warning
+00:06 +91: test\txt_parser_test.dart: empty file is ok with an empty body
+00:06 +92: test\txt_parser_test.dart: utf-16 BE is detected from its BOM
+00:06 +93: test\txt_parser_test.dart: a newline-free line under the ceiling stays ok
+00:06 +94: test\txt_parser_test.dart: bytes past the ceiling are partial and truncated
+00:06 +95: test\txt_parser_test.dart: a cut inside a UTF-8 character does not switch to GBK
+00:06 +96: test\txt_parser_test.dart: a missing file is a failure, not an exception
+00:06 +97: test\txt_parser_test.dart: cancellation before reading throws
+00:09 +98: All tests passed!
+test_exit=0
+dart run coverage:format_coverage --lcov --in=E:\Project\accessible-multimodal-retrieval\.dart_tool\w06-d1-lcov\73b5d721e9964dc0b80abdcb7f64a61d --out=E:\Project\accessible-multimodal-retrieval\reports\week6\coverage\core_parsing.lcov.info --report-on=lib --package=.
+coverage_exit=0

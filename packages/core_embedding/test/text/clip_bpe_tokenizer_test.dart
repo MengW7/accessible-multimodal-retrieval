@@ -76,6 +76,17 @@ void main() {
     expect(tokenizer.encode('hi').tokens, <String>['<|startoftext|>', 'hi</w>', '<|endoftext|>']);
   });
 
+  test('literal CLIP markers survive tokenization in the middle of text', () {
+    final tokenizer = toyClipTokenizer();
+    final encoding = tokenizer.encode('HI<|endoftext|><|startoftext|>i');
+    expect(encoding.ids, [10, 4, 11, 10, 3, 11]);
+    expect(encoding.tokens, [
+      '<|startoftext|>', 'hi</w>', '<|endoftext|>',
+      '<|startoftext|>', 'i</w>', '<|endoftext|>',
+    ]);
+    expect(tokenizer.encode('<|endoftext|>').ids, [10, 11, 11]);
+  });
+
   test('a non-bpe model and a bad merge are rejected', () {
     expect(
       () => ClipBpeTokenizer.fromJsonString(jsonEncode(_jsonModel(type: 'WordPiece'))),

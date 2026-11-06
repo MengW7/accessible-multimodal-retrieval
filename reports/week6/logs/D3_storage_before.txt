@@ -1,0 +1,54 @@
+dart analyze
+Analyzing core_storage...
+No issues found!
+analysis_exit=0
+dart test --exclude-tags integration --coverage=E:\Project\accessible-multimodal-retrieval\.dart_tool\w06-d3-lcov\dc0d9f0ec34d4e3eb99f4e801154cc79 --reporter expanded
+00:00 +0: loading test\sqlite_vector_store_test.dart
+00:00 +0: test\sqlite_vector_store_test.dart: a missing library is a structured failure
+00:00 +1: test\sqlite_vector_store_test.dart: schema can be applied twice and a file database uses wal
+00:00 +2: test\sqlite_vector_store_test.dart: nearest neighbor is the stored vector and the other space is invisible
+00:00 +3: test\sqlite_vector_store_test.dart: a different dimension in the same space is rejected
+00:00 +4: test\sqlite_vector_store_test.dart: an empty space returns no hits
+00:00 +5: test\sqlite_vector_store_test.dart: invalid vector values leave the last committed generation readable
+00:00 +6: test\sqlite_vector_store_test.dart: malformed persisted vector storage produces a typed failure
+00:00 +6 -1: test\sqlite_vector_store_test.dart: malformed persisted vector storage produces a typed failure [E]
+  Expected: throws <Instance of 'StorageException'> with `kind`: StorageFailureKind:<StorageFailureKind.unknown>
+    Actual: <Instance of 'Future<List<ScoredId>>'>
+     Which: threw _TypeError:<type 'String' is not a subtype of type 'Uint8List' in type cast>
+            stack package:core_storage/src/vector_query.dart 119:44        cosineTopK
+                  package:core_storage/src/sqlite_vector_store.dart 39:12  SqliteVectorStore.search
+                  test\sqlite_vector_store_test.dart 146:15                main.<fn>
+                  
+            which is not an instance of 'StorageException'
+  
+  test\sqlite_vector_store_test.dart 145:7  main.<fn>
+  
+00:00 +6 -1: test\sqlite_vector_store_test.dart: old image metadata remains readable and typed metadata retains EXIF
+00:00 +7 -1: test\sqlite_vector_store_test.dart: an occupied index path reports failure and can be reopened after repair
+00:00 +8 -1: test\sqlite_vector_store_test.dart: text cannot be stored in the image space
+00:00 +9 -1: test\sqlite_vector_store_test.dart: a new hash for the same path replaces the previous document
+00:00 +10 -1: test\sqlite_vector_store_test.dart: a failed rewrite rolls back to the previous rows
+00:00 +11 -1: test\sqlite_vector_store_test.dart: equal scores use path, page, then offset
+00:00 +12 -1: test\sqlite_vector_store_test.dart: filters apply before the limit
+00:00 +13 -1: test\sqlite_vector_store_test.dart: chinese bigrams hit two-character and three-character queries
+00:00 +14 -1: test\sqlite_vector_store_test.dart: delete removes the vector and the keyword row together
+00:00 +15 -1: test\sqlite_vector_store_test.dart: five-field generation decides reuse
+00:00 +16 -1: test\sqlite_vector_store_test.dart: an image asset round-trips
+00:00 +17 -1: test\sqlite_vector_store_test.dart: clear empties every table and the store stays usable
+00:00 +18 -1: test\sqlite_vector_store_test.dart: the trigram path matches words and mid-word substrings
+00:00 +19 -1: test\sqlite_vector_store_test.dart: a chinese query also searches latin spans and offline glosses
+00:00 +20 -1: test\sqlite_vector_store_test.dart: short queries fall back to the like path
+00:00 +21 -1: test\sqlite_vector_store_test.dart: every generation field decides reuse on its own
+00:00 +22 -1: test\sqlite_vector_store_test.dart: an unnormalized query and a non-positive limit are rejected
+00:00 +23 -1: test\sqlite_vector_store_test.dart: a mismatched chunk and vector pair is rejected before writing
+00:00 +24 -1: test\sqlite_vector_store_test.dart: pruning keeps tied rows so the top-k matches a full sort
+00:00 +25 -1: test\sqlite_vector_store_test.dart: candidate and result tie-break stay in the same order
+00:00 +26 -1: test\sqlite_vector_store_test.dart: empty extension set and modality filter apply in sql
+00:03 +27 -1: Some tests failed.
+
+Failing tests:
+  test\sqlite_vector_store_test.dart: malformed persisted vector storage produces a typed failure
+
+Consider enabling the flag chain-stack-traces to receive more detailed exceptions.
+For example, 'dart test --chain-stack-traces'.
+test_exit=1

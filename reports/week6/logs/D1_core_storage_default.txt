@@ -1,0 +1,28 @@
+cached Dart test runner --exclude-tags integration --reporter expanded
+00:00 +0: loading test\sqlite_vector_store_test.dart
+00:00 +0: test\sqlite_vector_store_test.dart: a missing library is a structured failure
+00:00 +1: test\sqlite_vector_store_test.dart: schema can be applied twice and a file database uses wal
+00:00 +2: test\sqlite_vector_store_test.dart: nearest neighbor is the stored vector and the other space is invisible
+00:00 +3: test\sqlite_vector_store_test.dart: a different dimension in the same space is rejected
+00:00 +4: test\sqlite_vector_store_test.dart: an empty space returns no hits
+00:00 +5: test\sqlite_vector_store_test.dart: text cannot be stored in the image space
+00:00 +6: test\sqlite_vector_store_test.dart: a new hash for the same path replaces the previous document
+00:00 +7: test\sqlite_vector_store_test.dart: a failed rewrite rolls back to the previous rows
+00:00 +8: test\sqlite_vector_store_test.dart: equal scores use path, page, then offset
+00:00 +9: test\sqlite_vector_store_test.dart: filters apply before the limit
+00:00 +10: test\sqlite_vector_store_test.dart: chinese bigrams hit two-character and three-character queries
+00:00 +11: test\sqlite_vector_store_test.dart: delete removes the vector and the keyword row together
+00:00 +12: test\sqlite_vector_store_test.dart: five-field generation decides reuse
+00:00 +13: test\sqlite_vector_store_test.dart: an image asset round-trips
+00:00 +14: test\sqlite_vector_store_test.dart: clear empties every table and the store stays usable
+00:00 +15: test\sqlite_vector_store_test.dart: the trigram path matches words and mid-word substrings
+00:00 +16: test\sqlite_vector_store_test.dart: a chinese query also searches latin spans and offline glosses
+00:00 +17: test\sqlite_vector_store_test.dart: short queries fall back to the like path
+00:00 +18: test\sqlite_vector_store_test.dart: every generation field decides reuse on its own
+00:00 +19: test\sqlite_vector_store_test.dart: an unnormalized query and a non-positive limit are rejected
+00:00 +20: test\sqlite_vector_store_test.dart: a mismatched chunk and vector pair is rejected before writing
+00:00 +21: test\sqlite_vector_store_test.dart: pruning keeps tied rows so the top-k matches a full sort
+00:00 +22: test\sqlite_vector_store_test.dart: candidate and result tie-break stay in the same order
+00:00 +23: test\sqlite_vector_store_test.dart: empty extension set and modality filter apply in sql
+00:00 +24: All tests passed!
+test_exit=0

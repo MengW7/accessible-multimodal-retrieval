@@ -1,0 +1,5 @@
+Working directory: C:\Windows
+minimal Dart exitCode=1; actual_exit=1
+missing_java expected_exit=1 actual_exit=1 pid=42888 mode=release ok=False
+missing_resources expected_exit=1 actual_exit=1 pid=5144 mode=release ok=False
+development expected_exit=0 actual_exit=0 pid=39120 mode=development ok=True

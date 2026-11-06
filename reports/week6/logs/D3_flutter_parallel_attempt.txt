@@ -1,0 +1,106 @@
+flutter test --no-pub --dart-define=AMR_E_REAL_RUNTIME=true --dart-define=AMR_E_RUNTIME_ROOT=E:\Project\accessible-multimodal-retrieval\.dart_tool\w06-d2-ort\local-runtime --dart-define=AMR_E_REPORT_PATH=reports/week6/logs/D3_headless_production.json --reporter expanded
+00:00 +0: loading E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart
+00:00 +0: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:00 +1: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:00 +2: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:00 +3: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:00 +4: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+Shell: E acceptance: prepare dedicated sources
+00:01 +5: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:01 +6: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:01 +7: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:01 +8: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:01 +9: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:01 +10: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:01 +11: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:01 +12: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:01 +13: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:01 +14: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:01 +15: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:01 +16: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:01 +17: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:02 +18: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:02 +19: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:02 +20: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:02 +21: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:02 +22: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:02 +23: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:02 +24: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:02 +25: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:02 +26: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:02 +27: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:02 +28: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+Shell: E acceptance: inspect runtime and load library
+00:07 +29: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+Shell: E acceptance: empty library search
+00:10 +30: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:11 +31: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:12 +32: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:12 +33: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:12 +34: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:13 +35: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+Shell: E acceptance: mixed import and navigation
+00:15 +36: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:15 +37: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:16 +38: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:17 +39: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:18 +40: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:18 +41: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:18 +42: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:18 +43: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:19 +44: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:19 +45: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:19 +46: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:19 +47: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:20 +48: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:20 +49: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:20 +50: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:20 +51: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:29 +52: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:32 +52 -1: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:32 +52 -1: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/recovery_integration_test.dart: real Windows production recovery a second worker cannot clear or index during a write [E]
+  TimeoutException after 0:00:30.000000: Test timed out after 30 seconds. See https://pub.dev/packages/test#timeouts
+  dart:isolate  _RawReceivePort._handleMessage
+  
+00:35 +53 -1: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:36 +53 -1: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/recovery_integration_test.dart: real Windows production recovery a second worker cannot clear or index during a write [E]
+  Bad state: 文件库服务已关闭。
+  package:desktop/src/runtime/library_worker.dart 97:7    WorkerLibraryService._request
+  package:desktop/src/runtime/library_worker.dart 122:12  WorkerLibraryService.index
+  test\recovery_integration_test.dart 67:34               main.<fn>.<fn>
+  
+00:39 +54 -1: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:39 +55 -1: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+Shell: E acceptance: PDF and image search
+00:40 +56 -1: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:41 +57 -1: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:42 +58 -1: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:43 +59 -1: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+Shell: E acceptance: no matches and invalid date recovery
+00:45 +60 -1: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:46 +61 -1: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:47 +62 -1: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+00:55 +63 -1: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+Shell: E acceptance: mock open, missing source and recovery
+Shell: E acceptance: save settings and restart controller
+01:07 +64 -1: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+01:07 +65 -1: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+Shell: E acceptance: incremental reuse and clear confirmation
+01:15 +65 -2: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/acceptance_integration_test.dart: headless UI acceptance with real worker, models, SQLite and settings
+01:15 +65 -2: E:/Project/accessible-multimodal-retrieval/apps/desktop/test/recovery_integration_test.dart: real Windows production recovery close while indexing keeps completed files and releases the writer [E]
+  TimeoutException after 0:00:30.000000: Test timed out after 30 seconds. See https://pub.dev/packages/test#timeouts
+  dart:isolate  _RawReceivePort._handleMessage
+  
+  Expected: <24>
+    Actual: <14>
+  
+  package:matcher                                     expect
+  package:flutter_test/src/widget_tester.dart 473:18  expect
+  test\recovery_integration_test.dart 141:9           main.<fn>.<fn>
+  
+01:24 +66 -2: Some tests failed.
+
+Failing tests:
+  E:/Project/accessible-multimodal-retrieval/apps/desktop/test/recovery_integration_test.dart: real Windows production recovery a second worker cannot clear or index during a write
+  E:/Project/accessible-multimodal-retrieval/apps/desktop/test/recovery_integration_test.dart: real Windows production recovery close while indexing keeps completed files and releases the writer
+exit=1

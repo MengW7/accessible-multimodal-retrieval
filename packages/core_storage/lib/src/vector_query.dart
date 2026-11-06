@@ -116,7 +116,7 @@ List<ScoredId> cosineTopK(
   final List<(int, double)> scored = <(int, double)>[];
   var threshold = double.negativeInfinity;
   for (final Row row in rows) {
-    final Uint8List blob = row.columnAt(1) as Uint8List;
+    final Uint8List blob = blobOf(row, 'vec');
     final Float32List values = float32View(blob, query.dim);
     final double score = dotFloat32(values, queryValues);
     // 只有「严格低于阈值」才安全丢弃：同分的行要靠 tie-break 定名次，

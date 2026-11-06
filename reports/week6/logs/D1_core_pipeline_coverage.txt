@@ -1,0 +1,32 @@
+dart test --exclude-tags integration --coverage=E:\Project\accessible-multimodal-retrieval\.dart_tool\w06-d1-lcov\cf2832d5d76442839dba9a7cfff89196 --reporter expanded
+00:00 +0: loading test\embed_server_test.dart
+00:00 +0: test\markdown_parser_test.dart: markdown is read as text under its own parser name
+00:00 +1: test\markdown_parser_test.dart: markdown is read as text under its own parser name
+00:00 +2: test\markdown_parser_test.dart: markdown is read as text under its own parser name
+00:00 +3: test\markdown_parser_test.dart: markdown is read as text under its own parser name
+00:00 +4: test\markdown_parser_test.dart: markdown is read as text under its own parser name
+00:00 +5: test\markdown_parser_test.dart: markdown is read as text under its own parser name
+00:00 +6: test\markdown_parser_test.dart: markdown is read as text under its own parser name
+00:00 +7: test\markdown_parser_test.dart: markdown is read as text under its own parser name
+00:00 +8: test\markdown_parser_test.dart: markdown is read as text under its own parser name
+00:00 +9: test\markdown_parser_test.dart: markdown is read as text under its own parser name
+00:00 +10: test\embed_server_test.dart: a closed server restarts without forgetting completed calls
+00:00 +11: test\embed_server_test.dart: a closed server restarts without forgetting completed calls
+00:00 +12: test\embed_server_test.dart: a closed server restarts without forgetting completed calls
+00:00 +13: test\embed_server_test.dart: a closed server restarts without forgetting completed calls
+00:00 +14: test\embed_server_test.dart: a closed server restarts without forgetting completed calls
+00:00 +15: test\indexing_pipeline_test.dart: a document key can use the repository path
+00:00 +16: test\embed_server_test.dart: a structured error keeps the same process
+00:00 +17: test\indexing_pipeline_test.dart: blank chunks fail the file and write nothing
+00:00 +18: test\embed_server_test.dart: a dart subprocess echoes one length-prefixed frame
+00:00 +19: test\embed_server_test.dart: a dart subprocess echoes one length-prefixed frame
+00:00 +20: test\embed_server_test.dart: a dart subprocess echoes one length-prefixed frame
+00:00 +21: test\embed_server_test.dart: a response id that does not match drops the connection
+00:00 +22: test\embed_server_test.dart: an unavailable runtime refuses to run
+00:00 +23: test\embed_server_test.dart: float32 int32 and uint8 inputs keep their dtypes
+00:00 +24: test\embed_server_test.dart: a tensor whose bytes do not match its dtype is rejected
+00:00 +25: test\embed_server_test.dart: a bad vector payload is a bad output
+00:05 +26: All tests passed!
+test_exit=0
+dart run coverage:format_coverage --lcov --in=E:\Project\accessible-multimodal-retrieval\.dart_tool\w06-d1-lcov\cf2832d5d76442839dba9a7cfff89196 --out=E:\Project\accessible-multimodal-retrieval\reports\week6\coverage\core_pipeline.lcov.info --report-on=lib --package=.
+coverage_exit=0
