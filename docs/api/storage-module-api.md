@@ -241,9 +241,13 @@ const ScoredId({
 
 ```dart
 static int compareTie(ScoredId left, ScoredId right);
+static int compareRank(
+  (double, String, int?, int) left,
+  (double, String, int?, int) right,
+);
 ```
 
-同分时：`relativePath` 升序，`pageNumber` 升序且 null 在后，`startOffset` 升序。向量路和关键词路都用它。融合后的名次也用同一套规则，只是比的是 RRF 分数。
+`compareRank` 的位置字段依次为分数、`relativePath`、`pageNumber`、`startOffset`。排序依次比较分数降序、路径升序、页码升序且 null 在后、起点升序。`compareTie` 从两条完整命中取出这四项再比较。关键词与向量排序沿用这些字段，融合排序比较的是 RRF 分数。
 
 ### `IndexGeneration`
 
@@ -339,6 +343,8 @@ void close();
 向量查询分三段：先只读 `id` 与 `vec` 打分（过滤仍在 SQL 里生效），再按 `id` 回表补 tie-break 列并排序，最后只为选中的 `topK` 行取展示列。本次在 384 维、1 万块、`topK` 为 5 时，写入 444 ms，查询中位 44 ms（最小 41，最大 50）。写入不超过 0.6 s，查询不超过 60 ms，两项都达标。数字记在 `reports/week4/logs/storage_capacity.txt`。同分行的取舍由 `ScoredId.compareTie` 决定，剪枝不会丢掉 tie-break 更优的行。
 
 ## 5. 关键词
+
+关键词计划为 `KeywordPath.bigram`、没有额外 trigram 探测且 `topK <= 512` 时，存储层先聚合词项并在筛选结果中按分数和来源排序，再读取取中的行的正文和其他展示字段。两次读取使用同一个 SQLite 读快照。需要合并额外探测结果或 `topK` 更大时，沿用完整候选路径。`VectorStore.keyword` 的参数、计分和索引格式沿用既有契约。 [相同快照的优化对照](../../reports/week6/性能优化基准报告.md#2026-11-15-中文关键词性能复测)
 
 ### `chineseBigrams`
 

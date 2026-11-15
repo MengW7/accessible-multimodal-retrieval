@@ -28,3 +28,10 @@ native/onnx/bridge.cpp
   Ort::Env 使用 ORT_LOGGING_LEVEL_ERROR，并调用 DisableTelemetryEvents()。
 
 结论：抽查范围内没有把文件正文写入日志或冒烟 JSON。索引库中的切块文本不在这条结论里。
+
+D2 复核
+commit 14b3abeefcea15b7b3ed5f93956c7658eab52121
+
+普通运行与显式导出分开审查。runtime_session.dart 的 verifyRuntime 输出启动检查、临时库路径、计数、查询、来源路径、页码、偏移与通道。IngestionReport.toJson() 沿用默认 includeText=false。library_smoke.dart 导出进度、逐文件状态、错误及堆栈。错误详情可能包含本机路径和解析器诊断。
+
+额外查看 apps/desktop/tool/week6_pressure.dart。其 sources 工程评测结果显式含 hit.snippet，用于核对排名和片段，评测输入为固定或合成样本。此字段独立于上述冒烟 JSON。SQLite 中的 chunk.body 由索引使用。

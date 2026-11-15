@@ -147,7 +147,7 @@ B 不自动采集截图；截图与人工显示检查由用户完成，步骤见
 打开文件适配器在测试中用替身/通道模拟；真正的导入到系统查看器闭环、截图、断网与读屏操作由用户执行，
 见 `reports/week5/C_截图与人工检查.md`，不能由无界面验证推断全部通过。
 
-## 结构与下一步接线
+## 应用结构与运行时
 
 | 文件 | 职责 |
 |---|---|
@@ -173,10 +173,8 @@ B 不自动采集截图；截图与人工显示检查由用户完成，步骤见
 
 真实接线为带进度回调的 `IngestionService / IndexSource → DefaultIndexingPipeline → SqliteVectorStore`，
 查询为 `DefaultSearchPipeline → DefaultRetriever → QueryEncoder/VectorStore`。
-不调用 `bin/` 探针，不解析终端文字，不复制打分算法。会话持有 SQLite 和常驻嵌入进程，
-在 `finally` 或 worker 关闭时释放；B 的常驻 worker 传递进度、取消和结果，数据库句柄不传给 UI。
-C 复用同一个 worker 的真实搜索会话，后台只保留一个待执行的新查询；新请求会取消旧请求和过期排队项。
-控制器另用请求代次阻止旧结果/错误以及过期打开反馈覆盖新页面。索引命令与查询命令串行执行。
+会话持有 SQLite 和嵌入运行时。Windows 生产会话持有原生 ONNX 模型句柄，开发会话持有常驻 Python 进程，均在 `finally` 或 worker 关闭时释放。`WorkerLibraryService` 启动常驻 isolate，向 UI 回传进度、取消状态和查询结果。建库和检索在同一个 worker 中串行处理，后台只保留一个待执行的新查询。新请求会取消旧请求和过期排队项。
+控制器另用请求代次阻止旧结果/错误以及过期打开反馈覆盖新页面。
 现有 `IndexingPipeline` 接受 `IndexProgress` 回调与 `CancellationToken`；
 `SearchPipeline` 接受 `SearchFilters`、取消令牌和 Top-K。B 将解析失败记录与建库结果合并，
 不单独依赖 `IndexReport.failed`（它只统计嵌入/写库阶段失败）。

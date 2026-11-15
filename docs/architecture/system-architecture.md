@@ -96,7 +96,7 @@ graph TB
 | 层 | 职责（做什么） | 明确不做 | 周次 |
 |---|---|---|---|
 | **1. File I/O** | 目录递归扫描、白名单过滤、隐藏/临时文件跳过、`stat` 元数据、内容哈希；`IngestionService` 编排扫描和解析，带进度与取消 | 不解析正文、不调用嵌入、不写索引 | W2 |
-| **2. Parsing** | 按扩展名分派；TXT/PDF/DOCX/JPG/PNG → 文本分页 + 图像元数据 + `ParseOutcome` | 不做向量化、不做 OCR、不做 UI 文案 | W2 |
+| **2. Parsing** | 按扩展名分派；TXT/PDF/DOCX/JPG/PNG → 文本分页 + 图像元数据 + `ParseOutcome`。桌面另注册 `MarkdownParser`，经 `TxtParser` 读取 `.md` | 不做向量化、不做 OCR、不做 UI 文案 | W2 |
 | **3. Embedding Engine** | 统一 `embed()`；文本走多语言 MiniLM，图像走 MobileCLIP。生产路径是 Windows 上的原生 ONNX Runtime CPU；包内仍保留 Python ONNX 进程实现。输入由导入编排传入 | 不解析文件、不知道向量存哪 | W3 |
 | **4. Vector Storage** | 本地持久化向量索引和关键词/全文索引、查询、按元数据删除 | 不打分、不融合关键词与向量。暴力余弦只在本层排序单路结果 | W4 |
 | **4.5 编排** | `packages/core_pipeline`：`IndexingPipeline` / `SearchPipeline`。纯 Dart，可单测。桌面端只装配依赖 | 不实现解析器、不实现融合公式、不做界面 | W4 |
@@ -109,9 +109,9 @@ graph TB
 |---|---|---|
 | 错误模型 | 各级共用的 `model/` 值对象 | 用 `ParseFailure` / 返回码表达可预期失败；异常只用于编程错误 |
 | 取消 | `spi/CancellationToken` | 协作式；长任务在安全点调用 `throwIfCancelled()` |
-| 并发调度 | `spi/Executor` | W2 用 `ImmediateExecutor`；W6 可换成 worker isolate，调用方不改 |
-| 外部进程 | `spi/ProcessRunner` | 全包唯一允许 spawn 进程的位置 |
-| 日志 | W7 已按代码核对，见 [技术文档](../../reports/week7/技术文档.md) | 日志与冒烟 JSON 不写文件正文；只记路径、大小、耗时、错误类型。索引库本身保存切块文本，那不是日志 |
+| 并发调度 | 桌面 `WorkerLibraryService` 与解析 `spi/Executor` | 桌面文件库及检索由 `Isolate.spawn` 启动的常驻 worker 执行。解析执行器在调用方注入，默认仍为 `ImmediateExecutor` |
+| 外部进程 | 解析适配器、嵌入运行时和桌面诊断 | PDF 经 `IoProcessRunner` 调用本机 Java/Tika。开发嵌入使用常驻 Python，Windows 生产嵌入使用 ONNX DLL。桌面启动诊断探测 Java，开发模式另探测 Python |
+| 诊断与评测输出 | W7 维护文档 | 普通运行日志遵守正文约束。冒烟 JSON 可含查询、绝对路径、偏移和错误堆栈。工程性能探针可导出结果片段，SQLite 保存用于检索的切块正文。 [输出范围](../../reports/week7/技术文档.md#36-诊断与评测输出) |
 
 ---
 
@@ -119,8 +119,8 @@ graph TB
 
 ```text
 accessible-multimodal-retrieval/
-├─ apps/desktop/                     # 6. UI 与无障碍层（Flutter，W5）；只装配 core_pipeline
-│  └─ pubspec.yaml                   #    path 依赖：core_parsing、core_embedding、core_pipeline
+├─ apps/desktop/                     # 6. UI、应用服务及平台适配（Flutter）
+│  └─ pubspec.yaml                   #    path 依赖：core_parsing、core_embedding、core_pipeline、core_storage、core_retrieval
 ├─ packages/
 │  ├─ core_parsing/                  # 1+2. File I/O + Parsing（W2）
 │  │  ├─ lib/core_parsing.dart       #    唯一公开入口（barrel）
@@ -187,7 +187,7 @@ accessible-multimodal-retrieval/
 - **R1a** 导入编排的实现在 `packages/core_pipeline`。`apps/desktop` 只装配依赖。编排可以依次调用 File I/O、Parsing、Embedding、Storage。Embedding 不调用 Parsing，也不调用 Storage；写入由编排者完成。这一条在 ADR 0004 决策 6 从「只写在应用组合根」改为可单测的纯 Dart 包。
 - **R1b** 检索层同时依赖 Embedding 与 Storage。Storage 不调用 Embedding，也不 import 检索层。存储层可以持有 `EmbeddingVector` 值。`StorageFilter` 属于存储层，检索层的 `SearchFilters` 转换成它。
 - **R2** 层与层之间传 `ParsedDocument` / `FileMetadata` / `IngestRecord` 这类**不可变值**，不传文件句柄、不传 `File` 对象。交给 Embedding 的是文本或图像字节，交给 Storage 的是向量、正文和元数据。
-- **R3** 副作用（文件、进程、模型、存储）必须经接口注入。`dart:io` 的 `Process` 只允许出现在 `core_parsing` 的 `spi/` 实现，以及 `core_pipeline` 的常驻运行时连接里。这两处都要能换成假实现。
+- **R3** 解析与嵌入通过接口隔离文件、进程和模型，编排依赖注入的存储接口。解析进程由 `IoProcessRunner` 启动，开发嵌入进程由 `core_pipeline` 的运行时连接持有，启动诊断在桌面 `runtime_diagnostics.dart` 中运行。Windows 生产嵌入由桌面 FFI 适配器装配。
 - **R4** Widget 不得 `import 'dart:io'` 读文件。导入由应用服务编排，搜索只消费检索层返回的结果。
 
 ---
@@ -262,7 +262,7 @@ class CancellationTokenSource { CancellationToken get token; void cancel(); }
 | P5 | 外部进程的 stdout 才是正文，stderr 只作诊断（Tika 会往 stderr 打 INFO 噪声） |
 | P6 | 分页：PDF 一页一条 `DocumentPage`；TXT/DOCX 单页；图像无文本 |
 | P7 | 编码：TXT 必须支持 UTF-8 / UTF-8 BOM / UTF-16 LE·BE / GBK，降级时写 `warnings`（如 `encoding-fallback:gbk`） |
-| P8 | 任何日志/报告不得包含文件正文（隐私约束 C1） |
+| P8 | 普通运行日志不得包含文件正文（隐私约束 C1）。工程评测与冒烟的导出范围见 §3.2 |
 
 ---
 
@@ -383,12 +383,12 @@ sequenceDiagram
 
 ## 9. 进程 / 线程 / 隔离模型
 
-| 执行体 | 承载内容 | W2 状态 | 后续 |
-|---|---|---|---|
-| **Flutter UI isolate** | 界面、事件、取消源 | 未接入 | W5 已接入四个界面。建库和查询在独立 isolate |
-| **主 isolate（Dart）** | 扫描、编排、TXT/DOCX/图像解析、元数据 | **W2 落地** | 桌面应用把这些调用放进 worker isolate。`core_parsing` 的 `Executor` 仍由调用方注入 |
-| **worker isolate** | 桌面端的建库、查询和 SQLite | 接口已预留（`Executor`） | W6 的 `WorkerLibraryService` 已使用 isolate。解析包内部没有因此改成另一个 Executor |
-| **外部进程** | `java` + Tika，只服务 PDF。生产嵌入不再另起 Python 进程 | W2 落地 | TDD Q1 于 2026-10-15 结案：不换 PDFium，PDF 继续 Tika |
+| 执行体 | 承载内容 |
+|---|---|
+| **Flutter UI isolate** | 四个功能区、界面状态和取消请求 |
+| **常驻文件库 worker isolate** | 扫描、解析编排、建库、检索、SQLite 以及模型会话。`WorkerLibraryService` 负责启动和关闭，解析 `Executor` 仍由调用方注入 |
+| **诊断与冒烟任务** | 应用服务的启动诊断经 `Isolate.run` 执行，显式工程冒烟入口运行独立用例 |
+| **外部进程** | PDF 由本机 Java/Tika 解析。开发模式的嵌入会话持有 Python 子进程，Windows 生产嵌入由 worker 经 FFI 执行 |
 ---
 
 ## 10. 错误分层与降级策略
@@ -413,12 +413,12 @@ sequenceDiagram
 
 | 要求 | 实现方式 |
 |---|---|
-| 不联网 | 运行时不发起任何网络请求；模型与依赖随包或本机已存在（C1） |
-| 不外传 | 无遥测、无崩溃上报、无云同步 |
-| 数据落地位置 | 索引数据只写本机应用目录（W4 定义具体路径），提供"清除索引" |
-| 日志 | 只记路径/大小/耗时/错误类型；永不记录文件正文（契约 P8） |
+| 离线运行 | Windows 生产入口从本地资源根加载模型与依赖。W6 已审查应用入口及子进程调用，并采样无界面场景的 TCP 状态。原生场次的 DNS、UDP、出站及系统查看器观测仍待补。 [安全审查](../../reports/week6/缺陷修复与安全审查报告.md) |
+| 数据外发边界 | 审查的应用入口没有云同步或日志上传。ONNX 桥创建环境后关闭 ORT 遥测，系统关联查看器的行为独立观察 |
+| 数据落地位置 | 索引存于应用数据目录，可用绝对 `AMR_DATA_DIR` 覆盖。界面的“清除全部索引”清理索引与目录记录 |
+| 诊断与评测输出 | 普通运行日志遵守 P8。可选冒烟和性能报告可能含绝对路径、查询及结果片段，范围见 §3.2 |
 | 仓库卫生 | `.gitignore` 排除 `.venv/`、`chroma_data/`、模型权重、非 samples 的数据集图片（对应风险 R9） |
-| 进程调用 | 只调用本机已知可执行文件（`java`），参数为固定模板 + 文件路径，不做 shell 拼接 |
+| 进程调用 | Java/Tika、开发嵌入和启动探测均使用本机程序，文件路径作为独立参数传入。打开原文件由系统关联应用接手 |
 
 ---
 

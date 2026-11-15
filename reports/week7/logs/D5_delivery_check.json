@@ -1,0 +1,80 @@
+{
+  "date": "2026-11-15",
+  "sourceHead": "14b3abeefcea15b7b3ed5f93956c7658eab52121",
+  "originalD5Source": "04c22914a86f9cd3d1d6cf9050b4e2e16055627e",
+  "candidateManifest": "reports/week6/logs/D5_10k_keyword_candidate.json",
+  "candidateFilesVerified": 12,
+  "reviewedDocuments": {
+    "技术文档.md": "6e4bd75b067ed102de2703ba9c663e0d8642e77dd342dd3447862735fa1d7025",
+    "用户手册.md": "956451835c18beb8af82a0bd597871a899fbee56cd7025e2693170582f340e80",
+    "开源合规报告.md": "900d1ffae8f1916a70435606909aff8fea8c91f68d774bc0456c1ba6b9382f19",
+    "演示脚本.md": "36930b03f332bf86aef86e7224e4726b5133ea550b001c85ab7435f79e4312df",
+    "W07_report.md": "eb65a5621377301b43d874a1457a01c6a12458a3203126253c888ffbc51340bb",
+    "W08_移交.md": "071fc3b463d9c7237a097b6323ac9bdf246c257bca7b6d6c3507342e1127ce1e",
+    "D1_缺口表.md": "ad4e71d595596fc0fef2a99b03a69d42eae07303996308dfb00a222c89bc852c"
+  },
+  "verifiedLocalLinks": 186,
+  "deliverables": {
+    "G1": {
+      "document": "技术文档.md",
+      "evidence": "logs/D2_maintenance_verification.json",
+      "pending": "second maintainer walkthrough and native checks"
+    },
+    "G2": {
+      "document": "用户手册.md",
+      "evidence": "logs/D3_headless_acceptance.json",
+      "pending": "current candidate native viewer and assistive technology checks"
+    },
+    "G3": {
+      "document": "开源合规报告.md",
+      "evidence": "logs/D4_dependency_inventory.json",
+      "pending": "actual installer notices and runtime redistribution review"
+    },
+    "G4": {
+      "document": "演示脚本.md",
+      "durationSeconds": 300,
+      "segments": 5,
+      "pending": "record and edit the video"
+    }
+  },
+  "demoPreflight": {
+    "method": "Production Dart worker using the documented fixtures",
+    "exitCode": 0,
+    "sqliteQuickCheck": "ok",
+    "result": {
+      "ok": true,
+      "workingDirectory": "C:\\Windows",
+      "databasePath": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w07-d2\\manual-1f903cb3f7dc482c8e18d3cef70a0d98\\demo-data\\library.sqlite",
+      "mode": "release",
+      "written": 4,
+      "chunks": 98,
+      "failed": {
+        "path": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w07-d2\\manual-1f903cb3f7dc482c8e18d3cef70a0d98\\demo-fixtures\\bad.docx",
+        "status": "failed",
+        "detail": "DOCX is not a valid zip container.",
+        "warning": false
+      },
+      "request": {
+        "query": "tika",
+        "topK": 20,
+        "extensions": [
+          ".pdf"
+        ],
+        "pathPrefix": "notes",
+        "modifiedAfter": null,
+        "modality": null
+      },
+      "matches": 20,
+      "firstSource": {
+        "relativePath": "notes/sample.pdf",
+        "absolutePath": "E:/Project/accessible-multimodal-retrieval/.dart_tool/w07-d2/manual-1f903cb3f7dc482c8e18d3cef70a0d98/demo-fixtures/notes/sample.pdf",
+        "pageNumber": 1,
+        "startOffset": 1318,
+        "endOffset": 1328
+      },
+      "incrementalReused": 4,
+      "interactiveViewerOpened": false,
+      "networkIsolated": false
+    }
+  }
+}
