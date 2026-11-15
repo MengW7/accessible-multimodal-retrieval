@@ -1,0 +1,3660 @@
+{
+  "sourceHead": "14b3abeefcea15b7b3ed5f93956c7658eab52121",
+  "release": {
+    "manifest": "reports/week6/logs/D5_10k_keyword_candidate.json",
+    "directory": ".dart_tool/w06-10k-desktop/replay-20261115-114327-685/src/apps/desktop/build/windows/x64/runner/Release",
+    "verifiedFiles": {
+      "desktop.exe": "e0af370dad83c60edb5cc03f35d7fd8d4c12237f9c16304f71e2f98bf3e1baa9",
+      "flutter_windows.dll": "8bd7b61eee31aa436edb182db41624d1cd3b2688a7e03622320dbeae067b5251",
+      "data/app.so": "41c36aa3c372d6fcba4701a322f3f6185d9172d2b5b90a3e39d1d480c16ad0a3",
+      "data/icudtl.dat": "325a86063d26334c2eabe1743cea073b612540fbf3d8fc2ef0b5708e3763a8c7",
+      "data/flutter_assets/AssetManifest.bin": "00af55ad3d6f21898fe77e0ff092d1a1cda52c941b6860e9928d45c8af8c095d",
+      "data/flutter_assets/FontManifest.json": "cd7e03645bc44b2dd47b7cb626f51c4ecbf55a197ab77241628b47ac165fbe21",
+      "data/flutter_assets/NativeAssetsManifest.json": "9548a31e4a048135c1d94f919328bfb62ae2c7bb3cab96557c7941daa97776cb",
+      "data/flutter_assets/NOTICES.Z": "902e8ade331a1d527013b5d77f72e1c68466c6021259325407c4ad2733cf0b20",
+      "data/flutter_assets/fonts/MaterialIcons-Regular.otf": "097e209bf16431b051b35f177cc3d743432c82bd1f55739c29fb5671cf107547",
+      "data/flutter_assets/shaders/ink_sparkle.frag": "1fe8436a743884cb65078fe8c7b38e18f5365f2a2961270916f426fd13c604af",
+      "data/flutter_assets/shaders/stretch_effect.frag": "bc7599dbbbaab310efe41520574138d21fb18a88c8fe4495ed79315309336f6f",
+      "data/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "67c44fe9183b002e79dde7f6977e2988661c9a3e4a3c5fce968787efdbed823c"
+    },
+    "flutterNoticesSha256": "902e8ade331a1d527013b5d77f72e1c68466c6021259325407c4ad2733cf0b20",
+    "materialIcons": {
+      "buildInputPointer": "flutter_infra_release/flutter/fonts/3012db47f3130e62f7cc0beabff968a33cbec8d8/fonts.zip",
+      "buildDepfile": ".dart_tool/w06-10k-desktop/replay-20261115-114327-685/src/apps/desktop/.dart_tool/flutter_build/83049f5281d52afbdd47327d46abe268/flutter_assets.d",
+      "inputFontSha256": "d9865b671a09d683d13a863089d8825e0f61a37696ce5d7d448bc8023aa62453",
+      "outputFontSha256": "097e209bf16431b051b35f177cc3d743432c82bd1f55739c29fb5671cf107547",
+      "inputBytes": 1645184,
+      "outputBytes": 2784,
+      "sdkLicensePath": "bin/cache/artifacts/material_fonts/materialicons_license.txt",
+      "sdkLicenseSha256": "be698262aecd042c0de6f886cc0af622f8def446462026992cc530275d8a9e74",
+      "sdkLicenseIdentifier": "CC-BY-4.0",
+      "sdkLicenseTextInReleaseNotices": false
+    }
+  },
+  "licenseFiles": {
+    "LICENSE": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6",
+    "Flutter SDK/LICENSE": "a3a9fd82f800a47377f7d3f60c60a5c91cae0495be8f329031e1448ce0f5dab9",
+    "tools/tika-app/LICENSE": "52a6a8d092da95a6d480a4ba16b2c4cef126f3453c1c4a55761570008dffc93b",
+    "tools/tika-app/NOTICE": "c0a22681091826c1b8237ebefd3ab0308b467975aa58e52348d90a31183eb17f",
+    "runtime/bin/LICENSE": "c250d6278f0b47a6439fb7592b08b58a55eb9f535aa49a1db63211c3f982b674",
+    "runtime/bin/ThirdPartyNotices.txt": "e00f828e0a33de591a355ae6606d2625f5758da7d2c844db7821c9dd3e3647b6",
+    "Temurin/NOTICE": "c02756bcd9fa8191bf0fda4451bc018414dd44ee35bf09922c24377a475e4b5a",
+    "Temurin/legal/java.base/LICENSE": "4b9abebc4338048a7c2dc184e9f800deb349366bdf28eb23c2677a77b4c87726",
+    "Temurin/legal/java.base/ASSEMBLY_EXCEPTION": "75292f03bf23d3db7c985aecc191029b93883200721ed23ed34a2e601463df33",
+    "Temurin/legal/java.base/ADDITIONAL_LICENSE_INFO": "a69bce275ba7a3570af6579cb0f55682cd75fedfcd49e0e8e9022270c447c916"
+  },
+  "dart": {
+    "lockfiles": [
+      {
+        "file": "apps/desktop/pubspec.lock",
+        "sha256": "bbc8507474ba4112ba6e2e6d3dd1dc4a388d3e9683bc9ca0226fe1154d9c9415",
+        "entries": 44,
+        "cachedGraphVersionDifferences": {}
+      },
+      {
+        "file": "packages/core_embedding/pubspec.lock",
+        "sha256": "9d394d2658caea446ffffb8b7381d2df3955f052d9bae9561d2fc6cccafff3e9",
+        "entries": 56,
+        "cachedGraphVersionDifferences": {
+          "_fe_analyzer_shared": {
+            "lock": null,
+            "cachedGraph": "109.0.0"
+          }
+        }
+      },
+      {
+        "file": "packages/core_parsing/pubspec.lock",
+        "sha256": "d77fea75c5fa72de4942305f6f599ebd13a5a40022bd26197f34078fedf631c2",
+        "entries": 51,
+        "cachedGraphVersionDifferences": {
+          "_fe_analyzer_shared": {
+            "lock": null,
+            "cachedGraph": "96.0.0"
+          }
+        }
+      },
+      {
+        "file": "packages/core_pipeline/pubspec.lock",
+        "sha256": "b334f4217b1d93dc232f3b9fd8efd9361249022710df2645128e6e0009d649e2",
+        "entries": 60,
+        "cachedGraphVersionDifferences": {
+          "_fe_analyzer_shared": {
+            "lock": null,
+            "cachedGraph": "109.0.0"
+          }
+        }
+      },
+      {
+        "file": "packages/core_retrieval/pubspec.lock",
+        "sha256": "767236aaa1a00f812c655706a99dbe87be901e7b0da77ebe422247b75a8626ff",
+        "entries": 59,
+        "cachedGraphVersionDifferences": {
+          "_fe_analyzer_shared": {
+            "lock": null,
+            "cachedGraph": "109.0.0"
+          }
+        }
+      },
+      {
+        "file": "packages/core_storage/pubspec.lock",
+        "sha256": "3356b0092079b9b8f67fdfcad462697e44b42328d8d584d93e7ff15dbc68058c",
+        "entries": 58,
+        "cachedGraphVersionDifferences": {
+          "_fe_analyzer_shared": {
+            "lock": null,
+            "cachedGraph": "109.0.0"
+          }
+        }
+      }
+    ],
+    "uniqueHostedNameVersionPairs": 78,
+    "desktopDependencyGraphReachableHostedPairs": 19,
+    "packages": [
+      {
+        "name": "analyzer",
+        "version": "10.2.0",
+        "locks": [
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "analyzer-10.2.0/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "7e124af6a556f045cb3a20cafbdaa31602ac2c82cbcb3c3b15faaaf514b06028"
+      },
+      {
+        "name": "analyzer",
+        "version": "14.5.0",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "analyzer-14.5.0/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "7e124af6a556f045cb3a20cafbdaa31602ac2c82cbcb3c3b15faaaf514b06028"
+      },
+      {
+        "name": "archive",
+        "version": "3.6.1",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "direct main"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": true,
+        "licensePathInPubCache": "archive-3.6.1/LICENSE",
+        "licenseSpdx": "MIT",
+        "licenseSha256": "32f97d332eae7453ec4079858e6f1d74be85beeb6d3881068b47d02a379cccea",
+        "entryInReleaseNotices": true
+      },
+      {
+        "name": "args",
+        "version": "2.7.0",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "args-2.7.0/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "dfb09c74e29386cd3e2719f32d4995d59526179753931d31840757c77fbf2791"
+      },
+      {
+        "name": "async",
+        "version": "2.13.1",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "async-2.13.1/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "ff15faa32a2e638107b7789592b14426162a75ba620044ee2340a20ec6ce5e73"
+      },
+      {
+        "name": "boolean_selector",
+        "version": "2.1.2",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "boolean_selector-2.1.2/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "b71519245009a3b8f126196a5408ec031e216e8e0d985085958c6543f82a8a2a"
+      },
+      {
+        "name": "characters",
+        "version": "1.4.1",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "direct main"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": true,
+        "licensePathInPubCache": "characters-1.4.1/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "0371d1da6a57fb791db29d29b95333429205f51f3cb2eb3a0c12d91838a38744",
+        "entryInReleaseNotices": true
+      },
+      {
+        "name": "cli_config",
+        "version": "0.2.0",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "cli_config-0.2.0/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "605bcf409f2347e3bcc9905ab70a2f3218e841bae372b0cbfbf305a222f74222"
+      },
+      {
+        "name": "cli_util",
+        "version": "0.6.0",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "cli_util-0.6.0/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "ff15faa32a2e638107b7789592b14426162a75ba620044ee2340a20ec6ce5e73"
+      },
+      {
+        "name": "clock",
+        "version": "1.1.3",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": true,
+        "licensePathInPubCache": "clock-1.1.3/LICENSE",
+        "licenseSpdx": "Apache-2.0",
+        "licenseSha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd",
+        "entryInReleaseNotices": true
+      },
+      {
+        "name": "collection",
+        "version": "1.19.1",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": true,
+        "licensePathInPubCache": "collection-1.19.1/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "ff15faa32a2e638107b7789592b14426162a75ba620044ee2340a20ec6ce5e73",
+        "entryInReleaseNotices": true
+      },
+      {
+        "name": "convert",
+        "version": "3.1.2",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "convert-3.1.2/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "ad6a71997da90924b2cfb1fb47ec46537f70faf469efe016168794ae45ed6888"
+      },
+      {
+        "name": "coverage",
+        "version": "1.15.1",
+        "locks": [
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "direct dev"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "coverage-1.15.1/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16"
+      },
+      {
+        "name": "coverage",
+        "version": "1.16.0",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "direct dev"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "direct dev"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "direct dev"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "direct dev"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "coverage-1.16.0/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16"
+      },
+      {
+        "name": "crypto",
+        "version": "3.0.7",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "direct main"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "direct main"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": true,
+        "licensePathInPubCache": "crypto-3.0.7/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "ad6a71997da90924b2cfb1fb47ec46537f70faf469efe016168794ae45ed6888",
+        "entryInReleaseNotices": true
+      },
+      {
+        "name": "cupertino_icons",
+        "version": "1.0.9",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "direct main"
+          }
+        ],
+        "reachableFromDesktopDependencies": true,
+        "licensePathInPubCache": "cupertino_icons-1.0.9/LICENSE",
+        "licenseSpdx": "MIT",
+        "licenseSha256": "310d6ab6483280280c9db122bded0a63c09558bc5743720f61dbcbb494db370a",
+        "entryInReleaseNotices": true
+      },
+      {
+        "name": "fake_async",
+        "version": "1.3.3",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "fake_async-1.3.3/LICENSE",
+        "licenseSpdx": "Apache-2.0",
+        "licenseSha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
+      },
+      {
+        "name": "ffi",
+        "version": "2.2.0",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "direct main"
+          },
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "direct main"
+          }
+        ],
+        "reachableFromDesktopDependencies": true,
+        "licensePathInPubCache": "ffi-2.2.0/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "0371d1da6a57fb791db29d29b95333429205f51f3cb2eb3a0c12d91838a38744",
+        "entryInReleaseNotices": true
+      },
+      {
+        "name": "file",
+        "version": "7.0.1",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "file-7.0.1/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "f6df86b1412172537273e8e80ee2fb8a66aa7307ce0b39ea5ddab47ca41b8c49"
+      },
+      {
+        "name": "flutter_lints",
+        "version": "6.0.0",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "direct dev"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "flutter_lints-6.0.0/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "89519eca6f7b9529b35bdddd623a58c3af06a88c458dbd6531ddb4675acf75a9"
+      },
+      {
+        "name": "frontend_server_client",
+        "version": "4.0.0",
+        "locks": [
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "frontend_server_client-4.0.0/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "f3fedf65adeec4d6ccb2abf053ebc0f07603d402db3d3c5651322b50502e1071"
+      },
+      {
+        "name": "frontend_server_client",
+        "version": "4.1.0",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "frontend_server_client-4.1.0/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "2cfa3ee8e7512e6d44c854b986510810fadc815f93f890373b3a81c1b6ccd256"
+      },
+      {
+        "name": "glob",
+        "version": "2.2.0",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "glob-2.2.0/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16"
+      },
+      {
+        "name": "http_multi_server",
+        "version": "3.2.2",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "http_multi_server-3.2.2/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "ff0b91d4f3c32b25cb6ec84985e8da89b0ba2a2b2f7eef353cda5e5423a20390"
+      },
+      {
+        "name": "http_parser",
+        "version": "4.1.2",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "http_parser-4.1.2/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16"
+      },
+      {
+        "name": "image",
+        "version": "4.3.0",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "direct main"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "direct main"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": true,
+        "licensePathInPubCache": "image-4.3.0/LICENSE",
+        "licenseSpdx": "MIT",
+        "licenseSha256": "f3c17da84e0780e1c334325c73098257c32221d62498ed55ef3c1361904925aa",
+        "entryInReleaseNotices": true
+      },
+      {
+        "name": "intl",
+        "version": "0.20.3",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": true,
+        "licensePathInPubCache": "intl-0.20.3/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "7e124af6a556f045cb3a20cafbdaa31602ac2c82cbcb3c3b15faaaf514b06028",
+        "entryInReleaseNotices": true
+      },
+      {
+        "name": "io",
+        "version": "1.1.0",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "io-1.1.0/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "ea97a7558a7bd7cee4e2355f7529e3cbebb0dcbb546ddb9a90f10c9eb6b08da5"
+      },
+      {
+        "name": "leak_tracker",
+        "version": "11.0.2",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "leak_tracker-11.0.2/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "08a004aa8956c3cf3b24f7f69c966247233953e18e6afaa61191ea47b7eb70f6"
+      },
+      {
+        "name": "leak_tracker_flutter_testing",
+        "version": "3.0.10",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "leak_tracker_flutter_testing-3.0.10/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "08a004aa8956c3cf3b24f7f69c966247233953e18e6afaa61191ea47b7eb70f6"
+      },
+      {
+        "name": "leak_tracker_testing",
+        "version": "3.0.2",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "leak_tracker_testing-3.0.2/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "08a004aa8956c3cf3b24f7f69c966247233953e18e6afaa61191ea47b7eb70f6"
+      },
+      {
+        "name": "lints",
+        "version": "6.1.0",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "direct dev"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "direct dev"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "direct dev"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "direct dev"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "direct dev"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "lints-6.1.0/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "421fe78c3b5df297f8b4ab2c74f2450a274ee6d245a113091f6b9f90570af193"
+      },
+      {
+        "name": "logging",
+        "version": "1.3.0",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "logging-1.3.0/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "dfb09c74e29386cd3e2719f32d4995d59526179753931d31840757c77fbf2791"
+      },
+      {
+        "name": "matcher",
+        "version": "0.12.20",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "matcher-0.12.20/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16"
+      },
+      {
+        "name": "material_color_utilities",
+        "version": "0.13.0",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": true,
+        "licensePathInPubCache": "material_color_utilities-0.13.0/LICENSE",
+        "licenseSpdx": "Apache-2.0",
+        "licenseSha256": "d103f246ef4c18dab8af0c1dcf6a8af884e5cff554da7261a48ac43c17d98f2e",
+        "entryInReleaseNotices": true
+      },
+      {
+        "name": "meta",
+        "version": "1.18.3",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": true,
+        "licensePathInPubCache": "meta-1.18.3/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "b71519245009a3b8f126196a5408ec031e216e8e0d985085958c6543f82a8a2a",
+        "entryInReleaseNotices": true
+      },
+      {
+        "name": "meta",
+        "version": "1.19.0",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "direct main"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "direct main"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "direct main"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "direct main"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "direct main"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "meta-1.19.0/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "b71519245009a3b8f126196a5408ec031e216e8e0d985085958c6543f82a8a2a"
+      },
+      {
+        "name": "mime",
+        "version": "2.1.0",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "mime-2.1.0/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "ff15faa32a2e638107b7789592b14426162a75ba620044ee2340a20ec6ce5e73"
+      },
+      {
+        "name": "node_preamble",
+        "version": "2.0.2",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "node_preamble-2.0.2/LICENSE",
+        "licenseSpdx": "MIT",
+        "licenseSha256": "41997ee02074e3796e539b81b4501ed7d8bc1a620d11ef32cf56494e778461a9"
+      },
+      {
+        "name": "package_config",
+        "version": "2.2.0",
+        "locks": [
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "package_config-2.2.0/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "0371d1da6a57fb791db29d29b95333429205f51f3cb2eb3a0c12d91838a38744"
+      },
+      {
+        "name": "package_config",
+        "version": "3.0.0",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "package_config-3.0.0/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "0371d1da6a57fb791db29d29b95333429205f51f3cb2eb3a0c12d91838a38744"
+      },
+      {
+        "name": "path",
+        "version": "1.9.1",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "direct main"
+          },
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "direct main"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "direct main"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "direct main"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "direct main"
+          }
+        ],
+        "reachableFromDesktopDependencies": true,
+        "licensePathInPubCache": "path-1.9.1/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16",
+        "entryInReleaseNotices": true
+      },
+      {
+        "name": "petitparser",
+        "version": "7.0.2",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": true,
+        "licensePathInPubCache": "petitparser-7.0.2/LICENSE",
+        "licenseSpdx": "MIT",
+        "licenseSha256": "d2e8ffdbe89acbc10d5d1f2b03e7dbddf0a9f1742e809176682b62ef3d573b3e",
+        "entryInReleaseNotices": true
+      },
+      {
+        "name": "petitparser",
+        "version": "7.1.0",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "petitparser-7.1.0/LICENSE",
+        "licenseSpdx": "MIT",
+        "licenseSha256": "0be767174b97278f17da4923a74169e8645631f03ea3d8482ec3523c9b1a0dd3"
+      },
+      {
+        "name": "pool",
+        "version": "1.5.3",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "pool-1.5.3/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16"
+      },
+      {
+        "name": "pub_semver",
+        "version": "2.2.1",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "pub_semver-2.2.1/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16"
+      },
+      {
+        "name": "shelf",
+        "version": "1.4.2",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "shelf-1.4.2/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "ff0b91d4f3c32b25cb6ec84985e8da89b0ba2a2b2f7eef353cda5e5423a20390"
+      },
+      {
+        "name": "shelf",
+        "version": "1.4.3",
+        "locks": [
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "shelf-1.4.3/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "ff0b91d4f3c32b25cb6ec84985e8da89b0ba2a2b2f7eef353cda5e5423a20390"
+      },
+      {
+        "name": "shelf_packages_handler",
+        "version": "3.0.2",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "shelf_packages_handler-3.0.2/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "b71519245009a3b8f126196a5408ec031e216e8e0d985085958c6543f82a8a2a"
+      },
+      {
+        "name": "shelf_static",
+        "version": "1.1.3",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "shelf_static-1.1.3/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "ad6a71997da90924b2cfb1fb47ec46537f70faf469efe016168794ae45ed6888"
+      },
+      {
+        "name": "shelf_static",
+        "version": "1.2.0",
+        "locks": [
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "shelf_static-1.2.0/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "ad6a71997da90924b2cfb1fb47ec46537f70faf469efe016168794ae45ed6888"
+      },
+      {
+        "name": "shelf_web_socket",
+        "version": "3.0.0",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "shelf_web_socket-3.0.0/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "ff0b91d4f3c32b25cb6ec84985e8da89b0ba2a2b2f7eef353cda5e5423a20390"
+      },
+      {
+        "name": "source_map_stack_trace",
+        "version": "2.1.2",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "source_map_stack_trace-2.1.2/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "ad6a71997da90924b2cfb1fb47ec46537f70faf469efe016168794ae45ed6888"
+      },
+      {
+        "name": "source_maps",
+        "version": "0.10.14",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "source_maps-0.10.14/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "ff0b91d4f3c32b25cb6ec84985e8da89b0ba2a2b2f7eef353cda5e5423a20390"
+      },
+      {
+        "name": "source_span",
+        "version": "1.10.2",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "source_span-1.10.2/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16"
+      },
+      {
+        "name": "sqlite3",
+        "version": "2.9.4",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "direct main"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "direct main"
+          }
+        ],
+        "reachableFromDesktopDependencies": true,
+        "licensePathInPubCache": "sqlite3-2.9.4/LICENSE",
+        "licenseSpdx": "MIT",
+        "licenseSha256": "67e5d73a3a0c6e41f33d688a672b1161bf7f16e04da9ae48a7a14f1ba7436a4d",
+        "entryInReleaseNotices": true
+      },
+      {
+        "name": "stack_trace",
+        "version": "1.12.2",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "stack_trace-1.12.2/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "ff0b91d4f3c32b25cb6ec84985e8da89b0ba2a2b2f7eef353cda5e5423a20390"
+      },
+      {
+        "name": "stream_channel",
+        "version": "2.1.4",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "stream_channel-2.1.4/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "ff15faa32a2e638107b7789592b14426162a75ba620044ee2340a20ec6ce5e73"
+      },
+      {
+        "name": "string_scanner",
+        "version": "1.4.1",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "string_scanner-1.4.1/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16"
+      },
+      {
+        "name": "term_glyph",
+        "version": "1.2.2",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "term_glyph-1.2.2/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "ea97a7558a7bd7cee4e2355f7529e3cbebb0dcbb546ddb9a90f10c9eb6b08da5"
+      },
+      {
+        "name": "test",
+        "version": "1.31.1",
+        "locks": [
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "direct dev"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "test-1.31.1/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16"
+      },
+      {
+        "name": "test",
+        "version": "1.33.0",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "direct dev"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "direct dev"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "direct dev"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "direct dev"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "test-1.33.0/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16"
+      },
+      {
+        "name": "test_api",
+        "version": "0.7.12",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "test_api-0.7.12/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "ff1b9f0df9036c04be424b1e3ce12789bea880ad5ffc3a48e069ae2d40a087a4"
+      },
+      {
+        "name": "test_api",
+        "version": "0.7.15",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "test_api-0.7.15/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "ff1b9f0df9036c04be424b1e3ce12789bea880ad5ffc3a48e069ae2d40a087a4"
+      },
+      {
+        "name": "test_core",
+        "version": "0.6.18",
+        "locks": [
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "test_core-0.6.18/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "ff1b9f0df9036c04be424b1e3ce12789bea880ad5ffc3a48e069ae2d40a087a4"
+      },
+      {
+        "name": "test_core",
+        "version": "0.6.21",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "test_core-0.6.21/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "ff1b9f0df9036c04be424b1e3ce12789bea880ad5ffc3a48e069ae2d40a087a4"
+      },
+      {
+        "name": "typed_data",
+        "version": "1.4.0",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": true,
+        "licensePathInPubCache": "typed_data-1.4.0/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "ff15faa32a2e638107b7789592b14426162a75ba620044ee2340a20ec6ce5e73",
+        "entryInReleaseNotices": true
+      },
+      {
+        "name": "unorm_dart",
+        "version": "0.2.0",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "direct main"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": true,
+        "licensePathInPubCache": "unorm_dart-0.2.0/LICENSE",
+        "licenseSpdx": "MIT",
+        "licenseSha256": "8884fc22f0944465ab8fca4e934fef3db9ab2b3b14f95874f1d833aa75f81553",
+        "entryInReleaseNotices": true
+      },
+      {
+        "name": "vector_math",
+        "version": "2.4.0",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": true,
+        "licensePathInPubCache": "vector_math-2.4.0/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "420f7739f169097f0aad1242045169cd643c8f1d94e62866fad265ae4c369b7d",
+        "entryInReleaseNotices": true
+      },
+      {
+        "name": "vm_service",
+        "version": "15.3.0",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "vm_service-15.3.0/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "ad6a71997da90924b2cfb1fb47ec46537f70faf469efe016168794ae45ed6888"
+      },
+      {
+        "name": "vm_service",
+        "version": "15.4.0",
+        "locks": [
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "vm_service-15.4.0/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "ad6a71997da90924b2cfb1fb47ec46537f70faf469efe016168794ae45ed6888"
+      },
+      {
+        "name": "watcher",
+        "version": "1.2.1",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "watcher-1.2.1/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "3c32b53167c7dae9190c38dab5dd9fe1789c53623ebc7d1babcb29914c5b3f16"
+      },
+      {
+        "name": "web",
+        "version": "1.1.1",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": true,
+        "licensePathInPubCache": "web-1.1.1/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "aa913ff50d7542eb8cc35b9f48a80928ac6819ba9057f85d424655e3e8dc271c",
+        "entryInReleaseNotices": true
+      },
+      {
+        "name": "web_socket",
+        "version": "1.0.1",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "web_socket-1.0.1/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "cbe822ef3446af4366b2b82c48b0979d0b12865edfe74c22b9aa617fc362d6e0"
+      },
+      {
+        "name": "web_socket_channel",
+        "version": "3.0.3",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "web_socket_channel-3.0.3/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "a4b5d7d31626e90b77e8696f1c47643aa31f52e17c1907c1ab60b068110e6e10"
+      },
+      {
+        "name": "webkit_inspection_protocol",
+        "version": "1.2.1",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "webkit_inspection_protocol-1.2.1/LICENSE",
+        "licenseSpdx": "BSD-3-Clause",
+        "licenseSha256": "eb9a6b9672316612439514f10b5d3b24bcd140313c96a73c370bb7b07897a8cd"
+      },
+      {
+        "name": "xml",
+        "version": "6.6.1",
+        "locks": [
+          {
+            "file": "apps/desktop/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "direct main"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": true,
+        "licensePathInPubCache": "xml-6.6.1/LICENSE",
+        "licenseSpdx": "MIT",
+        "licenseSha256": "1f18a2e5a5c57381d93efa92df86477eb1205689b345417c90fcfdc09fa4fa1f",
+        "entryInReleaseNotices": true
+      },
+      {
+        "name": "yaml",
+        "version": "3.1.4",
+        "locks": [
+          {
+            "file": "packages/core_embedding/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_parsing/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_pipeline/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_retrieval/pubspec.lock",
+            "dependency": "transitive"
+          },
+          {
+            "file": "packages/core_storage/pubspec.lock",
+            "dependency": "transitive"
+          }
+        ],
+        "reachableFromDesktopDependencies": false,
+        "licensePathInPubCache": "yaml-3.1.4/LICENSE",
+        "licenseSpdx": "MIT",
+        "licenseSha256": "d47b93335401b052d79a2f5a3710e4cf7b5aed782faedf84d40fbdd6eb934ec7"
+      }
+    ]
+  },
+  "systemDependencies": {
+    "sqlite": {
+      "version": "3.53.4",
+      "fileSha256": "a9148fbbbb59e40e0be60b6f0f85d286ac55a4558a8a3b1e4ccdcac41bfacfab"
+    },
+    "java": {
+      "version": "Temurin-21.0.12.1+1",
+      "javaExeSha256": "82051fdab26319d77d20cc0065045d05ec00b3e3d05f44935d7c06b96b621d55"
+    }
+  },
+  "runtimeResources": {
+    "bindingFile": "reports/week6/benchmarks/D4_bindings.json",
+    "verifiedBoundFiles": 125,
+    "modelFilesSha256": {
+      "models/raw/image/mobileclip-s0/onnx/text_model.onnx": "f6e9bd5742bfc515889e901634d8a2ff2a57fab8564e4ad3760e800b1a51b77c",
+      "models/raw/image/mobileclip-s0/onnx/vision_model.onnx": "17d3c037b1d488c10c50e09f6009ea5a198caef4e0e8f4ea5617b7cb2d067ac0",
+      "models/raw/text/paraphrase-multilingual-MiniLM-L12-v2/onnx/model.onnx": "185ae63f47e17a7e8d30d0e6a3cde6a6e4b79bc5b81666ecffc279a6856ca113",
+      "models/raw/image/mobileclip-s0/tokenizer.json": "72ed5c96db5729294468543e4bc75fce14ca63f58e37300290189ba1c1e52b85",
+      "models/raw/text/paraphrase-multilingual-MiniLM-L12-v2/tokenizer.json": "b60b6b43406a48bf3638526314f3d232d97058bc93472ff2de930d43686fa441"
+    },
+    "tikaJars": [
+      {
+        "path": "tools/tika-app/lib/angus-activation-2.0.3.jar",
+        "sha256": "a6bd35c538cf90fff941ad6258c40c08fca0b5c9c3f536c657114f27ce0527a7",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE.md",
+          "META-INF/NOTICE.md"
+        ],
+        "bundleLicense": [
+          "http://www.eclipse.org/org/documents/edl-v10.php"
+        ],
+        "distributionLicenseMatchingLines": [
+          1299
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/apache-mime4j-core-0.8.14.jar",
+        "sha256": "3de93d59ec90002bfa475b916c603a196a77d18b71e99df8ac36da646f4de236",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/apache-mime4j-dom-0.8.14.jar",
+        "sha256": "2093db3bf99b38a89522b0a47296461e1220cc38d35bdcc75973e776978c1f2a",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/asm-9.10.1.jar",
+        "sha256": "ed825d10ab1399c8c0cb669e688cf0c8c82629b4c8399b58352b68e92ca10fcb",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [],
+        "bundleLicense": [
+          "BSD-3-Clause;link=https://asm.ow2.io/LICENSE.txt"
+        ],
+        "distributionLicenseMatchingLines": [
+          359
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/bcjmail-jdk18on-1.85.jar",
+        "sha256": "05e7f20cfeea3b8b896109c37a620784a3e73dc17c12c5b0fa2d570acee5811e",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE.md"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/bcpkix-jdk18on-1.85.jar",
+        "sha256": "c9f82b2d4e99c4bbdfccf684e52cc06ea06a0b567bfd0d08f9c5a3f417055996",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE.md"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/bcprov-jdk18on-1.85.2.jar",
+        "sha256": "986b0fb92ec10e0c66b43e036ce0077e6150cfaecd1db9fb92b56672e157afe5",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE.md"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/bcutil-jdk18on-1.85.jar",
+        "sha256": "590f55ed5d68529239898a4a5c4f730b6e37f45d1cfa3fbe51f8485abe32c42d",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE.md"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/boilerpipe-1.1.0.jar",
+        "sha256": "088203df4326c4dcc42cec1253a2b41e03dc8904984eae744543b48e2cc63846",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": []
+      },
+      {
+        "path": "tools/tika-app/lib/commonmark-0.30.0.jar",
+        "sha256": "090f0a758ac2f4f51aa86dff9dff0fdf7403666d0efd29f59886dc8e8b1eac53",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE.txt"
+        ],
+        "bundleLicense": [
+          "https://opensource.org/licenses/BSD-2-Clause"
+        ],
+        "pomLicenseDeclarations": [
+          {
+            "name": "BSD-2-Clause",
+            "url": "https://opensource.org/licenses/BSD-2-Clause"
+          }
+        ],
+        "distributionLicenseMatchingLines": [
+          1105
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/commonmark-ext-gfm-strikethrough-0.30.0.jar",
+        "sha256": "2fed2064af3114c9fdfe233f9987682af6b1da073522879520fdb8593b65c995",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE.txt"
+        ],
+        "bundleLicense": [
+          "https://opensource.org/licenses/BSD-2-Clause"
+        ],
+        "distributionLicenseMatchingLines": [
+          1106
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/commonmark-ext-gfm-tables-0.30.0.jar",
+        "sha256": "5e28b48e66f7697bee4dfeb4c8f8f08a84a2827d91b53bbd9bd5445e82d14bda",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE.txt"
+        ],
+        "bundleLicense": [
+          "https://opensource.org/licenses/BSD-2-Clause"
+        ],
+        "distributionLicenseMatchingLines": [
+          1105
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/commons-cli-1.11.0.jar",
+        "sha256": "8f7f8605d68e15bf32db61ec94eac6fdafc51b1bdbe1e0e0802b57d23f387792",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE.txt",
+          "META-INF/NOTICE.txt"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/commons-codec-1.22.1.jar",
+        "sha256": "78a5d732fbd715e2d10bd7150d2f8030bae57267f8aacc5c88f642cb6c2e5d3f",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE.txt",
+          "META-INF/NOTICE.txt"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/commons-collections4-4.6.0.jar",
+        "sha256": "4e0d0896bac5356cead277bac0283f09813e14417e3e84e0c86b573b54d218a3",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE.txt",
+          "META-INF/NOTICE.txt"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/commons-compress-1.28.0.jar",
+        "sha256": "e1522945218456f3649a39bc4afd70ce4bd466221519dba7d378f2141a4642ca",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE.txt",
+          "META-INF/NOTICE.txt"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ],
+        "distributionLicenseMatchingLines": [
+          1179
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/commons-csv-1.14.1.jar",
+        "sha256": "32be0e1e76673092f5d12cb790bd2acb6c2ab04c4ea6efc69ea5ee17911c24fe",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE.txt",
+          "META-INF/NOTICE.txt"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/commons-exec-1.6.0.jar",
+        "sha256": "13dcf3850478ef8de5d24d298a60eed5e8305eb20538fe632c82ea1dff6b5ea0",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE.txt",
+          "META-INF/NOTICE.txt"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/commons-io-2.22.0.jar",
+        "sha256": "2b9a7b1f726fb86216dbd2c8321eabe0221dbd5b1be81c18e1cb53811b104758",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE.txt",
+          "META-INF/NOTICE.txt"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/commons-lang3-3.20.0.jar",
+        "sha256": "69e5c9fa35da7a51a5fd2099dfe56a2d8d32cf233e2f6d770e796146440263f4",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE.txt",
+          "META-INF/NOTICE.txt"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/commons-logging-1.4.0.jar",
+        "sha256": "d175dbd751dd782a63bde28c7a039520e971f25e84b79c19b8435edc3603e0dc",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE.txt",
+          "META-INF/NOTICE.txt"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/commons-math3-3.6.1.jar",
+        "sha256": "1e56d7b058d28b65abd256b8458e3885b674c1d588fa43cd7d1cbb9c7ef2b308",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE.txt",
+          "META-INF/NOTICE.txt"
+        ],
+        "bundleLicense": [
+          "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/curvesapi-1.08.jar",
+        "sha256": "ad95b08b8bbf9d7d17e5e00814898fa23324f32bc5b62f1a37801e6a56ce0079",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [],
+        "pomLicenseDeclarations": [
+          {
+            "name": "BSD License",
+            "url": "http://opensource.org/licenses/BSD-3-Clause"
+          }
+        ],
+        "distributionLicenseMatchingLines": [
+          1203
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/dd-plist-1.30.jar",
+        "sha256": "a797ee356f47419a563e5771c68c7f2a7a275ee387986924df3fe411c4ef7525",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [],
+        "bundleLicense": [
+          "http://opensource.org/licenses/mit"
+        ],
+        "pomLicenseDeclarations": [
+          {
+            "name": "MIT License",
+            "url": "http://opensource.org/licenses/mit"
+          }
+        ],
+        "distributionLicenseMatchingLines": [
+          1274
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/dec-0.1.2.jar",
+        "sha256": "615c0c3efef990d77831104475fba6a1f7971388691d4bad1471ad84101f6d52",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [],
+        "bundleLicense": [
+          "http://www.opensource.org/licenses/mit-license.php"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/fontbox-3.0.8.jar",
+        "sha256": "a1915c24e3edbe0ecec93896dfbf6d41427810b663ade97bd4e8bae86ec3fdab",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ],
+        "distributionLicenseMatchingLines": [
+          233
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/istack-commons-runtime-4.1.2.jar",
+        "sha256": "7fd6792361f4dd00f8c56af4a20cecc0066deea4a8f3dec38348af23fc2296ee",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [],
+        "bundleLicense": [
+          "http://www.eclipse.org/org/documents/edl-v10.php"
+        ],
+        "distributionLicenseMatchingLines": [
+          1298
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/jackcess-4.0.11.jar",
+        "sha256": "de4e6daafd27163ab4f8f3fdb086f9a5a5e2044d93db24d00eebe9946bf09f7d",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [],
+        "bundleLicense": [
+          "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        ],
+        "pomLicenseDeclarations": [
+          {
+            "name": "Apache License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/jackcess-encrypt-4.0.3.jar",
+        "sha256": "d40a7871ac1dc6343cd2e433c3ee484eb59cdff728b7a1e22dcfc8b3f400a18a",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [],
+        "bundleLicense": [
+          "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/jackson-annotations-2.22.jar",
+        "sha256": "21ddb598807d3a51a876704eb979d9296e1c6a6f47ab1826ff88c6d6a127a2d0",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ],
+        "pomLicenseDeclarations": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/jackson-core-2.22.1.jar",
+        "sha256": "941ff029bcdb93e83d209ce516c1a7fb8bbac07d0a2fa122f5bf194b2cd7b4f4",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ],
+        "pomLicenseDeclarations": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/jackson-databind-2.22.1.jar",
+        "sha256": "7dcd7e53bec1f56c7ad278bd1ca0840bebcc595d61ce44d6a8439abb75b965b2",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ],
+        "pomLicenseDeclarations": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/jackson-dataformat-smile-2.22.1.jar",
+        "sha256": "9fa440834571b5645bb0a0a0462226232a209ac28809e6225fcb16a7f62c7df8",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ],
+        "pomLicenseDeclarations": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/jackson-datatype-jsr310-2.22.1.jar",
+        "sha256": "85da45b7e5e565418963ff8f0dcb184365b0557c15468933f4318dde5c3ce845",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/jai-imageio-core-1.4.0.jar",
+        "sha256": "8ad3c68e9efffb10ac87ff8bc589adf64b04a729c5194c079efd0643607fd72a",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "LICENSE.txt"
+        ],
+        "pomLicenseDeclarations": [
+          {
+            "name": "BSD 3-clause License w/nuclear disclaimer",
+            "url": "LICENSE.txt"
+          }
+        ],
+        "distributionLicenseMatchingLines": [
+          1232
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/jakarta.activation-api-2.1.4.jar",
+        "sha256": "c9db52100ce6c8aac95cc39075f95720d2e561b11f8051b81c121ad4effd7004",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE.md",
+          "META-INF/NOTICE.md"
+        ],
+        "bundleLicense": [
+          "http://www.eclipse.org/org/documents/edl-v10.php"
+        ],
+        "pomLicenseDeclarations": [
+          {
+            "name": "EDL 1.0",
+            "url": "http://www.eclipse.org/org/documents/edl-v10.php"
+          }
+        ],
+        "distributionLicenseMatchingLines": [
+          1299
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/jakarta.xml.bind-api-4.0.5.jar",
+        "sha256": "5e489b6c874c4119e003ff1403db523ee3a8959ec499f3de29e77245efccf216",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE.md",
+          "META-INF/NOTICE.md"
+        ],
+        "bundleLicense": [
+          "http://www.eclipse.org/org/documents/edl-v10.php"
+        ],
+        "distributionLicenseMatchingLines": [
+          1298
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/java-libpst-0.9.3.jar",
+        "sha256": "039cd61635ded94dba67f909d3b1763e13f9c23d02f9750eb6259af10e1dabdb",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [],
+        "pomLicenseDeclarations": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/java-semver-0.10.2.jar",
+        "sha256": "a8e32e17575d0188c1f3e2e57bb95db09793883c8853fde828b63ecb1f99a63a",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE"
+        ],
+        "pomLicenseDeclarations": [
+          {
+            "name": "The MIT License",
+            "url": "http://www.opensource.org/licenses/mit-license.php"
+          }
+        ],
+        "distributionLicenseMatchingLines": [
+          1274
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/jaxb-core-4.0.9.jar",
+        "sha256": "6b014df25d22c8446cc2df0a378c5b2137747f197a731d99eb24c756b26f7e8d",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE.md",
+          "META-INF/NOTICE.md"
+        ],
+        "bundleLicense": [
+          "http://www.eclipse.org/org/documents/edl-v10.php"
+        ],
+        "distributionLicenseMatchingLines": [
+          1298
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/jaxb-runtime-4.0.9.jar",
+        "sha256": "93e09b7316b6af68d6e2083e4c297daf28e8957f45d725077af812c0b12c39ab",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE.md",
+          "META-INF/NOTICE.md"
+        ],
+        "bundleLicense": [
+          "http://www.eclipse.org/org/documents/edl-v10.php"
+        ],
+        "distributionLicenseMatchingLines": [
+          1297
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/jbig2-imageio-3.0.5.jar",
+        "sha256": "d426cc8b6ac211dd5ffd120a86a65e55ae65d808c818207c1261bc1880b42653",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/jcl-over-slf4j-2.0.18.jar",
+        "sha256": "ec5c36d57d2dbe100f84878f944575cb7871da32c7a115b8d7e0721277045d67",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE.txt"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ],
+        "pomLicenseDeclarations": [
+          {
+            "name": "Apache-2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/jdom2-2.0.6.1.jar",
+        "sha256": "0b20f45e3a0fd8f0d12cdc5316b06776e902b1365db00118876f9175c60f302c",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE.txt"
+        ],
+        "distributionLicenseMatchingLines": [
+          1332
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/jhighlight-2.0.0.jar",
+        "sha256": "e7102742e79e16b720cec45debef889b2af67f99968791a352e54c9d2488b53c",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [],
+        "pomLicenseDeclarations": [
+          {
+            "name": "CDDL, v1.0",
+            "url": "http://www.opensource.org/licenses/cddl1.php"
+          },
+          {
+            "name": "LGPL, v2.1 or later",
+            "url": "http://www.opensource.org/licenses/lgpl-license.php"
+          }
+        ],
+        "distributionLicenseMatchingLines": [
+          1384,
+          1388,
+          1395,
+          1401
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/jmatio-1.5.jar",
+        "sha256": "70db8cf9a1818072f290fd464f14a8369c9c58993e6640128a6e8a6379d67ac7",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [],
+        "pomLicenseDeclarations": [
+          {
+            "name": "BSD",
+            "url": "http://www.linfo.org/bsdlicense.html"
+          }
+        ],
+        "distributionLicenseMatchingLines": [
+          1203
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/jsoup-1.23.1.jar",
+        "sha256": "8b15e2b28eeb1e0a88a9b7dab4dc0c23524491c56959785dea22f7846897b668",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/jsoup/LICENSE"
+        ],
+        "bundleLicense": [
+          "https://jsoup.org/license"
+        ],
+        "pomLicenseDeclarations": [
+          {
+            "name": "The MIT License",
+            "url": "https://jsoup.org/license"
+          }
+        ],
+        "distributionLicenseMatchingLines": [
+          1275
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/junrar-8.1.0.jar",
+        "sha256": "53c23cc8a11c932b7336d8109257c14b1d8981b789b0792fc3f78ac567b645e7",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [],
+        "distributionLicenseMatchingLines": [
+          1134,
+          1136
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/jwarc-0.36.0.jar",
+        "sha256": "b472300077903e33c1efcb05d94e62bef8abe3179c6166c9597e6ec6d7c426da",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [],
+        "pomLicenseDeclarations": [
+          {
+            "name": "Apache License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/log4j-api-2.26.1.jar",
+        "sha256": "f1810a4704ccce019d02bba029dc02a4f2ac0c997f647b465e7d409c1927f822",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "\"Apache-2.0\";link=\"https://www.apache.org/licenses/LICENSE-2.0.txt\""
+        ],
+        "pomLicenseDeclarations": [
+          {
+            "name": "Apache-2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/log4j-core-2.26.1.jar",
+        "sha256": "2ec8c3bf5a6d7c89be8620116a2fc973f7dda1ad0261ad393c4d4726edfd3dcb",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "\"Apache-2.0\";link=\"https://www.apache.org/licenses/LICENSE-2.0.txt\""
+        ],
+        "pomLicenseDeclarations": [
+          {
+            "name": "Apache-2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/log4j-slf4j2-impl-2.26.1.jar",
+        "sha256": "cbdfb4c2bcc10f0927c61036db54924250f3924ecd13ea913cefe4f99c08fa66",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "\"Apache-2.0\";link=\"https://www.apache.org/licenses/LICENSE-2.0.txt\""
+        ],
+        "pomLicenseDeclarations": [
+          {
+            "name": "Apache-2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/metadata-extractor-2.21.0.jar",
+        "sha256": "cfb4730e2794af29ff86bc91ba5e22a843b269299089c83c9b057c98e1055710",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [],
+        "pomLicenseDeclarations": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/parso-2.0.14.jar",
+        "sha256": "3b7e7a32915e04caed5dba31be1430aa57b4f9fa2b3d0ab0ed29067510d16575",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": []
+      },
+      {
+        "path": "tools/tika-app/lib/pdfbox-3.0.8.jar",
+        "sha256": "97647cfbde61ebcfc06b4cf8c9b0ffcaaee073396eceb4a7f6836a9b9128903c",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ],
+        "distributionLicenseMatchingLines": [
+          233,
+          249
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/pdfbox-io-3.0.8.jar",
+        "sha256": "36a0e04001010b4c764857817412b96339930b19755e728959805cc0352061b2",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/pdfbox-tools-3.0.8.jar",
+        "sha256": "73091ece9b8a15bc7f946c224aaec2f7b3104b4c24f1978122ddd452ddc0a578",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/pf4j-3.15.0.jar",
+        "sha256": "b56717cb6b864cc6b5a7c04b381861ea874805471bab43e8c6a2fe553aa8973d",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": []
+      },
+      {
+        "path": "tools/tika-app/lib/picocli-4.7.7.jar",
+        "sha256": "f86e30fffd10d2b13b8caa8d4b237a7ee61f2ffccf5b1941de718b765d235bf8",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": []
+      },
+      {
+        "path": "tools/tika-app/lib/poi-5.5.1.jar",
+        "sha256": "6c52e876ca75775a11b56e4b36a7541f682827f56406725fcd87560b792ee3d8",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "distributionLicenseMatchingLines": [
+          424
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/poi-ooxml-5.5.1.jar",
+        "sha256": "bd7be2fdfe3fd2c1684fa813351c2798fd636b44f6236e0674500d4f8ff1c2f9",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/poi-scratchpad-5.5.1.jar",
+        "sha256": "24c3f407eff517432d5cfd5628b6b8a091f94c1dbb7481384599b5a0fbeedeb9",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/rome-2.1.0.jar",
+        "sha256": "d4e0bb6857a25ee15e2082be6e83e1da897cfbabb025bfe01ae00346d7db7c78",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [],
+        "bundleLicense": [
+          "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        ],
+        "pomLicenseDeclarations": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/rome-utils-2.1.0.jar",
+        "sha256": "6e1c3b022dff4cf7492acddbba22356f424ade3d869a42a2a4d74a28454334a4",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [],
+        "pomLicenseDeclarations": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/slf4j-api-2.0.18.jar",
+        "sha256": "44508fd1576500688c790b190acdd16fec4f8c79a3e0b900afd70503cf055f55",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE.txt"
+        ],
+        "bundleLicense": [
+          "https://opensource.org/license/mit"
+        ],
+        "distributionLicenseMatchingLines": [
+          484
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/SparseBitSet-1.3.jar",
+        "sha256": "f76b85adb0c00721ae267b7cfde4da7f71d3121cc2160c9fc00c0c89f8c53c8a",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [],
+        "pomLicenseDeclarations": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-annotation-processor-4.0.0.jar",
+        "sha256": "27b7876fe65862bef08afa912994b5cee9c03e1199f2527c5ef5803e53b6da13",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-async-cli-4.0.0.jar",
+        "sha256": "0547f6089bf9692671520b655d2dc0d2ca06b8239bf81ef379e5f43e0e5ef35e",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-core-4.0.0.jar",
+        "sha256": "8f1b63d40e598f8222fe2ace4550ead02fb9576ec70deecf7900f3e6cd783017",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-encoding-detector-html-4.0.0.jar",
+        "sha256": "0f7aa3de8b732c1c3dd447d1163ea7f9546b1fdd02e5a884d146e374dc0af8e2",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-encoding-detector-mojibuster-4.0.0.jar",
+        "sha256": "0b1a3cb0d9ababed69921b4ea0151764acda9b7442ed8a4c4c3f9976569c02d3",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-eval-core-4.0.0.jar",
+        "sha256": "3329db7d9c1ed195eef34d418e1b3e086d2ae64fcc42cc45869bd40631c58fe0",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-handler-boilerpipe-4.0.0.jar",
+        "sha256": "3cec52b6894f7f54ad089d3a7cab1c66d8944c1fddebd0876ea94f485348b7dc",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-http-jdk-4.0.0.jar",
+        "sha256": "8016ccf06662062cfa6be3f7926a01f838d0586d28ca328224dc80cc7c6055e6",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-inference-4.0.0.jar",
+        "sha256": "a7135cb48b16cd1f41e7929683002832fe987e5000323413793e788310d427e8",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-langdetect-charsoup-4.0.0.jar",
+        "sha256": "978b39c7cb68a5cd1027c4dc8075385fed32d56eae0dc163246155590421bdfa",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-langdetect-charsoup-core-4.0.0.jar",
+        "sha256": "4a9417741bd10badd6072f651703dc4c49fa906e09b86ecb1715a4a26706b3c6",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-ml-core-4.0.0.jar",
+        "sha256": "0f997ee545f399bf687c39e84d1151c5eac3f152d9647ce5172ec40631c7ee59",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-ml-junkdetect-4.0.0.jar",
+        "sha256": "da4f26b40535a78f1db3a4b2bc7db8fe5e4cfd08a7b91d48602273f48cabd70a",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-parser-apple-module-4.0.0.jar",
+        "sha256": "f85e0a71a2df54fb8071108701d8d770e476d639cd9ac64591e372e0a897548d",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-parser-audiovideo-module-4.0.0.jar",
+        "sha256": "cd4dba3fa3cd417414339a4e47f688fc7396fa61c44c62a03bf92c1b6e2e7099",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-parser-cad-module-4.0.0.jar",
+        "sha256": "4e6d2ff871f0d22cb5b14ab6166ade72a84d286e671e6933484e1585932769ed",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-parser-code-module-4.0.0.jar",
+        "sha256": "c4979f00fb8db7a38218ff20108165f19914749e99d5ef2985dece17517ebc7b",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-parser-crypto-module-4.0.0.jar",
+        "sha256": "454d60e993e8ced1bb52e154c121b820669835cd8168e921c22d68c58cf17e95",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-parser-datauri-commons-4.0.0.jar",
+        "sha256": "f9ede7c5d30f0f5b85834e9ce03da723a288c0fd9ccf101a345b6e0f4819ef58",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-parser-digest-commons-4.0.0.jar",
+        "sha256": "7cce5bfef8a9914f94fb34a24d4feb1b4922ddd229c827e60d27666d486b4ed1",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-parser-font-module-4.0.0.jar",
+        "sha256": "0d204834ee5ea3ca9cf4dfe4c05d123b54c1f4ad8f9095f2c948bb68956276d3",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-parser-html-module-4.0.0.jar",
+        "sha256": "61cd7c0f90dbe8c39582a8aba9d6c196386cbfe3c8dbb185ecfd7d9e66cd7668",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-parser-image-module-4.0.0.jar",
+        "sha256": "bc22ff08a357237f5c5815e07da0359e9799eeddbb49895f6c249bc95e2c9230",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-parser-mail-commons-4.0.0.jar",
+        "sha256": "90bd506fdd8f0cb51e0cbdcfe32ab76123ef1da3320ac4f92d77e3c3d892149d",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-parser-mail-module-4.0.0.jar",
+        "sha256": "0ce13c97c6fe1fda4e9f4ae90e61de73bc8ed05862a3a175b378017a74cbb733",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-parser-microsoft-module-4.0.0.jar",
+        "sha256": "15a82b01d5c2bf536caa9848d175fc8c32e5d34dfe76b1763ef976606fba6af8",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-parser-miscoffice-module-4.0.0.jar",
+        "sha256": "1e4674b556d573b46e5ced5cb22ee50c0105f814a93b4d1aa8b7422e00d44ee6",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-parser-news-module-4.0.0.jar",
+        "sha256": "1c1b53cc7b603481b7f9a2bff332c587700f861a078d7a82285d734024800350",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-parser-ocr-module-4.0.0.jar",
+        "sha256": "9941077344654f053983a28de85bb198f18a7678f43ffa9b252d50bdeb2f7a1a",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-parser-pdf-module-4.0.0.jar",
+        "sha256": "84d846534a82e2a8f38f912014ad227ca8185ac0155db522b18a4309bd0d34c5",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-parser-pkg-module-4.0.0.jar",
+        "sha256": "6fd8ccef52a39849626a0bac0ba9e428b3623644af6f0f994a7b16cadb8bfef0",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-parser-text-module-4.0.0.jar",
+        "sha256": "3a0e861a73eebed894dfa36cf7b225396c9887406dc56ddce3ba43c2e16389dc",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-parser-webarchive-module-4.0.0.jar",
+        "sha256": "a910ca0e7dcea37260e0b2b654e522aece558c9d48cfb17fb66a23676b64ac7e",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-parser-xml-module-4.0.0.jar",
+        "sha256": "ad2c1e3659ea569cb1ef7c4b0989e83762b9123caedb79a7689cefb607b9dd1f",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-parser-xmp-commons-4.0.0.jar",
+        "sha256": "035de15bef0d72fd8fe03cf5b8c355e666e8c5c469895f7288a0e619e59749b6",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-parser-zip-commons-4.0.0.jar",
+        "sha256": "b1633c0f2a6315a19ab3233531b91baddc3ba16ffec43fcec3a89402c130b294",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-pipes-api-4.0.0.jar",
+        "sha256": "0f3b79ad6ed8cec652b0c946a91d45386e4bfc093361ab74977d70158b98ce19",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-pipes-core-4.0.0.jar",
+        "sha256": "f3b097da6fd4804c5123b75e764606f670fd087fae713c17ebb1965996355135",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-pipes-file-system-4.0.0.jar",
+        "sha256": "90098e6b438354d9adaf3ed346f716643c6727a2fb1412d3fa3c5682f01f76d8",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-pipes-fork-parser-4.0.0.jar",
+        "sha256": "f2dd3421edceb5fdb7762b391a0ab3b2c58cbdff1a78019f27076d256a0bb47f",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-pipes-iterator-commons-4.0.0.jar",
+        "sha256": "4c37a9954a5ee4effef2cbf574b45e07f782deba16cae26bc1c7f5520f8cc473",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-plugins-core-4.0.0.jar",
+        "sha256": "a0b3fb50920a17bc892ed7fa1a4dae16e32be14329d53331723de963e994b9bd",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-serialization-4.0.0.jar",
+        "sha256": "02c5045ee27fb127020e4f35278b309b20393a0bf9d0141036cfd144bb447bd2",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-vlm-4.0.0.jar",
+        "sha256": "d09ff88d4d8146e982fa1d58c3b60e0d6b3e8be807d3b31fed70b9f4b9399986",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/tika-xmp-4.0.0.jar",
+        "sha256": "5e02c1fb89555d4708660c1e25090fd83d5634c443f3395e86d4c32fb34b65b9",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/txw2-4.0.9.jar",
+        "sha256": "d6343e5945d87266ca4e8974a0a2a876e1bd147a00fb65ed3f2e1a3a00f3a82a",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE.md",
+          "META-INF/NOTICE.md"
+        ],
+        "distributionLicenseMatchingLines": [
+          1298
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/vorbis-java-core-0.8.jar",
+        "sha256": "879bb0c8923fea686609e207fd9050ab246e001868341c725929405e755cf68e",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE"
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/xmlbeans-5.3.0.jar",
+        "sha256": "6cc69da3b4d35b83c5e477cd4daba204e44109833e34af2b9a8a2c8788289917",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE.txt",
+          "META-INF/NOTICE.txt"
+        ],
+        "pomLicenseDeclarations": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/xmpcore-6.1.11.jar",
+        "sha256": "8f7033c579b99fa0d9d6ddcb9448875b5e4b577c350002278ce46997d678b737",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [],
+        "bundleLicense": [
+          "https://opensource.org/licenses/BSD-3-Clause"
+        ],
+        "distributionLicenseMatchingLines": [
+          597
+        ]
+      },
+      {
+        "path": "tools/tika-app/lib/xz-1.12.jar",
+        "sha256": "3e158a87bd73d8afb4b6e8239c013b7d049c48563f45860ce99cd2e448cf4a6b",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [],
+        "bundleLicense": [
+          "0BSD"
+        ],
+        "distributionLicenseMatchingLines": [
+          589
+        ]
+      },
+      {
+        "path": "tools/tika-app/plugins/tika-pipes-file-system-4.0.0/lib/jackson-annotations-2.22.jar",
+        "sha256": "21ddb598807d3a51a876704eb979d9296e1c6a6f47ab1826ff88c6d6a127a2d0",
+        "inD4RuntimeBinding": false,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ],
+        "pomLicenseDeclarations": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      },
+      {
+        "path": "tools/tika-app/plugins/tika-pipes-file-system-4.0.0/lib/jackson-core-2.22.1.jar",
+        "sha256": "941ff029bcdb93e83d209ce516c1a7fb8bbac07d0a2fa122f5bf194b2cd7b4f4",
+        "inD4RuntimeBinding": false,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "https://www.apache.org/licenses/LICENSE-2.0.txt"
+        ],
+        "pomLicenseDeclarations": [
+          {
+            "name": "The Apache Software License, Version 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0.txt"
+          }
+        ]
+      },
+      {
+        "path": "tools/tika-app/plugins/tika-pipes-file-system-4.0.0/lib/jackson-datatype-jsr310-2.22.1.jar",
+        "sha256": "85da45b7e5e565418963ff8f0dcb184365b0557c15468933f4318dde5c3ce845",
+        "inD4RuntimeBinding": false,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ],
+        "bundleLicense": [
+          "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        ]
+      },
+      {
+        "path": "tools/tika-app/plugins/tika-pipes-file-system-4.0.0/lib/tika-pipes-file-system-4.0.0.jar",
+        "sha256": "90098e6b438354d9adaf3ed346f716643c6727a2fb1412d3fa3c5682f01f76d8",
+        "inD4RuntimeBinding": false,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ]
+      },
+      {
+        "path": "tools/tika-app/tika-app-4.0.0.jar",
+        "sha256": "f4db893c326959ec9789471e3165f10c4c2e5657bb86c384826c0464440cb094",
+        "inD4RuntimeBinding": true,
+        "embeddedLicenseAndNoticeEntries": [
+          "META-INF/LICENSE",
+          "META-INF/NOTICE"
+        ]
+      }
+    ],
+    "tikaPluginArchive": {
+      "tools/tika-app/plugins/tika-pipes-file-system-4.0.0.zip": "dd0823415f32eca19e88ee291cfaf143de83226e73249050a2cf6414c0073a56"
+    }
+  }
+}
