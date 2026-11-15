@@ -1,0 +1,35 @@
+M-05 Windows 原生故障恢复
+
+场次为 2026-11-14（UTC+08:00），Windows 11 26H2（26300.9818）。
+候选提交 04c22914a86f9cd3d1d6cf9050b4e2e16055627e，Windows x64 生产 ORT/Tika/SQLite 模式。
+desktop.exe SHA-256 159A7F0294655B9B55D6AE781C56827B3FA9045283FEECCF60E42CFC12DBCE27
+data/app.so SHA-256 E7C0E14AAD9C3076DF55C775671F91388D36AA876824ACBDD50115814E0CA954
+使用同一个独立夹具目录 .dart_tool/w06-m05-manual/fixtures 和测试数据目录 .dart_tool/w06-m05-manual/data。
+
+1. 缺失来源和恢复
+在查询 tika、类型 PDF 的结果页核对 sample.pdf 第 1 页及其测试路径。短暂将 PDF 移到测试夹具外，在同一旧结果打开原文件。
+实际提示为“源文件不存在、不可访问或不是文件。请检查路径及权限，恢复文件后重试或更新索引。”
+恢复原路径并核对 PDF SHA-256 后，从同一条结果再次打开。Adobe Acrobat Pro DC（32-bit）实际显示 sample.pdf 第 1 页。
+截图见 ../screenshots/M05-missing-source.png。
+
+2. 原样增量
+沿用 ../screenshots/M04-index.png 的开发模式证据。原样增量新写入 0、复用 4、失败 0、跳过 0，共 4 份文档、98 个内容块。
+本次生产模式首轮受下述环境问题影响，新写入 3、失败 1。原样增量新写入 0、复用 3、失败 1，失败项为 PDF。
+
+3. 取消后续建
+在夹具内加入 1,000 个独立 TXT。已写入部分文件后从界面取消。提示“已取消：新写入 174，复用 0，失败 1，跳过 0。”
+索引保留 177 份文档、198 个内容块。取消后查询实际返回已提交的 cancel/M05-0086.txt。
+对同一路径续建，新写入 826、复用 177、失败 1、跳过 0，共 1,003 份文档、1,024 个内容块。唯一失败项仍是 PDF。
+修正启动环境后重试，PDF 新写入 1、复用 1,003、失败 0，共 1,004 份文档、1,098 个内容块。
+截图见 ../screenshots/M05-cancelled.png、../screenshots/M05-search-after-cancel.png、../screenshots/M05-resumed.jpg。
+
+4. 清空确认与源文件保留
+按 Esc 关闭确认框，文件和内容块计数保留。匹配测试数据库路径后确认清空，提示“索引及目录记录已清除，源文件保留。”
+清空后 0 份文档、0 个内容块、目录记录为空；再次提交 tika 和 PDF 筛选后提示索引库为空。
+清空前后 1,004 个源文件的相对路径和 SHA-256 全部一致。两份清单的 SHA-256 均为 D80FBE46FD778A461919AF698ACDD7CB770F5447C97541A1AB63765C036E4262。
+证据见 M05-hashes-before.csv、M05-hashes-after.csv 及 ../screenshots/M05-cleared.png。
+
+异常与复测
+首轮候选启动环境中 PDF 提示 Tika text extraction failed，恢复 DOCX 后系统打开返回 code 5，清空在 DELETE FROM chunk_fts 返回 SQLite code 14，索引保留。
+同一 PDF 经独立 Java/Tika 命令解析成功。以同一候选与数据目录重启，给 TMP/TEMP 指定可写的测试临时目录，并显式传递用户应用数据路径，随后 PDF 导入、PDF 查看器及清空复测通过。
+最终截图对鼠标指针所在的标题栏或非关键区域做了裁剪，展示实际应用画面。原始捕获保存在该场次的本地工作目录。

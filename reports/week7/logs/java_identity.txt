@@ -1,0 +1,18 @@
+date 2026-11-15
+command java -XshowSettings:properties -version
+
+java.home = C:\Program Files\Eclipse Adoptium\jdk-21.0.12.101-hotspot
+java.vendor = Eclipse Adoptium
+java.vendor.version = Temurin-21.0.12.1+1
+java.version = 21.0.12.1
+java.version.date = 2026-08-18
+
+license files read, not copied into the repo:
+  C:\Program Files\Eclipse Adoptium\jdk-21.0.12.101-hotspot\NOTICE
+  C:\Program Files\Eclipse Adoptium\jdk-21.0.12.101-hotspot\legal\java.base\LICENSE
+    heading: The GNU General Public License (GPL) Version 2, June 1991
+  C:\Program Files\Eclipse Adoptium\jdk-21.0.12.101-hotspot\legal\java.base\ASSEMBLY_EXCEPTION
+    heading: OPENJDK ASSEMBLY EXCEPTION
+    states GPL version 2 only, plus the OpenJDK assembly exception
+
+The product invokes this java executable. It does not copy the JDK into the repository or the Flutter build output.

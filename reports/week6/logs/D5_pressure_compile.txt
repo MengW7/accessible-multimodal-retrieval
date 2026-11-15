@@ -1,0 +1,4 @@
+cwd=E:\Project\accessible-multimodal-retrieval\apps\desktop
+command=D:/flutter/bin/cache/dart-sdk/bin/dart.exe --suppress-analytics compile exe tool/week6_pressure.dart -o E:\Project\accessible-multimodal-retrieval\.dart_tool\w06-d5\d5-pressure.exe
+Generated: e:\project\accessible-multimodal-retrieval\.dart_tool\w06-d5\d5-pressure.exe
+exit=0

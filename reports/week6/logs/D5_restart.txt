@@ -1,0 +1,3 @@
+cwd=C:\Windows
+command=dart --packages=... verify_runtime.dart restart E:\Project\accessible-multimodal-retrieval\.dart_tool\w06-d5\D5_runtime.json E:\Project\accessible-multimodal-retrieval\.dart_tool\w06-d5\D5_restart.json
+exit=0

@@ -1,0 +1,88 @@
+{
+  "sourceBaseline": "04c22914a86f9cd3d1d6cf9050b4e2e16055627e",
+  "patchSha256": "9da1f7d6b506cfb3acab4b2f266bac7afb418621c39074c763795b405fb031fc",
+  "query": "离线检索",
+  "cpuLoadBeforeStartPercent": {
+    "baseline": 21,
+    "optimized": 46
+  },
+  "purpose": "Verify the documented commands and correctness parity with rebuilt executables",
+  "runtimeResourcesMatchedD4": 125,
+  "snapshotSha256": {
+    "scale-1000.sqlite": "169348b63527f27efc218088cec3e4f56082338a20901e00c35372f23a0647b5",
+    "scale-10000.sqlite": "ad5c5d52569075e304eaaaa316c25c01cfd0564b194cbe4ad83d7dcd0ef17d55",
+    "scale-5000.sqlite": "25cdb9866124f2afb9d5dce5ef4de1dc022878fd9792be039a9c29abf8be1c44"
+  },
+  "runs": {
+    "baseline": {
+      "probeSha256": "90B908AC574A94D7DB9F333FF1C362C56CC32D0191741BF8F345AD7CCD487643",
+      "rawPath": ".dart_tool/w06-10k-desktop/replay-20261115-114327-685/before.json",
+      "monitorPath": ".dart_tool/w06-10k-desktop/replay-20261115-114327-685/before.json.monitor.json",
+      "exactTopKParityWithOriginalD5": true,
+      "peakWorkingSetBytes": 1058889728,
+      "queries": {
+        "1000:all": {
+          "pipelineP95Ms": 120.959,
+          "vectorP95Ms": 10.572
+        },
+        "1000:a/": {
+          "pipelineP95Ms": 190.342,
+          "vectorP95Ms": 8.541
+        },
+        "5000:all": {
+          "pipelineP95Ms": 270.887,
+          "vectorP95Ms": 37.202
+        },
+        "5000:a/": {
+          "pipelineP95Ms": 202.661,
+          "vectorP95Ms": 33.026
+        },
+        "10000:all": {
+          "pipelineP95Ms": 459.435,
+          "vectorP95Ms": 102.755
+        },
+        "10000:a/": {
+          "pipelineP95Ms": 390.772,
+          "vectorP95Ms": 75.911
+        }
+      },
+      "allTiesVectorP95Ms": 159.407,
+      "clipTextForwardP95Ms": 32.091
+    },
+    "optimized": {
+      "probeSha256": "EE63FC72DA9CE2CC5BCF688623C8BB12C1D3C41623BF918C3B937825084B26EB",
+      "rawPath": ".dart_tool/w06-10k-desktop/replay-20261115-114327-685/after.json",
+      "monitorPath": ".dart_tool/w06-10k-desktop/replay-20261115-114327-685/after.json.monitor.json",
+      "exactTopKParityWithOriginalD5": true,
+      "peakWorkingSetBytes": 955645952,
+      "queries": {
+        "1000:all": {
+          "pipelineP95Ms": 137.749,
+          "vectorP95Ms": 9.046
+        },
+        "1000:a/": {
+          "pipelineP95Ms": 114.086,
+          "vectorP95Ms": 8.41
+        },
+        "5000:all": {
+          "pipelineP95Ms": 173.43,
+          "vectorP95Ms": 39.66
+        },
+        "5000:a/": {
+          "pipelineP95Ms": 169.397,
+          "vectorP95Ms": 41.325
+        },
+        "10000:all": {
+          "pipelineP95Ms": 280.839,
+          "vectorP95Ms": 80.803
+        },
+        "10000:a/": {
+          "pipelineP95Ms": 226.282,
+          "vectorP95Ms": 70.742
+        }
+      },
+      "allTiesVectorP95Ms": 172.116,
+      "clipTextForwardP95Ms": 43.741
+    }
+  }
+}

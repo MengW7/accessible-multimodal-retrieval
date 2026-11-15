@@ -39,7 +39,7 @@ final EmbeddingVector vector = await TextEmbedder(
 
 **异常。** 空字符串、空的 `chunkId`、`maxLength < 2` 是调用错误，抛 `ArgumentError`。构造参数的 `assert` 失败抛 `AssertionError`（测试和调试；发布模式会剥掉 `assert`）。运行时不具备、缺张量、超时、维度不符、输出不是有限数，都抛 `EmbeddingRuntimeException` 的子类，不返回空向量。`CancelledException` 从 `core_parsing` 原样冒出来。`TextEmbedder` 在调用运行时之前、以及运行时返回之后检查取消。运行时接口本身不接收取消令牌，所以推理进程进行中的取消要等这次 `run` 返回后才抛出。
 
-**线程。** 分词、拼张量和 pooling 都在调用方的 isolate 上。`OnnxProcessEmbeddingRuntime` 另起一个 Python 进程跑 ONNX Runtime，不在 Dart 里链接 TFLite。这些对象没有内部锁。
+**线程。** 分词、拼张量和 pooling 都在调用方的 isolate 上。`OnnxProcessEmbeddingRuntime` 另起一个 Python 进程跑 ONNX Runtime，不在 Dart 里链接 TFLite。这些对象没有内部锁。Windows 桌面的生产路径不使用这个 Python 运行时：`apps/desktop/lib/src/runtime/native_onnx.dart` 的 `NativeOnnxModel` 实现同一个 `EmbeddingRuntime`，加载资源根里的 `onnxruntime.dll` 和 `amr_onnx.dll`。它不是 `package:core_embedding` 的公开符号，本文件不给它另写一套签名。
 
 **测试。** 默认套件是 `dart test --exclude-tags integration`。它不读 `tokenizer.json`，不读权重，也不读数据集。带 `integration` 标签的用例才加载真模型、NQ 句子、MobileCLIP 分词器和一张 COCO 图。
 

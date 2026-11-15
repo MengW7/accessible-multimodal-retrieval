@@ -10,7 +10,7 @@
 
 | 编号 | 约束 | 架构影响 |
 |---|---|---|
-| C1 | **完全离线**：导入、检索、打开本地文件都不联网，默认不外传任何用户数据 | 不允许任何 model/telemetry 下载；模型与依赖全部随包分发或本机已有 |
+| C1 | **完全离线**：导入、检索、打开本地文件都不联网，默认不外传任何用户数据 | 不允许任何 model/telemetry 下载。公开安装包不携带 MobileCLIP 权重；研究使用时权重放在本机资源根。Windows 生产桥接在创建 ONNX Runtime 环境时关闭遥测事件 |
 | C2 | **跨平台**：Windows（开发主平台）、macOS、Linux | 禁止平台私有 API 直连；进程调用、路径、classpath 分隔符必须平台分支 |
 | C3 | **WCAG 2.1 AA**：键盘走完全流程、控件有名称、高对比、字号放大 | 每个长任务必须可取消 + 可播报进度；状态不得只靠颜色 |
 | C4 | **离线优先的性能**：批量导入不假死、可取消；已建库后检索要快 | 重活不能占 UI 线程；解析层必须支持取消与进度 |
@@ -45,7 +45,7 @@ graph TB
     end
 
     subgraph L3["3. Embedding 引擎层 — packages/core_embedding（W3）"]
-        EE["统一 embed 接口<br/>BERT 文本向量（TFLite INT8）· MobileCLIP 图像向量<br/>输入是文本或图像字节，不解析文件"]
+        EE["统一 embed 接口<br/>MiniLM 文本向量与 MobileCLIP 图像向量（ONNX fp32）<br/>输入是文本或图像字节，不解析文件"]
     end
 
     subgraph L2["2. 解析层 — packages/core_parsing/lib/src/parsing（W2）"]
@@ -59,8 +59,8 @@ graph TB
     end
 
     subgraph X["支撑物（不参与层间依赖）"]
-        NA["native/ — pdfium · libtensorflowlite_c"]
-        MD["models/ — BERT / MobileCLIP 权重"]
+        NA["native/onnx — Windows 生产 ONNX Runtime CPU<br/>pdfium 与 tflite 目录仍是空预留"]
+        MD["models/ — MiniLM 与 MobileCLIP 的 ONNX 权重"]
         TK["tools/tika-app/ — Apache Tika 4.0.0"]
         EV["engine/ — 离线评测（Python，仅开发期，不进发布包）"]
         DS["datasets/ — 样本与验证子集（仅开发期）"]
@@ -81,13 +81,13 @@ graph TB
     RT -->|向量查询 + 关键词查询| VS
 
     TE -.->|现行| TK
-    TE -.->|W3+ 换 PDFium| NA
-    EE -.->|TFLite 运行时| NA
+    TE -.->|PDFium 未接入| NA
+    EE -.->|生产：Windows ONNX Runtime CPU| NA
     EE -.->|模型权重| MD
     EV -.->|只读| DS
 ```
 
-实线是调用方向，含尚未落地的 W3–W5。虚线是可替换实现或开发期数据，不进入层间依赖。
+实线是调用方向。W3 到 W5 的导入、嵌入、存储、检索和桌面界面已经接上。虚线是可替换实现或开发期数据，不进入层间依赖。
 
 导入和搜索分开走。编排实现在纯 Dart 包 `packages/core_pipeline`（ADR 0004 决策 6）：W2 的能力仍只是 `IngestionService`（扫描 + 解析）；W4 起由这个包依次把文本或图像送给 Embedding，再把向量和正文写入存储。`apps/desktop` 只装配具体实现，不把流程写进 Widget。`core_parsing` 不依赖上层包。检索层同时调用 Embedding 和存储层。存储层可以引用 `EmbeddingVector` 这个值，但不调用嵌入器，也不依赖检索层。关键词索引进存储层，融合打分留在检索层。L1、L2 标 W2 表示本周范围；接口已冻结。
 
@@ -97,7 +97,7 @@ graph TB
 |---|---|---|---|
 | **1. File I/O** | 目录递归扫描、白名单过滤、隐藏/临时文件跳过、`stat` 元数据、内容哈希；`IngestionService` 编排扫描和解析，带进度与取消 | 不解析正文、不调用嵌入、不写索引 | W2 |
 | **2. Parsing** | 按扩展名分派；TXT/PDF/DOCX/JPG/PNG → 文本分页 + 图像元数据 + `ParseOutcome` | 不做向量化、不做 OCR、不做 UI 文案 | W2 |
-| **3. Embedding Engine** | 统一 `embed()`；文本走 BERT(TFLite)、图像走 MobileCLIP；批处理。输入由导入编排传入 | 不解析文件、不知道向量存哪 | W3 |
+| **3. Embedding Engine** | 统一 `embed()`；文本走多语言 MiniLM，图像走 MobileCLIP。生产路径是 Windows 上的原生 ONNX Runtime CPU；包内仍保留 Python ONNX 进程实现。输入由导入编排传入 | 不解析文件、不知道向量存哪 | W3 |
 | **4. Vector Storage** | 本地持久化向量索引和关键词/全文索引、查询、按元数据删除 | 不打分、不融合关键词与向量。暴力余弦只在本层排序单路结果 | W4 |
 | **4.5 编排** | `packages/core_pipeline`：`IndexingPipeline` / `SearchPipeline`。纯 Dart，可单测。桌面端只装配依赖 | 不实现解析器、不实现融合公式、不做界面 | W4 |
 | **5. Retrieval Logic** | 同时取查询向量和两类索引，做 RRF 融合、过滤、Top-K、邻域扩展 | 不碰文件系统、不直接读原始文件、不写索引 | W4 |
@@ -111,7 +111,7 @@ graph TB
 | 取消 | `spi/CancellationToken` | 协作式；长任务在安全点调用 `throwIfCancelled()` |
 | 并发调度 | `spi/Executor` | W2 用 `ImmediateExecutor`；W6 可换成 worker isolate，调用方不改 |
 | 外部进程 | `spi/ProcessRunner` | 全包唯一允许 spawn 进程的位置 |
-| 日志 | （W7 统一） | 绝不记录文件正文；只记路径、大小、耗时、错误类型 |
+| 日志 | W7 已按代码核对，见 [技术文档](../../reports/week7/技术文档.md) | 日志与冒烟 JSON 不写文件正文；只记路径、大小、耗时、错误类型。索引库本身保存切块文本，那不是日志 |
 
 ---
 
@@ -136,9 +136,10 @@ accessible-multimodal-retrieval/
 │  ├─ core_storage/                  # 4. 向量存储（W4，系统 SQLite）
 │  ├─ core_retrieval/                # 5. 检索逻辑（W4，RRF 与邻域扩展）
 │  └─ core_pipeline/                 # 4.5 编排（W4）。依赖上面四个包，不被它们依赖
-├─ native/                           # FFI 产物（不入库二进制，只留结构与 README）
-│  ├─ pdfium/{windows,include,tests} #    PDFium 动态库与头文件预留位
-│  ├─ tflite/windows/                #    libtensorflowlite_c 预留位
+├─ native/                           # 原生边界（二进制不入库）
+│  ├─ onnx/                          #    Windows 生产 ONNX Runtime 桥接源码
+│  ├─ pdfium/{windows,include,tests} #    PDFium 预留位，目前没有 dll
+│  ├─ tflite/windows/                #    libtensorflowlite_c 预留位，目前没有 dll
 │  └─ gtest/                         #    Google Test（原生单测）
 ├─ engine/                           # 离线评测脚本（Python + Chroma，仅开发期，不进发布包）
 ├─ datasets/                         # 样本 + 验证子集（图片按 .gitignore 不入库）
@@ -271,9 +272,9 @@ class CancellationTokenSource { CancellationToken get token; void cancel(); }
 |---|---|---|
 | **Dart 包** | `packages/core_*` | 是（编译进 Flutter 应用） |
 | **Flutter 应用** | `apps/desktop` | 是 |
-| **native 产物** | `native/pdfium`、`native/tflite` | 是（动态库随包） |
-| **开发期脚本** | `engine/`（Python 评测）、`tools/tika-app`（PDF 解析兜底） | `engine/` 否；`tools/tika-app` 见 ADR 0002 |
-| **数据集与权重** | `datasets/`、`models/` | 样本随包；验证子集与权重不入仓库 |
+| **native 产物** | `native/onnx` 桥接源码；运行时的 `onnxruntime.dll` 与 `amr_onnx.dll`。`native/pdfium`、`native/tflite` 仍是空预留 | 桥接源码进仓库。两份 DLL 放在本机资源根，不把 MobileCLIP 权重打进公开包。PDFium 与 TFLite 动态库不进包 |
+| **开发期脚本** | `engine/`（Python 评测）、`tools/tika-app`（PDF 解析） | `engine/` 不进发布包。生产资源根另放一份 Tika，见维护手册 |
+| **数据集与权重** | `datasets/`、`models/` | 不打进 Flutter 发布目录。研究运行时从资源根读取模型；公开包排除 MobileCLIP 权重 |
 
 ---
 
@@ -384,10 +385,10 @@ sequenceDiagram
 
 | 执行体 | 承载内容 | W2 状态 | 后续 |
 |---|---|---|---|
-| **Flutter UI isolate** | 界面、事件、取消源 | 未接入 | W5 |
-| **主 isolate（Dart）** | 扫描、编排、TXT/DOCX/图像解析、元数据 | **W2 落地** | 纯 CPU 部分（XML/图像解码）在 W6 视实测结果移入 worker isolate |
-| **worker isolate** | 批量解析（可选） | 接口已预留（`Executor`） | W6 |
-| **外部进程** | `java` + Tika，只服务 PDF | W2 落地 | W3+ 由 PDFium FFI 替代以去掉 JVM |
+| **Flutter UI isolate** | 界面、事件、取消源 | 未接入 | W5 已接入四个界面。建库和查询在独立 isolate |
+| **主 isolate（Dart）** | 扫描、编排、TXT/DOCX/图像解析、元数据 | **W2 落地** | 桌面应用把这些调用放进 worker isolate。`core_parsing` 的 `Executor` 仍由调用方注入 |
+| **worker isolate** | 桌面端的建库、查询和 SQLite | 接口已预留（`Executor`） | W6 的 `WorkerLibraryService` 已使用 isolate。解析包内部没有因此改成另一个 Executor |
+| **外部进程** | `java` + Tika，只服务 PDF。生产嵌入不再另起 Python 进程 | W2 落地 | TDD Q1 于 2026-10-15 结案：不换 PDFium，PDF 继续 Tika |
 ---
 
 ## 10. 错误分层与降级策略

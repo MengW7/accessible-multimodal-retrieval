@@ -1,0 +1,153 @@
+diff --git a/packages/core_storage/lib/src/keyword_index.dart b/packages/core_storage/lib/src/keyword_index.dart
+index 38c3290fb76b8725e290be93fb9928ec767c4108..698cb31fc7db7ec67f31c8d014374cd16f24ab93 100644
+--- a/packages/core_storage/lib/src/keyword_index.dart
++++ b/packages/core_storage/lib/src/keyword_index.dart
+@@ -89,6 +89,19 @@ List<ScoredId> keywordTopK(
+     return const <ScoredId>[];
+   }
+   final KeywordPlan plan = KeywordPlan.forQuery(trimmed);
++  // The bounded path reads display fields only once for each selected hit.
++  // Mixed queries still merge all bigram candidates with trigram matches.
++  if (plan.path == KeywordPath.bigram &&
++      plan.trigramProbes.isEmpty &&
++      topK <= 512) {
++    // Pin both reads to the same snapshot while another connection can write.
++    database.execute('SAVEPOINT keyword_read');
++    try {
++      return _bigramTopK(database, plan.terms, filter, topK);
++    } finally {
++      database.execute('RELEASE keyword_read');
++    }
++  }
+   final List<ScoredId> hits = switch (plan.path) {
+     KeywordPath.bigram => _bigramAndProbes(database, plan, filter, topK),
+     KeywordPath.trigram => _trigram(database, trimmed, filter, topK),
+@@ -151,6 +164,57 @@ const String _chunkColumns = '''
+   c.end_offset, c.body, c.modality, c.image_json
+ ''';
+ 
++List<ScoredId> _bigramTopK(
++  Database database,
++  List<String> terms,
++  StorageFilter? filter,
++  int topK,
++) {
++  final String marks = List<String>.filled(terms.length, '?').join(', ');
++  final SqlClause extra = filterClause(filter);
++  final String where = extra.sql.isEmpty ? '' : ' WHERE ${extra.sql}';
++  final ResultSet rows = database.select(
++    '''
++    SELECT g.chunk_rowid, g.hits, c.relative_path, c.page_number, c.start_offset
++    FROM (
++      SELECT chunk_rowid, COUNT(*) AS hits
++      FROM keyword_term
++      WHERE term IN ($marks)
++      GROUP BY chunk_rowid
++    ) g
++    JOIN chunk c ON c.id = g.chunk_rowid$where
++    ORDER BY g.chunk_rowid
++    ''',
++    <Object?>[...terms, ...extra.args],
++  );
++  final candidates = [
++    for (final row in rows)
++      (
++        id: row.columnAt(0) as int,
++        rank: (
++          _hits(row) / terms.length,
++          row.columnAt(2) as String,
++          row.columnAt(3) as int?,
++          row.columnAt(4) as int,
++        ),
++      ),
++  ]..sort((left, right) => ScoredId.compareRank(left.rank, right.rank));
++  final selected = candidates.take(topK);
++  if (selected.isEmpty) return const <ScoredId>[];
++  final String ids = List<String>.filled(selected.length, '?').join(', ');
++  final Map<int, Row> display = {
++    for (final row in database.select(
++      'SELECT $_chunkColumns FROM chunk c WHERE c.id IN ($ids)',
++      [for (final entry in selected) entry.id],
++    ))
++      row.columnAt(0) as int: row,
++  };
++  return [
++    for (final entry in selected)
++      scoredFromRow(display[entry.id]!, entry.rank.$1),
++  ];
++}
++
+ /// 词表命中保留。拉丁串和英文词再各查一次 trigram。同一块只留较高分。
+ List<ScoredId> _bigramAndProbes(
+   Database database,
+diff --git a/packages/core_storage/lib/src/model/scored_id.dart b/packages/core_storage/lib/src/model/scored_id.dart
+index 2fdd596ac2afdb8078f93244cdff809869c73733..e97919d1988d31cf1e4ee55c12de48e6e70b5fe9 100644
+--- a/packages/core_storage/lib/src/model/scored_id.dart
++++ b/packages/core_storage/lib/src/model/scored_id.dart
+@@ -51,20 +51,28 @@ class ScoredId {
+   final String? documentKey;
+ 
+   /// 分数降序，路径升序，页码升序且 null 在后，偏移升序。
+-  static int compareTie(ScoredId left, ScoredId right) {
+-    final int score = right.score.compareTo(left.score);
++  static int compareTie(ScoredId left, ScoredId right) => compareRank(
++    (left.score, left.relativePath, left.pageNumber, left.startOffset),
++    (right.score, right.relativePath, right.pageNumber, right.startOffset),
++  );
++
++  static int compareRank(
++    (double, String, int?, int) left,
++    (double, String, int?, int) right,
++  ) {
++    final int score = right.$1.compareTo(left.$1);
+     if (score != 0) {
+       return score;
+     }
+-    final int path = left.relativePath.compareTo(right.relativePath);
++    final int path = left.$2.compareTo(right.$2);
+     if (path != 0) {
+       return path;
+     }
+-    final int page = _page(left.pageNumber, right.pageNumber);
++    final int page = _page(left.$3, right.$3);
+     if (page != 0) {
+       return page;
+     }
+-    return left.startOffset.compareTo(right.startOffset);
++    return left.$4.compareTo(right.$4);
+   }
+ 
+   static int _page(int? left, int? right) {
+diff --git a/packages/core_storage/test/sqlite_vector_store_test.dart b/packages/core_storage/test/sqlite_vector_store_test.dart
+index 16c32c1476616992fa4a4179da10a9d77e0da7b3..7d1d6522fd713dbaa11efb33d318b65c0cc2545c 100644
+--- a/packages/core_storage/test/sqlite_vector_store_test.dart
++++ b/packages/core_storage/test/sqlite_vector_store_test.dart
+@@ -341,6 +341,28 @@ void main() {
+     expect(await store.keyword(''), isEmpty);
+   });
+ 
++  test('bounded bigram search keeps ranking, filters, and displayed fields', () async {
++    final SqliteVectorStore store = _memory();
++    await store.write(
++      [
++        _chunk('partial', body: '离线', relativePath: 'notes/a.txt'),
++        _chunk('later', body: '离线检索', relativePath: 'notes/b.txt'),
++        _chunk('earlier', body: '离线检索', relativePath: 'notes/b.txt', pageNumber: 2),
++        _chunk('outside', body: '离线检索', relativePath: 'archive/a.txt'),
++      ],
++      List.generate(4, (_) => _vector(<double>[1, 0])),
++    );
++
++    const filter = StorageFilter(pathPrefix: 'notes');
++    final hits = await store.keyword('离线检索', filter: filter, topK: 2);
++    final full = await store.keyword('离线检索', filter: filter, topK: 513);
++    expect(hits.map((hit) => hit.chunkId), ['earlier', 'later']);
++    expect(hits.map((hit) => hit.chunkId), full.take(2).map((hit) => hit.chunkId));
++    expect(hits.first.body, '离线检索');
++    expect(hits.first.pageNumber, 2);
++    expect(hits.first.score, 1);
++  });
++
+   test('delete removes the vector and the keyword row together', () async {
+     final SqliteVectorStore store = _memory();
+     await store.write(

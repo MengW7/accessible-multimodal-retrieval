@@ -1,0 +1,3 @@
+cwd=E:\Project\accessible-multimodal-retrieval\packages\core_embedding
+command=D:/flutter/bin/cache/dart-sdk/bin/dart.exe --suppress-analytics run coverage:format_coverage --lcov --in=E:\Project\accessible-multimodal-retrieval\.dart_tool\w06-d5\coverage\core_embedding --out=E:\Project\accessible-multimodal-retrieval\reports\week6\coverage\D5\core_embedding.lcov.info --report-on=lib --package=.
+exit=0

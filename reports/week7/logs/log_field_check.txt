@@ -1,0 +1,30 @@
+commit 04c22914a86f9cd3d1d6cf9050b4e2e16055627e
+date 2026-11-15
+
+范围：packages/*/lib 与 apps/desktop/lib。未改代码。
+
+packages/*/lib
+  检索 writeln、debugPrint、log(：无匹配。
+  这些包没有自己的日志文件。
+
+apps/desktop/lib/main.dart
+  仅当 --runtime-smoke 或 --library-smoke 缺少绝对路径 AMR_SMOKE_OUTPUT、AMR_SMOKE_FIXTURES 时，向 stderr 写一行用法。
+  冒烟成功时把 JSON 写到 AMR_SMOKE_OUTPUT。
+
+apps/desktop/lib/src/runtime/runtime_session.dart verifyRuntime
+  JSON 含启动检查、临时库路径、入库计数、查询「离线检索」、命中的文件名、绝对路径、页码、UTF-16 偏移和通道名。
+  ingestion 使用 IngestRecord.toJson() 的默认 includeText=false，不写页面正文。
+  异常时写入 error 与 stack。
+
+apps/desktop/lib/src/runtime/library_smoke.dart
+  进度事件含阶段、计数和 LibraryFile.toJson()（path、status、detail）。
+  detail 是错误说明，不是文件正文。
+
+界面
+  结果页在屏幕上显示文本片段。这是检索结果，不是日志文件。
+  索引库保存切块文本，供片段和关键词使用。这不是日志。
+
+native/onnx/bridge.cpp
+  Ort::Env 使用 ORT_LOGGING_LEVEL_ERROR，并调用 DisableTelemetryEvents()。
+
+结论：抽查范围内没有把文件正文写入日志或冒烟 JSON。索引库中的切块文本不在这条结论里。

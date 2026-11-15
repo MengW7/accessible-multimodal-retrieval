@@ -1,0 +1,417 @@
+{
+  "query": "离线检索",
+  "warmRunsPerConfiguration": 30,
+  "percentileMethod": "nearest rank",
+  "pipelineAndVectorExactParityWithD5": true,
+  "sqliteSnapshotSha256": {
+    "scale-1000.sqlite": "169348b63527f27efc218088cec3e4f56082338a20901e00c35372f23a0647b5",
+    "scale-10000.sqlite": "ad5c5d52569075e304eaaaa316c25c01cfd0564b194cbe4ad83d7dcd0ef17d55",
+    "scale-5000.sqlite": "25cdb9866124f2afb9d5dce5ef4de1dc022878fd9792be039a9c29abf8be1c44"
+  },
+  "cpuLoadBeforeStartPercent": {
+    "baseline": 9,
+    "optimized": 16
+  },
+  "optimizedCodeFileSha256": {
+    "keyword_index.dart": "6fe009b3c2ac86708e0b6cafb88888e1870d7122717b70e4b8ce47725fc6252b",
+    "model/scored_id.dart": "a97def5a91443fdc1346e1c671b79ed6d2450ea9d55abc59662d77603e89de0b"
+  },
+  "results": {
+    "baseline": {
+      "hot": {
+        "98": {
+          "all": {
+            "totalMs": {
+              "p50": 43.671,
+              "p95": 50.121
+            },
+            "encodeMs": {
+              "p50": 41,
+              "p95": 48
+            },
+            "storeMs": {
+              "p50": 1,
+              "p95": 1
+            },
+            "fuseMs": {
+              "p50": 0,
+              "p95": 0
+            },
+            "vectorMs": {
+              "p50": 0.306,
+              "p95": 0.322
+            },
+            "rssBytes": 863731712
+          }
+        },
+        "1000": {
+          "all": {
+            "totalMs": {
+              "p50": 69.591,
+              "p95": 81.861
+            },
+            "encodeMs": {
+              "p50": 32,
+              "p95": 47
+            },
+            "storeMs": {
+              "p50": 34,
+              "p95": 44
+            },
+            "fuseMs": {
+              "p50": 0,
+              "p95": 0
+            },
+            "vectorMs": {
+              "p50": 6.948,
+              "p95": 7.25
+            },
+            "rssBytes": 798990336
+          },
+          "a/": {
+            "totalMs": {
+              "p50": 65.673,
+              "p95": 79.66
+            },
+            "encodeMs": {
+              "p50": 32,
+              "p95": 43
+            },
+            "storeMs": {
+              "p50": 30,
+              "p95": 37
+            },
+            "fuseMs": {
+              "p50": 0,
+              "p95": 0
+            },
+            "vectorMs": {
+              "p50": 6.655,
+              "p95": 8.533
+            },
+            "rssBytes": 798953472
+          }
+        },
+        "5000": {
+          "all": {
+            "totalMs": {
+              "p50": 193.655,
+              "p95": 217.528
+            },
+            "encodeMs": {
+              "p50": 32,
+              "p95": 41
+            },
+            "storeMs": {
+              "p50": 160,
+              "p95": 178
+            },
+            "fuseMs": {
+              "p50": 0,
+              "p95": 0
+            },
+            "vectorMs": {
+              "p50": 31.227,
+              "p95": 33.193
+            },
+            "rssBytes": 820588544
+          },
+          "a/": {
+            "totalMs": {
+              "p50": 166.785,
+              "p95": 187.367
+            },
+            "encodeMs": {
+              "p50": 31,
+              "p95": 37
+            },
+            "storeMs": {
+              "p50": 135,
+              "p95": 147
+            },
+            "fuseMs": {
+              "p50": 0,
+              "p95": 0
+            },
+            "vectorMs": {
+              "p50": 28.629,
+              "p95": 31.713
+            },
+            "rssBytes": 820617216
+          }
+        },
+        "10000": {
+          "all": {
+            "totalMs": {
+              "p50": 343.429,
+              "p95": 357.97
+            },
+            "encodeMs": {
+              "p50": 31,
+              "p95": 38
+            },
+            "storeMs": {
+              "p50": 311,
+              "p95": 324
+            },
+            "fuseMs": {
+              "p50": 0,
+              "p95": 0
+            },
+            "vectorMs": {
+              "p50": 62.95,
+              "p95": 65.007
+            },
+            "rssBytes": 796348416
+          },
+          "a/": {
+            "totalMs": {
+              "p50": 307.089,
+              "p95": 402.154
+            },
+            "encodeMs": {
+              "p50": 34,
+              "p95": 70
+            },
+            "storeMs": {
+              "p50": 269,
+              "p95": 336
+            },
+            "fuseMs": {
+              "p50": 0,
+              "p95": 0
+            },
+            "vectorMs": {
+              "p50": 59.544,
+              "p95": 65.416
+            },
+            "rssBytes": 796348416
+          }
+        }
+      },
+      "tiesMs": {
+        "p50": 128.258,
+        "p95": 137.288
+      },
+      "modelForwardMs": {
+        "onnx/model.onnx": {
+          "p50": 27.404,
+          "p95": 33.096
+        },
+        "onnx/text_model.onnx": {
+          "p50": 13.059,
+          "p95": 18.797
+        },
+        "onnx/vision_model.onnx": {
+          "p50": 19.695,
+          "p95": 20.783
+        }
+      },
+      "coldIndexMs": {
+        "p50": 7829.121,
+        "p95": 9123.054
+      },
+      "dartPeakRssBytes": 1072177152,
+      "peakWorkingSetBytes": 1051213824,
+      "probeSha256": "93B8CBD77EFD7BE2FA68AD4308A982983C6851303C7AB869F04EABFC984043CF"
+    },
+    "optimized": {
+      "hot": {
+        "98": {
+          "all": {
+            "totalMs": {
+              "p50": 50.988,
+              "p95": 71.676
+            },
+            "encodeMs": {
+              "p50": 49,
+              "p95": 69
+            },
+            "storeMs": {
+              "p50": 1,
+              "p95": 2
+            },
+            "fuseMs": {
+              "p50": 0,
+              "p95": 0
+            },
+            "vectorMs": {
+              "p50": 0.305,
+              "p95": 0.421
+            },
+            "rssBytes": 854958080
+          }
+        },
+        "1000": {
+          "all": {
+            "totalMs": {
+              "p50": 64.121,
+              "p95": 79.961
+            },
+            "encodeMs": {
+              "p50": 36,
+              "p95": 54
+            },
+            "storeMs": {
+              "p50": 25,
+              "p95": 34
+            },
+            "fuseMs": {
+              "p50": 0,
+              "p95": 0
+            },
+            "vectorMs": {
+              "p50": 8.174,
+              "p95": 9.326
+            },
+            "rssBytes": 795643904
+          },
+          "a/": {
+            "totalMs": {
+              "p50": 62.579,
+              "p95": 79.451
+            },
+            "encodeMs": {
+              "p50": 37,
+              "p95": 59
+            },
+            "storeMs": {
+              "p50": 19,
+              "p95": 25
+            },
+            "fuseMs": {
+              "p50": 0,
+              "p95": 0
+            },
+            "vectorMs": {
+              "p50": 6.785,
+              "p95": 8.567
+            },
+            "rssBytes": 795627520
+          }
+        },
+        "5000": {
+          "all": {
+            "totalMs": {
+              "p50": 131.347,
+              "p95": 145.529
+            },
+            "encodeMs": {
+              "p50": 37,
+              "p95": 42
+            },
+            "storeMs": {
+              "p50": 95,
+              "p95": 104
+            },
+            "fuseMs": {
+              "p50": 0,
+              "p95": 0
+            },
+            "vectorMs": {
+              "p50": 34.53,
+              "p95": 39.193
+            },
+            "rssBytes": 798449664
+          },
+          "a/": {
+            "totalMs": {
+              "p50": 126.439,
+              "p95": 156.766
+            },
+            "encodeMs": {
+              "p50": 42,
+              "p95": 75
+            },
+            "storeMs": {
+              "p50": 81,
+              "p95": 103
+            },
+            "fuseMs": {
+              "p50": 0,
+              "p95": 0
+            },
+            "vectorMs": {
+              "p50": 33.363,
+              "p95": 42.301
+            },
+            "rssBytes": 798474240
+          }
+        },
+        "10000": {
+          "all": {
+            "totalMs": {
+              "p50": 224.917,
+              "p95": 245.156
+            },
+            "encodeMs": {
+              "p50": 37,
+              "p95": 57
+            },
+            "storeMs": {
+              "p50": 182,
+              "p95": 200
+            },
+            "fuseMs": {
+              "p50": 0,
+              "p95": 0
+            },
+            "vectorMs": {
+              "p50": 76.919,
+              "p95": 103.729
+            },
+            "rssBytes": 797954048
+          },
+          "a/": {
+            "totalMs": {
+              "p50": 183.415,
+              "p95": 207.575
+            },
+            "encodeMs": {
+              "p50": 38,
+              "p95": 58
+            },
+            "storeMs": {
+              "p50": 142,
+              "p95": 165
+            },
+            "fuseMs": {
+              "p50": 0,
+              "p95": 0
+            },
+            "vectorMs": {
+              "p50": 60.702,
+              "p95": 65.793
+            },
+            "rssBytes": 797962240
+          }
+        }
+      },
+      "tiesMs": {
+        "p50": 128.083,
+        "p95": 131.325
+      },
+      "modelForwardMs": {
+        "onnx/model.onnx": {
+          "p50": 32.919,
+          "p95": 43.428
+        },
+        "onnx/text_model.onnx": {
+          "p50": 15.66,
+          "p95": 32.662
+        },
+        "onnx/vision_model.onnx": {
+          "p50": 21.699,
+          "p95": 25.883
+        }
+      },
+      "coldIndexMs": {
+        "p50": 9238.843,
+        "p95": 9501.81
+      },
+      "dartPeakRssBytes": 1072758784,
+      "peakWorkingSetBytes": 983465984,
+      "probeSha256": "A680B6E9719026DF16E8EBF5C7C8E75A8ED19BE4DFDB4121D56B70A6D4ED610D"
+    }
+  }
+}

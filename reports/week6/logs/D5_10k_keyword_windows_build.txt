@@ -1,0 +1,5 @@
+cwd=E:\Project\accessible-multimodal-retrieval\.dart_tool\w06-10k-desktop\replay-20261115-114327-685\src\apps\desktop
+command=D:/flutter/bin/flutter.bat build windows --release --no-pub
+Building Windows application...                                    84.3s
+√ Built build\windows\x64\runner\Release\desktop.exe
+exit=0

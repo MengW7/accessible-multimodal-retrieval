@@ -1,0 +1,12 @@
+{
+  "pid": 55436,
+  "workingDirectory": "C:\\Windows",
+  "dataDirectory": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d5\\runtime-db",
+  "mode": "release",
+  "ok": false,
+  "databasePath": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d5\\runtime-db\\library.sqlite",
+  "error": "Bad state: Dedicated good.txt and bad.docx are required.",
+  "stack": "#0      verifyLibrary.require (package:desktop/src/runtime/library_smoke.dart:47:17)\n#1      verifyLibrary (package:desktop/src/runtime/library_smoke.dart:59:5)\n<asynchronous suspension>\n#2      main (file:///E:/Project/accessible-multimodal-retrieval/apps/desktop/tool/verify_runtime.dart:34:20)\n<asynchronous suspension>\n",
+  "elapsedMs": 79,
+  "progressEvents": []
+}

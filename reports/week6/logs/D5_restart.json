@@ -1,0 +1,61 @@
+{
+  "pid": 16912,
+  "workingDirectory": "C:\\Windows",
+  "dataDirectory": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d5\\runtime-db",
+  "mode": "release",
+  "ok": true,
+  "firstPid": 51764,
+  "database": "E:\\Project\\accessible-multimodal-retrieval\\.dart_tool\\w06-d5\\runtime-db\\runtime-smoke-8199c8ef\\smoke.sqlite",
+  "sources": [
+    {
+      "fileName": "sample.pdf",
+      "sourcePath": "E:/Project/accessible-multimodal-retrieval/.dart_tool/w06-d5/pressure/tiny/sample.pdf",
+      "pageNumber": 1,
+      "startOffset": 1318,
+      "endOffset": 1328,
+      "channels": [
+        "documentText"
+      ]
+    },
+    {
+      "fileName": "sample.pdf",
+      "sourcePath": "E:/Project/accessible-multimodal-retrieval/.dart_tool/w06-d5/pressure/tiny/sample.pdf",
+      "pageNumber": 2,
+      "startOffset": 1339,
+      "endOffset": 1349,
+      "channels": [
+        "documentText"
+      ]
+    },
+    {
+      "fileName": "sample.png",
+      "sourcePath": "E:/Project/accessible-multimodal-retrieval/.dart_tool/w06-d5/pressure/tiny/sample.png",
+      "pageNumber": null,
+      "startOffset": 0,
+      "endOffset": 0,
+      "channels": [
+        "clipShared"
+      ]
+    },
+    {
+      "fileName": "sample.pdf",
+      "sourcePath": "E:/Project/accessible-multimodal-retrieval/.dart_tool/w06-d5/pressure/tiny/sample.pdf",
+      "pageNumber": 1,
+      "startOffset": 970,
+      "endOffset": 1033,
+      "channels": [
+        "documentText"
+      ]
+    },
+    {
+      "fileName": "sample.pdf",
+      "sourcePath": "E:/Project/accessible-multimodal-retrieval/.dart_tool/w06-d5/pressure/tiny/sample.pdf",
+      "pageNumber": 2,
+      "startOffset": 986,
+      "endOffset": 1049,
+      "channels": [
+        "documentText"
+      ]
+    }
+  ]
+}

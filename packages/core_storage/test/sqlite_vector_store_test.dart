@@ -341,6 +341,28 @@ void main() {
     expect(await store.keyword(''), isEmpty);
   });
 
+  test('bounded bigram search keeps ranking, filters, and displayed fields', () async {
+    final SqliteVectorStore store = _memory();
+    await store.write(
+      [
+        _chunk('partial', body: '离线', relativePath: 'notes/a.txt'),
+        _chunk('later', body: '离线检索', relativePath: 'notes/b.txt'),
+        _chunk('earlier', body: '离线检索', relativePath: 'notes/b.txt', pageNumber: 2),
+        _chunk('outside', body: '离线检索', relativePath: 'archive/a.txt'),
+      ],
+      List.generate(4, (_) => _vector(<double>[1, 0])),
+    );
+
+    const filter = StorageFilter(pathPrefix: 'notes');
+    final hits = await store.keyword('离线检索', filter: filter, topK: 2);
+    final full = await store.keyword('离线检索', filter: filter, topK: 513);
+    expect(hits.map((hit) => hit.chunkId), ['earlier', 'later']);
+    expect(hits.map((hit) => hit.chunkId), full.take(2).map((hit) => hit.chunkId));
+    expect(hits.first.body, '离线检索');
+    expect(hits.first.pageNumber, 2);
+    expect(hits.first.score, 1);
+  });
+
   test('delete removes the vector and the keyword row together', () async {
     final SqliteVectorStore store = _memory();
     await store.write(

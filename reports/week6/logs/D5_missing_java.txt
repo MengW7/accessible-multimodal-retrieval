@@ -1,0 +1,3 @@
+cwd=C:\Windows
+command=D:/flutter/bin/cache/dart-sdk/bin/dart.exe --packages=E:\Project\accessible-multimodal-retrieval\apps\desktop\.dart_tool\package_config.json E:\Project\accessible-multimodal-retrieval\apps\desktop\tool\verify_runtime.dart runtime E:\Project\accessible-multimodal-retrieval\.dart_tool\w06-d5\pressure\tiny E:\Project\accessible-multimodal-retrieval\.dart_tool\w06-d5\D5_missing_java.json
+exit=1

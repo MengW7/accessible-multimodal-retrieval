@@ -1,0 +1,4 @@
+cwd=C:\Windows
+command=dart --packages=... verify_runtime.dart runtime E:\Project\accessible-multimodal-retrieval\.dart_tool\w06-d5\pressure\tiny E:\Project\accessible-multimodal-retrieval\.dart_tool\w06-d5\D5_runtime.json
+Setting VM flags failed: Unrecognized flags: suppress_analytics
+exit=255

@@ -1,0 +1,3 @@
+cwd=C:\Windows
+command=dart --packages=... verify_runtime.dart library E:\Project\accessible-multimodal-retrieval\.dart_tool\w06-d5\pressure\tiny E:\Project\accessible-multimodal-retrieval\.dart_tool\w06-d5\D5_library.json
+exit=1

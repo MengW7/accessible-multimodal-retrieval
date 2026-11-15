@@ -1,0 +1,11 @@
+---------       ----                                                                   ----
+SHA256          159A7F0294655B9B55D6AE781C56827B3FA9045283FEECCF60E42CFC12DBCE27       E:\Project\accessible-multimodal-retrieval\apps\desktop\build\windows\x64\runner\Release\desktop.exe
+SHA256          E7C0E14AAD9C3076DF55C775671F91388D36AA876824ACBDD50115814E0CA954       E:\Project\accessible-multimodal-retrieval\apps\desktop\build\windows\x64\runner\Release\data\app.so
+
+
+case              expectedSuccess actualSuccess exitCode report                                                                                                               workingDirectory
+----              --------------- ------------- -------- ------                                                                                                               ----------------
+development                  True          True        0 E:\Project\accessible-multimodal-retrieval\reports\week6\logs\D1_windows_executable\A_runtime_development.json       C:\Users\11758\AppData\Local\Temp\
+release_gap                 False         False        1 E:\Project\accessible-multimodal-retrieval\reports\week6\logs\D1_windows_executable\A_runtime_release_gap.json       C:\Users\11758\AppData\Local\Temp\
+missing_resources           False         False        1 E:\Project\accessible-multimodal-retrieval\reports\week6\logs\D1_windows_executable\A_runtime_missing_resources.json C:\Users\11758\AppData\Local\Temp\
+missing_java                False         False        1 E:\Project\accessible-multimodal-retrieval\reports\week6\logs\D1_windows_executable\A_runtime_missing_java.json      C:\Users\11758\AppData\Local\Temp\

@@ -89,6 +89,19 @@ List<ScoredId> keywordTopK(
     return const <ScoredId>[];
   }
   final KeywordPlan plan = KeywordPlan.forQuery(trimmed);
+  // The bounded path reads display fields only once for each selected hit.
+  // Mixed queries still merge all bigram candidates with trigram matches.
+  if (plan.path == KeywordPath.bigram &&
+      plan.trigramProbes.isEmpty &&
+      topK <= 512) {
+    // Pin both reads to the same snapshot while another connection can write.
+    database.execute('SAVEPOINT keyword_read');
+    try {
+      return _bigramTopK(database, plan.terms, filter, topK);
+    } finally {
+      database.execute('RELEASE keyword_read');
+    }
+  }
   final List<ScoredId> hits = switch (plan.path) {
     KeywordPath.bigram => _bigramAndProbes(database, plan, filter, topK),
     KeywordPath.trigram => _trigram(database, trimmed, filter, topK),
@@ -150,6 +163,57 @@ const String _chunkColumns = '''
   c.extension, c.mime_type, c.page_number, c.chunk_index, c.start_offset,
   c.end_offset, c.body, c.modality, c.image_json
 ''';
+
+List<ScoredId> _bigramTopK(
+  Database database,
+  List<String> terms,
+  StorageFilter? filter,
+  int topK,
+) {
+  final String marks = List<String>.filled(terms.length, '?').join(', ');
+  final SqlClause extra = filterClause(filter);
+  final String where = extra.sql.isEmpty ? '' : ' WHERE ${extra.sql}';
+  final ResultSet rows = database.select(
+    '''
+    SELECT g.chunk_rowid, g.hits, c.relative_path, c.page_number, c.start_offset
+    FROM (
+      SELECT chunk_rowid, COUNT(*) AS hits
+      FROM keyword_term
+      WHERE term IN ($marks)
+      GROUP BY chunk_rowid
+    ) g
+    JOIN chunk c ON c.id = g.chunk_rowid$where
+    ORDER BY g.chunk_rowid
+    ''',
+    <Object?>[...terms, ...extra.args],
+  );
+  final candidates = [
+    for (final row in rows)
+      (
+        id: row.columnAt(0) as int,
+        rank: (
+          _hits(row) / terms.length,
+          row.columnAt(2) as String,
+          row.columnAt(3) as int?,
+          row.columnAt(4) as int,
+        ),
+      ),
+  ]..sort((left, right) => ScoredId.compareRank(left.rank, right.rank));
+  final selected = candidates.take(topK);
+  if (selected.isEmpty) return const <ScoredId>[];
+  final String ids = List<String>.filled(selected.length, '?').join(', ');
+  final Map<int, Row> display = {
+    for (final row in database.select(
+      'SELECT $_chunkColumns FROM chunk c WHERE c.id IN ($ids)',
+      [for (final entry in selected) entry.id],
+    ))
+      row.columnAt(0) as int: row,
+  };
+  return [
+    for (final entry in selected)
+      scoredFromRow(display[entry.id]!, entry.rank.$1),
+  ];
+}
 
 /// 词表命中保留。拉丁串和英文词再各查一次 trigram。同一块只留较高分。
 List<ScoredId> _bigramAndProbes(

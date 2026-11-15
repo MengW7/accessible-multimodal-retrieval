@@ -1,0 +1,8 @@
+Candidate commit: 04c22914a86f9cd3d1d6cf9050b4e2e16055627e
+Workflow: .github/workflows/ci.yml
+Repository: https://github.com/MengW7/accessible-multimodal-retrieval/actions
+D5 web lookup: GitHub Actions page and API result unavailable to the public browser tool.
+D5 direct read: anonymous HTTPS request to the exact-commit Actions API did not establish SSL in this environment.
+Windows / macOS / Linux exact-commit GitHub job status: unverified.
+Local Windows release build is tracked separately.
+Retest: use an authorized GitHub session; capture full head SHA, run URL, job conclusions and per-platform logs. The workflow does not provision model/Tika resources for real-runtime integration.

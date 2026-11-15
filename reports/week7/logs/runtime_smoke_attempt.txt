@@ -1,0 +1,23 @@
+date 2026-11-15
+executable .dart_tool/w06-d5/candidate/desktop.exe
+argument --runtime-smoke
+runtime root .dart_tool/w06-d2-ort/local-runtime
+AMR_DEV_ROOT cleared
+AMR_JAVA java
+
+Attempt 1
+  Working directory C:\Windows
+  Data directory %TEMP%\w07-smoke-data
+  Fixtures datasets\samples
+  The GUI-subsystem process stayed alive. After about three minutes its CPU time was about 5 seconds, the data directory was empty, and runtime_smoke.json was absent.
+  That process was stopped before the second attempt.
+
+Attempt 2
+  Start-Process -WindowStyle Hidden -WorkingDirectory %TEMP%, WaitForExit 240000
+  Fresh fixtures under %TEMP%\w07-smoke-ed4be1962fed48e3b4965ead6f7c6d84\fixtures
+  smoke.txt, sample.pdf, sample.docx, sample.png were copied
+  No index directory was created and runtime_smoke.json was not written
+  The waiter was stopped after the candidate process was no longer running
+
+Conclusion
+  Do not cite a 2026-11-15 smoke JSON. Use the W6 D5 headless logs for startup, import, restart, cancel, and clear.

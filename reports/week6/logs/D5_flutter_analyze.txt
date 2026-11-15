@@ -1,0 +1,5 @@
+cwd=E:\Project\accessible-multimodal-retrieval\apps\desktop
+command=D:/flutter/bin/flutter.bat analyze --no-pub
+Analyzing desktop...                                            
+No issues found! (ran in 9.1s)
+exit=0

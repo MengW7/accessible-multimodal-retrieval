@@ -51,20 +51,28 @@ class ScoredId {
   final String? documentKey;
 
   /// 分数降序，路径升序，页码升序且 null 在后，偏移升序。
-  static int compareTie(ScoredId left, ScoredId right) {
-    final int score = right.score.compareTo(left.score);
+  static int compareTie(ScoredId left, ScoredId right) => compareRank(
+    (left.score, left.relativePath, left.pageNumber, left.startOffset),
+    (right.score, right.relativePath, right.pageNumber, right.startOffset),
+  );
+
+  static int compareRank(
+    (double, String, int?, int) left,
+    (double, String, int?, int) right,
+  ) {
+    final int score = right.$1.compareTo(left.$1);
     if (score != 0) {
       return score;
     }
-    final int path = left.relativePath.compareTo(right.relativePath);
+    final int path = left.$2.compareTo(right.$2);
     if (path != 0) {
       return path;
     }
-    final int page = _page(left.pageNumber, right.pageNumber);
+    final int page = _page(left.$3, right.$3);
     if (page != 0) {
       return page;
     }
-    return left.startOffset.compareTo(right.startOffset);
+    return left.$4.compareTo(right.$4);
   }
 
   static int _page(int? left, int? right) {

@@ -1,0 +1,5 @@
+cwd=E:\Project\accessible-multimodal-retrieval\packages\core_embedding
+command=D:/flutter/bin/cache/dart-sdk/bin/dart.exe --suppress-analytics analyze
+Analyzing core_embedding...
+No issues found!
+exit=0
